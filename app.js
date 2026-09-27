@@ -90,6 +90,8 @@ function renderRiskOverview(d){
     setRiskTheme(btn.dataset.riskTheme);
     const themeFilter=document.getElementById('risk-theme-filter');
     if(themeFilter)themeFilter.value=selectedRiskTheme;
+    const domainFilter=document.getElementById('risk-domain-filter');
+    if(domainFilter)domainFilter.value='all';
     renderRiskOverview(d);renderRiskAssessment(d);
   }));
 }
