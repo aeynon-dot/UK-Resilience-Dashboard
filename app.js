@@ -205,7 +205,7 @@ function renderAttention(d,history,newItems){
     const tagClass=isNew?'new':String(level).toLowerCase();
     cards.push({
       priority,
-      html:'<div class="attention-item attention-'+tagClass+'"><div class="attention-top"><span class="attention-tag '+tagClass+'">'+esc(tag)+'</span><strong>'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.title||x.area||'Current warning or alert')+'</div>'+(isNew?'<div class="attention-meta">Detected since the previous collection</div>':'<div class="attention-meta">Currently active</div>')+'</div>'
+      html:'<div class="attention-item attention-'+tagClass+'"><div class="attention-top"><span class="attention-tag '+tagClass+'">'+esc(tag)+'</span><strong class="attention-source">'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.title||x.area||'Current warning or alert')+'</div>'+(isNew?'<div class="attention-meta">Detected since the previous collection</div>':'<div class="attention-meta">Currently active</div>')+'</div>'
     });
   });
   cards.sort((a,b)=>b.priority-a.priority);
