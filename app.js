@@ -69,101 +69,47 @@ function setRiskTheme(theme){
   selectedRiskTheme=RISK_THEME_ORDER.includes(theme)||theme==='all'?theme:'all';
   try{localStorage.setItem(RISK_THEME_KEY,selectedRiskTheme)}catch(e){}
 }
-function renderRiskOverview(d){
-  const grid=document.getElementById('risk-theme-grid');
-  const summary=document.getElementById('risk-overview-summary');
-  if(!grid||!summary)return;
-  const signals=d.risk_signals||[];
-  const active=signals.filter(x=>['active','monitoring'].includes(x.status||'active'));
-  const high=signals.filter(x=>['immediate','high'].includes(x.priority_band));
-  summary.textContent=signals.length+' signals · '+active.length+' active/monitoring · '+high.length+' high/immediate';
-  const selected=getRiskTheme();
-  grid.innerHTML='<button type="button" class="risk-theme-card '+(selected==='all'?'selected':'')+'" data-risk-theme="all"><span class="risk-theme-name">All risk themes</span><strong>'+signals.length+'</strong><span class="risk-theme-meta">Full cross-domain view</span></button>'+
-    RISK_THEME_ORDER.map(theme=>{
-      const items=signals.filter(x=>signalMatchesTheme(x,theme));
-      const top=items.slice().sort((a,b)=>(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0)||(b.priority_score||0)-(a.priority_score||0))[0];
-      return '<button type="button" class="risk-theme-card '+(items.length?'has-signal':'empty')+' '+(selected===theme?'selected':'')+'" data-risk-theme="'+esc(theme)+'">'+
-        '<span class="risk-theme-name">'+esc(riskThemeLabel(theme))+'</span><strong>'+items.length+'</strong>'+
-        '<span class="risk-theme-meta">'+esc(items.length?(riskSeverityLabel(top.severity)+(top.priority_band?' · '+(RISK_BAND_LABEL[top.priority_band]||top.priority_band):'')):'No current signal')+'</span></button>';
-    }).join('');
-  grid.querySelectorAll('[data-risk-theme]').forEach(btn=>btn.addEventListener('click',()=>{
-    setRiskTheme(btn.dataset.riskTheme);
-    const themeFilter=document.getElementById('risk-theme-filter');
-    if(themeFilter)themeFilter.value=selectedRiskTheme;
-    const domainFilter=document.getElementById('risk-domain-filter');
-    if(domainFilter)domainFilter.value='all';
-    renderRiskOverview(d);renderRiskAssessment(d);
-  }));
+function riskThemeDescription(theme){
+  if(theme==='all')return 'Current external risk signals across the monitored domains.';
+  const domains=RISK_THEME_DOMAINS[theme]||[];
+  return domains.length?'Current external signals linked to this risk theme, refined by operational domain and geography.':'Current external signals for this risk theme.';
+}
+function renderRiskWorkspace(d){
+  const nav=document.getElementById('risk-theme-nav'),domainStrip=document.getElementById('risk-workspace-domains'),summary=document.getElementById('risk-overview-summary'),title=document.getElementById('risk-workspace-title'),description=document.getElementById('risk-workspace-description');
+  if(!nav||!domainStrip||!summary||!title||!description)return;
+  const signals=d.risk_signals||[],selected=getRiskTheme(),visible=signals.filter(x=>signalMatchesTheme(x,selected));
+  const active=visible.filter(x=>['active','monitoring'].includes(x.status||'active')).length,high=visible.filter(x=>['immediate','high'].includes(x.priority_band)).length,severe=visible.filter(x=>x.severity==='severe').length;
+  title.textContent=selected==='all'?'All risk themes':riskThemeLabel(selected);description.textContent=riskThemeDescription(selected);
+  summary.textContent=visible.length+' signals · '+active+' active/monitoring · '+high+' high/immediate · '+severe+' severe';
+  nav.innerHTML='<button type="button" class="risk-nav-item '+(selected==='all'?'selected':'')+'" data-risk-theme="all"><span>All risks</span><strong>'+signals.length+'</strong></button>'+RISK_THEME_ORDER.map(theme=>{
+    const count=signals.filter(x=>signalMatchesTheme(x,theme)).length;
+    return '<button type="button" class="risk-nav-item '+(selected===theme?'selected':'')+'" data-risk-theme="'+esc(theme)+'"><span>'+esc(riskThemeLabel(theme))+'</span><strong>'+count+'</strong></button>';
+  }).join('');
+  nav.querySelectorAll('[data-risk-theme]').forEach(btn=>btn.addEventListener('click',()=>{setRiskTheme(btn.dataset.riskTheme);const domain=document.getElementById('risk-domain-filter');if(domain)domain.value='all';renderRiskWorkspace(d);renderRiskAssessment(d);}));
+  const domainCounts=RISK_DOMAIN_ORDER.map(domain=>({domain,count:visible.filter(x=>x.risk_domain===domain).length})).filter(x=>x.count);
+  domainStrip.innerHTML=domainCounts.length?domainCounts.map(x=>'<button type="button" class="risk-domain-chip '+(document.getElementById('risk-domain-filter')?.value===x.domain?'selected':'')+'" data-risk-domain="'+esc(x.domain)+'"><span>'+esc(riskDomainLabel(x.domain))+'</span><strong>'+x.count+'</strong></button>').join(''):'<span class="muted">No current operational domains are represented in this selection.</span>';
+  domainStrip.querySelectorAll('[data-risk-domain]').forEach(btn=>btn.addEventListener('click',()=>{const domain=document.getElementById('risk-domain-filter');if(domain)domain.value=btn.dataset.riskDomain;renderRiskWorkspace(d);renderRiskAssessment(d);}));
 }
 function renderRiskAssessment(d){
-  const listEl=document.getElementById('risk-signal-list');
-  const summaryEl=document.getElementById('risk-assessment-summary');
-  const domainEl=document.getElementById('risk-domain-filter');
-  const geoEl=document.getElementById('risk-geography-filter');
-  const severityEl=document.getElementById('risk-severity-filter');
-  const statusEl=document.getElementById('risk-status-filter');
+  const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
   if(!listEl||!summaryEl)return;
-  const signals=d.risk_signals||[];
-  const selectedTheme=document.getElementById('risk-theme-filter')?.value||getRiskTheme();
-  const selectedDomain=domainEl?.value||'all';
-  const selectedGeo=geoEl?.value||'all';
-  const selectedSeverity=severityEl?.value||'all';
-  const selectedStatus=statusEl?.value||'all';
-  const filtered=signals.filter(x=>
-    (signalMatchesTheme(x,selectedTheme)&&(selectedDomain==='all'||x.risk_domain===selectedDomain))&&
-    (selectedGeo==='all'||x.geography?.scope===selectedGeo)&&
-    (selectedSeverity==='all'||x.severity===selectedSeverity)&&
-    (selectedStatus==='all'||x.status===selectedStatus)
-  ).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
-  const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length;
-  const severe=filtered.filter(x=>x.severity==='severe').length;
+  const signals=d.risk_signals||[],selectedTheme=getRiskTheme(),selectedDomain=domainEl?.value||'all',selectedGeo=geoEl?.value||'all',selectedSeverity=severityEl?.value||'all',selectedStatus=statusEl?.value||'all';
+  const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
+  const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length,severe=filtered.filter(x=>x.severity==='severe').length;
   summaryEl.innerHTML='<strong>'+filtered.length+'</strong> signals shown · <strong>'+high+'</strong> high/immediate · <strong>'+severe+'</strong> severe';
-  if(!filtered.length){
-    listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';
-    return;
-  }
+  if(!filtered.length){listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';return;}
   listEl.innerHTML=filtered.slice(0,50).map(x=>{
-    const band=x.priority_band||'monitor';
-    const scope=x.geography?.scope||'unknown';
-    const date=x.observed_at||x.published_at||x.collected_at;
-    const dateText=date?new Date(date).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Date unavailable';
-    const sourceLink=/^https:\/\//i.test(String(x.source_url||''))?'<a href="'+esc(x.source_url)+'" target="_blank" rel="noopener">Source ↗</a>':'';
-    return '<article class="risk-signal-item">'+
-      '<div class="risk-signal-top"><div><span class="risk-signal-domain">'+esc(riskDomainLabel(x.risk_domain))+'</span><strong>'+esc(x.source||'Unknown source')+'</strong></div>'+
-      '<div class="risk-signal-badges"><span class="risk-badge '+esc(x.severity||'unknown')+'">'+esc(riskSeverityLabel(x.severity))+'</span><span class="risk-badge '+esc(band)+'">'+esc(RISK_BAND_LABEL[band]||band)+'</span></div></div>'+
-      '<div class="risk-signal-description">'+esc(x.description||x.hazard||'Risk signal')+'</div>'+
-      '<div class="risk-signal-meta"><span>'+esc(scope)+'</span><span>'+esc(x.status||'unknown')+'</span><span>'+esc(dateText)+'</span><span>Monitoring priority '+esc(String(x.priority_score??'—'))+'</span>'+sourceLink+'</div>'+
-      '</article>';
+    const band=x.priority_band||'monitor',scope=x.geography?.scope||'unknown',date=x.observed_at||x.published_at||x.collected_at,dateText=date?new Date(date).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Date unavailable',sourceLink=/^https:\/\//i.test(String(x.source_url||''))?'<a href="'+esc(x.source_url)+'" target="_blank" rel="noopener">Source ↗</a>':'';
+    return '<article class="risk-signal-item"><div class="risk-signal-top"><div><span class="risk-signal-domain">'+esc(riskDomainLabel(x.risk_domain))+'</span><strong>'+esc(x.source||'Unknown source')+'</strong></div><div class="risk-signal-badges"><span class="risk-badge '+esc(x.severity||'unknown')+'">'+esc(riskSeverityLabel(x.severity))+'</span><span class="risk-badge '+esc(band)+'">'+esc(RISK_BAND_LABEL[band]||band)+'</span></div></div><div class="risk-signal-description">'+esc(x.description||x.hazard||'Risk signal')+'</div><div class="risk-signal-meta"><span>'+esc(scope)+'</span><span>'+esc(x.status||'unknown')+'</span><span>'+esc(dateText)+'</span><span>Monitoring priority '+esc(String(x.priority_score??'—'))+'</span>'+sourceLink+'</div></article>';
   }).join('')+(filtered.length>50?'<p class="muted">Showing the first 50 matching signals.</p>':'');
 }
 function bindRiskAssessment(d){
-  ['risk-theme-filter','risk-domain-filter','risk-geography-filter','risk-severity-filter','risk-status-filter'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&!el.dataset.bound){
-      el.dataset.bound='1';
-      el.addEventListener('change',()=>{if(id==='risk-theme-filter')setRiskTheme(el.value);renderRiskAssessment(d);renderRiskOverview(d)});
-    }
-  });
+  ['risk-domain-filter','risk-geography-filter','risk-severity-filter','risk-status-filter'].forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('change',()=>{renderRiskWorkspace(d);renderRiskAssessment(d);});}});
 }
 function populateRiskAssessmentFilters(d){
-  const themeEl=document.getElementById('risk-theme-filter');
-  if(themeEl&&!themeEl.dataset.populated){
-    const current=getRiskTheme();
-    themeEl.innerHTML='<option value="all">All risk themes</option>'+RISK_THEME_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskThemeLabel(x))+'</option>').join('');
-    themeEl.value=current;
-    themeEl.dataset.populated='1';
-  }
-  const domainEl=document.getElementById('risk-domain-filter');
-  const geoEl=document.getElementById('risk-geography-filter');
-  if(domainEl&&!domainEl.dataset.populated){
-    domainEl.innerHTML='<option value="all">All domains</option>'+RISK_DOMAIN_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskDomainLabel(x))+'</option>').join('');
-    domainEl.dataset.populated='1';
-  }
-  if(geoEl&&!geoEl.dataset.populated){
-    const geos=[...new Set((d.risk_signals||[]).map(x=>x.geography?.scope).filter(Boolean))].sort();
-    geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
-    geoEl.dataset.populated='1';
-  }
+  const domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter');
+  if(domainEl&&!domainEl.dataset.populated){domainEl.innerHTML='<option value="all">All domains</option>'+RISK_DOMAIN_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskDomainLabel(x))+'</option>').join('');domainEl.dataset.populated='1';}
+  if(geoEl&&!geoEl.dataset.populated){const geos=[...new Set((d.risk_signals||[]).map(x=>x.geography?.scope).filter(Boolean))].sort();geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');geoEl.dataset.populated='1';}
 }
 const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
@@ -544,6 +490,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
+  populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);
   renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderServiceTest(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
