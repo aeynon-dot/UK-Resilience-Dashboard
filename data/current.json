@@ -1,8 +1,56 @@
 {
-  "updated_at":"2026-09-27T09:00:00Z",
-  "met_office":{"count":0,"items":[]},
-  "england":{"warnings":0,"alerts":0,"severe":0,"items":[]},
-  "wales":{"warnings":0,"alerts":0,"severe":0,"items":[]},
-  "scotland":{"warnings":0,"alerts":0,"severe":0,"items":[]},
-  "feeds":{"Met Office":{"ok":false},"Environment Agency":{"ok":false},"Natural Resources Wales":{"ok":false},"SEPA":{"ok":false}}
+  "updated_at": "2026-09-27T09:40:06.817781+00:00",
+  "met_office": [
+    {
+      "count": 1,
+      "items": [
+        {
+          "level": "Yellow",
+          "title": "Yellow warning of rain affecting Northern Ireland"
+        }
+      ]
+    },
+    true
+  ],
+  "england": [
+    {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    true
+  ],
+  "wales": [
+    {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    true
+  ],
+  "scotland": [
+    {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    true
+  ],
+  "feeds": {
+    "Met Office": {
+      "ok": true
+    },
+    "Environment Agency": {
+      "ok": true
+    },
+    "Natural Resources Wales": {
+      "ok": true
+    },
+    "SEPA": {
+      "ok": true
+    }
+  }
 }
