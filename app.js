@@ -188,8 +188,9 @@ function renderWeatherToday(d){
   const concern=summary.match(/\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\b/ig);
   const mainConcern=concern?.[0]||'Weather conditions';
   el.innerHTML='<div class="weather-today-content"><strong class="weather-headline">'+esc(headline)+'</strong>'+
+    '<div class="weather-concern"><span>Main concern</span><strong>'+esc(mainConcern)+'</strong></div>'+
     (bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+
-    '<div class="weather-concern"><span>Main concern</span><strong>'+esc(mainConcern)+'</strong></div></div>';
+    '</div>';
 }
 function renderTrend(history,current){
   const valid=[...history].filter(h=>h&&typeof h==='object'&&!Array.isArray(h)).slice(0,24).reverse();
