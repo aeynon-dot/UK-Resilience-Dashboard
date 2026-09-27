@@ -12,7 +12,7 @@ from risk_model import normalise_current
 SOURCE_REGISTRY = Path('data/source-registry.json')
 
 HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4 (+https://github.com/aeynon-dot/UK-Resilience-Dashboard)'}
-MAX_RESPONSE_BYTES = 5_000_000
+MAX_RESPONSE_BYTES = 2_000_000
 CURRENT = Path('data/current.json')
 HISTORY = Path('data/history.json')
 
@@ -28,6 +28,13 @@ def get(url):
 
 def get_json(url):
     return json.loads(get(url).decode('utf-8'))
+
+
+def get_text_prefix(url, max_bytes=300_000):
+    req = urllib.request.Request(url, headers=HEAD)
+    with urllib.request.urlopen(req, timeout=30) as response:
+        raw = response.read(max_bytes)
+    return raw.decode('utf-8', 'ignore')
 
 
 def ea():
@@ -170,7 +177,7 @@ def cisa_kev():
 
 def ukhsa():
     url = 'https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions'
-    raw = get(url).decode('utf-8', 'ignore')
+    raw = get_text_prefix(url)
     text = re.sub(r'<script.*?</script>|<style.*?</style>', ' ', raw, flags=re.I | re.S)
     text = re.sub(r'<[^>]+>', ' ', text)
     text = re.sub(r'&(?:amp|nbsp|quot|#39);', ' ', text, flags=re.I)
