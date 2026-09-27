@@ -59,26 +59,18 @@ function renderRiskMap(d){
     {key:'ni',name:'Northern Ireland',data:{warnings:0,alerts:0,severe:0}}
   ];
   const weatherItems=d.met_office?.items||[];
-  const cards=nations.map(n=>{
-    const weather=regionWeather(d,n.name);
-    const flood=n.key==='england'||n.key==='wales'||n.key==='scotland'?floodLevel(n.data):'Not connected';
-    const feedIssue=n.key==='england'&&!d.feeds?.['Environment Agency']?.ok ||
-      n.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
-      n.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
-    const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
-    const label=overall==='Check'?'CHECK DATA':overall==='Clear'?'CLEAR':overall.toUpperCase();
-    const focus=(getFocus()===n.name)?' focus':'';
-    return '<div class="risk-region '+overall.toLowerCase()+focus+'"><div class="risk-name">'+esc(n.name)+'</div><div class="risk-state">'+label+'</div><div class="risk-detail">Weather: '+esc(weather==='Clear'?'None':weather)+' · Flood: '+esc(flood==='Not connected'?'Not connected':flood==='Clear'?'None':flood)+'</div></div>';
-  }).join('');
-  document.getElementById('risk-map').innerHTML=cards;
-  const detail=document.getElementById('map-detail');
   const selected=getFocus()==='UK'?'England':getFocus();
   const nationData=nations.find(n=>n.name===selected)||nations[0];
   const weather=regionWeather(d,selected);
-  const flood=nationData.key==='england'||nationData.key==='wales'||nationData.key==='scotland'?floodLevel(nationData.data):'Not connected';
-  const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':'Clear';
-  detail.innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+overall.toUpperCase()+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
-  document.querySelectorAll('.map-region').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
+  const flood=(nationData.key==='england'||nationData.key==='wales'||nationData.key==='scotland')?floodLevel(nationData.data):'Not connected';
+  const feedIssue=nationData.key==='england'&&!d.feeds?.['Environment Agency']?.ok ||
+    nationData.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
+    nationData.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
+  const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
+  const detail=document.getElementById('map-detail');
+  detail.innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+esc(overall==='Check'?'CHECK DATA':overall.toUpperCase())+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
+  document.querySelectorAll('.map-hotspot').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
+  document.querySelectorAll('.map-label').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
@@ -164,10 +156,9 @@ function list(id,items){
   el.innerHTML=items.slice(0,6).map(x=>'<div class="item '+String(x.level||'').toLowerCase()+'"><strong>'+esc(x.level||'Alert')+'</strong> — '+esc(x.title||x.area||'Current item')+'</div>').join('');
 }
 document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('.map-region').forEach(el=>{
+  document.querySelectorAll('.map-hotspot').forEach(el=>{
     const choose=()=>{setFocus(el.dataset.nation);load()};
     el.addEventListener('click',choose);
-    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}});
   });
   document.getElementById('focus-area').addEventListener('change',e=>{setFocus(e.target.value);load()});
   load();
