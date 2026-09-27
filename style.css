@@ -93,3 +93,23 @@
 
 /* MVP2.4 Feature 6 — focus area drives dashboard content */
 [data-flood-nation]{transition:opacity .15s ease}.ni-flood-status{display:flex;flex-direction:column;gap:5px;margin:12px 0;color:#486581}.ni-flood-status strong{color:#334e68}.focus-context{font-size:.78rem;color:#627d98;margin-top:4px}
+
+/* MVP2.4 Feature 7 — data confidence */
+.confidence-card{margin-bottom:18px}
+.confidence-card .section-heading{align-items:flex-start}
+.confidence-summary{min-width:min(100%,760px)}
+.confidence-summary>div:first-child{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.confidence-summary>div:first-child strong{font-size:.85rem}
+.confidence-summary>div:first-child small{color:#627d98}
+.confidence-state{display:inline-flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;letter-spacing:.05em;padding:4px 7px;border-radius:999px;background:#dff1e6;color:#28633d}
+.confidence-state.mixed,.confidence-state.stale{background:#fff0c2;color:#7a4b00}
+.confidence-state.limited,.confidence-state.error{background:#f8d7da;color:#8a1c1c}
+.confidence-state.partial{background:#e2e7eb;color:#52606d}
+.confidence-feeds{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.confidence-feed{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px;background:#f7f9fa;border:1px solid #e2e8ed;border-radius:8px}
+.confidence-feed>div{min-width:0}
+.confidence-feed strong{display:block;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.confidence-detail{display:block;font-size:.68rem;color:#627d98;margin-top:2px}
+.confidence-note{margin:9px 0 0;font-size:.75rem}
+@media(max-width:900px){.confidence-feeds{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.confidence-feeds{grid-template-columns:1fr}.confidence-feed{padding:8px 9px}}
