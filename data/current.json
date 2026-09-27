@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T13:47:13.677055+00:00",
+  "updated_at": "2026-09-27T13:50:50.167980+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
@@ -1520,52 +1520,52 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "Environment Agency": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "CISA KEV": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "UKHSA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "FSA Food Alerts": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "USGS Earthquakes": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "NOAA Space Weather": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     },
     "NESO": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:47:13.677055+00:00"
+      "last_success_at": "2026-09-27T13:50:50.167980+00:00"
     }
   },
   "risk_signals": [
@@ -1578,8 +1578,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1590,7 +1590,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-6207"
+      "source_record_id": "CVE-2020-6207",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:7742bd3f9c2413f5",
@@ -1601,8 +1610,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1613,7 +1622,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2016-3976"
+      "source_record_id": "CVE-2016-3976",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:70322cd668248e77",
@@ -1624,8 +1642,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1636,7 +1654,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-16256"
+      "source_record_id": "CVE-2019-16256",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:4c72b170768c4430",
@@ -1647,8 +1674,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1659,7 +1686,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10148"
+      "source_record_id": "CVE-2020-10148",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:75012ff56d92c526",
@@ -1670,8 +1706,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1682,7 +1718,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-35211"
+      "source_record_id": "CVE-2021-35211",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:c3961320f02fe383",
@@ -1693,8 +1738,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1705,7 +1750,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2016-3643"
+      "source_record_id": "CVE-2016-3643",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:7ea870adb970b008",
@@ -1716,8 +1770,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1728,7 +1782,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10199"
+      "source_record_id": "CVE-2020-10199",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:be296b01994b119f",
@@ -1739,8 +1802,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1751,7 +1814,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-20021"
+      "source_record_id": "CVE-2021-20021",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:f1399935369172ff",
@@ -1762,8 +1834,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1774,7 +1846,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-7481"
+      "source_record_id": "CVE-2019-7481",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:9b8e851541600988",
@@ -1785,8 +1866,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1797,7 +1878,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-20022"
+      "source_record_id": "CVE-2021-20022",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:19efacc38ece51d6",
@@ -1808,8 +1898,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1820,7 +1910,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-20023"
+      "source_record_id": "CVE-2021-20023",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:3c315447b17a6953",
@@ -1831,8 +1930,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1843,7 +1942,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-20016"
+      "source_record_id": "CVE-2021-20016",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:6d9cf96a8348a00a",
@@ -1854,8 +1962,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1866,7 +1974,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-12271"
+      "source_record_id": "CVE-2020-12271",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5dc06fd5aca7231f",
@@ -1877,8 +1994,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1889,7 +2006,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10181"
+      "source_record_id": "CVE-2020-10181",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:21b8d41a9e358598",
@@ -1900,8 +2026,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1912,7 +2038,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2017-6327"
+      "source_record_id": "CVE-2017-6327",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:91e5f395ea7ce9a2",
@@ -1923,8 +2058,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1935,7 +2070,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-18988"
+      "source_record_id": "CVE-2019-18988",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:8dc21f14c84b6f0f",
@@ -1946,8 +2090,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1958,7 +2102,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2017-9248"
+      "source_record_id": "CVE-2017-9248",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:72703aede47d355c",
@@ -1969,8 +2122,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1981,7 +2134,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-31755"
+      "source_record_id": "CVE-2021-31755",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:0e2a184a39f10a84",
@@ -1992,8 +2154,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2004,7 +2166,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10987"
+      "source_record_id": "CVE-2020-10987",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:7b1a01cdf16f9bd3",
@@ -2015,8 +2186,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2027,7 +2198,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2018-14558"
+      "source_record_id": "CVE-2018-14558",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:f429a273babfcec9",
@@ -2038,8 +2218,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2050,7 +2230,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2018-20062"
+      "source_record_id": "CVE-2018-20062",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5c246f044ad0edaa",
@@ -2061,8 +2250,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2073,7 +2262,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-9082"
+      "source_record_id": "CVE-2019-9082",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:6a5741f8eee42bd5",
@@ -2084,8 +2282,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2096,7 +2294,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-18187"
+      "source_record_id": "CVE-2019-18187",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:e8cd6555c104a660",
@@ -2107,8 +2314,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2119,7 +2326,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-8467"
+      "source_record_id": "CVE-2020-8467",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5bc58c6f7422b092",
@@ -2130,8 +2346,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2142,7 +2358,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-8468"
+      "source_record_id": "CVE-2020-8468",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:538dd8f0c1a4d016",
@@ -2153,8 +2378,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2165,7 +2390,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-24557"
+      "source_record_id": "CVE-2020-24557",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:1a567ae29ec0bf00",
@@ -2176,8 +2410,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2188,7 +2422,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-8599"
+      "source_record_id": "CVE-2020-8599",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:0370b6046ec52eb2",
@@ -2199,8 +2442,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2211,7 +2454,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-36742"
+      "source_record_id": "CVE-2021-36742",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:0082b9c3c9b8cc11",
@@ -2222,8 +2474,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2234,7 +2486,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-36741"
+      "source_record_id": "CVE-2021-36741",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5e65ba17c36bac2b",
@@ -2245,8 +2506,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2257,7 +2518,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-20085"
+      "source_record_id": "CVE-2019-20085",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:fad678ea7e68186a",
@@ -2268,8 +2538,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2280,7 +2550,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-5849"
+      "source_record_id": "CVE-2020-5849",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:31a662f5aaa90b03",
@@ -2291,8 +2570,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2303,7 +2582,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-5847"
+      "source_record_id": "CVE-2020-5847",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5d0149cd5404b513",
@@ -2314,8 +2602,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2326,7 +2614,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-16759"
+      "source_record_id": "CVE-2019-16759",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:de0a36179b8f3de7",
@@ -2337,8 +2634,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2349,7 +2646,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-17496"
+      "source_record_id": "CVE-2020-17496",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:ef819bcdbc9bc1d9",
@@ -2360,8 +2666,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2372,7 +2678,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-5544"
+      "source_record_id": "CVE-2019-5544",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:e0002698bb9ce828",
@@ -2383,8 +2698,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2395,7 +2710,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-3992"
+      "source_record_id": "CVE-2020-3992",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:ba7f5e99a3a57fc2",
@@ -2406,8 +2730,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2418,7 +2742,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-3950"
+      "source_record_id": "CVE-2020-3950",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:97e437b9260c810a",
@@ -2429,8 +2762,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2441,7 +2774,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-22005"
+      "source_record_id": "CVE-2021-22005",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:0afd0399599c380a",
@@ -2452,8 +2794,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2464,7 +2806,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-3952"
+      "source_record_id": "CVE-2020-3952",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:c66fad2cffdbb914",
@@ -2475,8 +2826,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2487,7 +2838,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-21972"
+      "source_record_id": "CVE-2021-21972",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:6f14136a2af053a6",
@@ -2498,8 +2858,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2510,7 +2870,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-21985"
+      "source_record_id": "CVE-2021-21985",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:4978d7f8d88a05a1",
@@ -2521,8 +2890,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2533,7 +2902,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-4006"
+      "source_record_id": "CVE-2020-4006",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:e26e1d6f99fb326f",
@@ -2544,8 +2922,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2556,7 +2934,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-25213"
+      "source_record_id": "CVE-2020-25213",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:7c94125ccc4728af",
@@ -2567,8 +2954,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2579,7 +2966,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-11738"
+      "source_record_id": "CVE-2020-11738",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:2a41f03df929f3d9",
@@ -2590,8 +2986,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2602,7 +2998,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-9978"
+      "source_record_id": "CVE-2019-9978",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:4e6d66391dc34f84",
@@ -2613,8 +3018,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2625,7 +3030,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-27561"
+      "source_record_id": "CVE-2021-27561",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:c09077edf19b64d1",
@@ -2636,8 +3050,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2648,7 +3062,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-40539"
+      "source_record_id": "CVE-2021-40539",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:f7edf70d4067c7f6",
@@ -2659,8 +3082,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2671,7 +3094,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10189"
+      "source_record_id": "CVE-2020-10189",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:045c1c45f474a8d5",
@@ -2682,8 +3114,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2694,7 +3126,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-8394"
+      "source_record_id": "CVE-2019-8394",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:920c1f325476adc7",
@@ -2705,8 +3146,8 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2021-11-03T00:00:00+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2717,7 +3158,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-29583"
+      "source_record_id": "CVE-2020-29583",
+      "priority_model_version": "1.0",
+      "priority_score": 2,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:e7311449f5e73330",
@@ -2729,7 +3179,7 @@
       "source_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "published_at": null,
       "observed_at": "2026-09-20T00:00:00+00:00",
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -2740,7 +3190,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ukhsa:nhs111-respiratory:2026-09-20"
+      "source_record_id": "ukhsa:nhs111-respiratory:2026-09-20",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:England"
+      ]
     },
     {
       "id": "risk:5590851183dbcf0e",
@@ -2750,9 +3209,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-25T13:00:40.592Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2763,7 +3222,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-47-2026-update-1"
+      "source_record_id": "FSA-PRIN-47-2026-update-1",
+      "priority_model_version": "1.0",
+      "priority_score": 16,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:ba03d550fb7a58b9",
@@ -2773,9 +3241,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-25T10:20:09.499Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2786,7 +3254,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-46-2026"
+      "source_record_id": "FSA-PRIN-46-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 16,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:801f4c97ec73ce36",
@@ -2796,9 +3273,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-24T20:13:30.099Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2809,7 +3286,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-47-2026"
+      "source_record_id": "FSA-PRIN-47-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 16,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:cb9cf46f45eee51a",
@@ -2819,9 +3305,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-22T19:55:28.156Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2832,7 +3318,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-45-2026"
+      "source_record_id": "FSA-PRIN-45-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 13,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:7646b18e8913d245",
@@ -2842,9 +3337,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-10T19:17:21.913Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2855,7 +3350,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-44-2026"
+      "source_record_id": "FSA-PRIN-44-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:c53c60d5a20b3acc",
@@ -2865,9 +3369,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-04T18:39:45.509Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2878,7 +3382,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-43-2026"
+      "source_record_id": "FSA-PRIN-43-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:3922eaf1146a9ac8",
@@ -2888,9 +3401,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-03T16:11:41.515Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2901,7 +3414,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-42-2026"
+      "source_record_id": "FSA-AA-42-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:2a3427a64b3af251",
@@ -2911,9 +3433,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-09-03T13:34:09.742Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2924,7 +3446,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-41-2026"
+      "source_record_id": "FSA-AA-41-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:757b9aacce32ecc8",
@@ -2934,9 +3465,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-08-28T09:51:57.466Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2947,7 +3478,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-42-2026"
+      "source_record_id": "FSA-PRIN-42-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:bea28cb8b53c1b9c",
@@ -2957,9 +3497,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-08-25T17:30:42.667Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2970,7 +3510,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-41-2026"
+      "source_record_id": "FSA-PRIN-41-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:8ab45591e9b956cb",
@@ -2980,9 +3529,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-08-21T16:45:36.179Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2993,7 +3542,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-40-2026"
+      "source_record_id": "FSA-PRIN-40-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:eedbe54815b9c5b1",
@@ -3003,9 +3561,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-08-10T15:49:00.442Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3016,7 +3574,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-39-2026"
+      "source_record_id": "FSA-PRIN-39-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:90a949c7f1dee02b",
@@ -3026,9 +3593,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-08-08T06:49:21.626Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3039,7 +3606,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-38-2026"
+      "source_record_id": "FSA-PRIN-38-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:cccf92f94a1bfe45",
@@ -3049,9 +3625,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-31T16:30:41.554Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3062,7 +3638,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-40-2026"
+      "source_record_id": "FSA-AA-40-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:271b2e746df8289f",
@@ -3072,9 +3657,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-25T11:10:48.029Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3085,7 +3670,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-39-2026"
+      "source_record_id": "FSA-AA-39-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:437cd3c6063f2254",
@@ -3095,9 +3689,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-23T15:36:42.127Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3108,7 +3702,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-37-2026"
+      "source_record_id": "FSA-PRIN-37-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:5726b934353a3751",
@@ -3118,9 +3721,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-21T15:50:09.11Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3131,7 +3734,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-36-2026"
+      "source_record_id": "FSA-PRIN-36-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:4678c1eb2f4e30b7",
@@ -3141,9 +3753,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-20T08:16:45.261Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3154,7 +3766,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-38-2026-update-1"
+      "source_record_id": "FSA-AA-38-2026-update-1",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:8e982b82b15c5617",
@@ -3164,9 +3785,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-17T20:16:28.573Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3177,7 +3798,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-38-2026"
+      "source_record_id": "FSA-AA-38-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:33019a9a4d830ddb",
@@ -3187,9 +3817,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-14T16:19:36.901Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3200,7 +3830,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-37-2026"
+      "source_record_id": "FSA-AA-37-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:408bc853402edad6",
@@ -3210,9 +3849,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-11T11:38:25.159Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3223,7 +3862,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-34-2026"
+      "source_record_id": "FSA-PRIN-34-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:d971ad2f316631af",
@@ -3233,9 +3881,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-08T12:44:39.944Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3246,7 +3894,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-33-2026"
+      "source_record_id": "FSA-PRIN-33-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:e654ef14aacfd5d1",
@@ -3256,9 +3913,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-03T20:41:43.158Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3269,7 +3926,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-36-2026"
+      "source_record_id": "FSA-AA-36-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:635c99b97ce7cc33",
@@ -3279,9 +3945,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-03T14:34:28.318Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3292,7 +3958,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-35-2026"
+      "source_record_id": "FSA-AA-35-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:0b725dd9e50740bd",
@@ -3302,9 +3977,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://data.food.gov.uk/food-alerts",
-      "published_at": null,
+      "published_at": "2026-07-01T15:32:06.912Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3315,7 +3990,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-PRIN-32-2026"
+      "source_record_id": "FSA-PRIN-32-2026",
+      "priority_model_version": "1.0",
+      "priority_score": 4,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:old",
+        "confidence:high",
+        "scope:UK"
+      ]
     },
     {
       "id": "risk:56376025eaa46546",
@@ -3326,8 +4010,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-27T02:22:10.562000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3338,7 +4022,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txw5"
+      "source_record_id": "us6000txw5",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:c88d03ba34c65c23",
@@ -3349,8 +4042,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-27T01:18:25.822000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3361,7 +4054,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txvu"
+      "source_record_id": "us6000txvu",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:2c48637aa417e783",
@@ -3372,8 +4074,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-26T19:37:01.212000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3384,7 +4086,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txur"
+      "source_record_id": "us6000txur",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:9bfa041139a0414e",
@@ -3395,8 +4106,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-26T16:33:43.270000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3407,7 +4118,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txtz"
+      "source_record_id": "us6000txtz",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:e8b114007aa31c31",
@@ -3418,8 +4138,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-26T15:01:36.433000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3430,7 +4150,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txtn"
+      "source_record_id": "us6000txtn",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:f421337a97bd7be7",
@@ -3441,8 +4170,8 @@
       "source": "USGS Earthquake Hazards Program",
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "observed_at": "2026-09-26T14:08:17.704000+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3453,7 +4182,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "us6000txtc"
+      "source_record_id": "us6000txtc",
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:3375ecdafb10e4da",
@@ -3465,7 +4203,7 @@
       "source_url": "https://www.swpc.noaa.gov/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -3476,7 +4214,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "noaa-kp-latest"
+      "source_record_id": "noaa-kp-latest",
+      "priority_model_version": "1.0",
+      "priority_score": 10,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:current",
+        "confidence:high",
+        "scope:international"
+      ]
     },
     {
       "id": "risk:5675628dbb4d5f9a",
@@ -3488,7 +4235,7 @@
       "source_url": "https://www.neso.energy/data-portal",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-09-27T13:47:13.677055+00:00",
+      "collected_at": "2026-09-27T13:50:50.167980+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -3499,7 +4246,16 @@
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "neso-demand-latest"
+      "source_record_id": "neso-demand-latest",
+      "priority_model_version": "1.0",
+      "priority_score": 18,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:current",
+        "confidence:high",
+        "scope:UK"
+      ]
     }
   ],
   "source_registry_version": "1.1.0"
