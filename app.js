@@ -442,7 +442,8 @@ function renderAttention(d,history,newItems,changedItems){
   }else{
     html='<div class="attention-clear"><strong>'+(total?'No new change requires highlighting':'Nothing currently requires attention')+'</strong><span>'+(total?'Active warnings and flood items are shown in the sections below.':'No current warning, flood alert, or connected feed issue was detected.')+'</span></div>';
   }
-  document.getElementById('attention-list').innerHTML=html;
+  const el=document.getElementById('attention-list');
+  if(el)el.innerHTML=html;
 }
 function applyFocusToDashboard(focus){
   document.querySelectorAll('[data-flood-nation]').forEach(card=>{
@@ -505,7 +506,7 @@ function render(d,history){
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
   populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
-  renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderServiceTest(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderDataConfidence(d);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
