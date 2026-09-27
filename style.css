@@ -55,3 +55,16 @@
 .attention-more{font-size:.78rem;color:#627d98;margin-top:8px}
 .attention-clear{min-height:42px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:9px 10px;border-left:4px solid #72a68b;background:#f3faf6;border-radius:8px}
 .attention-clear span{font-size:.84rem;color:#627d98}
+
+/* MVP2.4 Feature 2 — warning change history */
+.change-item.new{border-left-color:#1769aa}
+.change-item.changed{border-left-color:#d49a00}
+.change-item.resolved{border-left-color:#72a68b}
+.change-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.change-tag{display:inline-flex;align-items:center;font-size:.66rem;font-weight:900;letter-spacing:.04em;padding:3px 7px;border-radius:999px}
+.change-tag.new{background:#d9ecfb;color:#145b8d}
+.change-tag.changed{background:#fff0c2;color:#7a4b00}
+.change-tag.resolved{background:#dff1e6;color:#28633d}
+.change-item small{display:block;color:#627d98;margin-top:3px}
+.attention-tag.changed{background:#fff0c2;color:#7a4b00}
+.attention-changed{border-left-color:#d49a00}
