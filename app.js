@@ -268,11 +268,16 @@ function regionRisk(d,nation){
 function updateDomainVisibility(){
   const theme=document.getElementById('risk-theme-filter')?.value||'all';
   const domain=document.getElementById('risk-domain-filter')?.value||'all';
+  const geography=document.getElementById('risk-geography-filter')?.value||'all';
   const showWeather=theme==='natural_and_environmental_hazards'||domain==='climate_and_weather'||domain==='flooding';
+  const showWeatherSupporting=showWeather;
+  const showDataConfidence=showWeather&&geography==='UK';
   ['weather-risk-content','weather-supporting-content'].forEach(id=>{
     const el=document.getElementById(id);
-    if(el)el.classList.toggle('is-visible',showWeather);
+    if(el)el.classList.toggle('is-visible',showWeatherSupporting);
   });
+  const confidence=document.getElementById('data-confidence-card');
+  if(confidence)confidence.classList.toggle('is-visible',showDataConfidence);
 }
 function renderRiskMap(d){renderGeographicMap(d);}
 
