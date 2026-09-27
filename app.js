@@ -43,11 +43,18 @@ function renderGeographicMap(d){
 
     const path=group.querySelector('path');
     if(path&&!group.querySelector('.map-label-text')){
+      // Use geographic centroids for the two large, irregular countries where
+      // the bounding-box centre falls noticeably away from the visual centre.
+      const labelPositions={
+        England:[287.5,572.7],
+        Scotland:[189.0,306.1]
+      };
       const box=path.getBBox();
+      const pos=labelPositions[name]||[box.x+box.width/2,box.y+box.height/2];
       const text=document.createElementNS('http://www.w3.org/2000/svg','text');
       text.setAttribute('class','map-label-text');
-      text.setAttribute('x',String(box.x+box.width/2));
-      text.setAttribute('y',String(box.y+box.height/2));
+      text.setAttribute('x',String(pos[0]));
+      text.setAttribute('y',String(pos[1]));
       text.setAttribute('dominant-baseline','middle');
       text.textContent=name==='Northern Ireland'?'NI':name.toUpperCase();
       group.appendChild(text);
