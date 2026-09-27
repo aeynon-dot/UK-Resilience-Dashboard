@@ -204,9 +204,11 @@ function renderGeographicMap(d){
 }
 async function load(){
   try{
-    const [current,history]=await Promise.all([
+    const [current,history,riskSet,registry]=await Promise.all([
       fetch('data/current.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
       fetch('data/history.json',{cache:'no-store'}).then(r=>r.ok?r.json():[]),
+      fetch('data/go-live-risk-set.json',{cache:'no-store'}).then(r=>r.json()),
+      fetch('data/source-registry.json',{cache:'no-store'}).then(r=>r.json()),
       loadMapData()
     ]);
     render(current,Array.isArray(history)?history:[]);
@@ -302,6 +304,59 @@ function renderPreferences(){
   const el=document.getElementById('default-focus');
   if(el)el.value=getDefaultFocus();
 }
+
+function coverageSourceMatches(signalSource,entry){
+  const source=String(signalSource||'').toLowerCase();
+  const candidates=[entry.name,entry.publisher,entry.id]
+    .filter(Boolean)
+    .map(x=>String(x).toLowerCase().replaceAll('_',' '));
+  return candidates.some(x=>source.includes(x)||x.includes(source));
+}
+function renderCoverage(d,riskSet,registry){
+  const listEl=document.getElementById('coverage-list'),summaryEl=document.getElementById('coverage-summary'),noteEl=document.getElementById('coverage-note');
+  if(!listEl||!summaryEl||!riskSet)return;
+  const registrySources=registry?.sources||[];
+  const feedEntries=Object.entries(d.feeds||{});
+  const signals=d.risk_signals||[];
+  const domains=riskSet.go_live_domains||[];
+  const rows=domains.map(domain=>{
+    const sources=(domain.sources||[]).map(id=>registrySources.find(x=>x.id===id)).filter(Boolean);
+    const automated=sources.filter(x=>x.endpoint);
+    const reference=sources.filter(x=>!x.endpoint);
+    const states=automated.map(source=>{
+      const feed=feedEntries.find(([name])=>{
+        const n=String(name).toLowerCase(), a=String(source.name||'').toLowerCase(), p=String(source.publisher||'').toLowerCase();
+        return n===a||n===p||n.includes(p)||a.includes(n);
+      })?.[1];
+      return {source,feed};
+    });
+    const unavailable=states.filter(x=>!x.feed||!x.feed.ok);
+    const currentSignals=signals.filter(x=>states.some(y=>coverageSourceMatches(x.source,y.source))).length;
+    let stateClass='partial',stateLabel='Partial coverage',detail='';
+    if(domain.status==='gap'){
+      stateClass='gap';stateLabel='No automated coverage';detail='No automated source currently claimed.';
+    }else if(automated.length===0){
+      stateClass='reference';stateLabel='Reference only';detail='Authoritative source identified, but no automated live feed.';
+    }else if(unavailable.length){
+      stateClass='unavailable';stateLabel='Data unavailable';detail=unavailable.length===automated.length?'All automated feeds currently unavailable.':unavailable.length+' automated feed'+(unavailable.length===1?'':'s')+' unavailable.';
+    }else if(currentSignals===0){
+      stateClass='covered';stateLabel='No current signal';detail='Automated sources available; no current signal represented.';
+    }else if(domain.status==='covered'){
+      stateClass='covered';stateLabel='Covered';detail=currentSignals+' current signal'+(currentSignals===1?'':'s')+' represented.';
+    }else{
+      stateClass='partial';stateLabel='Partial coverage';detail=currentSignals+' current signal'+(currentSignals===1?'':'s')+'; scope remains incomplete.';
+    }
+    return {domain,stateClass,stateLabel,detail};
+  });
+  const covered=rows.filter(x=>x.stateClass==='covered').length;
+  const partial=rows.filter(x=>x.stateClass==='partial').length;
+  const unavailable=rows.filter(x=>x.stateClass==='unavailable').length;
+  const gaps=(riskSet.go_live_theme_coverage||[]).filter(x=>x.status==='gap').length;
+  summaryEl.innerHTML='<span class="coverage-stat">'+covered+' covered</span><span class="coverage-stat">'+partial+' partial</span><span class="coverage-stat">'+unavailable+' unavailable</span>';
+  listEl.innerHTML=rows.map(x=>'<div class="coverage-row"><div><strong>'+esc(x.domain.label)+'</strong><span>'+esc(x.detail)+'</span></div><span class="coverage-badge '+x.stateClass+'">'+esc(x.stateLabel)+'</span></div>').join('');
+  noteEl.textContent=gaps+' of '+(riskSet.go_live_theme_coverage||[]).length+' high-level risk themes currently have no automated coverage. Coverage describes monitoring availability, not comprehensive UK risk coverage.';
+}
+
 function renderDataConfidence(d){
   const el=document.getElementById('data-confidence');
   if(!el)return;
@@ -511,7 +566,7 @@ function render(d,history){
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
   populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
-  renderRiskMap(d);renderDataConfidence(d);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderCoverage(d,riskSet,registry);renderDataConfidence(d);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
