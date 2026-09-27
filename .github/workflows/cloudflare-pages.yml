@@ -1,0 +1,51 @@
+name: Cloudflare Pages deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Deployment target"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Pages (${{ inputs.target }})
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.target == 'production' && 'cloudflare-production' || 'cloudflare-staging' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: >-
+            pages deploy .
+            --project-name=uk-resilience-monitor
+            ${{ inputs.target == 'staging' && '--branch=staging' || '' }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deployment summary
+        run: |
+          echo "Target: ${{ inputs.target }}"
+          echo "Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
