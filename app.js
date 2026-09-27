@@ -684,7 +684,7 @@ function render(d,history,riskSet,registry){
     headline.textContent=scopedRiskSignals.length+' current public risk signals for '+scopeLabel+' — data feed issue';
   }else{
     status.textContent='MONITORING';
-    headline.textContent=scopedRiskSignals.length+' current public risk signals across '+riskDomainCount+' monitored domains for '+scopeLabel;
+    headline.textContent=scopedRiskSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+riskDomainCount+' monitored domains';
   }
   const change=[];
   if(riskNew)change.push('New: '+riskNew);
