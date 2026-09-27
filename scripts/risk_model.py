@@ -78,6 +78,7 @@ def signal(
     status="active",
     confidence="high",
     observed_at=None,
+    published_at=None,
 ):
     identity = "|".join([source, source_record_id or description, scope, hazard])
     result = {
@@ -88,7 +89,7 @@ def signal(
         "hazard": hazard,
         "source": source,
         "source_url": source_url,
-        "published_at": None,
+        "published_at": published_at,
         "observed_at": observed_at,
         "collected_at": collected_at,
         "status": status,
