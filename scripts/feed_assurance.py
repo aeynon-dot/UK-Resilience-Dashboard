@@ -48,13 +48,13 @@ RUNTIME_NAMES = {
     "neso-demand-data-update": "NESO",
 }
 
-def fetch(url):
+def fetch(url, max_bytes=MAX_RESPONSE_BYTES):
     req = urllib.request.Request(url, headers=HEAD)
     with urllib.request.urlopen(req, timeout=20) as response:
-        raw = response.read(MAX_RESPONSE_BYTES + 1)
+        raw = response.read(max_bytes + 1)
         content_type = response.headers.get("Content-Type", "")
-    if len(raw) > MAX_RESPONSE_BYTES:
-        raise ValueError("response exceeded 2 MB safety limit")
+    if len(raw) > max_bytes:
+        raise ValueError(f"response exceeded {max_bytes} byte safety limit")
     return raw, content_type
 
 def parse_url(url):
@@ -174,7 +174,8 @@ def run():
             continue
 
         try:
-            raw, content_type = fetch(endpoint)
+            web_limited = source_id in {"natural-resources-wales-flood-warning", "sepa-flooding", "ukhsa-data-dashboard"}
+            raw, content_type = fetch(endpoint, 300_000 if web_limited else MAX_RESPONSE_BYTES)
             item["checks"].append({
                 "name": "availability", "status": "pass",
                 "bytes": len(raw), "content_type": content_type,
