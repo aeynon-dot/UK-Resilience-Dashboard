@@ -32,15 +32,33 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Build public site bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf dist
+          mkdir -p dist/data
+          cp index.html style.css app.js dist/
+          cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
+          cp data/uk-map.svg dist/data/
+          test -s dist/index.html
+          test -s dist/style.css
+          test -s dist/app.js
+          test -s dist/data/current.json
+          test -s dist/data/history.json
+          test -s dist/data/go-live-risk-set.json
+          test -s dist/data/source-registry.json
+          test -s dist/data/uk-map.svg
+
       - name: Deploy to Cloudflare Pages
         id: deploy
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4"
+          wranglerVersion: "4.142.0"
           command: >-
-            pages deploy .
+            pages deploy dist
             --project-name=uk-resilience-monitor
             ${{ inputs.target == 'staging' && '--branch=staging' || '' }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
