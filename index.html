@@ -2,15 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UK Resilience Briefing — MVP2.1</title><link rel="stylesheet" href="style.css">
+<title>UK Resilience Briefing — MVP2.2</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header><div><h1>UK Resilience Briefing</h1><p>Weather risk, warnings, flooding & daily change briefing</p></div><div id="updated">Loading…</div></header>
 <main>
-<section class="hero"><div><span class="eyebrow">MORNING BRIEFING · MVP2.1</span><h2 id="headline">Checking official feeds…</h2><p id="summary">UK weather risk and flood information, with change detection. This dashboard is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
+<section class="hero"><div><span class="eyebrow">MORNING BRIEFING · MVP2.2</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A concise national resilience view using official UK warning and flood feeds. It is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
+
+<section class="grid two top-grid">
+<article class="card focus-card">
+  <div class="section-heading"><div><h3>My focus area</h3><p class="muted">Choose a UK nation to bring its risk to the front. Your choice is saved only in this browser.</p></div></div>
+  <div class="focus-controls">
+    <select id="focus-area" aria-label="Focus area">
+      <option value="UK">UK-wide</option><option value="England">England</option><option value="Wales">Wales</option><option value="Scotland">Scotland</option><option value="Northern Ireland">Northern Ireland</option>
+    </select>
+    <div id="focus-result" class="focus-result">Checking…</div>
+  </div>
+</article>
+<article class="card"><h3>What needs attention?</h3><div id="attention-list" class="list"></div></article>
+</section>
 
 <section class="card risk-card">
-  <div class="section-heading"><div><h3>UK weather risk map</h3><p class="muted">A simple national risk view combining Met Office weather warnings with connected flood-warning feeds.</p></div><div id="weather-risk-summary" class="risk-summary">Checking…</div></div>
+  <div class="section-heading"><div><h3>UK weather risk map</h3><p class="muted">A simple national view combining Met Office weather warnings with connected flood-warning feeds.</p></div><div id="weather-risk-summary" class="risk-summary">Checking…</div></div>
   <div id="risk-map" class="risk-map"></div>
   <p class="risk-legend"><span class="dot red"></span> Red = severe weather / severe flooding &nbsp; <span class="dot amber"></span> Amber = amber weather / flood warning &nbsp; <span class="dot yellow"></span> Yellow = yellow weather / flood alert &nbsp; <span class="dot clear"></span> Clear = no current item in connected feeds</p>
 </section>
@@ -28,8 +41,11 @@
 
 <section class="grid two">
 <article class="card"><h3>Scotland floods</h3><div id="scotland-count" class="big">—</div><p>Current SEPA flood warnings & alerts</p><div id="scotland-list" class="list"></div><a href="https://beta.sepa.scot/flooding" target="_blank" rel="noopener">Open SEPA flooding →</a></article>
-<article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
+<article class="card"><h3>24-hour activity</h3><div id="trend" class="trend"></div><p id="trend-note" class="muted">Collected snapshots will build the trend automatically.</p></article>
 </section>
 
-<section class="card sources"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.1 adds the UK risk map/summary and keeps the £0 GitHub Actions + GitHub Pages architecture.</p></section>
+<section class="grid two">
+<article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
+<article class="card"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.2 adds focus-area selection, attention prioritisation, 24-hour trend/history and stronger history validation.</p></article>
+</section>
 </main><script src="app.js"></script></body></html>
