@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T11:55:12.508306+00:00",
+  "updated_at": "2026-09-27T12:00:16.795462+00:00",
   "uk_weather": {
     "summary": "Heavy rain and strong winds will move in from the west on Sunday with coastal gales developing. Rain will turn showery across the south, with some warm bright spells in the southeast. Heavy downpours and blustery winds likely at times.",
     "source": "Met Office UK national forecast",
@@ -39,22 +39,23 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T11:55:12.508306+00:00"
+      "last_success_at": "2026-09-27T12:00:16.795462+00:00"
     },
     "Environment Agency": {
-      "ok": true,
-      "stale": false,
+      "ok": false,
+      "stale": true,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
       "last_success_at": "2026-09-27T11:55:12.508306+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T11:55:12.508306+00:00"
+      "last_success_at": "2026-09-27T12:00:16.795462+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T11:55:12.508306+00:00"
+      "last_success_at": "2026-09-27T12:00:16.795462+00:00"
     }
   }
 }
