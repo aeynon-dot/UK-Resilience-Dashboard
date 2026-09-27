@@ -10,89 +10,44 @@ async function loadMapData(){
   }catch(e){ukTopo=null;}
 }
 
-function decodeTopoJSON(topo){
-  const transform=topo.transform||{scale:[1,1],translate:[0,0]};
-  const arcs=(topo.arcs||[]).map(arc=>{
-    let x=0,y=0;
-    return arc.map(p=>{
-      x+=p[0]; y+=p[1];
-      return [x*transform.scale[0]+transform.translate[0],y*transform.scale[1]+transform.translate[1]];
-    });
-  });
-  const arcAt=i=>{
-    const idx=i<0?~i:i;
-    const pts=arcs[idx]||[];
-    return i<0?[...pts].reverse():pts;
-  };
-  const ring=refs=>refs.flatMap((ref,i)=>{
-    const pts=arcAt(ref);
-    return i&&pts.length?pts.slice(1):pts;
-  });
-  const geometryPoints=g=>{
-    if(g.type==='Polygon')return g.arcs.flatMap(r=>ring(r));
-    if(g.type==='MultiPolygon')return g.arcs.flatMap(poly=>poly.flatMap(r=>ring(r)));
-    return [];
-  };
-  const features=topo.objects?.geog?.geometries||[];
-  const all=features.flatMap(g=>geometryPoints(g));
-  const cos=Math.cos((all.reduce((s,p)=>s+p[1],0)/Math.max(1,all.length))*Math.PI/180);
-  const projected=p=>[p[0]*cos,-p[1]];
-  const projectedAll=all.map(projected);
-  const xs=projectedAll.map(p=>p[0]),ys=projectedAll.map(p=>p[1]);
-  const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
-  const width=720,height=620,pad=28;
-  const scale=Math.min((width-pad*2)/(maxX-minX),(height-pad*2)/(maxY-minY));
-  const ox=(width-(maxX-minX)*scale)/2-minX*scale;
-  const oy=(height-(maxY-minY)*scale)/2-minY*scale;
-  const point=p=>{const q=projected(p);return [q[0]*scale+ox,q[1]*scale+oy]};
-  const pathForGeometry=g=>{
-    const polys=g.type==='Polygon'?[g.arcs]:g.arcs;
-    return polys.map(poly=>poly.map(r=>{
-      const pts=ring(r).map(point);
-      if(!pts.length)return '';
-      return 'M'+pts.map(p=>p[0].toFixed(2)+','+p[1].toFixed(2)).join('L')+'Z';
-    }).join(' ')).join(' ');
-  };
-  return {features, pathForGeometry, point};
-}
-
 function renderGeographicMap(d){
-  const svg=document.getElementById('uk-map');
-  if(!svg||!ukTopo){svg.innerHTML='<text x="360" y="310" text-anchor="middle" class="map-loading">Map data unavailable</text>';return;}
-  const geo=decodeTopoJSON(ukTopo);
+  const svg=d3.select('#uk-map');
+  if(svg.empty()||!ukTopo){return;}
+  const object=ukTopo.objects?.geog;
+  if(!object){return;}
+  const geo=topojson.feature(ukTopo,object);
+  const width=760,height=760;
+  svg.attr('viewBox',`0 0 ${width} ${height}`);
+  const projection=d3.geoMercator().fitExtent([[20,20],[width-20,height-20]],geo);
+  const path=d3.geoPath(projection);
   const nationByName={England:'england',Wales:'wales',Scotland:'scotland','Northern Ireland':'ni'};
   const statuses={};
   Object.entries(nationByName).forEach(([name,key])=>{
     const data=key==='england'?d.england||{}:key==='wales'?d.wales||{}:key==='scotland'?d.scotland||{}:{};
     const weather=regionWeather(d,name);
     const flood=(key==='england'||key==='wales'||key==='scotland')?floodLevel(data):'Not connected';
-    const feedIssue=key==='england'&&!d.feeds?.['Environment Agency']?.ok || key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok || key==='scotland'&&!d.feeds?.['SEPA']?.ok;
+    const feedIssue=(key==='england'&&!d.feeds?.['Environment Agency']?.ok)||(key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok)||(key==='scotland'&&!d.feeds?.['SEPA']?.ok);
     const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
     statuses[name]={weather,flood,overall};
   });
   const selected=getFocus()==='UK'?'England':getFocus();
-  svg.innerHTML='';
-  geo.features.forEach(feature=>{
-    const name=feature.properties?.name;
-    if(!nationByName[name])return;
-    const el=document.createElementNS('http://www.w3.org/2000/svg','g');
-    el.classList.add('map-region','risk-'+statuses[name].overall.toLowerCase());
-    if(name===selected)el.classList.add('selected');
-    el.dataset.nation=name;el.setAttribute('tabindex','0');el.setAttribute('role','button');
-    el.setAttribute('aria-label',name+' — '+(statuses[name].overall==='Check'?'Check data':statuses[name].overall));
-    el.dataset.risk=statuses[name].overall;
-    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d',geo.pathForGeometry(feature));el.appendChild(path);
-    // Use a geographic midpoint based on the rendered path bounds for the label.
-    const box=path.getBBox?path.getBBox():null;
-    if(box){
-        const text=document.createElementNS('http://www.w3.org/2000/svg','text');
-      text.setAttribute('x',box.x+box.width/2);text.setAttribute('y',box.y+box.height/2);text.setAttribute('class','map-label-text');
-      text.textContent=name==='Northern Ireland'?'NI':name.toUpperCase();el.appendChild(text);
-    }
-    svg.appendChild(el);
-  });
-  svg.querySelectorAll('.map-region').forEach(el=>el.addEventListener('click',()=>{setFocus(el.dataset.nation);load()}));
+  const regions=geo.features.filter(f=>nationByName[f.properties?.name]);
+  svg.selectAll('*').remove();
+  const groups=svg.selectAll('g.map-region').data(regions,d=>d.properties.name).join('g')
+    .attr('class',f=>`map-region risk-${statuses[f.properties.name].overall.toLowerCase()}`)
+    .attr('data-nation',f=>f.properties.name)
+    .attr('data-risk',f=>statuses[f.properties.name].overall)
+    .attr('tabindex',0).attr('role','button')
+    .attr('aria-label',f=>`${f.properties.name} — ${statuses[f.properties.name].overall==='Check'?'Check data':statuses[f.properties.name].overall}`);
+  groups.classed('selected',f=>f.properties.name===selected);
+  groups.append('path').attr('d',path);
+  groups.append('text')
+    .attr('class','map-label-text')
+    .attr('x',f=>path.centroid(f)[0])
+    .attr('y',f=>path.centroid(f)[1])
+    .text(f=>f.properties.name==='Northern Ireland'?'NI':f.properties.name.toUpperCase());
+  groups.on('click',(event,f)=>{setFocus(f.properties.name);load();})
+    .on('keydown',(event,f)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();setFocus(f.properties.name);load();}});
   const nation=statuses[selected]||statuses.England;
   document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>';
   const weatherItems=d.met_office?.items||[];
@@ -100,7 +55,6 @@ function renderGeographicMap(d){
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
 }
-
 
 async function load(){
   try{
