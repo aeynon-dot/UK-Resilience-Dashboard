@@ -1,5 +1,58 @@
 [
   {
+    "updated_at": "2026-09-27T13:07:28.957769+00:00",
+    "uk_weather": {
+      "summary": "National forecast available",
+      "source": "Met Office UK national forecast",
+      "url": "https://weather.metoffice.gov.uk/forecast/uk"
+    },
+    "met_office": {
+      "count": 0,
+      "items": []
+    },
+    "england": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "wales": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "scotland": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "feeds": {
+      "Met Office": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T13:07:28.957769+00:00"
+      },
+      "Environment Agency": {
+        "ok": false,
+        "stale": true,
+        "error": "HTTP Error 503: Service Temporarily Unavailable",
+        "last_success_at": "2026-09-27T12:47:45.840761+00:00"
+      },
+      "Natural Resources Wales": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T13:07:28.957769+00:00"
+      },
+      "SEPA": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T13:07:28.957769+00:00"
+      }
+    }
+  },
+  {
     "updated_at": "2026-09-27T13:06:35.743979+00:00",
     "uk_weather": {
       "summary": "National forecast available",
