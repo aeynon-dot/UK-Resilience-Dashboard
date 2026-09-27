@@ -12,7 +12,7 @@ from risk_model import normalise_current
 SOURCE_REGISTRY = Path('data/source-registry.json')
 
 HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4 (+https://github.com/aeynon-dot/UK-Resilience-Dashboard)'}
-MAX_RESPONSE_BYTES = 2_000_000
+MAX_RESPONSE_BYTES = 5_000_000
 CURRENT = Path('data/current.json')
 HISTORY = Path('data/history.json')
 
@@ -254,19 +254,24 @@ def noaa_space_weather():
 
 
 def neso():
-    resource_id = '177f6fa4-ae49-4182-81ea-0c6b35f26ca6'
-    url = (
-        'https://api.neso.energy/api/3/action/datastore_search?resource_id='
-        + quote(resource_id) + '&limit=20'
+    url = 'https://api.neso.energy/dataset/7a12172a-939c-404c-b581-a6128b74f588/resource/177f6fa4-ae49-4182-81ea-0c6b35f26ca6/download/demanddataupdate.csv'
+    raw = get(url).decode('utf-8-sig', 'ignore')
+    import csv
+    rows = list(csv.DictReader(raw.splitlines()))
+    rows.sort(
+        key=lambda x: (
+            x.get('SETTLEMENT_DATE') or '',
+            int(x.get('SETTLEMENT_PERIOD') or 0)
+        ),
+        reverse=True
     )
-    raw = get_json(url)
-    result = raw.get('result', {})
-    records = result.get('records', [])
+    records = rows[:20]
     return {
-        'resource_id': resource_id,
-        'total': result.get('total', 0),
+        'resource_id': '177f6fa4-ae49-4182-81ea-0c6b35f26ca6',
+        'total': len(rows),
         'records': records,
-        'latest': records[0] if records else None
+        'latest': records[0] if records else None,
+        'source_url': url
     }
 
 
