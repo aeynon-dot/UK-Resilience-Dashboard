@@ -71,6 +71,14 @@ function renderRiskMap(d){
     return '<div class="risk-region '+overall.toLowerCase()+focus+'"><div class="risk-name">'+esc(n.name)+'</div><div class="risk-state">'+label+'</div><div class="risk-detail">Weather: '+esc(weather==='Clear'?'None':weather)+' · Flood: '+esc(flood==='Not connected'?'Not connected':flood==='Clear'?'None':flood)+'</div></div>';
   }).join('');
   document.getElementById('risk-map').innerHTML=cards;
+  const detail=document.getElementById('map-detail');
+  const selected=getFocus()==='UK'?'England':getFocus();
+  const nationData=nations.find(n=>n.name===selected)||nations[0];
+  const weather=regionWeather(d,selected);
+  const flood=nationData.key==='england'||nationData.key==='wales'||nationData.key==='scotland'?floodLevel(nationData.data):'Not connected';
+  const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':'Clear';
+  detail.innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+overall.toUpperCase()+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
+  document.querySelectorAll('.map-region').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
@@ -156,6 +164,11 @@ function list(id,items){
   el.innerHTML=items.slice(0,6).map(x=>'<div class="item '+String(x.level||'').toLowerCase()+'"><strong>'+esc(x.level||'Alert')+'</strong> — '+esc(x.title||x.area||'Current item')+'</div>').join('');
 }
 document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.map-region').forEach(el=>{
+    const choose=()=>{setFocus(el.dataset.nation);load()};
+    el.addEventListener('click',choose);
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}});
+  });
   document.getElementById('focus-area').addEventListener('change',e=>{setFocus(e.target.value);load()});
   load();
   setInterval(load,5*60*1000);
