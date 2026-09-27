@@ -6,6 +6,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
+from risk_model import normalise_current
+
 HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4'}
 MAX_RESPONSE_BYTES = 2_000_000
 CURRENT = Path('data/current.json')
@@ -218,6 +220,7 @@ def build():
             }
 
     out['feeds'] = feeds
+    out['risk_signals'] = normalise_current(out)
 
     history = read_json(HISTORY, [])
     history = [item for item in history if valid_snapshot(item)]
