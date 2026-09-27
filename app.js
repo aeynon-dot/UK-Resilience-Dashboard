@@ -77,7 +77,7 @@ function render(d,history){
     ? newItems.slice(0,8).map(x=>'<div class="change-item"><strong>'+esc(x.source)+'</strong> — '+esc(x.level||'Alert')+' — '+esc(x.title||'Current item')+'</div>').join('')
     : '<div class="muted">No new warning or alert items detected.</div>';
 
-  document.getElementById('weather-today').innerHTML='<div class="weather-placeholder"><strong>Local weather</strong><br>Weather forecast is ready to add once a location is configured in config.json.</div>';
+  const uw=d.uk_weather||{}; document.getElementById('weather-today').innerHTML=uw.error?'<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><br>See the Met Office national forecast directly.</div>':'<div class="weather-placeholder"><strong>UK-wide forecast</strong><br>'+esc(uw.summary||'National forecast available')+'</div>';
 }
 function list(id,items){
   const el=document.getElementById(id);
