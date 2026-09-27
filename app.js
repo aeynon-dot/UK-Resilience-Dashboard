@@ -65,8 +65,16 @@ function renderGeographicMap(d){
   });
 
   const nation=statuses[selected]||statuses.England;
-  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>';
   const weatherItems=d.met_office?.items||[];
+  const selectedWeather=selected==='UK'?weatherItems:weatherItems.filter(x=>regionMatch(x,selected));
+  const selectedFlood=selected==='England'?(d.england?.items||[]):selected==='Wales'?(d.wales?.items||[]):selected==='Scotland'?(d.scotland?.items||[]):[];
+  const feedName=selected==='England'?'Environment Agency':selected==='Wales'?'Natural Resources Wales':selected==='Scotland'?'SEPA':null;
+  const feed=feedName?d.feeds?.[feedName]:null;
+  const items=[...selectedWeather.map(x=>({...x,type:'Weather'})),...selectedFlood.map(x=>({...x,type:'Flood'}))];
+  const itemHtml=items.length?items.slice(0,5).map(x=>'<div class="map-detail-item"><span class="map-detail-item-level '+String(x.level||'Alert').toLowerCase()+'">'+esc(x.level||'Alert')+'</span><span>'+esc(x.title||x.area||'Current item')+'</span></div>').join(''):'<div class="muted">No current warning or flood items for this area.</div>';
+  const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'OK':feed.stale?'STALE — last successful data retained':'ERROR')+'</small>':'';
+  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected==='UK'?'UK-wide':selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+'<div class="map-detail-items">'+itemHtml+'</div>';
+  
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
