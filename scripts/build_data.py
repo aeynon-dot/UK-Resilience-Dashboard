@@ -22,6 +22,16 @@ def ea():
                           'title':x.get('description') or x.get('eaAreaName') or 'Current flood item'})
     return {'warnings':counts.get(2,0),'alerts':counts.get(3,0),'severe':counts.get(1,0),'items':items}
 
+def uk_weather():
+    raw=get('https://weather.metoffice.gov.uk/forecast/uk').decode('utf-8','ignore')
+    text=re.sub(r'<script.*?</script>|<style.*?</style>',' ',raw,flags=re.I|re.S)
+    text=re.sub(r'<[^>]+>',' ',text)
+    text=re.sub(r'\s+',' ',text).strip()
+    m=re.search(r'UK weather(.*?)(?:Updated:|Outlook for)',text,re.I)
+    return {'summary':re.sub(r'\s+',' ',m.group(1)).strip() if m else 'National forecast available',
+            'source':'Met Office UK national forecast',
+            'url':'https://weather.metoffice.gov.uk/forecast/uk'}
+
 def met():
     raw=get('https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK')
     root=ET.fromstring(raw);items=[]
@@ -58,6 +68,10 @@ def read_json(path,default):
 
 previous=read_json(CURRENT,{})
 out={'updated_at':datetime.now(timezone.utc).isoformat()}
+try:
+    out['uk_weather']=uk_weather()
+except Exception as e:
+    out['uk_weather']={'error':str(e),'source':'Met Office UK national forecast','url':'https://weather.metoffice.gov.uk/forecast/uk'}
 feeds={}
 
 for name,fn,key in [
