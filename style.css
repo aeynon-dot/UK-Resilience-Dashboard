@@ -179,3 +179,23 @@
 @media(max-width:480px){
   .risk-controls{grid-template-columns:1fr}
 }
+
+
+/* MVP4.6 — risk coverage & data status */
+.coverage-card{margin-bottom:18px}
+.coverage-card .section-heading{align-items:flex-start}
+.coverage-summary{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.coverage-stat{font-size:.68rem;font-weight:900;padding:4px 7px;border-radius:999px;background:#e2e7eb;color:#52606d}
+.coverage-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.coverage-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 11px;border:1px solid #e1e6eb;border-radius:8px;background:#fff}
+.coverage-row>div{min-width:0}
+.coverage-row strong{display:block;font-size:.8rem}
+.coverage-row span:not(.coverage-badge){display:block;color:#627d98;font-size:.68rem;margin-top:3px}
+.coverage-badge{flex:0 0 auto;display:inline-flex;padding:4px 7px;border-radius:999px;font-size:.62rem;font-weight:900;white-space:nowrap;background:#e2e7eb;color:#52606d}
+.coverage-badge.covered{background:#dff1e6;color:#28633d}
+.coverage-badge.partial{background:#fff0c2;color:#7a4b00}
+.coverage-badge.unavailable{background:#f8d7da;color:#8a1c1c}
+.coverage-badge.reference{background:#e2e7eb;color:#52606d}
+.coverage-badge.gap{background:#f8d7da;color:#8a1c1c}
+.coverage-note{font-size:.72rem;margin:10px 0 0}
+@media(max-width:700px){.coverage-list{grid-template-columns:1fr}.coverage-summary{justify-content:flex-start}}
