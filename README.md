@@ -92,3 +92,24 @@ The current data collector now emits a `risk_signals` array alongside the existi
 
 The latest UK National Risk Register is the 2026 edition; the taxonomy should be reviewed against each future edition rather than treated as permanently fixed.
 
+## MVP3.2 — Source / Feed Registry
+
+The project now maintains a machine-readable source registry at `data/source-registry.json`.
+
+The registry separates **source configuration** from runtime feed status and records:
+
+- publisher and authority type
+- source/feed type
+- transport and endpoint
+- supported risk themes and domains
+- geographic coverage
+- expected update interval
+- freshness tolerance
+- enabled/reference-only status
+
+The registry currently covers the Met Office, Environment Agency, Natural Resources Wales, SEPA and the Northern Ireland DfI Rivers reference source.
+
+Schema: `schemas/source-registry.schema.json`
+
+Runtime availability remains separate in `data/current.json`. A source being present in the registry does not mean it is currently live.
+
