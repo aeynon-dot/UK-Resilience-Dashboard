@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T13:06:23.298564+00:00",
+  "updated_at": "2026-09-27T13:06:58.711934+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
@@ -31,7 +31,7 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:06:23.298564+00:00"
+      "last_success_at": "2026-09-27T13:06:58.711934+00:00"
     },
     "Environment Agency": {
       "ok": false,
@@ -42,12 +42,12 @@
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:06:23.298564+00:00"
+      "last_success_at": "2026-09-27T13:06:58.711934+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:06:23.298564+00:00"
+      "last_success_at": "2026-09-27T13:06:58.711934+00:00"
     }
   }
 }
