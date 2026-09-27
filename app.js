@@ -77,8 +77,7 @@ function renderGeographicMap(d){
   const niInfo=selected==='Northern Ireland'?'<small>DfI Rivers provides flood information and water-level data separately.</small><a class="map-detail-link" href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a>':'';
   const detailTitle=selected==='UK'?'UK-wide':selected;
   const detailRisk=nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase();
-  const detailCounts=selected==='UK'?'<div class="map-detail-counts"><span><strong>'+weatherItems.length+'</strong> weather</span><span><strong>'+(d.england?.warnings||0)+(d.england?.alerts||0)+(d.england?.severe||0)+(d.wales?.warnings||0)+(d.wales?.alerts||0)+(d.wales?.severe||0)+(d.scotland?.warnings||0)+(d.scotland?.alerts||0)+(d.scotland?.severe||0)+'</strong> flood</span></div>':'<div class="map-detail-counts"><span><strong>'+selectedWeather.length+'</strong> weather</span><span><strong>'+selectedFlood.length+'</strong> flood</span></div>';
-  document.getElementById('map-detail').innerHTML='<div class="map-detail-heading"><strong>'+esc(detailTitle)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(detailRisk)+'</span></div><div class="map-detail-counts">'+(selected==='UK'?'':'<span><strong>'+selectedWeather.length+'</strong> weather</span><span><strong>'+selectedFlood.length+'</strong> flood</span>')+'</div><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
+    document.getElementById('map-detail').innerHTML='<div class="map-detail-heading"><strong>'+esc(detailTitle)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(detailRisk)+'</span></div><div class="map-detail-counts">'+(selected==='UK'?'':'<span><strong>'+selectedWeather.length+'</strong> weather</span><span><strong>'+selectedFlood.length+'</strong> flood</span>')+'</div><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
   
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
@@ -297,10 +296,6 @@ function render(d,history){
   document.getElementById('scotland-count').textContent=focus==='Scotland'||focus==='UK'?(sc.warnings||0)+(sc.alerts||0)+(sc.severe||0):0;
   const feedValues=Object.entries(d.feeds||{}).filter(([name])=>focus==='UK'||(focus==='England'&&name==='Environment Agency')||(focus==='Wales'&&name==='Natural Resources Wales')||(focus==='Scotland'&&name==='SEPA')).map(([,v])=>v),hasFeedIssue=feedValues.some(v=>!v.ok),total=focusedTotal(d,focus);
   const previous=history.find(h=>h&&typeof h==='object'&&!Array.isArray(h));
-  const previousKeys=new Set([
-    ...(previous?.met_office?.items||[]).map(keyFor),...(previous?.england?.items||[]).map(keyFor),
-    ...(previous?.wales?.items||[]).map(keyFor),...(previous?.scotland?.items||[]).map(keyFor)
-  ]);
   const currentItems=[
     ...(weather.items||[]).map(x=>({...x,source:'Met Office'})),
     ...(ew.items||[]).map(x=>({...x,source:'England'})),
@@ -347,11 +342,8 @@ function list(id,items){
   el.innerHTML=items.slice(0,6).map(x=>'<div class="item '+String(x.level||'').toLowerCase()+'"><strong>'+esc(x.level||'Alert')+'</strong> — '+esc(x.title||x.area||'Current item')+'</div>').join('');
 }
 document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('.map-region').forEach(el=>{
-    const choose=()=>{setFocus(el.dataset.nation);load()};
-    el.addEventListener('click',choose);
-  });
-  document.getElementById('focus-area').addEventListener('change',e=>{setFocus(e.target.value);load()});
+  const focusArea=document.getElementById('focus-area');
+  if(focusArea)focusArea.addEventListener('change',e=>{setFocus(e.target.value);load()});
   load();
   setInterval(load,5*60*1000);
 });
