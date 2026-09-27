@@ -181,6 +181,7 @@
 }
 
 
+/* MVP5 — risk assessment interaction */
 /* MVP4.6 — risk coverage & data status */
 .coverage-card{margin-bottom:18px}
 .coverage-card .section-heading{align-items:flex-start}
@@ -216,3 +217,20 @@
 .preference-status{font-size:.7rem;margin:9px 0 0}
 @media(max-width:850px){.monitoring-preference-grid{grid-template-columns:1fr}.preference-theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.preference-theme-grid{grid-template-columns:1fr}}
+
+/* MVP5 — signal-to-assessment detail */
+.risk-signal-item{cursor:pointer}
+.risk-signal-item:focus-visible{outline:3px solid #1769aa;outline-offset:2px}
+.risk-detail{margin:0 20px 14px;border:1px solid #b8c6d1;border-left:4px solid #1769aa;border-radius:9px;background:#f7f9fa;padding:16px}
+.risk-detail[hidden]{display:none}
+.risk-detail-header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:12px}
+.risk-detail-header h3{margin:5px 0 3px;font-size:1.05rem}
+.risk-detail-header p{margin:0;font-size:.76rem}
+.risk-detail-close{font:inherit;padding:6px 9px;border:1px solid #b8c6d1;border-radius:7px;background:#fff;color:#334e68;font-weight:700;cursor:pointer}
+.risk-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.risk-detail-grid article{background:#fff;border:1px solid #e1e6eb;border-radius:8px;padding:11px}
+.risk-detail-grid h4{margin:0 0 6px;font-size:.78rem;color:#334e68}
+.risk-detail-grid p{margin:0;font-size:.8rem;line-height:1.45}
+.risk-detail-grid p+p{margin-top:7px}
+.risk-detail-reference{font-size:.7rem!important;color:#627d98}
+@media(max-width:700px){.risk-detail{margin:0 14px 12px}.risk-detail-grid{grid-template-columns:1fr}}
