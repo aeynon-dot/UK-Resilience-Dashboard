@@ -68,7 +68,7 @@ function renderRiskMap(d){
     nationData.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
   const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
   document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+esc(overall==='Check'?'CHECK DATA':overall.toUpperCase())+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
-  document.querySelectorAll('.map-hotspot').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
+  document.querySelectorAll('.map-region').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   document.querySelectorAll('.map-label').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
@@ -155,7 +155,7 @@ function list(id,items){
   el.innerHTML=items.slice(0,6).map(x=>'<div class="item '+String(x.level||'').toLowerCase()+'"><strong>'+esc(x.level||'Alert')+'</strong> — '+esc(x.title||x.area||'Current item')+'</div>').join('');
 }
 document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('.map-hotspot').forEach(el=>{
+  document.querySelectorAll('.map-region').forEach(el=>{
     const choose=()=>{setFocus(el.dataset.nation);load()};
     el.addEventListener('click',choose);
   });
