@@ -35,3 +35,23 @@
 .map-region.selected path{stroke:#1769aa;stroke-width:5}
 .map-region:focus{outline:none}
 @media(max-width:800px){.uk-map{min-height:360px}.map-region text.map-label-text{font-size:11px}}
+
+/* MVP2.4 — prioritised attention panel */
+.attention-item{border-left:4px solid #8095a8;background:#f5f7f9;border-radius:8px;padding:10px 11px;margin:7px 0}
+.attention-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.88rem}
+.attention-tag{display:inline-flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:900;letter-spacing:.04em;padding:3px 7px;border-radius:999px;background:#e2e7eb;color:#334e68}
+.attention-tag.new{background:#d9ecfb;color:#145b8d}
+.attention-tag.yellow{background:#fff0c2;color:#7a4b00}
+.attention-tag.amber{background:#f8df9f;color:#7a4b00}
+.attention-tag.red{background:#f8d7da;color:#8a1c1c}
+.attention-tag.check{background:#e2e7eb;color:#52606d}
+.attention-new{border-left-color:#1769aa}
+.attention-yellow{border-left-color:#d49a00}
+.attention-amber{border-left-color:#d49a00}
+.attention-red{border-left-color:#c53030}
+.attention-data{border-left-color:#718096}
+.attention-text{font-size:.9rem;margin-top:6px}
+.attention-meta{font-size:.76rem;color:#627d98;margin-top:4px}
+.attention-more{font-size:.78rem;color:#627d98;margin-top:8px}
+.attention-clear{min-height:42px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:9px 10px;border-left:4px solid #72a68b;background:#f3faf6;border-radius:8px}
+.attention-clear span{font-size:.84rem;color:#627d98}
