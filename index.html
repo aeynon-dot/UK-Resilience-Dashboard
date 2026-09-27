@@ -24,7 +24,27 @@
 
 <section class="card risk-card">
   <div class="section-heading"><div><h3>UK weather risk map</h3><p class="muted">A simple national view combining Met Office weather warnings with connected flood-warning feeds.</p></div><div id="weather-risk-summary" class="risk-summary">Checking…</div></div>
-  <div id="risk-map" class="risk-map"></div>
+  <div class="map-wrap">
+    <svg id="uk-map" class="uk-map" viewBox="0 0 620 560" role="img" aria-label="Interactive UK national weather and flood risk map">
+      <g class="map-region" data-nation="Scotland" tabindex="0" role="button" aria-label="Scotland">
+        <path d="M205 45 L300 22 L380 55 L425 125 L390 190 L315 205 L245 175 L205 120 Z"></path>
+        <text x="315" y="115">SCOTLAND</text>
+      </g>
+      <g class="map-region" data-nation="England" tabindex="0" role="button" aria-label="England">
+        <path d="M245 175 L315 205 L390 190 L455 245 L430 335 L390 420 L320 470 L270 420 L245 350 L220 285 Z"></path>
+        <text x="335" y="310">ENGLAND</text>
+      </g>
+      <g class="map-region" data-nation="Wales" tabindex="0" role="button" aria-label="Wales">
+        <path d="M220 285 L245 350 L270 420 L230 405 L190 355 L185 300 Z"></path>
+        <text x="215" y="350">WALES</text>
+      </g>
+      <g class="map-region" data-nation="Northern Ireland" tabindex="0" role="button" aria-label="Northern Ireland">
+        <path d="M82 245 L145 220 L175 265 L160 330 L105 315 L70 275 Z"></path>
+        <text x="120" y="275">NI</text>
+      </g>
+    </svg>
+    <div id="map-detail" class="map-detail" aria-live="polite"></div>
+  </div>
   <p class="risk-legend"><span class="dot red"></span> Red = severe weather / severe flooding &nbsp; <span class="dot amber"></span> Amber = amber weather / flood warning &nbsp; <span class="dot yellow"></span> Yellow = yellow weather / flood alert &nbsp; <span class="dot clear"></span> Clear = no current item in connected feeds</p>
 </section>
 
