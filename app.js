@@ -183,7 +183,7 @@ function focusedItems(d,focus){
   return [...weather.filter(x=>focusMatchesItem(x,focus)),...flood];
 }
 function focusedTotal(d,focus){return focusedItems(d,focus).length;}
-\nfunction renderWeatherToday(d){
+function renderWeatherToday(d){
   const el=document.getElementById('weather-today');
   const focus=getFocus();
   const uw=d.uk_weather||{};
@@ -238,7 +238,6 @@ function renderAttention(d,history,newItems,changedItems){
   const total=focusedTotal(d,focus);
   const cards=[];
   const feeds=Object.entries(d.feeds||{});
-  const focus=getFocus();
   const relevantFeeds=focus==='England'?['Environment Agency']:focus==='Wales'?['Natural Resources Wales']:focus==='Scotland'?['SEPA']:focus==='Northern Ireland'?[]:null;
   feeds.filter(([name,v])=>!v.ok&&(!relevantFeeds||relevantFeeds.includes(name))).forEach(([name,v])=>{
     cards.push({
