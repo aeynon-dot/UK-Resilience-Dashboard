@@ -2,7 +2,7 @@ import json,re,urllib.request,xml.etree.ElementTree as ET
 from datetime import datetime,timezone
 from pathlib import Path
 
-HEAD={'User-Agent':'UK-Resilience-Dashboard/2.0'}
+HEAD={'User-Agent':'UK-Resilience-Dashboard/2.1'}
 CURRENT=Path('data/current.json')
 HISTORY=Path('data/history.json')
 
@@ -26,11 +26,26 @@ def uk_weather():
     raw=get('https://weather.metoffice.gov.uk/forecast/uk').decode('utf-8','ignore')
     text=re.sub(r'<script.*?</script>|<style.*?</style>',' ',raw,flags=re.I|re.S)
     text=re.sub(r'<[^>]+>',' ',text)
+    text=re.sub(r'&(?:amp|nbsp|quot|#39);',' ',text,flags=re.I)
     text=re.sub(r'\s+',' ',text).strip()
-    m=re.search(r'UK weather(.*?)(?:Updated:|Outlook for)',text,re.I)
-    return {'summary':re.sub(r'\s+',' ',m.group(1)).strip() if m else 'National forecast available',
+    m=re.search(r'(?:UK weather|UK weather today)(.*?)(?:Today:|Tonight:|Monday:|Outlook for)',text,re.I)
+    summary=m.group(1).strip() if m else 'National forecast available'
+    summary=re.sub(r'^.*?(?:yellow|amber|red) warning[^.]*\.\s*','',summary,flags=re.I)
+    return {'summary':summary[:600],
             'source':'Met Office UK national forecast',
             'url':'https://weather.metoffice.gov.uk/forecast/uk'}
+
+def warning_regions(title,desc):
+    text=(title+' '+desc).lower()
+    regions=[]
+    if re.search(r'\b(united kingdom|uk)\b',text): regions.append('UK')
+    if 'england' in text or re.search(r'\bnorth west\b|\nnorth east\b|\nyorkshire\b|\nhumber\b|\bwest midlands\b|\beast midlands\b|\beast of england\b|\bsouth west\b|\blondon\b|\bsouth east\b',text):
+        regions.append('England')
+    if 'wales' in text: regions.append('Wales')
+    if 'scotland' in text or re.search(r'\borkney\b|\bshetland\b|\bhighlands\b|\bgrampian\b|\bstrathclyde\b|\btayside\b|\bfife\b|\blothian\b',text):
+        regions.append('Scotland')
+    if 'northern ireland' in text: regions.append('Northern Ireland')
+    return sorted(set(regions))
 
 def met():
     raw=get('https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK')
@@ -40,7 +55,8 @@ def met():
         desc=item.findtext('description') or ''
         clean=lambda s:re.sub(r'<.*?>','',s).strip()
         level='Red' if 'Red' in title else ('Amber' if 'Amber' in title else 'Yellow')
-        items.append({'level':level,'title':clean(title) or clean(desc)})
+        clean_title=clean(title) or clean(desc)
+        items.append({'level':level,'title':clean_title,'regions':warning_regions(clean_title,clean(desc))})
     return {'count':len(items),'items':items}
 
 def wales():
@@ -88,14 +104,11 @@ for name,fn,key in [
         feeds[name]={'ok':False,'stale':bool(old),'error':str(e)}
 
 out['feeds']=feeds
-
 history=read_json(HISTORY,[])
 if previous:
     history=([previous]+history)[:47]
 with open(HISTORY,'w',encoding='utf-8') as f:
     json.dump(history,f,indent=2,ensure_ascii=False)
-
 with open(CURRENT,'w',encoding='utf-8') as f:
     json.dump(out,f,indent=2,ensure_ascii=False)
-
 print(json.dumps(out,indent=2))
