@@ -48,12 +48,12 @@ RUNTIME_NAMES = {
     "neso-demand-data-update": "NESO",
 }
 
-def fetch(url, max_bytes=MAX_RESPONSE_BYTES):
+def fetch(url, max_bytes=MAX_RESPONSE_BYTES, allow_truncate=False):
     req = urllib.request.Request(url, headers=HEAD)
     with urllib.request.urlopen(req, timeout=20) as response:
-        raw = response.read(max_bytes + 1)
+        raw = response.read(max_bytes if allow_truncate else max_bytes + 1)
         content_type = response.headers.get("Content-Type", "")
-    if len(raw) > max_bytes:
+    if not allow_truncate and len(raw) > max_bytes:
         raise ValueError(f"response exceeded {max_bytes} byte safety limit")
     return raw, content_type
 
@@ -90,7 +90,11 @@ def live_shape(source_id, raw):
     return False
 
 def get_path(value, path):
+    if not path:
+        return None
     for key in path:
+        if key is None:
+            break
         if not isinstance(value, dict):
             return None
         value = value.get(key)
@@ -175,7 +179,7 @@ def run():
 
         try:
             web_limited = source_id in {"natural-resources-wales-flood-warning", "sepa-flooding", "ukhsa-data-dashboard"}
-            raw, content_type = fetch(endpoint, 300_000 if web_limited else MAX_RESPONSE_BYTES)
+            raw, content_type = fetch(endpoint, 300_000 if web_limited else MAX_RESPONSE_BYTES, allow_truncate=web_limited)
             item["checks"].append({
                 "name": "availability", "status": "pass",
                 "bytes": len(raw), "content_type": content_type,
