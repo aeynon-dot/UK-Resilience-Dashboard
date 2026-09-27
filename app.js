@@ -285,6 +285,8 @@ function renderAttention(d,history,newItems,changedItems){
     });
   });
   const severity={Red:90,Amber:70,Yellow:50};
+  const signals=(d.risk_signals||[]).filter(x=>['immediate','high'].includes(x.priority_band)).filter(x=>focus==='UK'||x.geography?.scope===focus||x.geography?.scope==='UK').sort((a,b)=>(b.priority_score||0)-(a.priority_score||0));
+  signals.slice(0,2).forEach(x=>{cards.push({priority:Math.min(99,Number(x.priority_score||0)+5),html:'<div class="attention-item attention-signal"><div class="attention-top"><span class="attention-tag check">RISK</span><strong class="attention-source">'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.description)+'</div><div class="attention-meta">'+esc(String(x.risk_domain||'').replaceAll('_',' '))+' · priority '+esc(x.priority_band||'monitor')+'</div></div>'});});
   const currentItems=[
     ...(d.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),
     ...(d.england?.items||[]).map(x=>({...x,source:'England'})),
