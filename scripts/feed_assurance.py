@@ -262,6 +262,9 @@ def main():
         print(f"Reference only: {result['summary']['reference_only']}")
         for item in result["results"]:
             print(f"- {item['id']}: {item['status']} ({item.get('signal_count', 0)} signals)")
+            for check in item["checks"]:
+                if check.get("status") == "fail":
+                    print(f"  FAIL {check.get('name')}: {check.get('detail', '')}")
     return 1 if result["summary"]["failed"] else 0
 
 if __name__ == "__main__":
