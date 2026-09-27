@@ -43,17 +43,18 @@
 
 <section class="card risk-overview-card">
   <div class="section-heading">
-    <div><h3>Risk & threat overview</h3><p class="muted">Current external signals grouped by risk domain. Select a domain to filter the assessment below.</p></div>
+    <div><h3>Risk overview</h3><p class="muted">Current external risk signals grouped by high-level risk theme.</p></div>
     <div id="risk-overview-summary" class="risk-summary">Checking…</div>
   </div>
-  <div id="risk-domain-grid" class="risk-domain-grid"></div>
+  <div id="risk-theme-grid" class="risk-theme-grid"></div>
 </section>
 
 <section id="risk-assessment-card" class="card risk-assessment-card">
   <div class="section-heading">
-    <div><h3>Risk identification & assessment</h3><p class="muted">Review current signals by domain, geography, severity and status. Priority is a monitoring aid, not an organisational risk score.</p></div>
+    <div><h3>Risk identification & assessment</h3><p class="muted">Select a risk theme, then assess the underlying signals by domain, geography, severity and status.</p></div>
   </div>
-  <div class="risk-filters">
+  <div class="risk-filters risk-filters-five">
+    <label>Risk theme<select id="risk-theme-filter"><option value="all">All risk themes</option></select></label>
     <label>Risk domain<select id="risk-domain-filter"><option value="all">All domains</option></select></label>
     <label>Geography<select id="risk-geography-filter"><option value="all">All geographies</option></select></label>
     <label>Severity<select id="risk-severity-filter"><option value="all">All severities</option><option value="severe">Severe</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="unknown">Unknown</option></select></label>
@@ -104,4 +105,4 @@
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official & authoritative sources</h3><p>Met Office · Environment Agency · NRW · SEPA · NCSC · UKHSA · FSA · NESO · USGS · NOAA</p><p class="muted">Sources are normalised into a common public risk-signal model. Coverage will expand by threat domain.</p></article>
 </section>
-</main><script src="app.js?v=20260927-mvp40"></script></body></html>
+</main><script src="app.js?v=20260927-mvp41"></script></body></html>
