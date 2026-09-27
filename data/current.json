@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T13:14:14.903795+00:00",
+  "updated_at": "2026-09-27T13:16:16.080018+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
@@ -31,23 +31,25 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:14:14.903795+00:00"
+      "last_success_at": "2026-09-27T13:16:16.080018+00:00"
     },
     "Environment Agency": {
-      "ok": true,
-      "stale": false,
+      "ok": false,
+      "stale": true,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
       "last_success_at": "2026-09-27T13:14:14.903795+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:14:14.903795+00:00"
+      "last_success_at": "2026-09-27T13:16:16.080018+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T13:14:14.903795+00:00"
+      "last_success_at": "2026-09-27T13:16:16.080018+00:00"
     }
   },
-  "risk_signals": []
+  "risk_signals": [],
+  "source_registry_version": "1.0.0"
 }
