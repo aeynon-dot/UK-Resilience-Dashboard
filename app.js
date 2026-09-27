@@ -1,3 +1,54 @@
+
+const EXPOSURE_KEY='ukResilienceExposureProfile';
+const EXPOSURE_LEVELS={not_assessed:0,low:0.5,medium:0.75,high:1};
+const EXPOSURE_DOMAINS=[
+  ['climate_and_weather','Climate & weather'],['flooding','Flooding'],['energy','Energy'],
+  ['infrastructure','Infrastructure'],['transport','Transport'],['communications','Communications'],
+  ['cyber','Cyber'],['health','Health'],['supply_chain','Supply chain'],
+  ['geopolitical','Geopolitical'],['security','Security'],['societal','Societal'],
+  ['industrial_and_technological','Industrial & technology'],['space_weather','Space weather']
+];
+function getExposureProfile(){
+  try{return JSON.parse(localStorage.getItem(EXPOSURE_KEY)||'{}')}catch(e){return {}}
+}
+function saveExposureProfile(p){
+  try{localStorage.setItem(EXPOSURE_KEY,JSON.stringify(p))}catch(e){}
+}
+function renderExposureProfile(d){
+  const el=document.getElementById('exposure-domains'); if(!el)return;
+  const p=getExposureProfile();
+  el.innerHTML=EXPOSURE_DOMAINS.map(([key,label])=>{
+    const v=EXPOSURE_LEVELS[p[key]]!==undefined?p[key]:'not_assessed';
+    return '<label class="exposure-row"><span>'+esc(label)+'</span><select data-exposure="'+esc(key)+'" aria-label="'+esc(label)+' exposure"><option value="not_assessed"'+(v==='not_assessed'?' selected':'')+'>Not assessed</option><option value="low"'+(v==='low'?' selected':'')+'>Low</option><option value="medium"'+(v==='medium'?' selected':'')+'>Medium</option><option value="high"'+(v==='high'?' selected':'')+'>High</option></select></label>';
+  }).join('');
+  el.querySelectorAll('[data-exposure]').forEach(s=>s.addEventListener('change',e=>{
+    const p=getExposureProfile();p[e.target.dataset.exposure]=e.target.value;saveExposureProfile(p);renderPreparedness(d);
+  }));
+  renderPreparedness(d);
+}
+function renderPreparedness(d){
+  const el=document.getElementById('preparedness-summary'); if(!el)return;
+  const p=getExposureProfile();
+  const signals=(d.risk_signals||[]).filter(x=>x.priority_score>0);
+  const results=signals.map(x=>{
+    const level=p[x.risk_domain]||'not_assessed';
+    return {...x,exposure:level,preparedness_score:Math.round((x.priority_score||0)*(EXPOSURE_LEVELS[level]||0))};
+  }).filter(x=>x.preparedness_score>0).sort((a,b)=>b.preparedness_score-a.preparedness_score);
+  if(!results.length){
+    el.innerHTML='<div class="muted">Set one or more exposure levels to generate organisation-specific preparedness priorities. No profile data leaves this browser.</div>';return;
+  }
+  const top=results.slice(0,5);
+  el.innerHTML='<div class="preparedness-heading"><strong>Preparedness priorities</strong><span>'+results.length+' signals matched to assessed exposure</span></div>'+top.map(x=>{
+    const band=x.preparedness_score>=60?'Immediate':x.preparedness_score>=40?'High':x.preparedness_score>=20?'Moderate':'Monitor';
+    return '<div class="preparedness-item"><div><strong>'+esc(x.risk_domain.replaceAll('_',' '))+'</strong><span>'+esc(x.description)+'</span></div><div class="preparedness-score"><strong>'+x.preparedness_score+'</strong><small>'+band+' · '+esc(x.exposure)+' exposure</small></div></div>';
+  }).join('')+'<p class="muted preparedness-note">This is a preparedness-priority aid, not a formal organisational risk score. It combines the public signal priority with your locally entered exposure level.</p>';
+}
+function loadExampleExposureProfile(){
+  const p={climate_and_weather:'medium',flooding:'high',energy:'high',infrastructure:'medium',transport:'medium',communications:'high',cyber:'high',health:'medium',supply_chain:'high',geopolitical:'low',security:'medium',societal:'medium',industrial_and_technological:'low',space_weather:'low'};
+  saveExposureProfile(p);load();
+}
+function clearExposureProfile(){try{localStorage.removeItem(EXPOSURE_KEY)}catch(e){}load();}
+
 const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
 let currentFocus='UK';
@@ -377,7 +428,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  renderRiskMap(d);renderFocus(d);renderPreferences();renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
@@ -390,6 +441,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(focusArea)focusArea.addEventListener('change',e=>{setFocus(e.target.value);load()});
   if(defaultFocus)defaultFocus.addEventListener('change',e=>{setDefaultFocus(e.target.value);load()});
   if(applyDefault)applyDefault.addEventListener('click',()=>{setFocus(getDefaultFocus());load()});
+  const example=document.getElementById('load-example-profile'); if(example)example.addEventListener('click',loadExampleExposureProfile);
+  const clear=document.getElementById('clear-exposure-profile'); if(clear)clear.addEventListener('click',clearExposureProfile);
   renderPreferences();
   load();
   setInterval(load,5*60*1000);
