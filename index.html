@@ -6,7 +6,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; style-src-attr 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <title>UK Resilience Monitor — MVP4</title>
-<link rel="stylesheet" href="style.css?v=20260927-mvp45">
+<link rel="stylesheet" href="style.css?v=20260927-mvp46d">
 </head>
 <body>
 <header><div><h1>UK Resilience Monitor</h1><p>Risk and threat identification, assessment and daily change</p></div><div id="updated">Loading…</div></header>
@@ -42,6 +42,38 @@
   </div>
   <div id="coverage-list" class="coverage-list"></div>
   <p id="coverage-note" class="muted coverage-note"></p>
+</section>
+
+<section id="monitoring-preferences-card" class="card monitoring-preferences-card">
+  <div class="section-heading">
+    <div><h3>Monitoring preferences</h3><p class="muted">Set the view used when the monitor opens. These preferences are saved only in this browser and do not change your current investigation filters.</p></div>
+    <button id="save-monitoring-preferences" type="button" class="preference-save">Save preferences</button>
+  </div>
+  <div class="monitoring-preference-grid">
+    <label>Default geography
+      <select id="preference-geography">
+        <option value="all">All geographies</option>
+        <option value="UK">UK</option>
+        <option value="England">England</option>
+        <option value="Wales">Wales</option>
+        <option value="Scotland">Scotland</option>
+        <option value="Northern Ireland">Northern Ireland</option>
+      </select>
+    </label>
+    <fieldset>
+      <legend>Default risk themes</legend>
+      <div id="preference-themes" class="preference-theme-grid"></div>
+    </fieldset>
+    <label>Minimum priority
+      <select id="preference-priority">
+        <option value="monitor">Monitor and above</option>
+        <option value="moderate">Moderate and above</option>
+        <option value="high">High and above</option>
+        <option value="immediate">Immediate only</option>
+      </select>
+    </label>
+  </div>
+  <p id="monitoring-preferences-status" class="muted preference-status"></p>
 </section>
 
 <section id="data-confidence-card" class="card confidence-card risk-domain-content">
