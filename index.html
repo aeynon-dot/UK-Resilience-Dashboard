@@ -41,27 +41,23 @@
 
 
 
-<section class="card risk-overview-card">
-  <div class="section-heading">
-    <div><h3>Risk overview</h3><p class="muted">Current external risk signals grouped by high-level risk theme.</p></div>
-    <div id="risk-overview-summary" class="risk-summary">Checking…</div>
-  </div>
-  <div id="risk-theme-grid" class="risk-theme-grid"></div>
-</section>
-
-<section id="risk-assessment-card" class="card risk-assessment-card">
-  <div class="section-heading">
-    <div><h3>Risk identification & assessment</h3><p class="muted">Select a risk theme, then assess the underlying signals by domain, geography, severity and status.</p></div>
-  </div>
-  <div class="risk-filters risk-filters-five">
-    <label>Risk theme<select id="risk-theme-filter"><option value="all">All risk themes</option></select></label>
-    <label>Risk domain<select id="risk-domain-filter"><option value="all">All domains</option></select></label>
-    <label>Geography<select id="risk-geography-filter"><option value="all">All geographies</option></select></label>
-    <label>Severity<select id="risk-severity-filter"><option value="all">All severities</option><option value="severe">Severe</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="unknown">Unknown</option></select></label>
-    <label>Status<select id="risk-status-filter"><option value="all">All statuses</option><option value="active">Active</option><option value="monitoring">Monitoring</option><option value="resolved">Resolved</option><option value="expired">Expired</option></select></label>
-  </div>
-  <div id="risk-assessment-summary" class="risk-assessment-summary"></div>
-  <div id="risk-signal-list" class="risk-signal-list"></div>
+<section id="risk-workspace" class="risk-workspace" aria-label="Risk identification and assessment">
+  <aside class="risk-sidebar card">
+    <div class="risk-sidebar-heading"><span class="eyebrow">RISK & ASSESSMENT</span><h3>Identify and refine</h3><p class="muted">Select a risk theme, then refine the picture on the right.</p></div>
+    <div class="risk-nav-section"><span class="risk-nav-label">SELECT RISK</span><div id="risk-theme-nav" class="risk-theme-nav"></div></div>
+    <div class="risk-refine"><span class="risk-nav-label">REFINE</span>
+      <label>Geography<select id="risk-geography-filter"><option value="all">All geographies</option></select></label>
+      <label>Risk domain<select id="risk-domain-filter"><option value="all">All domains</option></select></label>
+      <label>Severity<select id="risk-severity-filter"><option value="all">All severities</option><option value="severe">Severe</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="unknown">Unknown</option></select></label>
+      <label>Status<select id="risk-status-filter"><option value="all">All statuses</option><option value="active">Active</option><option value="monitoring">Monitoring</option><option value="resolved">Resolved</option><option value="expired">Expired</option></select></label>
+    </div>
+  </aside>
+  <section class="risk-workspace-main card">
+    <div class="risk-workspace-header"><div><span class="eyebrow">CURRENT RISK PICTURE</span><h3 id="risk-workspace-title">All risk themes</h3><p id="risk-workspace-description" class="muted">Current external risk signals across the monitored domains.</p></div><div id="risk-overview-summary" class="risk-summary">Checking…</div></div>
+    <div id="risk-workspace-domains" class="risk-domain-strip"></div>
+    <div id="risk-assessment-summary" class="risk-assessment-summary"></div>
+    <div id="risk-signal-list" class="risk-signal-list"></div>
+  </section>
 </section>
 
 <section class="card confidence-card">
@@ -105,4 +101,4 @@
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official & authoritative sources</h3><p>Met Office · Environment Agency · NRW · SEPA · NCSC · UKHSA · FSA · NESO · USGS · NOAA</p><p class="muted">Sources are normalised into a common public risk-signal model. Coverage will expand by threat domain.</p></article>
 </section>
-</main><script src="app.js?v=20260927-mvp41"></script></body></html>
+</main><script src="app.js?v=20260927-mvp42"></script></body></html>
