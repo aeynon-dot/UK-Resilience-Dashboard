@@ -171,17 +171,18 @@ def cisa_kev():
 def ukhsa():
     url = (
         'https://api.ukhsa-dashboard.data.gov.uk/themes/infectious_disease/'
-        'sub_themes/respiratory/topics/COVID-19/geography_types/Nation/'
-        'geographies/England/metrics/COVID-19_cases_casesByDay?page_size=30'
+        'sub_themes/respiratory/topics/acute-respiratory-infection/'
+        'geography_types/Nation/geographies/England/metrics/'
+        'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay?page_size=30'
     )
     raw = get_json(url)
-    results = raw.get('results', [])
+    results = sorted(raw.get('results', []), key=lambda x: x.get('date') or '', reverse=True)
     return {
-        'metric': 'COVID-19_cases_casesByDay',
+        'metric': 'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay',
         'geography': 'England',
         'count': len(results),
-        'latest': results[-1] if results else None,
-        'items': results[-30:]
+        'latest': results[0] if results else None,
+        'items': results[:30]
     }
 
 
@@ -251,7 +252,7 @@ def neso():
         'resource_id': resource_id,
         'total': result.get('total', 0),
         'records': records,
-        'latest': records[-1] if records else None
+        'latest': records[0] if records else None
     }
 
 
