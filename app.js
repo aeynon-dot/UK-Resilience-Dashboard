@@ -661,10 +661,36 @@ function render(d,history,riskSet,registry){
   });
   const resolvedItems=previousItems.filter(x=>focusMatchesItem(x,focus)&&!currentByIdentity.has(identityFor(x)));
   const removedCount=resolvedItems.length;
+  const riskSignals=d.risk_signals||[];
+  const riskScope=focus==='UK'?'UK':focus;
+  const scopedRiskSignals=riskSignals.filter(x=>riskSignalMatchesGeography(x,riskScope));
+  const riskDomainCount=new Set(scopedRiskSignals.map(x=>x.risk_domain).filter(Boolean)).size;
+  const previousRiskSignals=previous?.risk_signals||[];
+  const previousRiskById=new Map(previousRiskSignals.map(x=>[x.id,x]));
+  const currentRiskById=new Map(riskSignals.map(x=>[x.id,x]));
+  let riskNew=0,riskChanged=0;
+  scopedRiskSignals.forEach(x=>{
+    const old=previousRiskById.get(x.id);
+    if(!old) riskNew++;
+    else if(old.severity!==x.severity||old.status!==x.status||old.priority_band!==x.priority_band||x.change_type==='changed') riskChanged++;
+  });
+  const riskResolved=previousRiskSignals.filter(x=>riskSignalMatchesGeography(x,riskScope)&&x.id&&!currentRiskById.has(x.id)).length;
   const status=document.getElementById('status');status.className='status';
-  if(hasFeedIssue){status.textContent='CHECK DATA';status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items for '+(focus==='UK'?'the UK':focus)+' — data feed issue':'No active items reported for '+(focus==='UK'?'the UK':focus)+', but a data feed needs checking'}
-  else{status.textContent=total?'ATTENTION':'ALL CLEAR';if(total)status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items for '+(focus==='UK'?'the UK':focus):'No active warning/alert items for '+(focus==='UK'?'the UK':focus)}
-  const change=[];if(newItems.length)change.push('New: '+newItems.length);if(changedItems.length)change.push('Changed: '+changedItems.length);if(removedCount)change.push('Resolved: '+removedCount);if(!change.length)change.push(previous?'No significant change since the previous collection':'Baseline established');
+  const headline=document.getElementById('headline');
+  const scopeLabel=focus==='UK'?'UK':focus;
+  if(hasFeedIssue){
+    status.textContent='CHECK DATA';
+    status.classList.add('attention');
+    headline.textContent=scopedRiskSignals.length+' current public risk signals for '+scopeLabel+' — data feed issue';
+  }else{
+    status.textContent='MONITORING';
+    headline.textContent=scopedRiskSignals.length+' current public risk signals across '+riskDomainCount+' monitored domains for '+scopeLabel;
+  }
+  const change=[];
+  if(riskNew)change.push('New: '+riskNew);
+  if(riskChanged)change.push('Changed: '+riskChanged);
+  if(riskResolved)change.push('Resolved: '+riskResolved);
+  if(!change.length)change.push(previous?'No significant change in monitored risk signals since the previous collection':'Baseline established');
   document.getElementById('changes').textContent=change.join(' · ');
   list('weather-list',focusItems.filter(x=>x.source==='Met Office'));list('england-list',focus==='England'||focus==='UK'?ew.items||[]:[]);list('wales-list',focus==='Wales'||focus==='UK'?wa.items||[]:[]);list('scotland-list',focus==='Scotland'||focus==='UK'?sc.items||[]:[]);
   const feeds=d.feeds||{};document.getElementById('feeds').innerHTML=Object.entries(feeds).map(([k,v])=>'<div class="feed"><span>'+esc(k)+'</span><span class="'+(v.ok?'ok':'bad')+'">'+(v.ok?'OK':(v.stale?'STALE':'ERROR'))+'</span></div>').join('');
