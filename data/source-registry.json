@@ -160,13 +160,13 @@
     },
     {
       "id": "ukhsa-data-dashboard",
-      "name": "UKHSA Data Dashboard API",
+      "name": "UKHSA Respiratory Syndromic Surveillance",
       "publisher": "UK Health Security Agency",
       "authority_type": "government_agency",
-      "source_type": "live_api",
-      "transport": "https",
-      "endpoint": "https://api.ukhsa-dashboard.data.gov.uk/",
-      "landing_url": "https://ukhsa-dashboard.data.gov.uk/access-our-data",
+      "source_type": "web_feed",
+      "transport": "web",
+      "endpoint": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
+      "landing_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "risk_themes": [
         "human_animal_and_plant_health"
       ],
@@ -180,7 +180,7 @@
       "freshness_tolerance_minutes": 2880,
       "enabled": true,
       "public": true,
-      "notes": "Public unauthenticated JSON API. MVP3 uses an infectious-disease surveillance metric as a proof-of-integration."
+      "notes": "Public UKHSA dashboard page. Collector reads the current acute respiratory infection NHS 111 triaged-call indicator shown on the dashboard; the API metric currently lags the dashboard."
     },
     {
       "id": "fsa-food-alerts",
