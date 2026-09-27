@@ -8,6 +8,8 @@ from pathlib import Path
 
 from risk_model import normalise_current
 
+SOURCE_REGISTRY = Path('data/source-registry.json')
+
 HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4'}
 MAX_RESPONSE_BYTES = 2_000_000
 CURRENT = Path('data/current.json')
@@ -221,6 +223,7 @@ def build():
 
     out['feeds'] = feeds
     out['risk_signals'] = normalise_current(out)
+    out['source_registry_version'] = read_json(SOURCE_REGISTRY, {}).get('version', 'unknown')
 
     history = read_json(HISTORY, [])
     history = [item for item in history if valid_snapshot(item)]
