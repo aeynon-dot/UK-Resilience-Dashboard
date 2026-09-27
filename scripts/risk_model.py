@@ -197,7 +197,7 @@ def normalise_current(data):
             continue
         signals.append(signal(
             source="Food Standards Agency",
-            source_url="https://data.food.gov.uk/food-alerts",
+            source_url=item.get("alert_url") or "https://alerts.food.gov.uk/",
             risk_theme="human_animal_and_plant_health", risk_domain="supply_chain",
             hazard="food_product_alert", severity="unknown", scope="UK",
             description=item.get("title") or "Food alert",
