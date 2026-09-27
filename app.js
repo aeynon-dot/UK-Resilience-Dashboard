@@ -316,9 +316,10 @@ function render(d,history){
   const previousByIdentity=new Map(previousItems.map(x=>[identityFor(x),x]));
   const currentByIdentity=new Map(currentItems.map(x=>[identityFor(x),x]));
   const newItems=currentItems.filter(x=>focusMatchesItem(x,focus)&&!previousByIdentity.has(identityFor(x)));
-  const changedItems=currentItems.filter(x=>focusMatchesItem(x,focus)&&{
+  const changedItems=currentItems.filter(x=>{
+    if(!focusMatchesItem(x,focus))return false;
     const old=previousByIdentity.get(identityFor(x));
-    return old && old.level!==x.level;
+    return !!old && old.level!==x.level;
   });
   const resolvedItems=previousItems.filter(x=>focusMatchesItem(x,focus)&&!currentByIdentity.has(identityFor(x)));
   const removedCount=resolvedItems.length;
