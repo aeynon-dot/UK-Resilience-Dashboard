@@ -53,6 +53,14 @@ function riskSeverityLabel(value){
 function riskSignalMatchesFocus(x,focus){
   return focus==='UK'||x.geography?.scope===focus||x.geography?.scope==='UK';
 }
+function riskSignalMatchesGeography(x,geography){
+  if(geography==='all')return true;
+  const scope=x.geography?.scope;
+  // The UK-wide monitoring view includes international signals that can
+  // contribute to UK resilience risk; the source geography remains visible.
+  if(geography==='UK')return scope==='UK'||scope==='international';
+  return scope===geography;
+}
 function riskThemeLabel(key){return RISK_THEME_LABELS[key]||String(key||'Other').replaceAll('_',' ')}
 function signalMatchesTheme(x,theme){
   if(theme==='all')return true;
@@ -90,7 +98,7 @@ function renderRiskAssessment(d){
   const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
   if(!listEl||!summaryEl)return;
   const signals=d.risk_signals||[],selectedTheme=themeEl?.value||'all',selectedDomain=domainEl?.value||'all',selectedGeo=geoEl?.value||'all',selectedSeverity=severityEl?.value||'all',selectedStatus=statusEl?.value||'all';
-  const useOpeningPreferences=!window.__riskSessionInteracted; const preferredThemes=window.__openingPreferredThemes||[]; const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(!useOpeningPreferences||preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t)))&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)&&(!useOpeningPreferences||minimumPriorityAllows(x))).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
+  const useOpeningPreferences=!window.__riskSessionInteracted; const preferredThemes=window.__openingPreferredThemes||[]; const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(!useOpeningPreferences||preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t)))&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&riskSignalMatchesGeography(x,selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)&&(!useOpeningPreferences||minimumPriorityAllows(x))).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
   const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length,severe=filtered.filter(x=>x.severity==='severe').length;
   summaryEl.innerHTML='<strong>'+filtered.length+'</strong> signals shown · <strong>'+high+'</strong> high/immediate · <strong>'+severe+'</strong> severe';
   if(!filtered.length){listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';return;}
