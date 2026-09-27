@@ -139,11 +139,12 @@ def normalise_current(data):
     if ukhsa_latest:
         signals.append(signal(
             source="UK Health Security Agency",
-            source_url="https://ukhsa-dashboard.data.gov.uk/access-our-data",
+            source_url="https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
             risk_theme="human_animal_and_plant_health", risk_domain="health",
             hazard="infectious_disease_surveillance", severity="unknown", scope="England",
-            description=f"UKHSA respiratory surveillance: latest COVID-19 daily metric value {ukhsa_latest.get('metric_value')} for {ukhsa_latest.get('date')}.",
-            collected_at=collected_at, source_record_id=f"ukhsa:{ukhsa_latest.get('date')}",
+            description=f"UKHSA NHS 111 acute respiratory infection surveillance: latest daily triaged-call count {ukhsa_latest.get('metric_value')} for {ukhsa_latest.get('date')}.",
+            collected_at=collected_at, source_record_id=f"ukhsa:nhs111-respiratory:{ukhsa_latest.get('date')}",
+            observed_at=(f"{ukhsa_latest.get('date')}T00:00:00+00:00" if ukhsa_latest.get('date') else None),
             change_type="new", status="monitoring",
         ))
 
