@@ -1,6 +1,6 @@
-const FOCUS_KEY='ukResilienceFocus';
 const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
+let currentFocus='UK';
 let ukMapMarkup=null;
 
 async function loadMapData(){
@@ -156,16 +156,15 @@ function getDefaultFocus(){
   }catch(e){return 'UK'}
 }
 function getFocus(){
-  try{
-    const x=localStorage.getItem(FOCUS_KEY);
-    return focusNames.includes(x)?x:getDefaultFocus();
-  }catch(e){return getDefaultFocus()}
+  return focusNames.includes(currentFocus)?currentFocus:getDefaultFocus();
 }
 function setFocus(v){
-  try{localStorage.setItem(FOCUS_KEY,v)}catch(e){}
+  if(focusNames.includes(v))currentFocus=v;
 }
 function setDefaultFocus(v){
-  try{localStorage.setItem(DEFAULT_FOCUS_KEY,v);localStorage.setItem(FOCUS_KEY,v)}catch(e){}
+  if(!focusNames.includes(v))return;
+  try{localStorage.setItem(DEFAULT_FOCUS_KEY,v)}catch(e){}
+  currentFocus=v;
 }
 function renderPreferences(){
   const el=document.getElementById('default-focus');
