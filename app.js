@@ -268,9 +268,11 @@ function regionRisk(d,nation){
 function updateDomainVisibility(){
   const theme=document.getElementById('risk-theme-filter')?.value||'all';
   const domain=document.getElementById('risk-domain-filter')?.value||'all';
-  const showWeather=theme==='all'||theme==='natural_and_environmental_hazards'||domain==='climate_and_weather'||domain==='flooding';
-  const el=document.getElementById('weather-risk-content');
-  if(el)el.hidden=!showWeather;
+  const showWeather=theme==='natural_and_environmental_hazards'||domain==='climate_and_weather'||domain==='flooding';
+  ['weather-risk-content','weather-supporting-content'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('is-visible',showWeather);
+  });
 }
 function renderRiskMap(d){renderGeographicMap(d);}
 
@@ -451,17 +453,6 @@ function applyFocusToDashboard(focus){
   const weatherHeading=document.getElementById('weather-heading');
   if(weatherHeading)weatherHeading.textContent=focus==='UK'?'Met Office warnings':focus+' weather warnings';
 }
-function applyRiskContentVisibility(){
-  const theme=document.getElementById('risk-theme-filter')?.value||'all';
-  const domain=document.getElementById('risk-domain-filter')?.value||'all';
-  const weatherTheme=['natural_and_environmental_hazards'];
-  const weatherDomains=['climate_and_weather','flooding'];
-  const showWeather=weatherTheme.includes(theme)||weatherDomains.includes(domain);
-  ['weather-risk-content','weather-supporting-content'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.classList.toggle('is-visible',showWeather);
-  });
-}
 function render(d,history){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
   const weather=d.met_office||{}, ew=d.england||{}, wa=d.wales||{}, sc=d.scotland||{};
@@ -513,7 +504,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);applyRiskContentVisibility();
+  populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
   renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderServiceTest(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
