@@ -100,6 +100,7 @@ const totalFor=d=>{
   return (m.count||0)+(e.warnings||0)+(e.alerts||0)+(e.severe||0)+(w.warnings||0)+(w.alerts||0)+(w.severe||0)+(s.warnings||0)+(s.alerts||0)+(s.severe||0);
 };
 const keyFor=x=>String(x.level||'')+'|'+String(x.title||x.area||'');
+const identityFor=x=>String(x.source||'')+'|'+String(x.title||x.area||'');
 const levelRank={Clear:0,Yellow:1,Amber:2,Red:3};
 const warningRank=x=>levelRank[x]??0;
 function ageLabel(iso){
@@ -179,7 +180,7 @@ function renderTrend(history,current){
   const direction=last>first?'increased':last<first?'decreased':'unchanged';
   document.getElementById('trend-note').textContent='Last '+values.length+' collected snapshots: active items '+direction+' from '+first+' to '+last+'.';
 }
-function renderAttention(d,history,newItems){
+function renderAttention(d,history,newItems,changedItems){
   const total=totalFor(d);
   const cards=[];
   const feeds=Object.entries(d.feeds||{});
@@ -197,15 +198,16 @@ function renderAttention(d,history,newItems){
     ...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))
   ];
   currentItems.forEach(x=>{
-    const isNew=newItems.some(n=>keyFor(n)===keyFor(x)&&n.source===x.source);
+    const isNew=newItems.some(n=>identityFor(n)===identityFor(x));
+    const changed=changedItems.some(n=>identityFor(n)===identityFor(x));
     const level=x.level||'Alert';
     const base=severity[level]??40;
-    const priority=base+(isNew?25:0);
-    const tag=isNew?'NEW':level.toUpperCase();
-    const tagClass=isNew?'new':String(level).toLowerCase();
+    const priority=base+(isNew?25:changed?15:0);
+    const tag=isNew?'NEW':changed?'CHANGED':level.toUpperCase();
+    const tagClass=isNew?'new':changed?'changed':String(level).toLowerCase();
     cards.push({
       priority,
-      html:'<div class="attention-item attention-'+tagClass+'"><div class="attention-top"><span class="attention-tag '+tagClass+'">'+esc(tag)+'</span><strong class="attention-source">'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.title||x.area||'Current warning or alert')+'</div>'+(isNew?'<div class="attention-meta">Detected since the previous collection</div>':'<div class="attention-meta">Currently active</div>')+'</div>'
+      html:'<div class="attention-item attention-'+tagClass+'"><div class="attention-top"><span class="attention-tag '+tagClass+'">'+esc(tag)+'</span><strong class="attention-source">'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.title||x.area||'Current warning or alert')+'</div>'+(isNew?'<div class="attention-meta">Detected since the previous collection</div>':changed?'<div class="attention-meta">Severity changed since the previous collection</div>':'<div class="attention-meta">Currently active</div>')+'</div>'
     });
   });
   cards.sort((a,b)=>b.priority-a.priority);
@@ -238,18 +240,39 @@ function render(d,history){
     ...(wa.items||[]).map(x=>({...x,source:'Wales'})),
     ...(sc.items||[]).map(x=>({...x,source:'Scotland'}))
   ];
-  const newItems=currentItems.filter(x=>!previousKeys.has(keyFor(x)));
-  const removedCount=Math.max(0,previous?totalFor(previous)-total:0);
+  const previousItems=[
+    ...(previous?.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),
+    ...(previous?.england?.items||[]).map(x=>({...x,source:'England'})),
+    ...(previous?.wales?.items||[]).map(x=>({...x,source:'Wales'})),
+    ...(previous?.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))
+  ];
+  const previousByIdentity=new Map(previousItems.map(x=>[identityFor(x),x]));
+  const currentByIdentity=new Map(currentItems.map(x=>[identityFor(x),x]));
+  const newItems=currentItems.filter(x=>!previousByIdentity.has(identityFor(x)));
+  const changedItems=currentItems.filter(x=>{
+    const old=previousByIdentity.get(identityFor(x));
+    return old && old.level!==x.level;
+  });
+  const resolvedItems=previousItems.filter(x=>!currentByIdentity.has(identityFor(x)));
+  const removedCount=resolvedItems.length;
   const status=document.getElementById('status');status.className='status';
   if(hasFeedIssue){status.textContent='CHECK DATA';status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items — data feed issue':'No active items reported, but a data feed needs checking'}
   else{status.textContent=total?'ATTENTION':'ALL CLEAR';if(total)status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items detected':'No active warning/alert items in the collected feeds'}
-  const change=[];if(newItems.length)change.push('New: '+newItems.length);if(removedCount)change.push('Fewer active items: '+removedCount);if(!change.length)change.push(previous?'No significant change since the previous collection':'Baseline established');
+  const change=[];if(newItems.length)change.push('New: '+newItems.length);if(changedItems.length)change.push('Changed: '+changedItems.length);if(removedCount)change.push('Resolved: '+removedCount);if(!change.length)change.push(previous?'No significant change since the previous collection':'Baseline established');
   document.getElementById('changes').textContent=change.join(' · ');
   list('weather-list',weather.items||[]);list('england-list',ew.items||[]);list('wales-list',wa.items||[]);list('scotland-list',sc.items||[]);
   const feeds=d.feeds||{};document.getElementById('feeds').innerHTML=Object.entries(feeds).map(([k,v])=>'<div class="feed"><span>'+esc(k)+'</span><span class="'+(v.ok?'ok':'bad')+'">'+(v.ok?'OK':(v.stale?'STALE':'ERROR'))+'</span></div>').join('');
-  document.getElementById('new-items').innerHTML=newItems.length?newItems.slice(0,8).map(x=>'<div class="change-item"><strong>'+esc(x.source)+'</strong> — '+esc(x.level||'Alert')+' — '+esc(x.title||'Current item')+'</div>').join(''):'<div class="muted">No new warning or alert items detected.</div>';
+  const changeCards=[
+    ...newItems.map(x=>({kind:'NEW',className:'new',source:x.source,level:x.level||'Alert',title:x.title||x.area||'Current item'})),
+    ...changedItems.map(x=>{
+      const old=previousByIdentity.get(identityFor(x));
+      return {kind:'CHANGED',className:'changed',source:x.source,level:x.level||'Alert',title:x.title||x.area||'Current item',detail:(old?.level||'Unknown')+' → '+(x.level||'Alert')};
+    }),
+    ...resolvedItems.map(x=>({kind:'RESOLVED',className:'resolved',source:x.source,level:x.level||'Alert',title:x.title||x.area||'Current item'}))
+  ];
+  document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   const uw=d.uk_weather||{};document.getElementById('weather-today').innerHTML=uw.error?'<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><br>See the Met Office national forecast directly.</div>':'<div class="weather-placeholder"><strong>UK-wide forecast</strong><br>'+esc(uw.summary||'National forecast available')+'</div>';
-  renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems);renderTrend(history,d);
+  renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
