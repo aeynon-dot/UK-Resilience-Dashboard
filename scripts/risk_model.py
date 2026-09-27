@@ -50,6 +50,7 @@ def signal(
     )
     return {
         "id": _id("risk", identity),
+        "schema_version": "1.0",
         "risk_theme": risk_theme,
         "risk_domain": risk_domain,
         "hazard": hazard,
@@ -90,7 +91,7 @@ def normalise_current(data):
                     scope=scope,
                     description=title,
                     collected_at=collected_at,
-                    source_record_id=f"met-{index}-{scope.lower().replace(' ', '-')}",
+                    source_record_id=f"met:{hashlib.sha256((title + "|" + scope).encode("utf-8")).hexdigest()[:16]}",
                     change_type="new",
                 )
             )
@@ -108,7 +109,7 @@ def normalise_current(data):
                 scope="England",
                 description=title,
                 collected_at=collected_at,
-                source_record_id=f"ea-{index}",
+                source_record_id=f"ea:{hashlib.sha256(title.encode("utf-8")).hexdigest()[:16]}",
                 change_type="new",
             )
         )
