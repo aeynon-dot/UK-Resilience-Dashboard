@@ -192,9 +192,9 @@ function renderAttention(d,history,newItems){
   const severity={Red:90,Amber:70,Yellow:50};
   const currentItems=[
     ...(d.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),
-    ...(d.england?.items||[]).map(x=>({...x,source:'England floods'})),
-    ...(d.wales?.items||[]).map(x=>({...x,source:'Wales floods'})),
-    ...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland floods'}))
+    ...(d.england?.items||[]).map(x=>({...x,source:'England'})),
+    ...(d.wales?.items||[]).map(x=>({...x,source:'Wales'})),
+    ...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))
   ];
   currentItems.forEach(x=>{
     const isNew=newItems.some(n=>keyFor(n)===keyFor(x)&&n.source===x.source);
