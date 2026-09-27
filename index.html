@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; style-src-attr 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'">
-<title>UK Resilience Monitor — MVP4</title>
+<title>UK Resilience Monitor — MVP5</title>
 <link rel="stylesheet" href="style.css?v=20260927-mvp46d">
 </head>
 <body>
 <header><div><h1>UK Resilience Monitor</h1><p>Risk and threat identification, assessment and daily change</p></div><div id="updated">Loading…</div></header>
 <main>
-<section class="hero"><div><span class="eyebrow">RISK & THREAT MONITOR · MVP4</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A cross-domain view of current public risk signals, using official and authoritative sources. It is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
+<section class="hero"><div><span class="eyebrow">RISK & THREAT MONITOR · MVP5</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A cross-domain view of current public risk signals, using official and authoritative sources. It is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
 
 <section id="risk-workspace" class="risk-workspace card" aria-label="Risk identification and assessment">
   <aside class="risk-workspace-pane">
@@ -31,6 +31,7 @@
   </aside>
   <div class="risk-assessment-main">
     <div id="risk-assessment-summary" class="risk-assessment-summary"></div>
+    <section id="risk-detail" class="risk-detail" aria-live="polite" hidden></section>
     <div id="risk-signal-list" class="risk-signal-list"></div>
   </div>
 </section>
@@ -120,4 +121,4 @@
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official & authoritative sources</h3><p>Met Office · Environment Agency · NRW · SEPA · NCSC · UKHSA · FSA · NESO · USGS · NOAA</p><p class="muted">Sources are normalised into a common public risk-signal model. Coverage will expand by threat domain.</p></article>
 </section>
-</main><script src="app.js?v=20260927-mvp46e"></script></body></html>
+</main><script src="app.js?v=20260927-mvp5a"></script></body></html>
