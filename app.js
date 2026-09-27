@@ -182,10 +182,10 @@ function renderWeatherToday(d){
     el.innerHTML='<div class="weather-placeholder"><strong>UK-wide forecast</strong><span>National forecast available.</span></div>';
     return;
   }
-  const sentences=summary.split(/(?<=[.!?])\\s+/).map(x=>x.trim()).filter(Boolean);
+  const sentences=summary.split(/(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean);
   const headline=(sentences[0]||summary).replace(/[.!?]$/,'');
   const bullets=sentences.slice(1,4);
-  const concern=summary.match(/\\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\\b/ig);
+  const concern=summary.match(/\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\b/ig);
   const mainConcern=concern?.[0]||'Weather conditions';
   el.innerHTML='<div class="weather-today-content"><strong class="weather-headline">'+esc(headline)+'</strong>'+
     (bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+
