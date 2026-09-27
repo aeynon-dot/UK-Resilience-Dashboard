@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "purpose": "Transparent mapping from public risk-signal priority to locally assessed organisational exposure.",
+  "exposure_levels": {
+    "not_assessed": 0,
+    "low": 0.5,
+    "medium": 0.75,
+    "high": 1
+  },
+  "preparedness_bands": {
+    "immediate": {
+      "minimum": 60
+    },
+    "high": {
+      "minimum": 40
+    },
+    "moderate": {
+      "minimum": 20
+    },
+    "monitor": {
+      "minimum": 0
+    }
+  },
+  "formula": "preparedness_score = public_priority_score × exposure_factor",
+  "security": "Profile is browser-local in MVP3.5 and is not transmitted to the public data pipeline.",
+  "domains": [
+    "climate_and_weather",
+    "flooding",
+    "energy",
+    "infrastructure",
+    "transport",
+    "communications",
+    "cyber",
+    "health",
+    "supply_chain",
+    "geopolitical",
+    "security",
+    "societal",
+    "industrial_and_technological",
+    "space_weather"
+  ]
+}
