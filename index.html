@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; style-src-attr 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'">
-<title>UK Resilience Briefing — MVP3.5</title>
+<title>UK Resilience Monitor — MVP4</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div><h1>UK Resilience Briefing</h1><p>Weather risk, warnings, flooding & daily change briefing</p></div><div id="updated">Loading…</div></header>
+<header><div><h1>UK Resilience Monitor</h1><p>Risk and threat identification, assessment and daily change</p></div><div id="updated">Loading…</div></header>
 <main>
-<section class="hero"><div><span class="eyebrow">MORNING BRIEFING · MVP3.5</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A concise national resilience view using official UK warning and flood feeds. It is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
+<section class="hero"><div><span class="eyebrow">RISK & THREAT MONITOR · MVP4</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A cross-domain view of current public risk signals, using official and authoritative sources. It is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
 
 <section class="grid two top-grid">
 <article class="card focus-card">
@@ -39,34 +39,28 @@
   </div>
 </section>
 
-<section class="card service-card">
+
+
+<section class="card risk-overview-card">
   <div class="section-heading">
-    <div><h3>Critical service — MVP3.6 test</h3><p class="muted">Create one local service and map its dependencies, recovery requirement and risk domains.</p></div>
+    <div><h3>Risk & threat overview</h3><p class="muted">Current external signals grouped by risk domain. Select a domain to filter the assessment below.</p></div>
+    <div id="risk-overview-summary" class="risk-summary">Checking…</div>
   </div>
-  <div class="service-form">
-    <label>Service name<input id="service-name" type="text" maxlength="120" placeholder="e.g. Payroll service"></label>
-    <label>Recovery requirement
-      <select id="service-rto"><option value="4">Within 4 hours</option><option value="24" selected>Within 24 hours</option><option value="72">Within 72 hours</option><option value="168">Within 7 days</option></select>
-    </label>
-    <label>Criticality
-      <select id="service-criticality"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select>
-    </label>
-    <label>Dependencies<input id="service-dependencies" type="text" maxlength="300" placeholder="e.g. Microsoft 365, payroll supplier, network"></label>
-    <div><strong>Risk domains</strong><div id="service-domains" class="service-domains"></div></div>
-    <div class="exposure-actions"><button id="load-example-service" type="button">Load example service</button><button id="clear-service" type="button">Clear service</button></div>
-  </div>
-  <div id="service-result" class="service-result"></div>
+  <div id="risk-domain-grid" class="risk-domain-grid"></div>
 </section>
 
-<section class="card exposure-card">
+<section class="card risk-assessment-card">
   <div class="section-heading">
-    <div><h3>Organisation exposure</h3><p class="muted">Optional local profile. Your entries stay in this browser and are not sent to the dashboard.</p></div>
+    <div><h3>Risk identification & assessment</h3><p class="muted">Review current signals by domain, geography, severity and status. Priority is a monitoring aid, not an organisational risk score.</p></div>
   </div>
-  <div class="exposure-controls">
-    <div class="exposure-actions"><button id="load-example-profile" type="button">Load example profile</button><button id="clear-exposure-profile" type="button">Clear profile</button></div>
-    <div id="exposure-domains" class="exposure-domains"></div>
+  <div class="risk-filters">
+    <label>Risk domain<select id="risk-domain-filter"><option value="all">All domains</option></select></label>
+    <label>Geography<select id="risk-geography-filter"><option value="all">All geographies</option></select></label>
+    <label>Severity<select id="risk-severity-filter"><option value="all">All severities</option><option value="severe">Severe</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="unknown">Unknown</option></select></label>
+    <label>Status<select id="risk-status-filter"><option value="all">All statuses</option><option value="active">Active</option><option value="monitoring">Monitoring</option><option value="resolved">Resolved</option><option value="expired">Expired</option></select></label>
   </div>
-  <div id="preparedness-summary" class="preparedness-summary"></div>
+  <div id="risk-assessment-summary" class="risk-assessment-summary"></div>
+  <div id="risk-signal-list" class="risk-signal-list"></div>
 </section>
 
 <section class="card confidence-card">
@@ -108,6 +102,6 @@
 
 <section class="grid two">
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
-<article class="card"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.4 adds interactive national risk detail to the geographic map.</p></article>
+<article class="card"><h3>Official & authoritative sources</h3><p>Met Office · Environment Agency · NRW · SEPA · NCSC · UKHSA · FSA · NESO · USGS · NOAA</p><p class="muted">Sources are normalised into a common public risk-signal model. Coverage will expand by threat domain.</p></article>
 </section>
-</main><script src="app.js?v=20260927-mvp36"></script></body></html>
+</main><script src="app.js?v=20260927-mvp40"></script></body></html>
