@@ -1,5 +1,58 @@
 [
   {
+    "updated_at": "2026-09-27T09:57:23.457527+00:00",
+    "uk_weather": {
+      "summary": "Heavy rain and strong winds will move in from the west, with coastal gales developing. Rain will turn showery across the south, with some bright spells in the southeast.",
+      "source": "Met Office UK national forecast",
+      "url": "https://weather.metoffice.gov.uk/forecast/uk"
+    },
+    "met_office": {
+      "count": 1,
+      "items": [
+        {
+          "level": "Yellow",
+          "title": "Yellow warning of rain affecting Northern Ireland"
+        }
+      ]
+    },
+    "england": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "wales": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "scotland": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "feeds": {
+      "Met Office": {
+        "ok": true,
+        "stale": false
+      },
+      "Environment Agency": {
+        "ok": true,
+        "stale": false
+      },
+      "Natural Resources Wales": {
+        "ok": true,
+        "stale": false
+      },
+      "SEPA": {
+        "ok": true,
+        "stale": false
+      }
+    }
+  },
+  {
     "updated_at": "2026-09-27T09:54:55.352389+00:00",
     "met_office": {
       "count": 1,
@@ -46,61 +99,6 @@
       "SEPA": {
         "ok": true,
         "stale": false
-      }
-    }
-  },
-  {
-    "updated_at": "2026-09-27T09:51:23.977416+00:00",
-    "met_office": [
-      {
-        "count": 1,
-        "items": [
-          {
-            "level": "Yellow",
-            "title": "Yellow warning of rain affecting Northern Ireland"
-          }
-        ]
-      },
-      true
-    ],
-    "england": {
-      "warnings": 0,
-      "alerts": 0,
-      "severe": 0,
-      "count": 0,
-      "items": []
-    },
-    "wales": [
-      {
-        "warnings": 0,
-        "alerts": 0,
-        "severe": 0,
-        "items": []
-      },
-      true
-    ],
-    "scotland": [
-      {
-        "warnings": 0,
-        "alerts": 0,
-        "severe": 0,
-        "items": []
-      },
-      true
-    ],
-    "feeds": {
-      "Met Office": {
-        "ok": true
-      },
-      "Environment Agency": {
-        "ok": false,
-        "error": "HTTP Error 503: Service Temporarily Unavailable"
-      },
-      "Natural Resources Wales": {
-        "ok": true
-      },
-      "SEPA": {
-        "ok": true
       }
     }
   }
