@@ -29,7 +29,7 @@ function renderGeographicMap(d){
     statuses[name]={weather,flood,overall};
   });
 
-  const selected=getFocus()==='UK'?'England':getFocus();
+  const selected=getFocus();
   const groups=[...svg.querySelectorAll('g[data-nation]')];
   groups.forEach(group=>{
     const name=group.dataset.nation;
@@ -39,7 +39,7 @@ function renderGeographicMap(d){
     group.setAttribute('tabindex','0');
     group.setAttribute('role','button');
     group.setAttribute('aria-label',name+' — '+(status.overall==='Check'?'Check data':status.overall));
-    group.classList.toggle('selected',name===selected);
+    group.classList.toggle('selected',selected!=='UK'&&name===selected);
 
     const path=group.querySelector('path');
     if(path&&!group.querySelector('.map-label-text')){
@@ -64,7 +64,7 @@ function renderGeographicMap(d){
     group.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}};
   });
 
-  const nation=statuses[selected]||statuses.England;
+  const nation=selected==='UK'?{overall:regionRisk(d,'UK'),weather:regionWeather(d,'UK'),flood:'See nations'}:statuses[selected]||statuses.England;
   const weatherItems=d.met_office?.items||[];
   const selectedWeather=selected==='UK'?weatherItems:weatherItems.filter(x=>regionMatch(x,selected));
   const selectedFlood=selected==='England'?(d.england?.items||[]):selected==='Wales'?(d.wales?.items||[]):selected==='Scotland'?(d.scotland?.items||[]):[];
@@ -74,7 +74,10 @@ function renderGeographicMap(d){
   const itemHtml=items.length?items.slice(0,5).map(x=>'<div class="map-detail-item"><span class="map-detail-item-level '+String(x.level||'Alert').toLowerCase()+'">'+esc(x.level||'Alert')+'</span><span>'+esc(x.title||x.area||'Current item')+'</span></div>').join(''):'<div class="muted">No current warning or flood items for this area.</div>';
   const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'OK':feed.stale?'STALE — last successful update '+ageLabel(feed.last_success_at):'ERROR')+'</small>':'';
   const niInfo=selected==='Northern Ireland'?'<small>DfI Rivers provides flood information and water-level data separately.</small><a class="map-detail-link" href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a>':'';
-  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected==='UK'?'UK-wide':selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
+  const detailTitle=selected==='UK'?'UK-wide':selected;
+  const detailRisk=nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase();
+  const detailCounts=selected==='UK'?'<div class="map-detail-counts"><span><strong>'+weatherItems.length+'</strong> weather</span><span><strong>'+(d.england?.warnings||0)+(d.england?.alerts||0)+(d.england?.severe||0)+(d.wales?.warnings||0)+(d.wales?.alerts||0)+(d.wales?.severe||0)+(d.scotland?.warnings||0)+(d.scotland?.alerts||0)+(d.scotland?.severe||0)+'</strong> flood</span></div>':'<div class="map-detail-counts"><span><strong>'+selectedWeather.length+'</strong> weather</span><span><strong>'+selectedFlood.length+'</strong> flood</span></div>';
+  document.getElementById('map-detail').innerHTML='<div class="map-detail-heading"><strong>'+esc(detailTitle)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(detailRisk)+'</span></div><div class="map-detail-counts">'+(selected==='UK'?'':'<span><strong>'+selectedWeather.length+'</strong> weather</span><span><strong>'+selectedFlood.length+'</strong> flood</span>')+'</div><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
   
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
