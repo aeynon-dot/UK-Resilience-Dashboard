@@ -685,13 +685,23 @@ function render(d,history,riskSet,registry){
   const status=document.getElementById('status');status.className='status';
   const headline=document.getElementById('headline');
   const scopeLabel=focus==='UK'?'UK':focus;
+  const openingPreferences=!window.__riskSessionInteracted;
+  const preferredThemes=openingPreferences?(window.__openingPreferredThemes||[]):[];
+  const minimumPriority=openingPreferences?(monitoringPreferences.minimum_priority||'monitor'):'monitor';
+  const preferredSignals=scopedRiskSignals.filter(x=>
+    (preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t))) &&
+    minimumPriorityAllows(x)
+  );
+  const preferredDomainCount=new Set(preferredSignals.map(x=>x.risk_domain).filter(Boolean)).size;
   if(hasFeedIssue){
     status.textContent='CHECK DATA';
     status.classList.add('attention');
-    headline.textContent=scopedRiskSignals.length+' current public risk signals for '+scopeLabel+' — data feed issue';
+    status.setAttribute('aria-label','Check data');
+    headline.textContent=preferredSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+preferredDomainCount+' monitored domains';
   }else{
-    status.textContent='MONITORING';
-    headline.textContent=scopedRiskSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+riskDomainCount+' monitored domains';
+    status.textContent='MONITORING · '+preferredSignals.length;
+    status.setAttribute('aria-label','Monitoring '+preferredSignals.length+' signals');
+    headline.textContent=preferredSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+preferredDomainCount+' monitored domains';
   }
   const change=[];
   if(riskNew)change.push('New: '+riskNew);
