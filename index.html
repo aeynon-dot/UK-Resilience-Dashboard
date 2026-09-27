@@ -26,15 +26,24 @@
   <div class="section-heading"><div><h3>UK weather risk map</h3><p class="muted">A simple national view combining Met Office weather warnings with connected flood-warning feeds.</p></div><div id="weather-risk-summary" class="risk-summary">Checking…</div></div>
   <div class="map-wrap">
     <div class="map-stage" aria-label="Interactive UK national weather and flood risk map">
-      <img class="uk-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/United_Kingdom_countries_icon_map.svg" alt="Map of the four countries of the United Kingdom">
-      <button class="map-hotspot hotspot-scotland" data-nation="Scotland" aria-label="Select Scotland"></button>
-      <button class="map-hotspot hotspot-england" data-nation="England" aria-label="Select England"></button>
-      <button class="map-hotspot hotspot-wales" data-nation="Wales" aria-label="Select Wales"></button>
-      <button class="map-hotspot hotspot-ni" data-nation="Northern Ireland" aria-label="Select Northern Ireland"></button>
-      <div class="map-label label-scotland">Scotland</div>
-      <div class="map-label label-england">England</div>
-      <div class="map-label label-wales">Wales</div>
-      <div class="map-label label-ni">Northern Ireland</div>
+      <svg id="uk-map" class="uk-map" viewBox="0 0 620 620" role="img" aria-label="Interactive map of the four UK nations">
+        <g class="map-region" data-nation="Scotland" tabindex="0" role="button" aria-label="Select Scotland">
+          <path d="M235 45 C270 22 326 25 355 45 C386 66 405 93 424 118 C438 137 432 160 414 176 C398 190 389 213 370 226 C348 241 327 225 306 216 C286 207 267 194 246 181 C225 168 210 148 211 126 C213 102 219 69 235 45 Z"></path>
+          <text x="320" y="125">SCOTLAND</text>
+        </g>
+        <g class="map-region" data-nation="England" tabindex="0" role="button" aria-label="Select England">
+          <path d="M247 181 C270 190 288 207 309 216 C330 225 350 240 366 258 C382 277 402 291 420 307 C437 322 449 345 445 369 C441 393 426 414 417 437 C407 461 395 485 377 505 C359 525 340 541 316 548 C292 554 270 542 254 526 C238 510 229 488 221 466 C214 445 207 422 204 400 C201 378 202 355 207 334 C212 311 217 291 222 270 C226 249 229 228 234 208 C237 196 240 187 247 181 Z"></path>
+          <text x="325" y="370">ENGLAND</text>
+        </g>
+        <g class="map-region" data-nation="Wales" tabindex="0" role="button" aria-label="Select Wales">
+          <path d="M222 270 C217 291 212 311 207 334 C202 355 201 378 204 400 C207 422 214 445 221 466 C211 464 199 456 189 445 C177 431 169 415 165 397 C161 380 162 360 166 341 C170 321 177 300 185 281 C193 266 206 262 222 270 Z"></path>
+          <text x="192" y="374">WALES</text>
+        </g>
+        <g class="map-region" data-nation="Northern Ireland" tabindex="0" role="button" aria-label="Select Northern Ireland">
+          <path d="M82 274 C96 256 118 247 139 250 C159 253 174 268 181 287 C187 304 183 323 172 338 C160 354 143 362 125 359 C106 356 91 344 82 328 C73 311 72 291 82 274 Z"></path>
+          <text x="128" y="309">NI</text>
+        </g>
+      </svg>
     </div>
     <div id="map-detail" class="map-detail" aria-live="polite"></div>
   </div>
