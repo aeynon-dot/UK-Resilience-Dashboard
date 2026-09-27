@@ -238,7 +238,14 @@ function renderAttention(d,history,newItems,changedItems){
   const cards=[];
   const feeds=Object.entries(d.feeds||{});
   const relevantFeeds=focus==='England'?['Environment Agency']:focus==='Wales'?['Natural Resources Wales']:focus==='Scotland'?['SEPA']:focus==='Northern Ireland'?[]:null;
-  feeds.filter(([name,v])=>!v.ok&&(!relevantFeeds||relevantFeeds.includes(name))).forEach(([name,v])=>{
+  feeds.filter(([name,v])=>{
+    if(v.ok || (relevantFeeds&&!relevantFeeds.includes(name)))return false;
+    if(v.stale&&v.last_success_at){
+      const ageMinutes=Math.max(0,(Date.now()-new Date(v.last_success_at).getTime())/60000);
+      return ageMinutes>=30;
+    }
+    return true;
+  }).forEach(([name,v])=>{
     cards.push({
       priority:100,
       html:'<div class="attention-item attention-data"><div class="attention-top"><span class="attention-tag check">DATA</span><strong>'+esc(name)+'</strong></div><div class="attention-text">'+esc(v.stale?'Feed is stale — last successful update '+ageLabel(v.last_success_at)+'.':'Feed reported an error and needs checking.')+'</div></div>'
