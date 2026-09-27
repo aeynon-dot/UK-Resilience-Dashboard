@@ -47,6 +47,10 @@ def validate_signal(x, i):
     if x.get("confidence") not in CONFIDENCE: e.append(f"signal[{i}]: invalid confidence")
     if not isinstance(x.get("description"),str) or not 1<=len(x.get("description",""))<=5000: e.append(f"signal[{i}]: invalid description")
     if x.get("change_type") is not None and x.get("change_type") not in CHANGE_TYPES: e.append(f"signal[{i}]: invalid change_type")
+    if x.get("priority_model_version") != "1.0": e.append(f"signal[{i}]: invalid priority_model_version")
+    if not isinstance(x.get("priority_score"), (int,float)) or not 0 <= x.get("priority_score") <= 100: e.append(f"signal[{i}]: invalid priority_score")
+    if x.get("priority_band") not in {"immediate","high","moderate","monitor"}: e.append(f"signal[{i}]: invalid priority_band")
+    if not isinstance(x.get("priority_basis"), list) or not x.get("priority_basis"): e.append(f"signal[{i}]: invalid priority_basis")
     return e
 
 def main():
