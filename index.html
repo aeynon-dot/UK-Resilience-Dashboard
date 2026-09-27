@@ -41,18 +41,18 @@
 <section class="card timeline-card"><div class="section-heading"><div><h3>Warning timeline</h3><p class="muted">Recent warning changes detected between collections.</p></div><div class="timeline-key">NEW · ESCALATED · REDUCED · RESOLVED</div></div><div id="warning-timeline" class="warning-timeline"></div></section>
 
 <section class="grid three">
-<article class="card"><h3>Met Office warnings</h3><div id="weather-count" class="big">—</div><p>Current UK severe-weather warnings</p><div id="weather-list" class="list"></div><a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank" rel="noopener">Open Met Office warnings →</a></article>
-<article class="card"><h3>England floods</h3><div id="england-count" class="big">—</div><p>Current flood warnings & alerts</p><div id="england-list" class="list"></div><a href="https://check-for-flooding.service.gov.uk/" target="_blank" rel="noopener">Open England flood service →</a></article>
-<article class="card"><h3>Wales floods</h3><div id="wales-count" class="big">—</div><p>Current NRW warnings & alerts</p><div id="wales-list" class="list"></div><a href="https://naturalresources.wales/flooding" target="_blank" rel="noopener">Open NRW flooding →</a></article>
+<article class="card" data-flood-nation="weather"><h3 id="weather-heading">Met Office warnings</h3><div id="weather-count" class="big">—</div><p>Current UK severe-weather warnings</p><div id="weather-list" class="list"></div><a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank" rel="noopener">Open Met Office warnings →</a></article>
+<article class="card" data-flood-nation="England"><h3>England floods</h3><div id="england-count" class="big">—</div><p>Current flood warnings & alerts</p><div id="england-list" class="list"></div><a href="https://check-for-flooding.service.gov.uk/" target="_blank" rel="noopener">Open England flood service →</a></article>
+<article class="card" data-flood-nation="Wales"><h3>Wales floods</h3><div id="wales-count" class="big">—</div><p>Current NRW warnings & alerts</p><div id="wales-list" class="list"></div><a href="https://naturalresources.wales/flooding" target="_blank" rel="noopener">Open NRW flooding →</a></article>
 </section>
 
 <section class="grid two">
-<article class="card"><h3>Scotland floods</h3><div id="scotland-count" class="big">—</div><p>Current SEPA flood warnings & alerts</p><div id="scotland-list" class="list"></div><a href="https://beta.sepa.scot/flooding" target="_blank" rel="noopener">Open SEPA flooding →</a></article>
+<article class="card" data-flood-nation="Scotland"><h3>Scotland floods</h3><div id="scotland-count" class="big">—</div><p>Current SEPA flood warnings & alerts</p><div id="scotland-list" class="list"></div><a href="https://beta.sepa.scot/flooding" target="_blank" rel="noopener">Open SEPA flooding →</a></article>
 <article class="card"><h3>24-hour activity</h3><div id="trend" class="trend"></div><p id="trend-note" class="muted">Collected snapshots will build the trend automatically.</p></article>
-</section>
+<article class="card" data-flood-nation="Northern Ireland"><h3>Northern Ireland flood information</h3><div class="ni-flood-status"><strong>No automated live flood feed</strong><span>DfI Rivers provides flood information and water-level data separately.</span></div><a href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a></article>\n</section>
 
 <section class="grid two">
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.4 adds interactive national risk detail to the geographic map.</p></article>
 </section>
-</main><script src="app.js?v=20260927-12"></script></body></html>
+</main><script src="app.js?v=20260927-13"></script></body></html>
