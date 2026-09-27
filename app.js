@@ -90,7 +90,7 @@ function renderRiskAssessment(d){
   const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
   if(!listEl||!summaryEl)return;
   const signals=d.risk_signals||[],selectedTheme=themeEl?.value||'all',selectedDomain=domainEl?.value||'all',selectedGeo=geoEl?.value||'all',selectedSeverity=severityEl?.value||'all',selectedStatus=statusEl?.value||'all';
-  const useOpeningPreferences=!window.__riskSessionInteracted; const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)&&(!useOpeningPreferences||minimumPriorityAllows(x))).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
+  const useOpeningPreferences=!window.__riskSessionInteracted; const preferredThemes=window.__openingPreferredThemes||[]; const openingThemeMatch=!useOpeningPreferences||preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t)); const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&openingThemeMatch&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)&&(!useOpeningPreferences||minimumPriorityAllows(x))).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
   const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length,severe=filtered.filter(x=>x.severity==='severe').length;
   summaryEl.innerHTML='<strong>'+filtered.length+'</strong> signals shown · <strong>'+high+'</strong> high/immediate · <strong>'+severe+'</strong> severe';
   if(!filtered.length){listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';return;}
@@ -151,7 +151,6 @@ function saveMonitoringPreferences(){
   };
   try{localStorage.setItem(MONITORING_PREFERENCES_KEY,JSON.stringify(monitoringPreferences))}catch(e){}
   monitoringPreferencesApplied=false;
-  applyMonitoringPreferences();
   const status=document.getElementById('monitoring-preferences-status');
   if(status)status.textContent='Saved. Current investigation filters are unchanged.';
 }
@@ -172,6 +171,7 @@ function applyMonitoringPreferences(){
   const geoEl=document.getElementById('risk-geography-filter');
   const severityEl=document.getElementById('risk-severity-filter');
   if(!themeEl||!geoEl||!severityEl)return;
+  window.__openingPreferredThemes=[...monitoringPreferences.themes];
   // A single preferred theme can map directly to the investigation selector.
   // Multiple preferred themes remain an opening preference; the session selector stays "All risks".
   if(monitoringPreferences.themes.length===1 && RISK_THEME_ORDER.includes(monitoringPreferences.themes[0])){
