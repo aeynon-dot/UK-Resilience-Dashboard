@@ -48,6 +48,7 @@ function renderGeographicMap(d){
       text.setAttribute('class','map-label-text');
       text.setAttribute('x',String(box.x+box.width/2));
       text.setAttribute('y',String(box.y+box.height/2));
+      text.setAttribute('dominant-baseline','middle');
       text.textContent=name==='Northern Ireland'?'NI':name.toUpperCase();
       group.appendChild(text);
     }
