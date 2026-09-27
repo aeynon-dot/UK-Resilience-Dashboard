@@ -1,26 +1,29 @@
-# UK Resilience Dashboard — MVP1
+# UK Resilience Dashboard — MVP2
 
-A £0-cost, mobile-friendly dashboard for a personal UK resilience briefing.
+A £0-cost, mobile-friendly personal UK resilience briefing.
 
-## MVP1 data feeds
+## MVP2 adds
+- Morning briefing summary
+- New-warning/change detection against the previous collection
+- Historical snapshots
+- Safer feed-failure handling: last successful data is retained and marked STALE
+- Consistent zero counts
+- Dedicated weather-today panel ready for a configurable location
+- Mobile-friendly layout for iPhone, iPad and laptop
+
+## Current data feeds
 - Met Office UK severe weather warning RSS
 - Environment Agency real-time flood API
 - Natural Resources Wales live flood-warning page
 - SEPA Scotland live flooding page
 
 ## Architecture
-GitHub Actions → `data/current.json` → GitHub Pages → iPhone/iPad/laptop.
+GitHub Actions → data/current.json + data/history.json → GitHub Pages → browser.
 
-No server, Raspberry Pi, database or paid service is required for MVP1.
+The data workflow runs every 15 minutes and can also be started manually from Actions → Update UK resilience data → Run workflow.
 
-## Setup
-The repository is designed for GitHub Pages. In **Settings → Pages**, select **GitHub Actions** as the publishing source if GitHub has not already enabled it.
-
-The data workflow runs every 15 minutes and can also be started manually from **Actions → Update UK resilience data → Run workflow**.
+## Weather location
+MVP2 includes the weather panel but deliberately does not guess your home location. The next small configuration step is to add your chosen town/coordinates to config.json, then the collector can add a free forecast feed.
 
 ## Important
 This dashboard is an information aid and does not replace official warning/alert channels. Always follow the latest advice from the relevant official service.
-
-
-## Deployment status
-GitHub Pages is configured to publish this repository through GitHub Actions.
