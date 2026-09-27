@@ -1,0 +1,31 @@
+name: Feed assurance
+
+on:
+  push:
+    paths:
+      - 'scripts/feed_assurance.py'
+      - 'scripts/build_data.py'
+      - 'scripts/risk_model.py'
+      - 'data/source-registry.json'
+      - 'data/go-live-risk-set.json'
+      - 'data/current.json'
+      - '.github/workflows/feed-assurance.yml'
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assurance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.x'
+      - name: Run feed assurance
+        run: python scripts/feed_assurance.py
