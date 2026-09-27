@@ -1,4 +1,4 @@
-# UK Resilience Dashboard — MVP3.3
+# UK Resilience Monitor — MVP4
 
 A £0-cost, mobile-friendly public UK resilience briefing and the initial reference implementation for the future **Resilience Monitor** open-source platform.
 
@@ -12,7 +12,7 @@ The long-term platform is designed to support organisational preparedness throug
 4. Planning strategies
 5. Validation
 
-The current MVP provides public risk intelligence and is evolving into a cross-domain monitoring layer. Future private organisational context remains separate from the public risk-signal pipeline.
+The current MVP focuses on public risk and threat identification and assessment. The immediate product priority is to expand the existing weather dashboard into a cross-domain resilience monitor. Future private organisational context remains separate from the public risk-signal pipeline.
 
 ## Current data feeds
 
@@ -22,7 +22,8 @@ The current MVP provides public risk intelligence and is evolving into a cross-d
 - Natural Resources Wales live flood-warning page
 - SEPA Scotland live flooding page
 
-### MVP3.3 multi-domain feeds
+### Current multi-domain feeds
+- NCSC Threat Intelligence RSS — UK cyber threat intelligence
 - CISA Known Exploited Vulnerabilities — cyber
 - UKHSA Data Dashboard API — health
 - FSA Food Alerts API — supply chain / health
@@ -98,3 +99,26 @@ This dashboard is an information aid and does not replace official warning/alert
 ## MVP3.5 — Organisational exposure
 
 MVP3.5 adds a browser-local organisation exposure profile and transparent preparedness-priority calculation. Organisational exposure is not sent to the public data pipeline or stored in the repository. See `docs/MVP3.5-ORGANISATIONAL-EXPOSURE.md`.
+
+## MVP4 — Risk & Threat Monitor
+
+MVP4 refocuses the dashboard on the first two capabilities:
+
+1. Risk / threat identification
+2. Risk / threat assessment
+
+The dashboard now exposes the existing cross-domain signals through:
+
+- a risk-domain overview
+- current signal counts by domain
+- filtering by domain, geography, severity and status
+- signal-level source, timing, severity and monitoring-priority information
+- clearer source/feed provenance
+
+The organisational exposure and critical-service experiments from MVP3.5/MVP3.6 are deliberately parked rather than treated as the current product focus.
+
+The intended progression is:
+
+**weather dashboard → cross-domain risk monitor → risk assessment → organisational relevance → mitigation → planning → validation**
+
+MVP4's monitoring priority remains a public-information aid. It is not an organisational risk score or a substitute for formal risk assessment.
