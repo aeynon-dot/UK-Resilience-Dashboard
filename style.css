@@ -68,3 +68,20 @@
 .change-item small{display:block;color:#627d98;margin-top:3px}
 .attention-tag.changed{background:#fff0c2;color:#7a4b00}
 .attention-changed{border-left-color:#d49a00}
+
+/* MVP2.4 Feature 3 — prominent interactive map detail */
+.map-detail{min-height:210px;padding:22px;border-width:2px;box-shadow:0 5px 16px #0000000a}
+.map-detail-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.map-detail-heading strong{font-size:1.55rem}
+.map-detail-risk{font-size:.82rem;padding:6px 10px}
+.map-detail-counts{display:flex;gap:8px;flex-wrap:wrap}
+.map-detail-counts span{display:inline-flex;align-items:baseline;gap:4px;padding:7px 10px;border-radius:8px;background:#e9eef2;color:#486581;font-size:.82rem}
+.map-detail-counts strong{font-size:1.05rem;color:#17202a}
+.map-detail-items{max-height:190px;overflow:auto}
+.map-region.selected path{stroke:#1769aa;stroke-width:7}
+.map-region.selected text.map-label-text{font-size:16px;fill:#1769aa}
+@media(max-width:800px){
+  .map-detail{min-height:0;padding:18px}
+  .map-detail-heading strong{font-size:1.35rem}
+  .map-detail-items{max-height:none}
+}
