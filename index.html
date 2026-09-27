@@ -22,6 +22,19 @@
 <article class="card"><h3>What needs attention?</h3><div id="attention-list" class="list"></div></article>
 </section>
 
+<section class="card preferences-card">
+  <div class="section-heading">
+    <div><h3>Preferences</h3><p class="muted">Choose the area used when the dashboard opens. Your preference is saved only in this browser.</p></div>
+  </div>
+  <div class="preference-controls">
+    <label for="default-focus"><strong>Default focus area</strong></label>
+    <select id="default-focus" aria-label="Default focus area">
+      <option value="UK">UK-wide</option><option value="England">England</option><option value="Wales">Wales</option><option value="Scotland">Scotland</option><option value="Northern Ireland">Northern Ireland</option>
+    </select>
+    <button id="apply-default-focus" type="button">Apply default now</button>
+  </div>
+</section>
+
 <section class="card confidence-card">
   <div class="section-heading">
     <div><h3>Data confidence</h3><p class="muted">Connection and recency of the official feeds used for the selected focus.</p></div>
@@ -62,4 +75,4 @@
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.4 adds interactive national risk detail to the geographic map.</p></article>
 </section>
-</main><script src="app.js?v=20260927-prod3"></script></body></html>
+</main><script src="app.js?v=20260927-prod4"></script></body></html>
