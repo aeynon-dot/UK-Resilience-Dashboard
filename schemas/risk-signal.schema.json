@@ -18,7 +18,11 @@
     "geography",
     "collected_at",
     "confidence",
-    "description"
+    "description",
+    "priority_model_version",
+    "priority_score",
+    "priority_band",
+    "priority_basis"
   ],
   "properties": {
     "id": {
@@ -165,6 +169,34 @@
     "schema_version": {
       "type": "string",
       "const": "1.0"
+    },
+    "priority_model_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "priority_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "priority_band": {
+      "type": "string",
+      "enum": [
+        "immediate",
+        "high",
+        "moderate",
+        "monitor"
+      ]
+    },
+    "priority_basis": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "maxItems": 10,
+      "uniqueItems": true
     }
   },
   "$defs": {
