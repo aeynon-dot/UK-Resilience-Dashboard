@@ -149,3 +149,33 @@
 @media(max-width:520px){.risk-controls{grid-template-columns:1fr}.risk-workspace-header{flex-direction:column}.risk-summary{text-align:left}}
 @media(max-width:900px){.risk-workspace{grid-template-columns:1fr}.risk-sidebar{position:static}.risk-theme-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.risk-workspace-main{padding:16px}.risk-theme-nav{grid-template-columns:1fr}.risk-workspace-header{flex-direction:column}.risk-signal-top{flex-direction:column}.risk-signal-badges{justify-content:flex-start}}
+
+/* MVP4.5 — vertical Risk & Assessment workspace */
+.risk-workspace{display:grid;grid-template-columns:280px minmax(0,1fr);gap:0;padding:0;overflow:hidden}
+.risk-workspace-pane{background:#f7f9fa;border-right:1px solid #e2e8ed;padding:22px 20px}
+.risk-workspace-header{display:block;padding:0 0 18px;border:0;border-bottom:1px solid #e2e8ed}
+.risk-workspace-header h3{font-size:1.15rem;margin:7px 0 6px}
+.risk-workspace-header p{margin-bottom:16px}
+.risk-workspace-header .risk-summary{text-align:left;padding-top:14px;line-height:1.6}
+.risk-controls{display:grid;grid-template-columns:1fr;gap:11px;padding:18px 0 0}
+.risk-controls label{display:grid;gap:5px;font-size:.72rem;font-weight:800;color:#486581}
+.risk-controls select{width:100%;font:inherit;font-weight:600;padding:9px 10px;border:1px solid #b8c6d1;border-radius:8px;background:#fff;color:#17202a}
+.risk-assessment-main{min-width:0}
+.risk-assessment-summary{margin:0;padding:14px 20px;border-radius:0;border-bottom:1px solid #e2e8ed;background:#fff}
+.risk-signal-list{padding:0 20px 20px;max-height:680px;overflow:auto}
+.risk-domain-content{display:none}
+.risk-domain-content.is-visible{display:block}
+@media(max-width:900px){
+  .risk-workspace{grid-template-columns:230px minmax(0,1fr)}
+  .risk-signal-list{max-height:620px}
+}
+@media(max-width:700px){
+  .risk-workspace{display:block;padding:0}
+  .risk-workspace-pane{border-right:0;border-bottom:1px solid #e2e8ed}
+  .risk-controls{grid-template-columns:1fr 1fr;padding-top:14px}
+  .risk-assessment-summary{padding:10px 14px}
+  .risk-signal-list{padding:0 14px 14px;max-height:none}
+}
+@media(max-width:480px){
+  .risk-controls{grid-template-columns:1fr}
+}
