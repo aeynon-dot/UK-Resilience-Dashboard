@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "updated_at": "2026-09-27T09:51:23.977416+00:00",
+    "met_office": [
+      {
+        "count": 1,
+        "items": [
+          {
+            "level": "Yellow",
+            "title": "Yellow warning of rain affecting Northern Ireland"
+          }
+        ]
+      },
+      true
+    ],
+    "england": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "count": 0,
+      "items": []
+    },
+    "wales": [
+      {
+        "warnings": 0,
+        "alerts": 0,
+        "severe": 0,
+        "items": []
+      },
+      true
+    ],
+    "scotland": [
+      {
+        "warnings": 0,
+        "alerts": 0,
+        "severe": 0,
+        "items": []
+      },
+      true
+    ],
+    "feeds": {
+      "Met Office": {
+        "ok": true
+      },
+      "Environment Agency": {
+        "ok": false,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      "Natural Resources Wales": {
+        "ok": true
+      },
+      "SEPA": {
+        "ok": true
+      }
+    }
+  }
+]
