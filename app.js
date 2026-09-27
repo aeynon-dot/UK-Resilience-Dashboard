@@ -46,8 +46,8 @@ function renderGeographicMap(d){
       // Use geographic centroids for the two large, irregular countries where
       // the bounding-box centre falls noticeably away from the visual centre.
       const labelPositions={
-        England:[287.5,572.7],
-        Scotland:[189.0,306.1]
+        England:[300,572.7],
+        Scotland:[200,326.1]
       };
       const box=path.getBBox();
       const pos=labelPositions[name]||[box.x+box.width/2,box.y+box.height/2];
