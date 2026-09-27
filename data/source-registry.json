@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "name": "Resilience Monitor Source / Feed Registry",
   "purpose": "Machine-readable inventory of external sources used to collect or support disruptive-risk intelligence.",
   "design_principles": [
@@ -157,6 +157,30 @@
       "enabled": true,
       "public": true,
       "notes": "Machine-readable catalogue of known exploited vulnerabilities. Catalogue presence is not itself an organisation-specific severity assessment."
+    },
+    {
+      "id": "ncsc-rss-threat-intelligence",
+      "name": "NCSC Threat Intelligence RSS",
+      "publisher": "National Cyber Security Centre",
+      "authority_type": "government_agency",
+      "source_type": "warning_feed",
+      "transport": "rss",
+      "endpoint": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+      "landing_url": "https://www.ncsc.gov.uk/section/keep-up-to-date/reports-advisories",
+      "risk_themes": [
+        "cyber"
+      ],
+      "risk_domains": [
+        "cyber"
+      ],
+      "geographies": [
+        "UK"
+      ],
+      "expected_update_minutes": 60,
+      "freshness_tolerance_minutes": 180,
+      "enabled": true,
+      "public": true,
+      "notes": "Public NCSC RSS feed used for UK cyber threat intelligence and advisories. Items are monitoring signals and are not organisation-specific alerts."
     },
     {
       "id": "ukhsa-data-dashboard",
