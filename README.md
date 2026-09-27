@@ -1,4 +1,4 @@
-# UK Resilience Dashboard — MVP2
+# UK Resilience Dashboard — MVP2.3
 
 A £0-cost, mobile-friendly personal UK resilience briefing.
 
@@ -27,3 +27,10 @@ MVP2 includes the weather panel but deliberately does not guess your home locati
 
 ## Important
 This dashboard is an information aid and does not replace official warning/alert channels. Always follow the latest advice from the relevant official service.
+
+
+### Geographic map — MVP2.3
+
+The risk map uses embedded UK country boundary TopoJSON for England, Wales, Scotland and Northern Ireland, replacing the earlier schematic SVG. The boundary dataset is from the public `jhellingsdata/map-data` collection and is derived from UK geographic boundary data.
+
+Map data source: [jhellingsdata/map-data](https://github.com/jhellingsdata/map-data). The underlying UK boundary material is based on public UK geographic data; ONS digital boundary material is available under Open Government Licence terms and requires source attribution.
