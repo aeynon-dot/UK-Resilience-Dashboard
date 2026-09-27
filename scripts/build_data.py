@@ -169,20 +169,34 @@ def cisa_kev():
 
 
 def ukhsa():
-    url = (
-        'https://api.ukhsa-dashboard.data.gov.uk/themes/infectious_disease/'
-        'sub_themes/respiratory/topics/acute-respiratory-infection/'
-        'geography_types/Nation/geographies/England/metrics/'
-        'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay?page_size=30'
+    url = 'https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions'
+    raw = get(url).decode('utf-8', 'ignore')
+    text = re.sub(r'<script.*?</script>|<style.*?</style>', ' ', raw, flags=re.I | re.S)
+    text = re.sub(r'<[^>]+>', ' ', text)
+    text = re.sub(r'&(?:amp|nbsp|quot|#39);', ' ', text, flags=re.I)
+    text = re.sub(r'\s+', ' ', text).strip()
+    marker = 'Acute respiratory infections'
+    section = text[text.find(marker):] if marker in text else text
+    match = re.search(
+        r'Up to and including\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4}).*?'
+        r'(\d{1,2}\s+[A-Za-z]+\s+\d{4})\s+([0-9,.]+)',
+        section,
+        re.I
     )
-    raw = get_json(url)
-    results = sorted(raw.get('results', []), key=lambda x: x.get('date') or '', reverse=True)
+    latest = None
+    if match:
+        latest = {
+            'date': match.group(2),
+            'metric_value': float(match.group(3).replace(',', '')),
+            'metric': 'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay'
+        }
     return {
         'metric': 'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay',
         'geography': 'England',
-        'count': len(results),
-        'latest': results[0] if results else None,
-        'items': results[:30]
+        'count': 1 if latest else 0,
+        'latest': latest,
+        'items': [latest] if latest else [],
+        'source_url': url
     }
 
 
