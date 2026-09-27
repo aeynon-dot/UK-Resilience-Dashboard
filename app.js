@@ -191,8 +191,15 @@ function saveMonitoringPreferences(){
   };
   try{localStorage.setItem(MONITORING_PREFERENCES_KEY,JSON.stringify(monitoringPreferences))}catch(e){}
   monitoringPreferencesApplied=false;
+  window.__riskSessionInteracted=false;
+  applyMonitoringPreferences();
+  if(window.__riskData){
+    renderRiskWorkspace(window.__riskData);
+    renderRiskAssessment(window.__riskData);
+    updateDomainVisibility();
+  }
   const status=document.getElementById('monitoring-preferences-status');
-  if(status)status.textContent='Saved. Current investigation filters are unchanged.';
+  if(status)status.textContent='Saved and applied. These preferences will also be used when the monitor opens.';
 }
 function renderMonitoringPreferences(){
   const geo=document.getElementById('preference-geography');
