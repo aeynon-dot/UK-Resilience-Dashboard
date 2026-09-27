@@ -157,6 +157,26 @@ function getFocus(){
 function setFocus(v){
   try{localStorage.setItem(FOCUS_KEY,v)}catch(e){}
 }
+function renderDataConfidence(d){
+  const el=document.getElementById('data-confidence');
+  if(!el)return;
+  const focus=getFocus();
+  const names=focus==='England'?['Met Office','Environment Agency']:focus==='Wales'?['Met Office','Natural Resources Wales']:focus==='Scotland'?['Met Office','SEPA']:focus==='Northern Ireland'?['Met Office']:['Met Office','Environment Agency','Natural Resources Wales','SEPA'];
+  const feeds=d.feeds||{};
+  const states=names.map(name=>{
+    const v=feeds[name];
+    if(!v)return {name,state:'PARTIAL',detail:'No automated live feed'};
+    if(v.ok)return {name,state:'LIVE',detail:v.last_success_at?'Updated '+ageLabel(v.last_success_at):'Latest collection successful'};
+    if(v.stale)return {name,state:'STALE',detail:v.last_success_at?'Last successful update '+ageLabel(v.last_success_at):'Previous data retained'};
+    return {name,state:'ERROR',detail:'Feed needs checking'};
+  });
+  const hasError=states.some(x=>x.state==='ERROR');
+  const hasStale=states.some(x=>x.state==='STALE');
+  const hasPartial=states.some(x=>x.state==='PARTIAL');
+  const overall=hasError?'LIMITED':hasStale||hasPartial?'MIXED':'LIVE';
+  const overallText=overall==='LIVE'?'All connected feeds live':overall==='MIXED'?'Some data has a limitation':'One or more required feeds needs checking';
+  el.innerHTML='<div class="confidence-summary"><div><strong>Data status</strong><span class="confidence-state '+overall.toLowerCase()+'">'+overall+'</span><small>'+esc(focus==='UK'?'UK-wide':focus)+' · '+esc(overallText)+'</small></div><div class="confidence-feeds">'+states.map(x=>'<div class="confidence-feed"><div><strong>'+esc(x.name)+'</strong><span class="confidence-detail">'+esc(x.detail)+'</span></div><span class="confidence-state '+x.state.toLowerCase()+'">'+esc(x.state)+'</span></div>').join('')+'</div><p class="muted confidence-note">This indicates feed connection and recency only; it does not assess the accuracy or completeness of the underlying information.</p></div>';
+}
 function renderFocus(d){
   const focus=getFocus();
   const risk=regionRisk(d,focus);
@@ -342,7 +362,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderFocus(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
