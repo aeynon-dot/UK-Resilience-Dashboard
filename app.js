@@ -59,17 +59,30 @@ function renderRiskMap(d){
     {key:'ni',name:'Northern Ireland',data:{warnings:0,alerts:0,severe:0}}
   ];
   const weatherItems=d.met_office?.items||[];
+  const getStatus=n=>{
+    const weather=regionWeather(d,n.name);
+    const flood=(n.key==='england'||n.key==='wales'||n.key==='scotland')?floodLevel(n.data):'Not connected';
+    const feedIssue=n.key==='england'&&!d.feeds?.['Environment Agency']?.ok ||
+      n.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
+      n.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
+    const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
+    return {weather,flood,overall};
+  };
+  nations.forEach(n=>{
+    const status=getStatus(n);
+    const region=document.querySelector('.map-region[data-nation="'+n.name+'"]');
+    if(region){
+      region.classList.remove('risk-red','risk-amber','risk-yellow','risk-clear','risk-check','selected');
+      region.classList.add('risk-'+status.overall.toLowerCase());
+      region.setAttribute('aria-label',n.name+' — '+(status.overall==='Check'?'Check data':status.overall));
+      region.setAttribute('data-risk',status.overall);
+    }
+  });
   const selected=getFocus()==='UK'?'England':getFocus();
   const nationData=nations.find(n=>n.name===selected)||nations[0];
-  const weather=regionWeather(d,selected);
-  const flood=(nationData.key==='england'||nationData.key==='wales'||nationData.key==='scotland')?floodLevel(nationData.data):'Not connected';
-  const feedIssue=nationData.key==='england'&&!d.feeds?.['Environment Agency']?.ok ||
-    nationData.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
-    nationData.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
-  const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
-  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+esc(overall==='Check'?'CHECK DATA':overall.toUpperCase())+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
+  const status=getStatus(nationData);
+  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+status.overall.toLowerCase()+'">'+esc(status.overall==='Check'?'CHECK DATA':status.overall.toUpperCase())+'</span><small>Weather: '+esc(status.weather)+' · Flood: '+esc(status.flood)+'</small>';
   document.querySelectorAll('.map-region').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
-  document.querySelectorAll('.map-label').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
