@@ -72,7 +72,8 @@ function renderGeographicMap(d){
   const feed=feedName?d.feeds?.[feedName]:null;
   const items=[...selectedWeather.map(x=>({...x,type:'Weather'})),...selectedFlood.map(x=>({...x,type:'Flood'}))];
   const itemHtml=items.length?items.slice(0,5).map(x=>'<div class="map-detail-item"><span class="map-detail-item-level '+String(x.level||'Alert').toLowerCase()+'">'+esc(x.level||'Alert')+'</span><span>'+esc(x.title||x.area||'Current item')+'</span></div>').join(''):'<div class="muted">No current warning or flood items for this area.</div>';
-  const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'Current':feed.stale?'STALE — last successful update '+ageLabel(feed.last_success_at):'ERROR')+'</small>':'';
+  const floodStatus=selected==='Northern Ireland'?'No automated live flood feed':selectedFlood.length?(nation.flood==='Amber'?'Flood warnings active':nation.flood==='Yellow'?'Flood alerts active':nation.flood==='Red'?'Severe flooding active':'Flood information active'):'No current alerts';
+  const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?floodStatus:feed.stale?'STALE — last successful update '+ageLabel(feed.last_success_at):'ERROR')+'</small>':'';
   const niInfo=selected==='Northern Ireland'?'<small>DfI Rivers provides flood information and water-level data separately.</small><a class="map-detail-link" href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a>':'';
   const detailTitle=selected==='UK'?'UK-wide':selected;
   const detailRisk=nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase();
