@@ -180,13 +180,44 @@ function renderTrend(history,current){
   document.getElementById('trend-note').textContent='Last '+values.length+' collected snapshots: active items '+direction+' from '+first+' to '+last+'.';
 }
 function renderAttention(d,history,newItems){
-  const entries=[];
   const total=totalFor(d);
+  const cards=[];
   const feeds=Object.entries(d.feeds||{});
-  feeds.filter(([,v])=>!v.ok).forEach(([name,v])=>entries.push('<div class="attention-item"><strong>Data:</strong> '+esc(name)+' is '+(v.stale?'STALE':'ERROR')+'.</div>'));
-  newItems.slice(0,4).forEach(x=>entries.push('<div class="attention-item"><strong>New '+esc(x.source)+':</strong> '+esc(x.level||'Alert')+' — '+esc(x.title||'Current item')+'</div>'));
-  if(!entries.length) entries.push('<div class="muted">'+(total?'Active items are listed below; no new change requiring highlighting was detected.':'No current warning/alert items require attention.')+'</div>');
-  document.getElementById('attention-list').innerHTML=entries.join('');
+  feeds.filter(([,v])=>!v.ok).forEach(([name,v])=>{
+    cards.push({
+      priority:100,
+      html:'<div class="attention-item attention-data"><div class="attention-top"><span class="attention-tag check">DATA</span><strong>'+esc(name)+'</strong></div><div class="attention-text">'+esc(v.stale?'Feed is stale — last successful update '+ageLabel(v.last_success_at)+'.':'Feed reported an error and needs checking.')+'</div></div>'
+    });
+  });
+  const severity={Red:90,Amber:70,Yellow:50};
+  const currentItems=[
+    ...(d.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),
+    ...(d.england?.items||[]).map(x=>({...x,source:'England floods'})),
+    ...(d.wales?.items||[]).map(x=>({...x,source:'Wales floods'})),
+    ...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland floods'}))
+  ];
+  currentItems.forEach(x=>{
+    const isNew=newItems.some(n=>keyFor(n)===keyFor(x)&&n.source===x.source);
+    const level=x.level||'Alert';
+    const base=severity[level]??40;
+    const priority=base+(isNew?25:0);
+    const tag=isNew?'NEW':level.toUpperCase();
+    const tagClass=isNew?'new':String(level).toLowerCase();
+    cards.push({
+      priority,
+      html:'<div class="attention-item attention-'+tagClass+'"><div class="attention-top"><span class="attention-tag '+tagClass+'">'+esc(tag)+'</span><strong>'+esc(x.source)+'</strong></div><div class="attention-text">'+esc(x.title||x.area||'Current warning or alert')+'</div>'+(isNew?'<div class="attention-meta">Detected since the previous collection</div>':'<div class="attention-meta">Currently active</div>')+'</div>'
+    });
+  });
+  cards.sort((a,b)=>b.priority-a.priority);
+  const top=cards.slice(0,4);
+  let html='';
+  if(top.length){
+    html=top.map(x=>x.html).join('');
+    if(cards.length>4) html+='<div class="attention-more">+'+(cards.length-4)+' additional active item'+(cards.length-4===1?'':'s')+' shown in the detailed sections below.</div>';
+  }else{
+    html='<div class="attention-clear"><strong>'+(total?'No new change requires highlighting':'Nothing currently requires attention')+'</strong><span>'+(total?'Active warnings and flood items are shown in the sections below.':'No current warning, flood alert, or connected feed issue was detected.')+'</span></div>';
+  }
+  document.getElementById('attention-list').innerHTML=html;
 }
 function render(d,history){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
