@@ -28,9 +28,10 @@ def uk_weather():
     text=re.sub(r'<[^>]+>',' ',text)
     text=re.sub(r'&(?:amp|nbsp|quot|#39);',' ',text,flags=re.I)
     text=re.sub(r'\s+',' ',text).strip()
-    m=re.search(r'(?:UK weather|UK weather today)(.*?)(?:Today:|Tonight:|Monday:|Outlook for)',text,re.I)
-    summary=m.group(1).strip() if m else 'National forecast available'
-    summary=re.sub(r'^.*?(?:yellow|amber|red) warning[^.]*\.\s*','',summary,flags=re.I)
+    matches=re.findall(r'UK weather.*?(?:yellow|amber|red) warning.*?Today:\s*(.*?)(?:\s+Tonight:|\s+Monday:|\s+Outlook for)',text,re.I)
+    summary=matches[-1].strip() if matches else 'National forecast available'
+    summary=re.sub(r'&(?:amp|nbsp|quot|#39);',' ',summary,flags=re.I)
+    summary=re.sub(r'\\s+',' ',summary).strip()
     return {'summary':summary[:600],
             'source':'Met Office UK national forecast',
             'url':'https://weather.metoffice.gov.uk/forecast/uk'}
