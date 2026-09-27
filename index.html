@@ -1,8 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UK Resilience Briefing — MVP2.4 Production</title><link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; style-src-attr 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>UK Resilience Briefing — MVP2.4 Production</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header><div><h1>UK Resilience Briefing</h1><p>Weather risk, warnings, flooding & daily change briefing</p></div><div id="updated">Loading…</div></header>
@@ -69,10 +73,11 @@
 <section class="grid two">
 <article class="card" data-flood-nation="Scotland"><h3>Scotland floods</h3><div id="scotland-count" class="big">—</div><p>Current SEPA flood warnings & alerts</p><div id="scotland-list" class="list"></div><a href="https://beta.sepa.scot/flooding" target="_blank" rel="noopener">Open SEPA flooding →</a></article>
 <article class="card"><h3>24-hour activity</h3><div id="trend" class="trend"></div><p id="trend-note" class="muted">Collected snapshots will build the trend automatically.</p></article>
-<article class="card" data-flood-nation="Northern Ireland"><h3>Northern Ireland flood information</h3><div class="ni-flood-status"><strong>No automated live flood feed</strong><span>DfI Rivers provides flood information and water-level data separately.</span></div><a href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a></article>\n</section>
+<article class="card" data-flood-nation="Northern Ireland"><h3>Northern Ireland flood information</h3><div class="ni-flood-status"><strong>No automated live flood feed</strong><span>DfI Rivers provides flood information and water-level data separately.</span></div><a href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a></article>
+</section>
 
 <section class="grid two">
 <article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 <article class="card"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2.4 adds interactive national risk detail to the geographic map.</p></article>
 </section>
-</main><script src="app.js?v=20260927-prod4"></script></body></html>
+</main><script src="app.js?v=20260927-sec1"></script></body></html>
