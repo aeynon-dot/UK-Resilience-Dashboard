@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T09:40:06.817781+00:00",
+  "updated_at": "2026-09-27T09:51:23.977416+00:00",
   "met_office": [
     {
       "count": 1,
@@ -12,15 +12,13 @@
     },
     true
   ],
-  "england": [
-    {
-      "warnings": 0,
-      "alerts": 0,
-      "severe": 0,
-      "items": []
-    },
-    true
-  ],
+  "england": {
+    "warnings": 0,
+    "alerts": 0,
+    "severe": 0,
+    "count": 0,
+    "items": []
+  },
   "wales": [
     {
       "warnings": 0,
@@ -44,7 +42,8 @@
       "ok": true
     },
     "Environment Agency": {
-      "ok": true
+      "ok": false,
+      "error": "HTTP Error 503: Service Temporarily Unavailable"
     },
     "Natural Resources Wales": {
       "ok": true
