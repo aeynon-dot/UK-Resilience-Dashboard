@@ -5,12 +5,13 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 from risk_model import normalise_current
 
 SOURCE_REGISTRY = Path('data/source-registry.json')
 
-HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4'}
+HEAD = {'User-Agent': 'UK-Resilience-Dashboard/2.4 (+https://github.com/aeynon-dot/UK-Resilience-Dashboard)'}
 MAX_RESPONSE_BYTES = 2_000_000
 CURRENT = Path('data/current.json')
 HISTORY = Path('data/history.json')
@@ -25,8 +26,12 @@ def get(url):
     return raw
 
 
+def get_json(url):
+    return json.loads(get(url).decode('utf-8'))
+
+
 def ea():
-    raw = json.loads(get('https://environment.data.gov.uk/flood-monitoring/id/floods'))
+    raw = get_json('https://environment.data.gov.uk/flood-monitoring/id/floods')
     counts = {1: 0, 2: 0, 3: 0}
     items = []
     for x in raw.get('items', []):
@@ -141,6 +146,136 @@ def scotland():
     }
 
 
+def cisa_kev():
+    raw = get_json('https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json')
+    vulnerabilities = raw.get('vulnerabilities', [])
+    recent = vulnerabilities[-50:]
+    return {
+        'catalog_version': raw.get('catalogVersion'),
+        'count': len(vulnerabilities),
+        'items': [
+            {
+                'cveID': x.get('cveID'),
+                'vendorProject': x.get('vendorProject'),
+                'product': x.get('product'),
+                'vulnerabilityName': x.get('vulnerabilityName'),
+                'dateAdded': x.get('dateAdded'),
+                'dueDate': x.get('dueDate')
+            }
+            for x in recent
+            if x.get('cveID')
+        ]
+    }
+
+
+def ukhsa():
+    url = (
+        'https://api.ukhsa-dashboard.data.gov.uk/themes/infectious_disease/'
+        'sub_themes/respiratory/topics/COVID-19/geography_types/Nation/'
+        'geographies/England/metrics/COVID-19_cases_casesByDay?page_size=30'
+    )
+    raw = get_json(url)
+    results = raw.get('results', [])
+    return {
+        'metric': 'COVID-19_cases_casesByDay',
+        'geography': 'England',
+        'count': len(results),
+        'latest': results[-1] if results else None,
+        'items': results[-30:]
+    }
+
+
+def fsa_food_alerts():
+    url = 'https://data.food.gov.uk/food-alerts/id?_limit=25&_sort=-modified&_view=full'
+    raw = get_json(url)
+    items = raw.get('items', [])
+    return {
+        'count': len(items),
+        'items': [
+            {
+                'id': x.get('notation'),
+                'title': x.get('title'),
+                'modified': x.get('modified'),
+                'type': [str(t) for t in x.get('type', [])] if isinstance(x.get('type'), list) else x.get('type'),
+                'status': x.get('status.label'),
+                'alert_url': x.get('alertURL'),
+                'country': x.get('country.label')
+            }
+            for x in items
+        ]
+    }
+
+
+def usgs_earthquakes():
+    raw = get_json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson')
+    items = []
+    for feature in raw.get('features', []):
+        p = feature.get('properties', {})
+        if (p.get('mag') or 0) >= 5.0:
+            coords = feature.get('geometry', {}).get('coordinates') or []
+            items.append({
+                'id': feature.get('id'),
+                'magnitude': p.get('mag'),
+                'place': p.get('place'),
+                'time': p.get('time'),
+                'updated': p.get('updated'),
+                'url': p.get('url'),
+                'longitude': coords[0] if len(coords) > 0 else None,
+                'latitude': coords[1] if len(coords) > 1 else None,
+                'depth_km': coords[2] if len(coords) > 2 else None
+            })
+    return {'count': len(items), 'items': items}
+
+
+def noaa_space_weather():
+    raw = get_json('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json')
+    rows = raw[1:] if isinstance(raw, list) and raw else []
+    latest = rows[-1] if rows else None
+    return {
+        'headers': raw[0] if raw and isinstance(raw[0], list) else [],
+        'latest': latest,
+        'recent': rows[-24:]
+    }
+
+
+def neso():
+    resource_id = '177f6fa4-ae49-4182-81ea-0c6b35f26ca6'
+    url = (
+        'https://api.neso.energy/api/3/action/datastore_search?resource_id='
+        + quote(resource_id) + '&limit=20'
+    )
+    raw = get_json(url)
+    result = raw.get('result', {})
+    records = result.get('records', [])
+    return {
+        'resource_id': resource_id,
+        'total': result.get('total', 0),
+        'records': records,
+        'latest': records[-1] if records else None
+    }
+
+
+def collect_multi_domain(now_iso):
+    collectors = [
+        ('CISA KEV', cisa_kev, 'cisa_kev'),
+        ('UKHSA', ukhsa, 'ukhsa'),
+        ('FSA Food Alerts', fsa_food_alerts, 'fsa_food_alerts'),
+        ('USGS Earthquakes', usgs_earthquakes, 'usgs_earthquakes'),
+        ('NOAA Space Weather', noaa_space_weather, 'noaa_space_weather'),
+        ('NESO', neso, 'neso')
+    ]
+    data = {}
+    statuses = {}
+    for name, fn, key in collectors:
+        try:
+            data[key] = fn()
+            statuses[name] = {'ok': True, 'stale': False, 'last_success_at': now_iso}
+        except Exception as exc:
+            data[key] = {'error': str(exc)}
+            statuses[name] = {'ok': False, 'stale': False, 'error': str(exc), 'last_success_at': None}
+    return data, statuses
+
+
 def read_json(path, default):
     try:
         with open(path, encoding='utf-8') as f:
@@ -221,6 +356,9 @@ def build():
                 'last_success_at': last_success
             }
 
+    multi_domain, multi_status = collect_multi_domain(now_iso)
+    out['multi_domain'] = multi_domain
+    feeds.update(multi_status)
     out['feeds'] = feeds
     out['risk_signals'] = normalise_current(out)
     out['source_registry_version'] = read_json(SOURCE_REGISTRY, {}).get('version', 'unknown')
