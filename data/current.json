@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T14:07:34.217726+00:00",
+  "updated_at": "2026-09-27T14:09:28.890884+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
@@ -33,406 +33,512 @@
       "count": 1726,
       "items": [
         {
-          "cveID": "CVE-2020-6207",
-          "vendorProject": "SAP",
-          "product": "Solution Manager",
-          "vulnerabilityName": "SAP Solution Manager Missing Authentication for Critical Function Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "cveID": "CVE-2026-67279",
+          "vendorProject": "MikroTik",
+          "product": "RouterOS",
+          "vulnerabilityName": "Mikrotik RouterOS Improper Enforcement of Behavioral Workflow Vulnerability",
+          "dateAdded": "2026-09-25",
+          "dueDate": "2026-09-28"
         },
         {
-          "cveID": "CVE-2016-3976",
-          "vendorProject": "SAP",
-          "product": "NetWeaver",
-          "vulnerabilityName": "SAP NetWeaver Directory Traversal Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "cveID": "CVE-2026-65660",
+          "vendorProject": "Microsoft",
+          "product": "SharePoint",
+          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
+          "dateAdded": "2026-09-25",
+          "dueDate": "2026-09-28"
         },
         {
-          "cveID": "CVE-2019-16256",
-          "vendorProject": "SIMalliance",
-          "product": "Toolbox Browser",
-          "vulnerabilityName": "SIMalliance Toolbox Browser Command Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "cveID": "CVE-2026-87902",
+          "vendorProject": "WordPress",
+          "product": "Core",
+          "vulnerabilityName": "WordPress Core Remote File Inclusion Vulnerability",
+          "dateAdded": "2026-09-25",
+          "dueDate": "2026-09-28"
         },
         {
-          "cveID": "CVE-2020-10148",
-          "vendorProject": "SolarWinds",
-          "product": "Orion",
-          "vulnerabilityName": "SolarWinds Orion Authentication Bypass Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-35211",
-          "vendorProject": "SolarWinds",
-          "product": "Serv-U",
-          "vulnerabilityName": "SolarWinds Serv-U Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2016-3643",
-          "vendorProject": "SolarWinds",
-          "product": "Virtualization Manager",
-          "vulnerabilityName": "SolarWinds Virtualization Manager Privilege Escalation Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-10199",
-          "vendorProject": "Sonatype",
-          "product": "Nexus Repository",
-          "vulnerabilityName": "Sonatype Nexus Repository Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-20021",
-          "vendorProject": "SonicWall",
-          "product": "SonicWall Email Security",
-          "vulnerabilityName": "SonicWall Email Security Improper Privilege Management Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2019-7481",
-          "vendorProject": "SonicWall",
-          "product": "SMA100",
-          "vulnerabilityName": "SonicWall SMA100 SQL Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-20022",
-          "vendorProject": "SonicWall",
-          "product": "SonicWall Email Security",
-          "vulnerabilityName": "SonicWall Email Security Unrestricted Upload of File Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2021-20023",
-          "vendorProject": "SonicWall",
-          "product": "SonicWall Email Security",
-          "vulnerabilityName": "SonicWall Email Security Path Traversal Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2021-20016",
-          "vendorProject": "SonicWall",
-          "product": "SSLVPN SMA100",
-          "vulnerabilityName": "SonicWall SSLVPN SMA100 SQL Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2020-12271",
-          "vendorProject": "Sophos",
-          "product": "SFOS",
-          "vulnerabilityName": "Sophos SFOS SQL Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-10181",
-          "vendorProject": "Sumavision",
-          "product": "Enhanced Multimedia Router (EMR)",
-          "vulnerabilityName": "Sumavision EMR Cross-Site Request Forgery (CSRF) Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2017-6327",
-          "vendorProject": "Symantec",
-          "product": "Symantec Messaging Gateway",
-          "vulnerabilityName": "Symantec Messaging Gateway Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-18988",
-          "vendorProject": "TeamViewer",
-          "product": "Desktop",
-          "vulnerabilityName": "TeamViewer Desktop Bypass Remote Login Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2017-9248",
-          "vendorProject": "Progress",
-          "product": "ASP.NET AJAX and Sitefinity",
-          "vulnerabilityName": "Progress Telerik UI for ASP.NET AJAX and Sitefinity Cryptographic Weakness Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-31755",
-          "vendorProject": "Tenda",
-          "product": "AC11 Router",
-          "vulnerabilityName": "Tenda AC11 Router Stack Buffer Overflow Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2020-10987",
-          "vendorProject": "Tenda",
-          "product": "AC1900 Router AC15 Model",
-          "vulnerabilityName": "Tenda AC1900 Router AC15 Model Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2018-14558",
-          "vendorProject": "Tenda",
-          "product": "AC7, AC9, and AC10 Routers",
-          "vulnerabilityName": "Tenda AC7, AC9, and AC10 Routers Command Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2018-20062",
-          "vendorProject": "ThinkPHP",
-          "product": "noneCms",
-          "vulnerabilityName": "ThinkPHP \"noneCms\" Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-9082",
-          "vendorProject": "ThinkPHP",
-          "product": "ThinkPHP",
-          "vulnerabilityName": "ThinkPHP Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-18187",
-          "vendorProject": "Trend Micro",
-          "product": "OfficeScan",
-          "vulnerabilityName": "Trend Micro OfficeScan Directory Traversal Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-8467",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One and OfficeScan",
-          "vulnerabilityName": "Trend Micro Apex One and OfficeScan Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-8468",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One, OfficeScan and Worry-Free Business Security Agents",
-          "vulnerabilityName": "Trend Micro Multiple Products Content Validation Escape Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-24557",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One, OfficeScan, and Worry-Free Business Security",
-          "vulnerabilityName": "Trend Micro Multiple Products Improper Access Control Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-8599",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One and OfficeScan",
-          "vulnerabilityName": "Trend Micro Apex One and OfficeScan Authentication Bypass Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-36742",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One, Apex One as a Service, and Worry-Free Business Security",
-          "vulnerabilityName": "Trend Micro Multiple Products Improper Input Validation Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2021-36741",
-          "vendorProject": "Trend Micro",
-          "product": "Apex One, Apex One as a Service, and Worry-Free Business Security",
-          "vulnerabilityName": "Trend Micro Multiple Products Improper Input Validation Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2019-20085",
-          "vendorProject": "TVT",
-          "product": "NVMS-1000",
-          "vulnerabilityName": "TVT NVMS-1000 Directory Traversal Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-5849",
-          "vendorProject": "Unraid",
-          "product": "Unraid",
-          "vulnerabilityName": "Unraid Authentication Bypass Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-5847",
-          "vendorProject": "Unraid",
-          "product": "Unraid",
-          "vulnerabilityName": "Unraid Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-16759",
-          "vendorProject": "vBulletin",
-          "product": "vBulletin",
-          "vulnerabilityName": "vBulletin PHP Module Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-17496",
-          "vendorProject": "vBulletin",
-          "product": "vBulletin",
-          "vulnerabilityName": "vBulletin PHP Module Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-5544",
-          "vendorProject": "VMware",
-          "product": "VMware ESXi and Horizon DaaS",
-          "vulnerabilityName": "VMware ESXi and Horizon DaaS OpenSLP Heap-Based Buffer Overflow Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-3992",
-          "vendorProject": "VMware",
-          "product": "ESXi",
-          "vulnerabilityName": "VMware ESXi OpenSLP Use-After-Free Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-3950",
-          "vendorProject": "VMware",
+          "cveID": "CVE-2026-5430",
+          "vendorProject": "WSO2",
           "product": "Multiple Products",
-          "vulnerabilityName": "VMware Multiple Products Privilege Escalation Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "vulnerabilityName": "WSO2 Multiple Products Path Traversal Vulnerability ",
+          "dateAdded": "2026-09-24",
+          "dueDate": "2026-09-27"
         },
         {
-          "cveID": "CVE-2021-22005",
-          "vendorProject": "VMware",
-          "product": "vCenter Server",
-          "vulnerabilityName": "VMware vCenter Server File Upload Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
+          "cveID": "CVE-2026-71362",
+          "vendorProject": "Adobe",
+          "product": "Commerce and Magento ",
+          "vulnerabilityName": "Adobe Commerce and Magento Incorrect Authorization Vulnerability ",
+          "dateAdded": "2026-09-24",
+          "dueDate": "2026-09-27"
         },
         {
-          "cveID": "CVE-2020-3952",
-          "vendorProject": "VMware",
-          "product": "vCenter Server",
-          "vulnerabilityName": "VMware vCenter Server Information Disclosure Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "cveID": "CVE-2026-93952",
+          "vendorProject": "Arista",
+          "product": "VeloCloud Orchestrator",
+          "vulnerabilityName": "Arista VeloCloud Orchestrator Improper Input Validation Vulnerability",
+          "dateAdded": "2026-09-22",
+          "dueDate": "2026-09-25"
         },
         {
-          "cveID": "CVE-2021-21972",
-          "vendorProject": "VMware",
-          "product": "vCenter Server",
-          "vulnerabilityName": "VMware vCenter Server Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
+          "cveID": "CVE-2026-94127",
+          "vendorProject": "F5",
+          "product": "BIG-IP APM",
+          "vulnerabilityName": "F5 BIG-IP APM Heap-based Buffer Overflow Vulnerability",
+          "dateAdded": "2026-09-22",
+          "dueDate": "2026-09-25"
         },
         {
-          "cveID": "CVE-2021-21985",
-          "vendorProject": "VMware",
-          "product": "vCenter Server",
-          "vulnerabilityName": "VMware vCenter Server Improper Input Validation Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2020-4006",
-          "vendorProject": "VMware",
+          "cveID": "CVE-2026-93616",
+          "vendorProject": "Check Point",
           "product": "Multiple Products",
-          "vulnerabilityName": "Multiple VMware Products Command Injection Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "vulnerabilityName": "Check Point Multiple Products Path Traversal Vulnerability",
+          "dateAdded": "2026-09-22",
+          "dueDate": "2026-09-25"
         },
         {
-          "cveID": "CVE-2020-25213",
-          "vendorProject": "WordPress",
-          "product": "File Manager Plugin",
-          "vulnerabilityName": "WordPress File Manager Plugin Remote Code Execution Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "cveID": "CVE-2026-85102",
+          "vendorProject": "Check Point",
+          "product": "Multiple Products",
+          "vulnerabilityName": "Check Point Multiple Products Improper Certificate Validation Vulnerability",
+          "dateAdded": "2026-09-22",
+          "dueDate": "2026-09-25"
         },
         {
-          "cveID": "CVE-2020-11738",
-          "vendorProject": "WordPress",
-          "product": "Snap Creek Duplicator Plugin",
-          "vulnerabilityName": "WordPress Snap Creek Duplicator Plugin File Download Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-9978",
-          "vendorProject": "WordPress",
-          "product": "Social Warfare Plugin",
-          "vulnerabilityName": "WordPress Social Warfare Plugin Cross-Site Scripting (XSS) Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2021-27561",
-          "vendorProject": "Yealink",
-          "product": "Device Management",
-          "vulnerabilityName": "Yealink Device Management Server-Side Request Forgery (SSRF) Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2021-40539",
-          "vendorProject": "Zoho",
-          "product": "ManageEngine",
-          "vulnerabilityName": "Zoho ManageEngine ADSelfService Plus Authentication Bypass Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2021-11-17"
-        },
-        {
-          "cveID": "CVE-2020-10189",
-          "vendorProject": "Zoho",
-          "product": "ManageEngine",
-          "vulnerabilityName": "Zoho ManageEngine Desktop Central File Upload Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2019-8394",
-          "vendorProject": "Zoho",
-          "product": "ManageEngine",
-          "vulnerabilityName": "Zoho ManageEngine ServiceDesk Plus (SDP) File Upload Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
-        },
-        {
-          "cveID": "CVE-2020-29583",
+          "cveID": "CVE-2026-7273",
           "vendorProject": "Zyxel",
+          "product": "GS1900 Series Switches",
+          "vulnerabilityName": "Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability",
+          "dateAdded": "2026-09-21",
+          "dueDate": "2026-09-24"
+        },
+        {
+          "cveID": "CVE-2025-39964",
+          "vendorProject": "Linux",
+          "product": "Kernel",
+          "vulnerabilityName": "Linux Kernel Race Condition Vulnerability",
+          "dateAdded": "2026-09-18",
+          "dueDate": "2026-09-21"
+        },
+        {
+          "cveID": "CVE-2026-53266",
+          "vendorProject": "Linux",
+          "product": "Kernel",
+          "vulnerabilityName": "Linux Kernel Out-of-Bounds Write Vulnerability",
+          "dateAdded": "2026-09-18",
+          "dueDate": "2026-09-21"
+        },
+        {
+          "cveID": "CVE-2025-39682",
+          "vendorProject": "Linux",
+          "product": "Kernel",
+          "vulnerabilityName": "Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability",
+          "dateAdded": "2026-09-18",
+          "dueDate": "2026-09-21"
+        },
+        {
+          "cveID": "CVE-2026-58704",
+          "vendorProject": "Google",
+          "product": "Pixel",
+          "vulnerabilityName": "Google Pixel Improper Authorization Vulnerability",
+          "dateAdded": "2026-09-16",
+          "dueDate": "2026-09-19"
+        },
+        {
+          "cveID": "CVE-2026-76460",
+          "vendorProject": "Cisco",
+          "product": "Identity Services Engine",
+          "vulnerabilityName": "Cisco Identity Services Engine Incorrect Use of Privileged APIs Vulnerability",
+          "dateAdded": "2026-09-16",
+          "dueDate": "2026-09-19"
+        },
+        {
+          "cveID": "CVE-2026-87886",
+          "vendorProject": "Acronis",
+          "product": "Backup",
+          "vulnerabilityName": "Acronis Backup Incorrect Default Permissions Vulnerability",
+          "dateAdded": "2026-09-16",
+          "dueDate": "2026-09-19"
+        },
+        {
+          "cveID": "CVE-2026-76461",
+          "vendorProject": "Cisco",
+          "product": "Secure Email Gateway",
+          "vulnerabilityName": "Cisco Secure Email Gateway SQL Injection Vulnerability",
+          "dateAdded": "2026-09-14",
+          "dueDate": "2026-09-17"
+        },
+        {
+          "cveID": "CVE-2026-84869",
+          "vendorProject": "ConnectWise",
+          "product": "ScreenConnect",
+          "vulnerabilityName": "ConnectWise ScreenConnect Improper Privilege Management and Missing Authorization Vulnerability",
+          "dateAdded": "2026-09-11",
+          "dueDate": "2026-09-14"
+        },
+        {
+          "cveID": "CVE-2026-42016",
+          "vendorProject": "JFrog",
+          "product": "Artifactory",
+          "vulnerabilityName": "JFrog Artifactory Incorrect Authorization Vulnerability",
+          "dateAdded": "2026-09-11",
+          "dueDate": "2026-09-25"
+        },
+        {
+          "cveID": "CVE-2026-42018",
+          "vendorProject": "JFrog",
+          "product": "Artifactory",
+          "vulnerabilityName": "JFrog Artifactory Improper Authentication Vulnerability",
+          "dateAdded": "2026-09-11",
+          "dueDate": "2026-09-25"
+        },
+        {
+          "cveID": "CVE-2026-85706",
+          "vendorProject": "GitLab",
+          "product": "Community Edition and Enterprise Edition",
+          "vulnerabilityName": "GitLab Community Edition and Enterprise Edition Path Traversal Vulnerability",
+          "dateAdded": "2026-09-11",
+          "dueDate": "2026-09-14"
+        },
+        {
+          "cveID": "CVE-2026-86060",
+          "vendorProject": "MikroTik",
+          "product": "RouterOS",
+          "vulnerabilityName": "MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability",
+          "dateAdded": "2026-09-10",
+          "dueDate": "2026-09-13"
+        },
+        {
+          "cveID": "CVE-2026-67277",
+          "vendorProject": "MikroTik",
+          "product": "RouterOS",
+          "vulnerabilityName": "MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
+          "dateAdded": "2026-09-10",
+          "dueDate": "2026-09-13"
+        },
+        {
+          "cveID": "CVE-2026-19490",
+          "vendorProject": "Citrix",
+          "product": "NetScaler",
+          "vulnerabilityName": "Citrix NetScaler Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "dateAdded": "2026-09-09",
+          "dueDate": "2026-09-12"
+        },
+        {
+          "cveID": "CVE-2025-25249",
+          "vendorProject": "Fortinet",
           "product": "Multiple Products",
-          "vulnerabilityName": "Zyxel Multiple Products Use of Hard-Coded Credentials Vulnerability",
-          "dateAdded": "2021-11-03",
-          "dueDate": "2022-05-03"
+          "vulnerabilityName": "Fortinet Multiple Products Heap-based Buffer Overflow Vulnerability",
+          "dateAdded": "2026-09-09",
+          "dueDate": "2026-09-12"
+        },
+        {
+          "cveID": "CVE-2026-87491",
+          "vendorProject": "Google",
+          "product": "Chromium V8",
+          "vulnerabilityName": "Google Chromium V8 Out of Bounds Write Vulnerability",
+          "dateAdded": "2026-09-09",
+          "dueDate": "2026-09-23"
+        },
+        {
+          "cveID": "CVE-2026-20079",
+          "vendorProject": "Cisco",
+          "product": "Secure Firewall Management Center (FMC) and Security Cloud Control (SCC) Firewall Management",
+          "vulnerabilityName": "Cisco Firewall Management Center Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+          "dateAdded": "2026-09-09",
+          "dueDate": "2026-09-12"
+        },
+        {
+          "cveID": "CVE-2026-75650",
+          "vendorProject": "Adobe",
+          "product": "Commerce and Magento",
+          "vulnerabilityName": "Adobe Commerce and Magento Improper Neutralization of Special Elements Used in a Template Engine Vulnerability",
+          "dateAdded": "2026-09-08",
+          "dueDate": "2026-09-11"
+        },
+        {
+          "cveID": "CVE-2026-81963",
+          "vendorProject": "Microsoft",
+          "product": "Windows",
+          "vulnerabilityName": "Microsoft Windows Link Following Vulnerability",
+          "dateAdded": "2026-09-08",
+          "dueDate": "2026-09-22"
+        },
+        {
+          "cveID": "CVE-2026-86218",
+          "vendorProject": "N-able",
+          "product": "N-central",
+          "vulnerabilityName": "N-able N-central Static Code Injection Vulnerability",
+          "dateAdded": "2026-09-08",
+          "dueDate": "2026-09-11"
+        },
+        {
+          "cveID": "CVE-2026-85880",
+          "vendorProject": "Microsoft",
+          "product": "Windows",
+          "vulnerabilityName": "Microsoft Windows Heap-Based Buffer Overflow Vulnerability",
+          "dateAdded": "2026-09-08",
+          "dueDate": "2026-09-22"
+        },
+        {
+          "cveID": "CVE-2026-85046",
+          "vendorProject": "Google",
+          "product": "Chromium V8",
+          "vulnerabilityName": "Google Chromium V8 Type Confusion Vulnerability",
+          "dateAdded": "2026-09-04",
+          "dueDate": "2026-09-18"
+        },
+        {
+          "cveID": "CVE-2026-59822",
+          "vendorProject": "BerriAI",
+          "product": "LiteLLM",
+          "vulnerabilityName": "BerriAI LiteLLM Improper Authentication Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-16"
+        },
+        {
+          "cveID": "CVE-2026-48710",
+          "vendorProject": "Kludex",
+          "product": "Starlette",
+          "vulnerabilityName": "Kludex Starlette HTTP Request/Response Smuggling Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-16"
+        },
+        {
+          "cveID": "CVE-2026-49869",
+          "vendorProject": "Kestra",
+          "product": "Kestra OSS",
+          "vulnerabilityName": "Kestra OSS OS Command Injection Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-05"
+        },
+        {
+          "cveID": "CVE-2026-82329",
+          "vendorProject": "JFrog",
+          "product": "Artifactory",
+          "vulnerabilityName": "JFrog Artifactory Improper Authentication Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-05"
+        },
+        {
+          "cveID": "CVE-2026-9586",
+          "vendorProject": "Sangoma",
+          "product": "Switchvox",
+          "vulnerabilityName": "Sangoma Switchvox SQL Injection Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-05"
+        },
+        {
+          "cveID": "CVE-2026-83548",
+          "vendorProject": "SonicWall",
+          "product": "SMA1000 Appliances",
+          "vulnerabilityName": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-05"
+        },
+        {
+          "cveID": "CVE-2026-83549",
+          "vendorProject": "SonicWall",
+          "product": "SMA1000 Appliances",
+          "vulnerabilityName": "SonicWall SMA1000 Appliances OS Command Injection Vulnerability",
+          "dateAdded": "2026-09-02",
+          "dueDate": "2026-09-05"
+        },
+        {
+          "cveID": "CVE-2026-82078",
+          "vendorProject": "PaperCut",
+          "product": "NG/MF",
+          "vulnerabilityName": "PaperCut NG/MF Unsafe Reflection Vulnerability",
+          "dateAdded": "2026-08-31",
+          "dueDate": "2026-09-14"
+        },
+        {
+          "cveID": "CVE-2026-81578",
+          "vendorProject": "PaperCut",
+          "product": "NG/MF",
+          "vulnerabilityName": "PaperCut NG/MF Missing Authentication for Critical Function Vulnerability",
+          "dateAdded": "2026-08-31",
+          "dueDate": "2026-09-14"
+        },
+        {
+          "cveID": "CVE-2023-49105",
+          "vendorProject": "ownCloud",
+          "product": "ownCloud",
+          "vulnerabilityName": "ownCloud Improper Authentication Vulnerability",
+          "dateAdded": "2026-08-27",
+          "dueDate": "2026-08-30"
+        },
+        {
+          "cveID": "CVE-2026-53362",
+          "vendorProject": "Linux",
+          "product": "Kernel",
+          "vulnerabilityName": "Linux Kernel Unspecified Vulnerability",
+          "dateAdded": "2026-08-27",
+          "dueDate": "2026-08-30"
+        },
+        {
+          "cveID": "CVE-2026-66384",
+          "vendorProject": "JFrog",
+          "product": "Artifactory",
+          "vulnerabilityName": "JFrog Artifactory Improper Limitation of a Pathname to a Restricted Directory Vulnerability",
+          "dateAdded": "2026-08-27",
+          "dueDate": "2026-09-10"
+        },
+        {
+          "cveID": "CVE-2021-23758",
+          "vendorProject": "Ajax.NET Professional",
+          "product": "Ajax.NET Professional",
+          "vulnerabilityName": "Ajax.NET Professional Deserialization of Untrusted Data Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-09-09"
+        },
+        {
+          "cveID": "CVE-2015-3246",
+          "vendorProject": "Red Hat",
+          "product": "Libuser",
+          "vulnerabilityName": "Red Hat Libuser Race Condition Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-09-09"
+        },
+        {
+          "cveID": "CVE-2015-5287",
+          "vendorProject": "Red Hat",
+          "product": "Automatic Bug Reporting Tool",
+          "vulnerabilityName": "Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-09-09"
+        },
+        {
+          "cveID": "CVE-2022-0995",
+          "vendorProject": "Linux",
+          "product": "Kernel",
+          "vulnerabilityName": "Linux Kernel Out-of-Bounds Write Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-09-09"
+        },
+        {
+          "cveID": "CVE-2026-8452",
+          "vendorProject": "Citrix",
+          "product": "NetScaler ADC and NetScaler Gateway",
+          "vulnerabilityName": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-08-29"
+        },
+        {
+          "cveID": "CVE-2019-1068",
+          "vendorProject": "Microsoft",
+          "product": "SQL Server",
+          "vulnerabilityName": "Microsoft SQL Server Remote Code Execution Vulnerability",
+          "dateAdded": "2026-08-26",
+          "dueDate": "2026-08-29"
         }
       ]
+    },
+    "ncsc": {
+      "count": 20,
+      "items": [
+        {
+          "title": "One does not simply defend agentically",
+          "link": "https://www.ncsc.gov.uk/blogs/one-does-not-simply-defend-agentically",
+          "published_at": "2026-09-21T12:00:00+00:00"
+        },
+        {
+          "title": "Adversary simulation: what you need to know",
+          "link": "https://www.ncsc.gov.uk/guidance/adversary-simulation-what-you-need-to-know",
+          "published_at": "2026-09-17T12:00:00+00:00"
+        },
+        {
+          "title": "Cyber Adversary Simulation (CyAS): scheme documents now available",
+          "link": "https://www.ncsc.gov.uk/blogs/cyber-adversary-simulation-cyas-scheme-documents-now-available",
+          "published_at": "2026-09-17T12:00:00+00:00"
+        },
+        {
+          "title": "Iranian cyber targeting of dissidents, activists and journalists",
+          "link": "https://www.ncsc.gov.uk/news/iranian-cyber-targeting-of-dissidents-activists-and-journalists",
+          "published_at": "2026-09-15T12:00:00+00:00"
+        },
+        {
+          "title": "UK and allies expose spyware used by Iranian state actors to target dissidents, activists and journalists",
+          "link": "https://www.ncsc.gov.uk/news/uk-allies-expose-spyware-iranian-state-actors-target-dissidents-activists-journalists",
+          "published_at": "2026-09-15T12:00:00+00:00"
+        },
+        {
+          "title": "The hidden risks of shadow AI",
+          "link": "https://www.ncsc.gov.uk/blogs/the-hidden-risks-of-shadow-ai",
+          "published_at": "2026-09-07T12:00:00+00:00"
+        },
+        {
+          "title": "Disruptive cyber activity highlights risk from internet-exposed systems and edge devices",
+          "link": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
+          "published_at": "2026-08-27T12:00:00+00:00"
+        },
+        {
+          "title": "Managing the cyber risk of agentic AI",
+          "link": "https://www.ncsc.gov.uk/blogs/managing-the-cyber-risk-of-agentic-ai",
+          "published_at": "2026-08-20T12:00:00+00:00"
+        },
+        {
+          "title": "How BitLocker PINs help protect your data and devices",
+          "link": "https://www.ncsc.gov.uk/blogs/how-bitlocker-pins-help-protect-your-data-and-devices",
+          "published_at": "2026-08-13T12:00:00+00:00"
+        },
+        {
+          "title": "Help shape the future of resilient private 5G",
+          "link": "https://www.ncsc.gov.uk/blogs/help-shape-the-future-of-resilient-private-5g",
+          "published_at": "2026-08-12T12:00:00+00:00"
+        },
+        {
+          "title": "Water sector example added to the NCSC’s Secure connectivity principles",
+          "link": "https://www.ncsc.gov.uk/blogs/water-sector-example-added-to-the-ncscs-secure-connectivity-principles",
+          "published_at": "2026-08-11T12:00:00+00:00"
+        },
+        {
+          "title": "NCSC statement in response to recent incidents resulting from frontier AI evaluations",
+          "link": "https://www.ncsc.gov.uk/news/ncsc-statement-in-response-to-recent-incidents-resulting-from-frontier-ai-evaluations",
+          "published_at": "2026-08-04T12:00:00+00:00"
+        },
+        {
+          "title": "Making forensic observability the norm for network devices",
+          "link": "https://www.ncsc.gov.uk/blogs/making-forensic-observability-the-norm-for-network-devices",
+          "published_at": "2026-07-29T12:00:00+00:00"
+        },
+        {
+          "title": "When cyber attacks happen: helping organisations recover",
+          "link": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
+          "published_at": "2026-07-28T12:00:00+00:00"
+        },
+        {
+          "title": "UK and partners expose Russian state-supported actors for new ‘zero-click’ phishing campaign targeting Western organisations",
+          "link": "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
+          "published_at": "2026-07-23T12:00:00+00:00"
+        },
+        {
+          "title": "Post-quantum cryptography (PQC) migration workshop report",
+          "link": "https://www.ncsc.gov.uk/blogs/post-quantum-cryptography-pqc-migration-workshop-report",
+          "published_at": "2026-07-22T12:00:00+00:00"
+        },
+        {
+          "title": "Helping small businesses with free, hands-on cyber consultancy",
+          "link": "https://www.ncsc.gov.uk/blogs/helping-small-businesses-with-free-hands-on-cyber-consultancy",
+          "published_at": "2026-07-15T12:00:00+00:00"
+        },
+        {
+          "title": "UK and Allies urge critical sectors to improve defences against Russian intelligence targeting",
+          "link": "https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting",
+          "published_at": "2026-07-13T12:00:00+00:00"
+        },
+        {
+          "title": "Cyber Essentials Pathways: from proof of concept to cyber confidence",
+          "link": "https://www.ncsc.gov.uk/blogs/cyber-essentials-pathways-from-proof-of-concept-to-cyber-confidence",
+          "published_at": "2026-07-09T12:00:00+00:00"
+        },
+        {
+          "title": "Cyber Shield: The path to an agentic AI future for cyber defence",
+          "link": "https://www.ncsc.gov.uk/blogs/cyber-shield-the-path-to-an-agentic-ai-future-for-cyber-defence",
+          "published_at": "2026-07-07T12:00:00+00:00"
+        }
+      ],
+      "source_url": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml"
     },
     "ukhsa": {
       "metric": "acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay",
@@ -758,7 +864,7 @@
       ]
     },
     "usgs_earthquakes": {
-      "count": 6,
+      "count": 5,
       "items": [
         {
           "id": "us6000txw5",
@@ -814,17 +920,6 @@
           "longitude": 168.5751,
           "latitude": -21.3884,
           "depth_km": 10
-        },
-        {
-          "id": "us6000txtc",
-          "magnitude": 5.6,
-          "place": "74 km ESE of Kokopo, Papua New Guinea",
-          "time": 1790431697704,
-          "updated": 1790448001040,
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000txtc",
-          "longitude": 152.8383,
-          "latitude": -4.6952,
-          "depth_km": 57.78
         }
       ]
     },
@@ -1520,7 +1615,7 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "Environment Agency": {
       "ok": false,
@@ -1531,47 +1626,52 @@
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "CISA KEV": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
+    },
+    "NCSC": {
+      "ok": true,
+      "stale": false,
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "UKHSA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "FSA Food Alerts": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "USGS Earthquakes": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "NOAA Space Weather": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     },
     "NESO": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-09-27T14:07:34.217726+00:00"
+      "last_success_at": "2026-09-27T14:09:28.890884+00:00"
     }
   },
   "risk_signals": [
     {
-      "id": "risk:2fb088d58bfe1d91",
+      "id": "risk:87983b6c9c286fa7",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1579,19 +1679,1331 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-09-25T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2020-6207: SAP Solution Manager Missing Authentication for Critical Function Vulnerability",
+      "description": "CVE-2026-67279: Mikrotik RouterOS Improper Enforcement of Behavioral Workflow Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-6207",
+      "source_record_id": "CVE-2026-67279",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:b294b0498d4ab25c",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-25T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-65660: Microsoft SharePoint Code Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-65660",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:70e497df01234344",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-25T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-87902: WordPress Core Remote File Inclusion Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-87902",
+      "priority_model_version": "1.0",
+      "priority_score": 9,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:063b08bf309b75c7",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-24T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-5430: WSO2 Multiple Products Path Traversal Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-5430",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:82682e2344a00daa",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-24T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-71362: Adobe Commerce and Magento Incorrect Authorization Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-71362",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:833c921c2b715de2",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-22T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-93952: Arista VeloCloud Orchestrator Improper Input Validation Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-93952",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:90a9d5c863a17252",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-22T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-94127: F5 BIG-IP APM Heap-based Buffer Overflow Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-94127",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:f797532c29823b69",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-22T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-93616: Check Point Multiple Products Path Traversal Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-93616",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:36759bd1975de5f1",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-22T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-85102: Check Point Multiple Products Improper Certificate Validation Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-85102",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:c2bd5983e512a087",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-21T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-7273: Zyxel GS1900 Series Switches Stack-Based Buffer Overflow Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-7273",
+      "priority_model_version": "1.0",
+      "priority_score": 7,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:d127c463f31e456a",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-18T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2025-39964: Linux Kernel Race Condition Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2025-39964",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:53ac2b7548f3b4a6",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-18T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-53266: Linux Kernel Out-of-Bounds Write Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-53266",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:116c572044be81a3",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-18T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2025-39682: Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2025-39682",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:658f911e598ef55d",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-16T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-58704: Google Pixel Improper Authorization Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-58704",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:bea170f37b46bfed",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-16T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-76460: Cisco Identity Services Engine Incorrect Use of Privileged APIs Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-76460",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:7ca2ba926bb9afe7",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-16T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-87886: Acronis Backup Incorrect Default Permissions Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-87886",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:7cd2bf6feef7758b",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-14T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-76461: Cisco Secure Email Gateway SQL Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-76461",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:b2e714b407264328",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-11T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-84869: ConnectWise ScreenConnect Improper Privilege Management and Missing Authorization Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-84869",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:f0574816135375ab",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-11T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-42016: JFrog Artifactory Incorrect Authorization Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-42016",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:0ce16cd3460bd74e",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-11T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-42018: JFrog Artifactory Improper Authentication Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-42018",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:b86922129faa474c",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-11T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-85706: GitLab Community Edition and Enterprise Edition Path Traversal Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-85706",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:f79004cefab4a8d4",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-10T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-86060: MikroTik RouterOS Improper Neutralization of Argument Delimiters in a Command Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-86060",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:db9208b3a9cd2e5c",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-10T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-67277: MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-67277",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:752c3e436f90533c",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-09T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-19490: Citrix NetScaler Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-19490",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:96a545212be1546b",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-09T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2025-25249: Fortinet Multiple Products Heap-based Buffer Overflow Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2025-25249",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:27b93ab010ba37c2",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-09T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-87491: Google Chromium V8 Out of Bounds Write Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-87491",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:f3b805f29bea4f1b",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-09T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-20079: Cisco Firewall Management Center Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-20079",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:6af1c1ee708ec488",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-08T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-75650: Adobe Commerce and Magento Improper Neutralization of Special Elements Used in a Template Engine Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-75650",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:ff1c3dbd571665b6",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-08T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-81963: Microsoft Windows Link Following Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-81963",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:4e383d98a1bc9599",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-08T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-86218: N-able N-central Static Code Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-86218",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:b1026e3853944af1",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-08T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-85880: Microsoft Windows Heap-Based Buffer Overflow Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-85880",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:669fbcec23d3eb66",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-04T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-85046: Google Chromium V8 Type Confusion Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-85046",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:48931e74f78d9414",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-59822: BerriAI LiteLLM Improper Authentication Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-59822",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:2975554bcf7bb0be",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-48710: Kludex Starlette HTTP Request/Response Smuggling Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-48710",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:b15ffe0b8e3e3b17",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-49869: Kestra OSS OS Command Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-49869",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:439dd8601dd652ee",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-82329: JFrog Artifactory Improper Authentication Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-82329",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:78a14d94b826da68",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-9586: Sangoma Switchvox SQL Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-9586",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:47ee8015f3a4fe68",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-83548: SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-83548",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:f6e40a54e3689815",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-09-02T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-83549: SonicWall SMA1000 Appliances OS Command Injection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-83549",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:9d498ab2c76336bf",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-08-31T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-82078: PaperCut NG/MF Unsafe Reflection Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-82078",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:98b4325d7b759661",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-08-31T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-81578: PaperCut NG/MF Missing Authentication for Critical Function Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-81578",
+      "priority_model_version": "1.0",
+      "priority_score": 5,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:dated",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:649d64098f6717d2",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-08-27T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2023-49105: ownCloud Improper Authentication Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2023-49105",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1603,7 +3015,7 @@
       ]
     },
     {
-      "id": "risk:7742bd3f9c2413f5",
+      "id": "risk:e059d1f7dd27a301",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1611,19 +3023,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-27T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2016-3976: SAP NetWeaver Directory Traversal Vulnerability",
+      "description": "CVE-2026-53362: Linux Kernel Unspecified Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2016-3976",
+      "source_record_id": "CVE-2026-53362",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1635,7 +3047,7 @@
       ]
     },
     {
-      "id": "risk:70322cd668248e77",
+      "id": "risk:dbf35967086e1f29",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1643,19 +3055,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-27T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2019-16256: SIMalliance Toolbox Browser Command Injection Vulnerability",
+      "description": "CVE-2026-66384: JFrog Artifactory Improper Limitation of a Pathname to a Restricted Directory Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-16256",
+      "source_record_id": "CVE-2026-66384",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1667,7 +3079,7 @@
       ]
     },
     {
-      "id": "risk:4c72b170768c4430",
+      "id": "risk:15ff0ce6cae2c37d",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1675,19 +3087,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2020-10148: SolarWinds Orion Authentication Bypass Vulnerability",
+      "description": "CVE-2021-23758: Ajax.NET Professional Deserialization of Untrusted Data Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10148",
+      "source_record_id": "CVE-2021-23758",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1699,7 +3111,7 @@
       ]
     },
     {
-      "id": "risk:75012ff56d92c526",
+      "id": "risk:548c95d0e9726d98",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1707,19 +3119,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2021-35211: SolarWinds Serv-U Remote Code Execution Vulnerability",
+      "description": "CVE-2015-3246: Red Hat Libuser Race Condition Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-35211",
+      "source_record_id": "CVE-2015-3246",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1731,7 +3143,7 @@
       ]
     },
     {
-      "id": "risk:c3961320f02fe383",
+      "id": "risk:a9c20c94779b89e8",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1739,19 +3151,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2016-3643: SolarWinds Virtualization Manager Privilege Escalation Vulnerability",
+      "description": "CVE-2015-5287: Red Hat Automatic Bug Reporting Tool Privilege Escalation Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2016-3643",
+      "source_record_id": "CVE-2015-5287",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1763,7 +3175,7 @@
       ]
     },
     {
-      "id": "risk:7ea870adb970b008",
+      "id": "risk:5211f30a27014048",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1771,19 +3183,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2020-10199: Sonatype Nexus Repository Remote Code Execution Vulnerability",
+      "description": "CVE-2022-0995: Linux Kernel Out-of-Bounds Write Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2020-10199",
+      "source_record_id": "CVE-2022-0995",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1795,7 +3207,7 @@
       ]
     },
     {
-      "id": "risk:be296b01994b119f",
+      "id": "risk:1b0d71740bf43fba",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1803,19 +3215,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2021-20021: SonicWall Email Security Improper Privilege Management Vulnerability",
+      "description": "CVE-2026-8452: Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2021-20021",
+      "source_record_id": "CVE-2026-8452",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -1827,7 +3239,7 @@
       ]
     },
     {
-      "id": "risk:f1399935369172ff",
+      "id": "risk:d9e070ac965f4441",
       "schema_version": "1.0",
       "risk_theme": "cyber",
       "risk_domain": "cyber",
@@ -1835,1331 +3247,19 @@
       "source": "CISA Known Exploited Vulnerabilities",
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "observed_at": "2026-08-26T00:00:00+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
         "scope": "international"
       },
       "confidence": "high",
-      "description": "CVE-2019-7481: SonicWall SMA100 SQL Injection Vulnerability",
+      "description": "CVE-2019-1068: Microsoft SQL Server Remote Code Execution Vulnerability",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "CVE-2019-7481",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:9b8e851541600988",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-20022: SonicWall Email Security Unrestricted Upload of File Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-20022",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:19efacc38ece51d6",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-20023: SonicWall Email Security Path Traversal Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-20023",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:3c315447b17a6953",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-20016: SonicWall SSLVPN SMA100 SQL Injection Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-20016",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:6d9cf96a8348a00a",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-12271: Sophos SFOS SQL Injection Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-12271",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:5dc06fd5aca7231f",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-10181: Sumavision EMR Cross-Site Request Forgery (CSRF) Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-10181",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:21b8d41a9e358598",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2017-6327: Symantec Messaging Gateway Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2017-6327",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:91e5f395ea7ce9a2",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-18988: TeamViewer Desktop Bypass Remote Login Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-18988",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:8dc21f14c84b6f0f",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2017-9248: Progress Telerik UI for ASP.NET AJAX and Sitefinity Cryptographic Weakness Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2017-9248",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:72703aede47d355c",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-31755: Tenda AC11 Router Stack Buffer Overflow Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-31755",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:0e2a184a39f10a84",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-10987: Tenda AC1900 Router AC15 Model Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-10987",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:7b1a01cdf16f9bd3",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2018-14558: Tenda AC7, AC9, and AC10 Routers Command Injection Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2018-14558",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:f429a273babfcec9",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2018-20062: ThinkPHP \"noneCms\" Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2018-20062",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:5c246f044ad0edaa",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-9082: ThinkPHP Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-9082",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:6a5741f8eee42bd5",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-18187: Trend Micro OfficeScan Directory Traversal Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-18187",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:e8cd6555c104a660",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-8467: Trend Micro Apex One and OfficeScan Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-8467",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:5bc58c6f7422b092",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-8468: Trend Micro Multiple Products Content Validation Escape Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-8468",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:538dd8f0c1a4d016",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-24557: Trend Micro Multiple Products Improper Access Control Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-24557",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:1a567ae29ec0bf00",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-8599: Trend Micro Apex One and OfficeScan Authentication Bypass Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-8599",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:0370b6046ec52eb2",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-36742: Trend Micro Multiple Products Improper Input Validation Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-36742",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:0082b9c3c9b8cc11",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-36741: Trend Micro Multiple Products Improper Input Validation Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-36741",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:5e65ba17c36bac2b",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-20085: TVT NVMS-1000 Directory Traversal Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-20085",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:fad678ea7e68186a",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-5849: Unraid Authentication Bypass Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-5849",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:31a662f5aaa90b03",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-5847: Unraid Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-5847",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:5d0149cd5404b513",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-16759: vBulletin PHP Module Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-16759",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:de0a36179b8f3de7",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-17496: vBulletin PHP Module Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-17496",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:ef819bcdbc9bc1d9",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-5544: VMware ESXi and Horizon DaaS OpenSLP Heap-Based Buffer Overflow Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-5544",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:e0002698bb9ce828",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-3992: VMware ESXi OpenSLP Use-After-Free Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-3992",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:ba7f5e99a3a57fc2",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-3950: VMware Multiple Products Privilege Escalation Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-3950",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:97e437b9260c810a",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-22005: VMware vCenter Server File Upload Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-22005",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:0afd0399599c380a",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-3952: VMware vCenter Server Information Disclosure Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-3952",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:c66fad2cffdbb914",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-21972: VMware vCenter Server Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-21972",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:6f14136a2af053a6",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-21985: VMware vCenter Server Improper Input Validation Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-21985",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:4978d7f8d88a05a1",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-4006: Multiple VMware Products Command Injection Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-4006",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:e26e1d6f99fb326f",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-25213: WordPress File Manager Plugin Remote Code Execution Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-25213",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:7c94125ccc4728af",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-11738: WordPress Snap Creek Duplicator Plugin File Download Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-11738",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:2a41f03df929f3d9",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-9978: WordPress Social Warfare Plugin Cross-Site Scripting (XSS) Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-9978",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:4e6d66391dc34f84",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-27561: Yealink Device Management Server-Side Request Forgery (SSRF) Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-27561",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:c09077edf19b64d1",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2021-40539: Zoho ManageEngine ADSelfService Plus Authentication Bypass Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2021-40539",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:f7edf70d4067c7f6",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-10189: Zoho ManageEngine Desktop Central File Upload Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-10189",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:045c1c45f474a8d5",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2019-8394: Zoho ManageEngine ServiceDesk Plus (SDP) File Upload Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2019-8394",
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:920c1f325476adc7",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2021-11-03T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2020-29583: Zyxel Multiple Products Use of Hard-Coded Credentials Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2020-29583",
+      "source_record_id": "CVE-2019-1068",
       "priority_model_version": "1.0",
       "priority_score": 2,
       "priority_band": "monitor",
@@ -3180,7 +3280,7 @@
       "source_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "published_at": null,
       "observed_at": "2026-09-20T00:00:00+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -3212,7 +3312,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-25T13:00:40.592Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3244,7 +3344,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-25T10:20:09.499Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3276,7 +3376,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-24T20:13:30.099Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3308,7 +3408,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-22T19:55:28.156Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3340,7 +3440,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-10T19:17:21.913Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3372,7 +3472,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-04T18:39:45.509Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3404,7 +3504,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-03T16:11:41.515Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3436,7 +3536,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-09-03T13:34:09.742Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3468,7 +3568,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-08-28T09:51:57.466Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3500,7 +3600,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-08-25T17:30:42.667Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3532,7 +3632,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-08-21T16:45:36.179Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3564,7 +3664,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-08-10T15:49:00.442Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3596,7 +3696,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-08-08T06:49:21.626Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3628,7 +3728,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-31T16:30:41.554Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3660,7 +3760,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-25T11:10:48.029Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3692,7 +3792,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-23T15:36:42.127Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3724,7 +3824,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-21T15:50:09.11Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3756,7 +3856,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-20T08:16:45.261Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3788,7 +3888,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-17T20:16:28.573Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3820,7 +3920,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-14T16:19:36.901Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3852,7 +3952,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-11T11:38:25.159Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3884,7 +3984,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-08T12:44:39.944Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3916,7 +4016,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-03T20:41:43.158Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3948,7 +4048,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-03T14:34:28.318Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3980,7 +4080,7 @@
       "source_url": "https://data.food.gov.uk/food-alerts",
       "published_at": "2026-07-01T15:32:06.912Z",
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4012,7 +4112,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-09-27T02:22:10.562000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4044,7 +4144,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-09-27T01:18:25.822000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4076,7 +4176,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-09-26T19:37:01.212000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4108,7 +4208,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-09-26T16:33:43.270000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4140,7 +4240,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-09-26T15:01:36.433000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4163,38 +4263,6 @@
       ]
     },
     {
-      "id": "risk:f421337a97bd7be7",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "other",
-      "hazard": "earthquake",
-      "source": "USGS Earthquake Hazards Program",
-      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
-      "published_at": null,
-      "observed_at": "2026-09-26T14:08:17.704000+00:00",
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "M5.6 earthquake: 74 km ESE of Kokopo, Papua New Guinea.",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "us6000txtc",
-      "priority_model_version": "1.0",
-      "priority_score": 27,
-      "priority_band": "moderate",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:recent",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
       "id": "risk:3375ecdafb10e4da",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -4204,7 +4272,7 @@
       "source_url": "https://www.swpc.noaa.gov/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -4236,7 +4304,7 @@
       "source_url": "https://www.neso.energy/data-portal",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-09-27T14:07:34.217726+00:00",
+      "collected_at": "2026-09-27T14:09:28.890884+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -4259,5 +4327,5 @@
       ]
     }
   ],
-  "source_registry_version": "1.1.0"
+  "source_registry_version": "1.2.0"
 }
