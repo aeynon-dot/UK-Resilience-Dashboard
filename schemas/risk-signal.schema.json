@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeynon-dot.github.io/UK-Resilience-Dashboard/schemas/risk-signal.schema.json",
+  "title": "Resilience Monitor Risk Signal",
+  "description": "Common public risk-signal model for the UK Resilience Dashboard / future Resilience Monitor platform.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id","risk_theme","risk_domain","hazard","source","source_url","status","severity","geography","collected_at","confidence","description"],
+  "properties": {
+    "id": {"type":"string","pattern":"^[A-Za-z0-9][A-Za-z0-9._:-]{2,199}$"},
+    "risk_theme": {"type":"string","enum":["terrorism","cyber","state_threats","geographic_and_diplomatic","accidents_and_system_failures","natural_and_environmental_hazards","human_animal_and_plant_health","societal","conflict_and_instability"]},
+    "risk_domain": {"type":"string","enum":["climate_and_weather","flooding","energy","infrastructure","transport","communications","cyber","health","supply_chain","geopolitical","security","societal","industrial_and_technological","space_weather","other"]},
+    "hazard": {"type":"string","minLength":2,"maxLength":160},
+    "source": {"type":"string","minLength":2,"maxLength":160},
+    "source_url": {"type":"string","format":"uri","maxLength":2000},
+    "published_at": {"type":["string","null"],"format":"date-time"},
+    "observed_at": {"type":["string","null"],"format":"date-time"},
+    "collected_at": {"type":"string","format":"date-time"},
+    "status": {"type":"string","enum":["active","monitoring","resolved","expired","unknown"]},
+    "severity": {"type":"string","enum":["low","moderate","high","severe","unknown"]},
+    "geography": {"$ref":"#/$defs/geography"},
+    "confidence": {"type":"string","enum":["high","medium","low","unknown"]},
+    "description": {"type":"string","minLength":1,"maxLength":5000},
+    "change_type": {"type":"string","enum":["new","changed","unchanged","resolved","unknown"]},
+    "raw_reference": {"type":["string","null"],"maxLength":1000},
+    "tags": {"type":"array","items":{"type":"string","pattern":"^[a-z0-9][a-z0-9_-]{1,79}$"},"maxItems":30,"uniqueItems":true},
+    "source_record_id": {"type":["string","null"],"maxLength":500}
+  },
+  "$defs": {
+    "geography": {
+      "type":"object","additionalProperties":false,"required":["scope"],
+      "properties":{
+        "scope":{"type":"string","enum":["UK","England","Wales","Scotland","Northern Ireland","local","international"]},
+        "country":{"type":["string","null"],"maxLength":100},
+        "region":{"type":["string","null"],"maxLength":160},
+        "locality":{"type":["string","null"],"maxLength":160},
+        "lat":{"type":["number","null"],"minimum":-90,"maximum":90},
+        "lon":{"type":["number","null"],"minimum":-180,"maximum":180}
+      }
+    }
+  }
+}
