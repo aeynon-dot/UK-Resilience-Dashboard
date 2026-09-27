@@ -4,6 +4,7 @@ import tempfile
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import quote
 
@@ -156,7 +157,11 @@ def scotland():
 def cisa_kev():
     raw = get_json('https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json')
     vulnerabilities = raw.get('vulnerabilities', [])
-    recent = vulnerabilities[-50:]
+    recent = sorted(
+        vulnerabilities,
+        key=lambda x: x.get('dateAdded') or '',
+        reverse=True
+    )[:50]
     return {
         'catalog_version': raw.get('catalogVersion'),
         'count': len(vulnerabilities),
@@ -172,6 +177,34 @@ def cisa_kev():
             for x in recent
             if x.get('cveID')
         ]
+    }
+
+
+def ncsc_rss():
+    url = 'https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml'
+    raw = get(url)
+    root = ET.fromstring(raw)
+    items = []
+    for item in root.findall('.//item')[:50]:
+        title = (item.findtext('title') or '').strip()
+        link = (item.findtext('link') or '').strip()
+        published = (item.findtext('pubDate') or '').strip()
+        published_at = None
+        if published:
+            try:
+                published_at = parsedate_to_datetime(published).astimezone(timezone.utc).isoformat()
+            except (TypeError, ValueError, OverflowError):
+                published_at = None
+        if title:
+            items.append({
+                'title': title[:500],
+                'link': link,
+                'published_at': published_at
+            })
+    return {
+        'count': len(items),
+        'items': items,
+        'source_url': url
     }
 
 
@@ -285,6 +318,7 @@ def neso():
 def collect_multi_domain(now_iso):
     collectors = [
         ('CISA KEV', cisa_kev, 'cisa_kev'),
+        ('NCSC', ncsc_rss, 'ncsc'),
         ('UKHSA', ukhsa, 'ukhsa'),
         ('FSA Food Alerts', fsa_food_alerts, 'fsa_food_alerts'),
         ('USGS Earthquakes', usgs_earthquakes, 'usgs_earthquakes'),
