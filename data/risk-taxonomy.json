@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "name": "UK Resilience Monitor Risk Taxonomy",
+  "purpose": "A practical classification layer for normalising disruptive risk signals before organisational exposure and preparedness analysis.",
+  "authoritative_theme_basis": {
+    "name": "UK National Risk Register risk themes",
+    "edition": "2025",
+    "publisher": "UK Cabinet Office",
+    "url": "https://www.gov.uk/government/publications/national-risk-register-2025",
+    "note": "The nine risk themes below are used as the authoritative high-level theme vocabulary in this MVP. The taxonomy is a product classification and does not reproduce the National Risk Register risk assessment."
+  },
+  "risk_themes": [
+    {"id":"terrorism","label":"Terrorism","domains":["security","societal"]},
+    {"id":"cyber","label":"Cyber","domains":["cyber","communications","infrastructure"]},
+    {"id":"state_threats","label":"State threats","domains":["geopolitical","cyber","security","communications"]},
+    {"id":"geographic_and_diplomatic","label":"Geographic and diplomatic","domains":["geopolitical","supply_chain","transport"]},
+    {"id":"accidents_and_system_failures","label":"Accidents and systems failures","domains":["infrastructure","energy","transport","communications","industrial_and_technological"]},
+    {"id":"natural_and_environmental_hazards","label":"Natural and environmental hazards","domains":["climate_and_weather","flooding","infrastructure","space_weather"]},
+    {"id":"human_animal_and_plant_health","label":"Human, animal and plant health","domains":["health","societal","supply_chain"]},
+    {"id":"societal","label":"Societal","domains":["societal","health","infrastructure","transport"]},
+    {"id":"conflict_and_instability","label":"Conflict and instability","domains":["geopolitical","security","supply_chain","transport","energy"]}
+  ],
+  "risk_domains": [
+    {"id":"climate_and_weather","label":"Climate & weather"},
+    {"id":"flooding","label":"Flooding"},
+    {"id":"energy","label":"Energy"},
+    {"id":"infrastructure","label":"Infrastructure"},
+    {"id":"transport","label":"Transport"},
+    {"id":"communications","label":"Communications"},
+    {"id":"cyber","label":"Cyber"},
+    {"id":"health","label":"Health"},
+    {"id":"supply_chain","label":"Supply chain"},
+    {"id":"geopolitical","label":"Geopolitical"},
+    {"id":"security","label":"Security"},
+    {"id":"societal","label":"Societal"},
+    {"id":"industrial_and_technological","label":"Industrial & technological"},
+    {"id":"space_weather","label":"Space weather"},
+    {"id":"other","label":"Other"}
+  ],
+  "hazard_examples": {
+    "climate_and_weather":["severe wind","heavy rainfall","extreme heat","extreme cold","snow and ice","drought","wildfire"],
+    "flooding":["river flooding","surface water flooding","coastal flooding","groundwater flooding"],
+    "energy":["electricity outage","gas supply disruption","fuel supply disruption"],
+    "infrastructure":["critical infrastructure failure","water supply disruption","wastewater disruption","building or structural failure"],
+    "transport":["road disruption","rail disruption","aviation disruption","port disruption"],
+    "communications":["telecommunications outage","satellite service disruption","radio communications disruption"],
+    "cyber":["cyber attack","ransomware","denial of service","data or service compromise"],
+    "health":["pandemic","epidemic","infectious disease outbreak","animal disease","plant disease"],
+    "supply_chain":["supplier failure","commodity disruption","logistics disruption","trade disruption"],
+    "geopolitical":["international crisis","diplomatic disruption","sanctions-related disruption"],
+    "security":["terrorist attack","hostile state activity","physical security threat"],
+    "societal":["civil disorder","mass disruption","population movement"],
+    "industrial_and_technological":["industrial accident","chemical incident","major system failure"],
+    "space_weather":["severe space weather","GNSS disruption"],
+    "other":[]
+  }
+}
