@@ -192,6 +192,25 @@ function renderWeatherToday(d){
     (bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+
     '</div>';
 }
+function renderTimeline(history,current){
+  const snapshots=[...(Array.isArray(history)?history:[])].filter(h=>h&&typeof h==='object'&&!Array.isArray(h)).slice(0,23).reverse();
+  snapshots.push(current);
+  if(snapshots.length<2){document.getElementById('warning-timeline').innerHTML='<div class="muted">Building warning history…</div>';return;}
+  const events=[];
+  for(let i=1;i<snapshots.length;i++){
+    const previous=snapshots[i-1],now=snapshots[i];
+    const prevItems=[...(previous.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),...(previous.england?.items||[]).map(x=>({...x,source:'England'})),...(previous.wales?.items||[]).map(x=>({...x,source:'Wales'})),...(previous.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))];
+    const nowItems=[...(now.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),...(now.england?.items||[]).map(x=>({...x,source:'England'})),...(now.wales?.items||[]).map(x=>({...x,source:'Wales'})),...(now.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))];
+    const prevMap=new Map(prevItems.map(x=>[identityFor(x),x]));
+    const nowMap=new Map(nowItems.map(x=>[identityFor(x),x]));
+    nowItems.forEach(x=>{const old=prevMap.get(identityFor(x));if(!old)events.push({time:now.updated_at,kind:'NEW',className:'new',source:x.source,title:x.title||x.area||'Current item',detail:'First detected in this collection'});else if(old.level!==x.level){const up=warningRank(x.level)>warningRank(old.level);events.push({time:now.updated_at,kind:up?'ESCALATED':'REDUCED',className:up?'escalated':'reduced',source:x.source,title:x.title||x.area||'Current item',detail:(old.level||'Unknown')+' → '+(x.level||'Alert')});}});
+    prevItems.forEach(x=>{if(!nowMap.has(identityFor(x)))events.push({time:now.updated_at,kind:'RESOLVED',className:'resolved',source:x.source,title:x.title||x.area||'Current item',detail:'No longer present in the latest collection'});});
+  }
+  events.sort((a,b)=>new Date(b.time)-new Date(a.time));
+  const shown=events.slice(0,12);
+  if(!shown.length){document.getElementById('warning-timeline').innerHTML='<div class="timeline-clear"><strong>No warning changes detected</strong><span>Recent collections have not recorded a new, escalated, reduced or resolved warning.</span></div>';return;}
+  document.getElementById('warning-timeline').innerHTML=shown.map(x=>'<div class="timeline-item '+x.className+'"><div class="timeline-marker"></div><div class="timeline-body"><div class="timeline-top"><span class="timeline-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong><time datetime="'+esc(x.time||'')+'">'+esc(new Date(x.time).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))+'</time></div><div class="timeline-title">'+esc(x.title)+'</div><div class="timeline-detail">'+esc(x.detail)+'</div></div></div>').join('');
+}
 function renderTrend(history,current){
   const valid=[...history].filter(h=>h&&typeof h==='object'&&!Array.isArray(h)).slice(0,24).reverse();
   valid.push(current);
