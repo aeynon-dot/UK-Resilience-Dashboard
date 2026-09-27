@@ -162,3 +162,18 @@
 .risk-empty{padding:18px;background:#f7f9fa;border-radius:8px;color:#627d98}
 @media(max-width:900px){.risk-domain-grid{grid-template-columns:repeat(2,1fr)}.risk-filters{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.risk-domain-grid,.risk-filters{grid-template-columns:1fr}.risk-signal-top{flex-direction:column}.risk-signal-badges{justify-content:flex-start}}
+
+/* MVP4.1 — risk theme overview and selector */
+.risk-theme-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.risk-theme-card{appearance:none;text-align:left;border:1px solid #d7e0e7;border-radius:12px;padding:13px;background:#f7f9fa;color:#17202a;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-height:108px}
+.risk-theme-card:hover,.risk-theme-card:focus-visible{border-color:#1769aa;box-shadow:0 0 0 3px #1769aa22;outline:none}
+.risk-theme-card.has-signal{background:#fff}
+.risk-theme-card.empty{opacity:.65}
+.risk-theme-card.selected{border-color:#1769aa;box-shadow:inset 0 0 0 2px #1769aa;background:#eef6fc}
+.risk-theme-name{font-size:.78rem;font-weight:800;color:#486581;line-height:1.25}
+.risk-theme-card strong{font-size:1.5rem;line-height:1}
+.risk-theme-meta{font-size:.68rem;color:#627d98}
+.risk-filters-five{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1100px){.risk-theme-grid{grid-template-columns:repeat(3,1fr)}.risk-filters-five{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.risk-theme-grid{grid-template-columns:repeat(2,1fr)}.risk-filters-five{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.risk-theme-grid,.risk-filters-five{grid-template-columns:1fr}}
