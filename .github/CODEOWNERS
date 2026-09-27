@@ -1,0 +1,6 @@
+# Security-sensitive project files require owner review when branch protection is configured to require CODEOWNERS approval.
+* @aeynon-dot
+.github/workflows/ @aeynon-dot
+scripts/ @aeynon-dot
+SECURITY.md @aeynon-dot
+SECURE-BY-DESIGN.md @aeynon-dot
