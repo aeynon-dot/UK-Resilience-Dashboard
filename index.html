@@ -39,6 +39,25 @@
   </div>
 </section>
 
+<section class="card service-card">
+  <div class="section-heading">
+    <div><h3>Critical service — MVP3.6 test</h3><p class="muted">Create one local service and map its dependencies, recovery requirement and risk domains.</p></div>
+  </div>
+  <div class="service-form">
+    <label>Service name<input id="service-name" type="text" maxlength="120" placeholder="e.g. Payroll service"></label>
+    <label>Recovery requirement
+      <select id="service-rto"><option value="4">Within 4 hours</option><option value="24" selected>Within 24 hours</option><option value="72">Within 72 hours</option><option value="168">Within 7 days</option></select>
+    </label>
+    <label>Criticality
+      <select id="service-criticality"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select>
+    </label>
+    <label>Dependencies<input id="service-dependencies" type="text" maxlength="300" placeholder="e.g. Microsoft 365, payroll supplier, network"></label>
+    <div><strong>Risk domains</strong><div id="service-domains" class="service-domains"></div></div>
+    <div class="exposure-actions"><button id="load-example-service" type="button">Load example service</button><button id="clear-service" type="button">Clear service</button></div>
+  </div>
+  <div id="service-result" class="service-result"></div>
+</section>
+
 <section class="card exposure-card">
   <div class="section-heading">
     <div><h3>Organisation exposure</h3><p class="muted">Optional local profile. Your entries stay in this browser and are not sent to the dashboard.</p></div>
