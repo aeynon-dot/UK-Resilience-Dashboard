@@ -68,14 +68,15 @@ def valid_snapshot(x):
 
 previous=read_json(CURRENT,{})
 out={'updated_at':datetime.now(timezone.utc).isoformat()}
+now_iso=out['updated_at']
 try:out['uk_weather']=uk_weather()
 except Exception as e:out['uk_weather']={'error':str(e),'source':'Met Office UK national forecast','url':'https://weather.metoffice.gov.uk/forecast/uk'}
 feeds={}
 for name,fn,key in [('Met Office',met,'met_office'),('Environment Agency',ea,'england'),('Natural Resources Wales',wales,'wales'),('SEPA',scotland,'scotland')]:
     try:
-        out[key]=fn();feeds[name]={'ok':True,'stale':False}
+        out[key]=fn();feeds[name]={'ok':True,'stale':False,'last_success_at':now_iso}
     except Exception as e:
-        old=previous.get(key);out[key]=old if old else {'warnings':0,'alerts':0,'severe':0,'count':0,'items':[]};feeds[name]={'ok':False,'stale':bool(old),'error':str(e)}
+        old=previous.get(key);out[key]=old if old else {'warnings':0,'alerts':0,'severe':0,'count':0,'items':[]};prev_feed=(previous.get('feeds') or {}).get(name,{}) if isinstance(previous,dict) else {};last_success=prev_feed.get('last_success_at') or previous.get('updated_at') if isinstance(previous,dict) else None;feeds[name]={'ok':False,'stale':bool(old),'error':str(e),'last_success_at':last_success}
 out['feeds']=feeds
 history=read_json(HISTORY,[])
 history=[h for h in history if valid_snapshot(h)]
