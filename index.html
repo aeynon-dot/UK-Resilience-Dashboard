@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UK Resilience Briefing</title><link rel="stylesheet" href="style.css">
+<title>UK Resilience Briefing — MVP2</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div><h1>UK Resilience Briefing</h1><p>Weather warnings & flood situation</p></div><div id="updated">Loading…</div></header>
+<header><div><h1>UK Resilience Briefing</h1><p>Weather warnings, flooding & daily change briefing</p></div><div id="updated">Loading…</div></header>
 <main>
-<section class="hero"><div><span class="eyebrow">MORNING BRIEFING</span><h2 id="headline">Checking official feeds…</h2><p id="summary">This dashboard uses official UK warning and flood sources. It is an information aid, not a replacement for official alerts.</p></div><div id="status" class="status">CHECKING</div></section>
+<section class="hero"><div><span class="eyebrow">MORNING BRIEFING · MVP2</span><h2 id="headline">Checking official feeds…</h2><p id="summary">Official warning and flood information, with change detection. This dashboard is an information aid and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
+
+<section class="grid two">
+<article class="card"><h3>Weather today</h3><div id="weather-today"></div><a href="https://weather.metoffice.gov.uk/" target="_blank" rel="noopener">Open Met Office forecast →</a></article>
+<article class="card"><h3>New or changed warnings</h3><div id="new-items" class="list"></div></article>
+</section>
+
 <section class="grid three">
 <article class="card"><h3>Met Office warnings</h3><div id="weather-count" class="big">—</div><p>Current UK severe-weather warnings</p><div id="weather-list" class="list"></div><a href="https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings" target="_blank" rel="noopener">Open Met Office warnings →</a></article>
 <article class="card"><h3>England floods</h3><div id="england-count" class="big">—</div><p>Current flood warnings & alerts</p><div id="england-list" class="list"></div><a href="https://check-for-flooding.service.gov.uk/" target="_blank" rel="noopener">Open England flood service →</a></article>
-<article class="card"><h3>Wales floods</h3><div id="wales-count" class="big">—</div><p>Current NRW warnings & alerts</p><div id="wales-list" class="list"></div><a href="https://www.naturalresources.wales/flooding" target="_blank" rel="noopener">Open NRW flooding →</a></article>
+<article class="card"><h3>Wales floods</h3><div id="wales-count" class="big">—</div><p>Current NRW warnings & alerts</p><div id="wales-list" class="list"></div><a href="https://naturalresources.wales/flooding" target="_blank" rel="noopener">Open NRW flooding →</a></article>
 </section>
+
 <section class="grid two">
 <article class="card"><h3>Scotland floods</h3><div id="scotland-count" class="big">—</div><p>Current SEPA flood warnings & alerts</p><div id="scotland-list" class="list"></div><a href="https://beta.sepa.scot/flooding" target="_blank" rel="noopener">Open SEPA flooding →</a></article>
-<article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div></article>
+<article class="card"><h3>Data feeds</h3><div id="feeds" class="feed-status"></div><p class="muted feed-note">If a source temporarily fails, the last successful data is retained and marked STALE rather than showing a false all-clear.</p></article>
 </section>
-<section class="card sources"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP1 deliberately keeps the architecture simple: GitHub Actions collects data, GitHub Pages serves this dashboard, and the browser only reads the generated JSON.</p></section>
-</main><script src="app.js"></script>
-</body></html>
+
+<section class="card sources"><h3>Official sources</h3><p>Met Office · Environment Agency · Natural Resources Wales · SEPA</p><p class="muted">MVP2 adds change detection, historical snapshots, feed-failure handling and a dedicated morning-briefing layer while keeping the £0 GitHub Actions + GitHub Pages architecture.</p></section>
+</main><script src="app.js"></script></body></html>
