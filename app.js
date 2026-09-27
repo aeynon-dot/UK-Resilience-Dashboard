@@ -1,26 +1,24 @@
 const FOCUS_KEY='ukResilienceFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
-let ukTopo=null;
+let ukMapMarkup=null;
 
 async function loadMapData(){
   try{
-    const r=await fetch('data/uk-countries.topojson',{cache:'no-store'});
+    const r=await fetch('data/uk-map.svg',{cache:'no-store'});
     if(!r.ok)throw new Error(r.status);
-    ukTopo=await r.json();
-  }catch(e){ukTopo=null;}
+    ukMapMarkup=await r.text();
+  }catch(e){ukMapMarkup=null;}
 }
 
 function renderGeographicMap(d){
-  const svg=d3.select('#uk-map');
-  if(svg.empty()||!ukTopo){return;}
-  const object=ukTopo.objects?.geog;
-  if(!object){return;}
-  const geo=topojson.feature(ukTopo,object);
-  const width=760,height=760;
-  svg.attr('viewBox',`0 0 ${width} ${height}`);
-  const projection=d3.geoMercator().fitExtent([[20,20],[width-20,height-20]],geo);
-  const path=d3.geoPath(projection);
-  const nationByName={England:'england',Wales:'wales',Scotland:'scotland','Northern Ireland':'ni'};
+  const svg=document.getElementById('uk-map');
+  if(!svg||!ukMapMarkup)return;
+  const parsed=new DOMParser().parseFromString(ukMapMarkup,'image/svg+xml');
+  const source=parsed.documentElement;
+  svg.setAttribute('viewBox',source.getAttribute('viewBox')||'0 0 760 760');
+  svg.innerHTML=source.innerHTML;
+
+  const nationByName={England:'england',Wales:'wales',Scotland:'scotland','Northern Ireland':'northern-ireland'};
   const statuses={};
   Object.entries(nationByName).forEach(([name,key])=>{
     const data=key==='england'?d.england||{}:key==='wales'?d.wales||{}:key==='scotland'?d.scotland||{}:{};
@@ -30,24 +28,34 @@ function renderGeographicMap(d){
     const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
     statuses[name]={weather,flood,overall};
   });
+
   const selected=getFocus()==='UK'?'England':getFocus();
-  const regions=geo.features.filter(f=>nationByName[f.properties?.name]);
-  svg.selectAll('*').remove();
-  const groups=svg.selectAll('g.map-region').data(regions,d=>d.properties.name).join('g')
-    .attr('class',f=>`map-region risk-${statuses[f.properties.name].overall.toLowerCase()}`)
-    .attr('data-nation',f=>f.properties.name)
-    .attr('data-risk',f=>statuses[f.properties.name].overall)
-    .attr('tabindex',0).attr('role','button')
-    .attr('aria-label',f=>`${f.properties.name} — ${statuses[f.properties.name].overall==='Check'?'Check data':statuses[f.properties.name].overall}`);
-  groups.classed('selected',f=>f.properties.name===selected);
-  groups.append('path').attr('d',path);
-  groups.append('text')
-    .attr('class','map-label-text')
-    .attr('x',f=>path.centroid(f)[0])
-    .attr('y',f=>path.centroid(f)[1])
-    .text(f=>f.properties.name==='Northern Ireland'?'NI':f.properties.name.toUpperCase());
-  groups.on('click',(event,f)=>{setFocus(f.properties.name);load();})
-    .on('keydown',(event,f)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();setFocus(f.properties.name);load();}});
+  const groups=[...svg.querySelectorAll('g[data-nation]')];
+  groups.forEach(group=>{
+    const name=group.dataset.nation;
+    if(!statuses[name])return;
+    const status=statuses[name];
+    group.setAttribute('class','map-region risk-'+status.overall.toLowerCase());
+    group.setAttribute('tabindex','0');
+    group.setAttribute('role','button');
+    group.setAttribute('aria-label',name+' — '+(status.overall==='Check'?'Check data':status.overall));
+    group.classList.toggle('selected',name===selected);
+
+    const path=group.querySelector('path');
+    if(path&&!group.querySelector('.map-label-text')){
+      const box=path.getBBox();
+      const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.setAttribute('class','map-label-text');
+      text.setAttribute('x',String(box.x+box.width/2));
+      text.setAttribute('y',String(box.y+box.height/2));
+      text.textContent=name==='Northern Ireland'?'NI':name.toUpperCase();
+      group.appendChild(text);
+    }
+    const choose=()=>{setFocus(name);load()};
+    group.onclick=choose;
+    group.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}};
+  });
+
   const nation=statuses[selected]||statuses.England;
   document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>';
   const weatherItems=d.met_office?.items||[];
@@ -55,7 +63,6 @@ function renderGeographicMap(d){
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
   document.getElementById('weather-risk-summary').innerHTML='<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong> · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow';
 }
-
 async function load(){
   try{
     const [current,history]=await Promise.all([
