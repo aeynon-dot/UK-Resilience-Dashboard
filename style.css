@@ -75,7 +75,7 @@
 .map-detail-heading strong{font-size:1.55rem}
 .map-detail-risk{font-size:.82rem;padding:6px 10px}
 .map-detail-counts{display:flex;gap:8px;flex-wrap:wrap}
-.map-detail-counts span{display:inline-flex;align-items:baseline;gap:4px;padding:7px 10px;border-radius:8px;background:#e9eef2;color:#486581;font-size:.82rem}
+.map-detail-counts span{display:inline-flex;align-items:baseline;gap:6px;padding:7px 10px;border-radius:8px;background:#e9eef2;color:#486581;font-size:.82rem;white-space:nowrap}
 .map-detail-counts strong{font-size:1.05rem;color:#17202a}
 .map-detail-items{max-height:190px;overflow:auto}
 .map-region.selected path{stroke:#1769aa;stroke-width:7}
