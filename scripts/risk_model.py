@@ -76,7 +76,7 @@ def normalise_current(data):
     collected_at = data.get("updated_at")
     signals = []
 
-    for index, item in enumerate(data.get("met_office", {}).get("items", [])):
+    for item in data.get("met_office", {}).get("items", []):
         regions = item.get("regions") or ["UK"]
         for scope in regions:
             title = item.get("title") or "Severe weather warning"
@@ -91,12 +91,12 @@ def normalise_current(data):
                     scope=scope,
                     description=title,
                     collected_at=collected_at,
-                    source_record_id=f"met:{hashlib.sha256((title + "|" + scope).encode("utf-8")).hexdigest()[:16]}",
+                    source_record_id=f"met:{hashlib.sha256((title + '|' + scope).encode('utf-8')).hexdigest()[:16]}",
                     change_type="new",
                 )
             )
 
-    for index, item in enumerate(data.get("england", {}).get("items", [])):
+    for item in data.get("england", {}).get("items", []):
         title = item.get("title") or "Flood warning"
         signals.append(
             signal(
@@ -109,7 +109,7 @@ def normalise_current(data):
                 scope="England",
                 description=title,
                 collected_at=collected_at,
-                source_record_id=f"ea:{hashlib.sha256(title.encode("utf-8")).hexdigest()[:16]}",
+                source_record_id=f"ea:{hashlib.sha256(title.encode('utf-8')).hexdigest()[:16]}",
                 change_type="new",
             )
         )
