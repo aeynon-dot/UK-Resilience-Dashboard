@@ -186,7 +186,7 @@ def normalise_current(data):
         signals.append(signal(
             source="NOAA Space Weather Prediction Center",
             source_url="https://www.swpc.noaa.gov/",
-            risk_theme=natural_and_environmental_hazards if False else "natural_and_environmental_hazards",
+            risk_theme=THEME_NATURAL,
             risk_domain="space_weather", hazard="space_weather_monitoring",
             severity="unknown", scope="international",
             description=f"Latest NOAA planetary K-index observation: Kp={kp}.",
