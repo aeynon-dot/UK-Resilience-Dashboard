@@ -20,3 +20,7 @@ The data workflow runs every 15 minutes and can also be started manually from **
 
 ## Important
 This dashboard is an information aid and does not replace official warning/alert channels. Always follow the latest advice from the relevant official service.
+
+
+## Deployment status
+GitHub Pages is configured to publish this repository through GitHub Actions.
