@@ -23,7 +23,7 @@ function renderGeographicMap(d){
   Object.entries(nationByName).forEach(([name,key])=>{
     const data=key==='england'?d.england||{}:key==='wales'?d.wales||{}:key==='scotland'?d.scotland||{}:{};
     const weather=regionWeather(d,name);
-    const flood=(key==='england'||key==='wales'||key==='scotland')?floodLevel(data):'Not connected';
+    const flood=(key==='england'||key==='wales'||key==='scotland')?floodLevel(data):'No automated live feed';
     const feedIssue=(key==='england'&&!d.feeds?.['Environment Agency']?.ok)||(key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok)||(key==='scotland'&&!d.feeds?.['SEPA']?.ok);
     const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
     statuses[name]={weather,flood,overall};
@@ -73,7 +73,8 @@ function renderGeographicMap(d){
   const items=[...selectedWeather.map(x=>({...x,type:'Weather'})),...selectedFlood.map(x=>({...x,type:'Flood'}))];
   const itemHtml=items.length?items.slice(0,5).map(x=>'<div class="map-detail-item"><span class="map-detail-item-level '+String(x.level||'Alert').toLowerCase()+'">'+esc(x.level||'Alert')+'</span><span>'+esc(x.title||x.area||'Current item')+'</span></div>').join(''):'<div class="muted">No current warning or flood items for this area.</div>';
   const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'OK':feed.stale?'STALE — last successful data retained':'ERROR')+'</small>':'';
-  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected==='UK'?'UK-wide':selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+'<div class="map-detail-items">'+itemHtml+'</div>';
+  const niInfo=selected==='Northern Ireland'?'<small>DfI Rivers provides flood information and water-level data separately.</small><a class="map-detail-link" href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a>':'';
+  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected==='UK'?'UK-wide':selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
   
   const levels=['Red','Amber','Yellow'];
   const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
