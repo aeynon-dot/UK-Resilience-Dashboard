@@ -94,6 +94,33 @@ function renderRiskWorkspace(d){
   summary.textContent=visible.length+' signals · '+active+' active/monitoring · '+high+' high/immediate · '+severe+' severe';
 }
 
+function riskAssessmentDetail(signal){
+  const detail=document.getElementById('risk-detail');
+  if(!detail)return;
+  if(!signal){
+    detail.hidden=true;
+    detail.innerHTML='';
+    return;
+  }
+  const band=signal.priority_band||'monitor';
+  const scope=signal.geography?.scope||'unknown';
+  const change=signal.change_type&&signal.change_type!=='unknown'?signal.change_type:'No change classification provided';
+  const date=signal.observed_at||signal.published_at||signal.collected_at;
+  const dateText=date?new Date(date).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Date unavailable';
+  const sourceLink=/^https:\/\//i.test(String(signal.source_url||''))?'<a href="'+esc(signal.source_url)+'" target="_blank" rel="noopener">Open authoritative source ↗</a>':'';
+  const reference=signal.source_record_id||signal.raw_reference||'No source record reference provided';
+  detail.hidden=false;
+  detail.innerHTML=
+    '<div class="risk-detail-header"><div><span class="eyebrow">PUBLIC RISK ASSESSMENT</span><h3>'+esc(signal.source||'Risk signal')+'</h3><p class="muted">'+esc(riskDomainLabel(signal.risk_domain))+' · '+esc(scope)+'</p></div><button type="button" class="risk-detail-close" aria-label="Close assessment">Close</button></div>'+
+    '<div class="risk-detail-grid">'+
+      '<article><h4>What happened?</h4><p>'+esc(signal.description||signal.hazard||'No event description provided.')+'</p></article>'+
+      '<article><h4>Why does it matter?</h4><p>This is a public monitoring signal classified as <strong>'+esc(riskSeverityLabel(signal.severity))+'</strong> severity and <strong>'+esc(RISK_BAND_LABEL[band]||band)+'</strong> monitoring priority. Its recorded status is <strong>'+esc(signal.status||'unknown')+'</strong> and its source geography is <strong>'+esc(scope)+'</strong>.</p></article>'+
+      '<article><h4>What is changing?</h4><p><strong>'+esc(change)+'</strong>. The latest available signal time is '+esc(dateText)+'.</p></article>'+
+      '<article><h4>What should I investigate?</h4><p>Check the authoritative source for the underlying warning, advisory or data record. Review the relevant risk domain and geography before drawing any organisation-specific conclusion.</p><p class="risk-detail-reference">Source reference: '+esc(String(reference))+'</p><p>'+sourceLink+'</p></article>'+
+    '</div>';
+  const close=detail.querySelector('.risk-detail-close');
+  if(close)close.addEventListener('click',()=>{detail.hidden=true;detail.innerHTML='';});
+}
 function renderRiskAssessment(d){
   const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
   if(!listEl||!summaryEl)return;
@@ -104,8 +131,13 @@ function renderRiskAssessment(d){
   if(!filtered.length){listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';return;}
   listEl.innerHTML=filtered.slice(0,50).map(x=>{
     const band=x.priority_band||'monitor',scope=x.geography?.scope||'unknown',date=x.observed_at||x.published_at||x.collected_at,dateText=date?new Date(date).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Date unavailable',sourceLink=/^https:\/\//i.test(String(x.source_url||''))?'<a href="'+esc(x.source_url)+'" target="_blank" rel="noopener">Source ↗</a>':'';
-    return '<article class="risk-signal-item"><div class="risk-signal-top"><div><span class="risk-signal-domain">'+esc(riskDomainLabel(x.risk_domain))+'</span><strong>'+esc(x.source||'Unknown source')+'</strong></div><div class="risk-signal-badges"><span class="risk-badge '+esc(x.severity||'unknown')+'">'+esc(riskSeverityLabel(x.severity))+'</span><span class="risk-badge '+esc(band)+'">'+esc(RISK_BAND_LABEL[band]||band)+'</span></div></div><div class="risk-signal-description">'+esc(x.description||x.hazard||'Risk signal')+'</div><div class="risk-signal-meta"><span>'+esc(scope)+'</span><span>'+esc(x.status||'unknown')+'</span><span>'+esc(dateText)+'</span><span>Monitoring priority '+esc(String(x.priority_score??'—'))+'</span>'+sourceLink+'</div></article>';
+    return '<article class="risk-signal-item" data-risk-id="'+esc(String(x.id||''))+'" tabindex="0" role="button" aria-label="Open public risk assessment"><div class="risk-signal-top"><div><span class="risk-signal-domain">'+esc(riskDomainLabel(x.risk_domain))+'</span><strong>'+esc(x.source||'Unknown source')+'</strong></div><div class="risk-signal-badges"><span class="risk-badge '+esc(x.severity||'unknown')+'">'+esc(riskSeverityLabel(x.severity))+'</span><span class="risk-badge '+esc(band)+'">'+esc(RISK_BAND_LABEL[band]||band)+'</span></div></div><div class="risk-signal-description">'+esc(x.description||x.hazard||'Risk signal')+'</div><div class="risk-signal-meta"><span>'+esc(scope)+'</span><span>'+esc(x.status||'unknown')+'</span><span>'+esc(dateText)+'</span><span>Monitoring priority '+esc(String(x.priority_score??'—'))+'</span>'+sourceLink+'</div></article>';
   }).join('')+(filtered.length>50?'<p class="muted">Showing the first 50 matching signals.</p>':'');
+  listEl.querySelectorAll('.risk-signal-item').forEach(item=>{
+    const open=()=>riskAssessmentDetail(signals.find(x=>String(x.id||'')===item.dataset.riskId));
+    item.addEventListener('click',open);
+    item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  });
 }
 
 function bindRiskAssessment(d){
@@ -114,7 +146,7 @@ function bindRiskAssessment(d){
     if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('change',()=>{
       window.__riskSessionInteracted=true;
       if(id==='risk-theme-filter' && document.getElementById('risk-domain-filter'))document.getElementById('risk-domain-filter').value='all';
-      renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
+      renderRiskWorkspace(d);renderRiskAssessment(d);riskAssessmentDetail(null);updateDomainVisibility();
     });}
   });
 }
