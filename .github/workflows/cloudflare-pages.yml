@@ -1,6 +1,9 @@
 name: Cloudflare Pages deployment
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       target:
@@ -22,7 +25,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy to Cloudflare Pages (${{ inputs.target }})
+    name: Deploy to Cloudflare Pages (${{ github.event_name == 'push' && 'staging' || inputs.target }})
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.target == 'production' && 'cloudflare-production' || 'cloudflare-staging' }}
@@ -60,10 +63,10 @@ jobs:
           command: >-
             pages deploy dist
             --project-name=uk-resilience-monitor
-            ${{ inputs.target == 'staging' && '--branch=staging' || '' }}
+            ${{ (github.event_name == 'push' || inputs.target == 'staging') && '--branch=staging' || '' }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deployment summary
         run: |
-          echo "Target: ${{ inputs.target }}"
+          echo "Target: ${{ github.event_name == 'push' && 'staging' || inputs.target }}"
           echo "Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
