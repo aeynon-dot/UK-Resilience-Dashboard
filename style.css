@@ -113,3 +113,12 @@
 .confidence-note{margin:9px 0 0;font-size:.75rem}
 @media(max-width:900px){.confidence-feeds{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.confidence-feeds{grid-template-columns:1fr}.confidence-feed{padding:8px 9px}}
+
+/* MVP2.4 Feature 7.1 — user preferences */
+.preferences-card{margin-bottom:18px}
+.preference-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.preference-controls label{font-size:.85rem}
+.preference-controls select,.preference-controls button{font:inherit;padding:9px 12px;border:1px solid #b8c6d1;border-radius:9px;background:#fff;color:#17202a}
+.preference-controls select{font-weight:800}
+.preference-controls button{background:#102a43;color:#fff;border-color:#102a43;font-weight:800;cursor:pointer}
+.preference-controls button:hover{opacity:.92}
