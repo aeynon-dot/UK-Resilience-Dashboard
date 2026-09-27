@@ -105,7 +105,7 @@ function bindRiskAssessment(d){
     const el=document.getElementById(id);
     if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('change',()=>{
       if(id==='risk-theme-filter' && document.getElementById('risk-domain-filter'))document.getElementById('risk-domain-filter').value='all';
-      renderRiskWorkspace(d);renderRiskAssessment(d);
+      renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
     });}
   });
 }
@@ -264,6 +264,13 @@ function regionRisk(d,nation){
   const weather=regionWeather(d,nation);
   const flood=floodKey?floodLevel(d[floodKey]||{}):'Clear';
   return warningRank(weather)>=warningRank(flood)?weather:flood;
+}
+function updateDomainVisibility(){
+  const theme=document.getElementById('risk-theme-filter')?.value||'all';
+  const domain=document.getElementById('risk-domain-filter')?.value||'all';
+  const showWeather=theme==='all'||theme==='natural_and_environmental_hazards'||domain==='climate_and_weather'||domain==='flooding';
+  const el=document.getElementById('weather-risk-content');
+  if(el)el.hidden=!showWeather;
 }
 function renderRiskMap(d){renderGeographicMap(d);}
 
