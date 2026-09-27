@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aeynon-dot.github.io/UK-Resilience-Dashboard/schemas/organisation-exposure.schema.json",
+  "title": "Resilience Monitor Organisation Exposure Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "profile_type": {
+      "type": "string",
+      "const": "local_browser_only"
+    },
+    "exposure": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z_]+$": {
+          "type": "string",
+          "enum": [
+            "not_assessed",
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile_type",
+    "exposure"
+  ]
+}
