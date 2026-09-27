@@ -1,40 +1,87 @@
 import json,re,urllib.request,xml.etree.ElementTree as ET
 from datetime import datetime,timezone
-HEAD={'User-Agent':'UK-Resilience-Dashboard/1.0'}
+from pathlib import Path
+
+HEAD={'User-Agent':'UK-Resilience-Dashboard/2.0'}
+CURRENT=Path('data/current.json')
+HISTORY=Path('data/history.json')
+
 def get(url):
     req=urllib.request.Request(url,headers=HEAD)
-    with urllib.request.urlopen(req,timeout=30) as r:return r.read()
+    with urllib.request.urlopen(req,timeout=30) as r:
+        return r.read()
+
 def ea():
     raw=json.loads(get('https://environment.data.gov.uk/flood-monitoring/id/floods'))
     counts={1:0,2:0,3:0};items=[]
     for x in raw.get('items',[]):
-        s=x.get('severity');counts[s]=counts.get(s,0)+1
-        if s in (1,2,3):items.append({'level':{1:'Severe',2:'Warning',3:'Alert'}[s],'title':x.get('description') or x.get('eaAreaName') or 'Current flood item'})
-    return {'warnings':counts.get(2,0),'alerts':counts.get(3,0),'severe':counts.get(1,0),'items':items},True
+        s=x.get('severity')
+        counts[s]=counts.get(s,0)+1
+        if s in (1,2,3):
+            items.append({'level':{1:'Severe',2:'Warning',3:'Alert'}[s],
+                          'title':x.get('description') or x.get('eaAreaName') or 'Current flood item'})
+    return {'warnings':counts.get(2,0),'alerts':counts.get(3,0),'severe':counts.get(1,0),'items':items}
+
 def met():
     raw=get('https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK')
     root=ET.fromstring(raw);items=[]
     for item in root.findall('.//item'):
-        title=item.findtext('title') or '';desc=item.findtext('description') or ''
+        title=item.findtext('title') or ''
+        desc=item.findtext('description') or ''
+        clean=lambda s:re.sub(r'<.*?>','',s).strip()
         level='Red' if 'Red' in title else ('Amber' if 'Amber' in title else 'Yellow')
-        items.append({'level':level,'title':re.sub('<.*?>','',title).strip() or re.sub('<.*?>','',desc).strip()})
-    return {'count':len(items),'items':items},True
+        items.append({'level':level,'title':clean(title) or clean(desc)})
+    return {'count':len(items),'items':items}
+
 def wales():
     raw=get('https://flood-warning.naturalresources.wales/AToZ').decode('utf-8','ignore')
     text=re.sub(r'<[^>]+>',' ',raw);text=re.sub(r'\s+',' ',text)
     severe=len(re.findall(r'Severe Flood Warning\s+in force',text,re.I))
     warnings=len(re.findall(r'Flood Warning\s+in force',text,re.I))-severe
     alerts=len(re.findall(r'Flood Alert\s+in force',text,re.I))
-    return {'warnings':max(0,warnings),'alerts':alerts,'severe':severe,'items':[]},True
+    return {'warnings':max(0,warnings),'alerts':alerts,'severe':severe,'items':[]}
+
 def scotland():
     raw=get('https://beta.sepa.scot/flooding').decode('utf-8','ignore')
     text=re.sub(r'<[^>]+>',' ',raw);text=re.sub(r'\s+',' ',text)
-    m=lambda p:int(re.search(p,text,re.I).group(1)) if re.search(p,text,re.I) else 0
-    return {'warnings':m(r'(\d+)\s+Flood warnings'),'alerts':m(r'(\d+)\s+Flood alerts'),'severe':m(r'(\d+)\s+Severe flood warnings'),'items':[]},True
-out={'updated_at':datetime.now(timezone.utc).isoformat()};feeds={}
-for name,fn,key in [('Met Office',met,'met_office'),('Environment Agency',ea,'england'),('Natural Resources Wales',wales,'wales'),('SEPA',scotland,'scotland')]:
-    try:out[key],feeds[name]=fn(),{'ok':True}
-    except Exception as e:out[key]={'warnings':0,'alerts':0,'severe':0,'count':0,'items':[]};feeds[name]={'ok':False,'error':str(e)}
+    def m(p):
+        x=re.search(p,text,re.I)
+        return int(x.group(1)) if x else 0
+    return {'warnings':m(r'(\d+)\s+Flood warnings'),
+            'alerts':m(r'(\d+)\s+Flood alerts'),
+            'severe':m(r'(\d+)\s+Severe flood warnings'),'items':[]}
+
+def read_json(path,default):
+    try:
+        with open(path,encoding='utf-8') as f:return json.load(f)
+    except Exception:return default
+
+previous=read_json(CURRENT,{})
+out={'updated_at':datetime.now(timezone.utc).isoformat()}
+feeds={}
+
+for name,fn,key in [
+    ('Met Office',met,'met_office'),
+    ('Environment Agency',ea,'england'),
+    ('Natural Resources Wales',wales,'wales'),
+    ('SEPA',scotland,'scotland')]:
+    try:
+        out[key]=fn()
+        feeds[name]={'ok':True,'stale':False}
+    except Exception as e:
+        old=previous.get(key)
+        out[key]=old if old else {'warnings':0,'alerts':0,'severe':0,'count':0,'items':[]}
+        feeds[name]={'ok':False,'stale':bool(old),'error':str(e)}
+
 out['feeds']=feeds
-with open('data/current.json','w',encoding='utf-8') as f:json.dump(out,f,indent=2,ensure_ascii=False)
+
+history=read_json(HISTORY,[])
+if previous:
+    history=([previous]+history)[:47]
+with open(HISTORY,'w',encoding='utf-8') as f:
+    json.dump(history,f,indent=2,ensure_ascii=False)
+
+with open(CURRENT,'w',encoding='utf-8') as f:
+    json.dump(out,f,indent=2,ensure_ascii=False)
+
 print(json.dumps(out,indent=2))
