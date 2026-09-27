@@ -277,11 +277,21 @@ function renderAttention(d,history,newItems,changedItems){
   }
   document.getElementById('attention-list').innerHTML=html;
 }
+function applyFocusToDashboard(focus){
+  document.querySelectorAll('[data-flood-nation]').forEach(card=>{
+    const nation=card.dataset.floodNation;
+    const visible=focus==='UK'||nation==='weather'||nation===focus;
+    card.style.display=visible?'':'none';
+  });
+  const weatherHeading=document.getElementById('weather-heading');
+  if(weatherHeading)weatherHeading.textContent=focus==='UK'?'Met Office warnings':focus+' weather warnings';
+}
 function render(d,history){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
   const weather=d.met_office||{}, ew=d.england||{}, wa=d.wales||{}, sc=d.scotland||{};
   const focus=getFocus();
   const focusItems=focusedItems(d,focus);
+  applyFocusToDashboard(focus);
   document.getElementById('weather-count').textContent=(focus==='UK'?weather.items||[]:focusItems.filter(x=>x.source==='Met Office')).length;
   document.getElementById('england-count').textContent=focus==='England'||focus==='UK'?(ew.warnings||0)+(ew.alerts||0)+(ew.severe||0):0;
   document.getElementById('wales-count').textContent=focus==='Wales'||focus==='UK'?(wa.warnings||0)+(wa.alerts||0)+(wa.severe||0):0;
