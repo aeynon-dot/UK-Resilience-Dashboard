@@ -72,7 +72,10 @@ def live_shape(source_id, raw):
     if source_id == "noaa-space-weather-k-index":
         value = json.loads(text)
         return isinstance(value, list) and len(value) >= 1
-    if source_id in {"cisa-known-exploited-vulnerabilities", "fsa-food-alerts"}:
+    if source_id == "cisa-known-exploited-vulnerabilities":
+        value = json.loads(text)
+        return isinstance(value, dict) and isinstance(value.get("vulnerabilities"), list)
+    if source_id == "fsa-food-alerts":
         value = json.loads(text)
         return isinstance(value, dict) and isinstance(value.get("items"), list)
     if source_id == "neso-demand-data-update":
@@ -146,7 +149,7 @@ def run():
     go_live_ids = {
         source_id
         for domain in go_live.get("go_live_domains", [])
-        for source_id in domain.get("automated_sources", [])
+        for source_id in domain.get("sources", [])
     }
 
     results = []
