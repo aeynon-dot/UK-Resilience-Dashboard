@@ -17,6 +17,46 @@ const totalFor=d=>{
   return (m.count||0)+(e.warnings||0)+(e.alerts||0)+(e.severe||0)+(w.warnings||0)+(w.alerts||0)+(w.severe||0)+(s.warnings||0)+(s.alerts||0)+(s.severe||0);
 };
 const keyFor=x=>String(x.level||'')+'|'+String(x.title||x.area||'');
+const levelRank={Clear:0,Yellow:1,Amber:2,Red:3};
+const warningRank=x=>levelRank[x]??0;
+const floodLevel=d=>{
+  if((d.severe||0)>0)return 'Red';
+  if((d.warnings||0)>0)return 'Amber';
+  if((d.alerts||0)>0)return 'Yellow';
+  return 'Clear';
+};
+const regionMatch=(item,nation)=>{
+  const rs=item.regions||[];
+  return rs.includes('UK') || rs.includes(nation);
+};
+function renderRiskMap(d){
+  const nations=[
+    {key:'england',name:'England',data:d.england||{}},
+    {key:'wales',name:'Wales',data:d.wales||{}},
+    {key:'scotland',name:'Scotland',data:d.scotland||{}},
+    {key:'ni',name:'Northern Ireland',data:{warnings:0,alerts:0,severe:0}}
+  ];
+  const weatherItems=d.met_office?.items||[];
+  const cards=nations.map(n=>{
+    const weather=weatherItems.filter(x=>regionMatch(x,n.name)).reduce((best,x)=>warningRank(x.level)>warningRank(best)?x.level:best,'Clear');
+    const flood=n.key==='england'||n.key==='wales'||n.key==='scotland'?floodLevel(n.data):'Unknown';
+    const feedIssue=n.key==='england'&&!d.feeds?.['Environment Agency']?.ok ||
+      n.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
+      n.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
+    const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
+    const label=overall==='Check'?'CHECK DATA':overall==='Clear'?'CLEAR':overall.toUpperCase();
+    return '<div class="risk-region '+overall.toLowerCase()+'"><div class="risk-name">'+esc(n.name)+'</div><div class="risk-state">'+label+'</div><div class="risk-detail">Weather: '+esc(weather==='Clear'?'None':weather)+' · Flood: '+esc(flood==='Unknown'?'Not connected':flood==='Clear'?'None':flood)+'</div></div>';
+  }).join('');
+  document.getElementById('risk-map').innerHTML=cards;
+
+  const levels=['Red','Amber','Yellow'];
+  const counts=Object.fromEntries(levels.map(x=>[x,weatherItems.filter(i=>i.level===x).length]));
+  const affected=[...new Set(weatherItems.flatMap(i=>i.regions||[]).filter(x=>x!=='UK'))];
+  document.getElementById('weather-risk-summary').innerHTML=
+    '<strong>'+weatherItems.length+' active Met Office warning'+(weatherItems.length===1?'':'s')+'</strong>'+
+    ' · '+counts.Red+' Red · '+counts.Amber+' Amber · '+counts.Yellow+' Yellow'+
+    (affected.length?' · Affected: '+affected.map(esc).join(', '):'');
+}
 function render(d,history){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
   const weather=d.met_office||{}, ew=d.england||{}, wa=d.wales||{}, sc=d.scotland||{};
@@ -24,6 +64,7 @@ function render(d,history){
   document.getElementById('england-count').textContent=(ew.warnings||0)+(ew.alerts||0)+(ew.severe||0);
   document.getElementById('wales-count').textContent=(wa.warnings||0)+(wa.alerts||0)+(wa.severe||0);
   document.getElementById('scotland-count').textContent=(sc.warnings||0)+(sc.alerts||0)+(sc.severe||0);
+  renderRiskMap(d);
 
   const feedValues=Object.values(d.feeds||{});
   const hasFeedIssue=feedValues.some(v=>!v.ok);
@@ -77,7 +118,10 @@ function render(d,history){
     ? newItems.slice(0,8).map(x=>'<div class="change-item"><strong>'+esc(x.source)+'</strong> — '+esc(x.level||'Alert')+' — '+esc(x.title||'Current item')+'</div>').join('')
     : '<div class="muted">No new warning or alert items detected.</div>';
 
-  const uw=d.uk_weather||{}; document.getElementById('weather-today').innerHTML=uw.error?'<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><br>See the Met Office national forecast directly.</div>':'<div class="weather-placeholder"><strong>UK-wide forecast</strong><br>'+esc(uw.summary||'National forecast available')+'</div>';
+  const uw=d.uk_weather||{};
+  document.getElementById('weather-today').innerHTML=uw.error
+    ? '<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><br>See the Met Office national forecast directly.</div>'
+    : '<div class="weather-placeholder"><strong>UK-wide forecast</strong><br>'+esc(uw.summary||'National forecast available')+'</div>';
 }
 function list(id,items){
   const el=document.getElementById(id);
