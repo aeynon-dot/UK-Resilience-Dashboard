@@ -186,7 +186,7 @@ def ukhsa():
     latest = None
     if match:
         latest = {
-            'date': match.group(2),
+            'date': datetime.strptime(match.group(2), '%d %B %Y').date().isoformat(),
             'metric_value': float(match.group(3).replace(',', '')),
             'metric': 'acute-respiratory-infection_syndromic_NHS111triagedcalls_countsByDay'
         }
