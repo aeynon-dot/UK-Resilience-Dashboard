@@ -2,8 +2,48 @@
 
 import hashlib
 import re
+from datetime import datetime, timezone
 
 THEME_NATURAL = "natural_and_environmental_hazards"
+
+SEVERITY_POINTS = {"severe": 100, "high": 75, "moderate": 50, "low": 25, "unknown": 20}
+
+def _priority(signal):
+    reference = signal.get("observed_at") or signal.get("published_at") or signal.get("collected_at")
+    age_hours = None
+    if reference:
+        try:
+            dt = datetime.fromisoformat(reference.replace("Z", "+00:00"))
+            age_hours = max(0, (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds() / 3600)
+        except ValueError:
+            pass
+    if age_hours is None:
+        freshness, freshness_label = 0.5, "freshness:unknown"
+    elif age_hours <= 6:
+        freshness, freshness_label = 1.0, "freshness:current"
+    elif age_hours <= 24:
+        freshness, freshness_label = 0.9, "freshness:recent"
+    elif age_hours <= 72:
+        freshness, freshness_label = 0.75, "freshness:recent"
+    elif age_hours <= 168:
+        freshness, freshness_label = 0.6, "freshness:dated"
+    elif age_hours <= 720:
+        freshness, freshness_label = 0.4, "freshness:dated"
+    else:
+        freshness, freshness_label = 0.2, "freshness:old"
+    confidence = {"high": 1.0, "medium": 0.8, "low": 0.6, "unknown": 0.5}.get(signal.get("confidence"), 0.5)
+    scope = {"UK": 1.0, "England": 0.95, "Wales": 0.95, "Scotland": 0.95, "Northern Ireland": 0.95, "local": 0.9, "international": 0.55}.get(signal.get("geography", {}).get("scope"), 0.5)
+    status = {"active": 1.0, "monitoring": 0.8, "resolved": 0.15, "expired": 0.1, "unknown": 0.7}.get(signal.get("status"), 0.7)
+    change = {"new": 1.1, "changed": 1.05, "resolved": 0.2}.get(signal.get("change_type"), 1.0)
+    raw = SEVERITY_POINTS.get(signal.get("severity"), 20) * freshness * confidence * scope * status * change
+    if signal.get("severity") == "unknown": raw = min(raw, 49)
+    score = max(0, min(100, round(raw)))
+    band = "immediate" if score >= 70 else "high" if score >= 45 else "moderate" if score >= 20 else "monitor"
+    return {"priority_model_version":"1.0","priority_score":score,"priority_band":band,"priority_basis":[
+        "severity:"+str(signal.get("severity","unknown")), freshness_label,
+        "confidence:"+str(signal.get("confidence","unknown")),
+        "scope:"+str(signal.get("geography",{}).get("scope","unknown"))]}
+
 
 
 def _id(prefix, value):
@@ -40,7 +80,7 @@ def signal(
     observed_at=None,
 ):
     identity = "|".join([source, source_record_id or description, scope, hazard])
-    return {
+    result = {
         "id": _id("risk", identity),
         "schema_version": "1.0",
         "risk_theme": risk_theme,
@@ -61,6 +101,8 @@ def signal(
         "tags": [],
         "source_record_id": source_record_id,
     }
+    result.update(_priority(result))
+    return result
 
 
 def normalise_current(data):
@@ -132,6 +174,7 @@ def normalise_current(data):
             scope="international",
             description=f"{cve}: {item.get('vulnerabilityName') or 'Known exploited vulnerability'}",
             collected_at=collected_at, source_record_id=cve,
+            observed_at=(f"{item.get('dateAdded')}T00:00:00+00:00" if item.get("dateAdded") else None),
             change_type="new",
         ))
 
@@ -158,6 +201,7 @@ def normalise_current(data):
             hazard="food_product_alert", severity="unknown", scope="UK",
             description=item.get("title") or "Food alert",
             collected_at=collected_at, source_record_id=item["id"],
+            published_at=item.get("modified"),
             change_type="new", status="active",
         ))
 
@@ -174,7 +218,7 @@ def normalise_current(data):
             scope=scope,
             description=f"M{item.get('magnitude')} earthquake: {item.get('place') or 'location unavailable'}.",
             collected_at=collected_at, source_record_id=event_id,
-            change_type="new", observed_at=None,
+            change_type="new", observed_at=(datetime.fromtimestamp(item["time"] / 1000, timezone.utc).isoformat() if item.get("time") else None),
         ))
 
     noaa = multi.get("noaa_space_weather", {})
