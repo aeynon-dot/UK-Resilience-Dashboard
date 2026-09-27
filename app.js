@@ -67,8 +67,7 @@ function renderRiskMap(d){
     nationData.key==='wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
     nationData.key==='scotland'&&!d.feeds?.['SEPA']?.ok;
   const overall=weather==='Red'||flood==='Red'?'Red':weather==='Amber'||flood==='Amber'?'Amber':weather==='Yellow'||flood==='Yellow'?'Yellow':feedIssue?'Check':'Clear';
-  const detail=document.getElementById('map-detail');
-  detail.innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+esc(overall==='Check'?'CHECK DATA':overall.toUpperCase())+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
+  document.getElementById('map-detail').innerHTML='<strong>'+esc(selected)+'</strong><span class="map-detail-risk '+overall.toLowerCase()+'">'+esc(overall==='Check'?'CHECK DATA':overall.toUpperCase())+'</span><small>Weather: '+esc(weather)+' · Flood: '+esc(flood)+'</small>';
   document.querySelectorAll('.map-hotspot').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   document.querySelectorAll('.map-label').forEach(el=>el.classList.toggle('selected',el.dataset.nation===selected));
   const levels=['Red','Amber','Yellow'];
