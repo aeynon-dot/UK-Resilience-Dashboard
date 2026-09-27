@@ -93,3 +93,8 @@ See SECURITY.md and SECURE-BY-DESIGN.md.
 ## Important
 
 This dashboard is an information aid and does not replace official warning/alert channels. Always follow the latest advice from the relevant official service.
+
+
+## MVP3.5 — Organisational exposure
+
+MVP3.5 adds a browser-local organisation exposure profile and transparent preparedness-priority calculation. Organisational exposure is not sent to the public data pipeline or stored in the repository. See `docs/MVP3.5-ORGANISATIONAL-EXPOSURE.md`.
