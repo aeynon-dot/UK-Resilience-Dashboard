@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Resilience Monitor Source / Feed Registry",
   "purpose": "Machine-readable inventory of external sources used to collect or support disruptive-risk intelligence.",
   "design_principles": [
@@ -19,9 +19,19 @@
       "transport": "rss",
       "endpoint": "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK",
       "landing_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "risk_themes": ["natural_and_environmental_hazards"],
-      "risk_domains": ["climate_and_weather"],
-      "geographies": ["UK", "England", "Wales", "Scotland", "Northern Ireland"],
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "climate_and_weather"
+      ],
+      "geographies": [
+        "UK",
+        "England",
+        "Wales",
+        "Scotland",
+        "Northern Ireland"
+      ],
       "expected_update_minutes": 15,
       "freshness_tolerance_minutes": 30,
       "enabled": true,
@@ -37,14 +47,20 @@
       "transport": "https",
       "endpoint": "https://environment.data.gov.uk/flood-monitoring/id/floods",
       "landing_url": "https://check-for-flooding.service.gov.uk/",
-      "risk_themes": ["natural_and_environmental_hazards"],
-      "risk_domains": ["flooding"],
-      "geographies": ["England"],
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "flooding"
+      ],
+      "geographies": [
+        "England"
+      ],
       "expected_update_minutes": 15,
       "freshness_tolerance_minutes": 30,
       "enabled": true,
       "public": true,
-      "notes": "Live flood monitoring data. Temporary upstream failures should retain the last usable snapshot."
+      "notes": "Live flood monitoring data. Temporary upstream failures retain the last usable snapshot."
     },
     {
       "id": "natural-resources-wales-flood-warning",
@@ -55,9 +71,15 @@
       "transport": "https",
       "endpoint": "https://flood-warning.naturalresources.wales/AToZ",
       "landing_url": "https://flood-warning.naturalresources.wales/",
-      "risk_themes": ["natural_and_environmental_hazards"],
-      "risk_domains": ["flooding"],
-      "geographies": ["Wales"],
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "flooding"
+      ],
+      "geographies": [
+        "Wales"
+      ],
       "expected_update_minutes": 15,
       "freshness_tolerance_minutes": 30,
       "enabled": true,
@@ -73,9 +95,15 @@
       "transport": "https",
       "endpoint": "https://beta.sepa.scot/flooding",
       "landing_url": "https://beta.sepa.scot/flooding",
-      "risk_themes": ["natural_and_environmental_hazards"],
-      "risk_domains": ["flooding"],
-      "geographies": ["Scotland"],
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "flooding"
+      ],
+      "geographies": [
+        "Scotland"
+      ],
       "expected_update_minutes": 15,
       "freshness_tolerance_minutes": 30,
       "enabled": true,
@@ -91,14 +119,165 @@
       "transport": "web",
       "endpoint": null,
       "landing_url": "https://www.infrastructure-ni.gov.uk/topics/rivers",
-      "risk_themes": ["natural_and_environmental_hazards"],
-      "risk_domains": ["flooding"],
-      "geographies": ["Northern Ireland"],
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "flooding"
+      ],
+      "geographies": [
+        "Northern Ireland"
+      ],
       "expected_update_minutes": null,
       "freshness_tolerance_minutes": null,
       "enabled": true,
       "public": true,
       "notes": "Reference source pending a suitable automated live feed."
+    },
+    {
+      "id": "cisa-known-exploited-vulnerabilities",
+      "name": "CISA Known Exploited Vulnerabilities Catalog",
+      "publisher": "Cybersecurity and Infrastructure Security Agency",
+      "authority_type": "government_agency",
+      "source_type": "dataset",
+      "transport": "https",
+      "endpoint": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "landing_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "risk_themes": [
+        "cyber"
+      ],
+      "risk_domains": [
+        "cyber"
+      ],
+      "geographies": [
+        "international"
+      ],
+      "expected_update_minutes": 60,
+      "freshness_tolerance_minutes": 180,
+      "enabled": true,
+      "public": true,
+      "notes": "Machine-readable catalogue of known exploited vulnerabilities. Catalogue presence is not itself an organisation-specific severity assessment."
+    },
+    {
+      "id": "ukhsa-data-dashboard",
+      "name": "UKHSA Data Dashboard API",
+      "publisher": "UK Health Security Agency",
+      "authority_type": "government_agency",
+      "source_type": "live_api",
+      "transport": "https",
+      "endpoint": "https://api.ukhsa-dashboard.data.gov.uk/",
+      "landing_url": "https://ukhsa-dashboard.data.gov.uk/access-our-data",
+      "risk_themes": [
+        "human_animal_and_plant_health"
+      ],
+      "risk_domains": [
+        "health"
+      ],
+      "geographies": [
+        "England"
+      ],
+      "expected_update_minutes": 1440,
+      "freshness_tolerance_minutes": 2880,
+      "enabled": true,
+      "public": true,
+      "notes": "Public unauthenticated JSON API. MVP3 uses an infectious-disease surveillance metric as a proof-of-integration."
+    },
+    {
+      "id": "fsa-food-alerts",
+      "name": "FSA Food Alerts API",
+      "publisher": "Food Standards Agency",
+      "authority_type": "government_agency",
+      "source_type": "live_api",
+      "transport": "https",
+      "endpoint": "https://data.food.gov.uk/food-alerts/id",
+      "landing_url": "https://data.food.gov.uk/food-alerts",
+      "risk_themes": [
+        "human_animal_and_plant_health"
+      ],
+      "risk_domains": [
+        "supply_chain",
+        "health"
+      ],
+      "geographies": [
+        "UK"
+      ],
+      "expected_update_minutes": 60,
+      "freshness_tolerance_minutes": 180,
+      "enabled": true,
+      "public": true,
+      "notes": "Current and recent Allergy Alerts, Product Recall Information Notices and Food Alerts for Action."
+    },
+    {
+      "id": "usgs-earthquake-feed",
+      "name": "USGS Earthquake GeoJSON Feed",
+      "publisher": "U.S. Geological Survey",
+      "authority_type": "national_scientific_agency",
+      "source_type": "warning_feed",
+      "transport": "https",
+      "endpoint": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+      "landing_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "other"
+      ],
+      "geographies": [
+        "international"
+      ],
+      "expected_update_minutes": 15,
+      "freshness_tolerance_minutes": 60,
+      "enabled": true,
+      "public": true,
+      "notes": "MVP3 retains earthquakes of magnitude 5.0 or greater from the past day as test signals."
+    },
+    {
+      "id": "noaa-space-weather-k-index",
+      "name": "NOAA Planetary K-index JSON",
+      "publisher": "NOAA Space Weather Prediction Center",
+      "authority_type": "national_scientific_agency",
+      "source_type": "dataset",
+      "transport": "https",
+      "endpoint": "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json",
+      "landing_url": "https://www.swpc.noaa.gov/",
+      "risk_themes": [
+        "natural_and_environmental_hazards"
+      ],
+      "risk_domains": [
+        "space_weather"
+      ],
+      "geographies": [
+        "international"
+      ],
+      "expected_update_minutes": 60,
+      "freshness_tolerance_minutes": 180,
+      "enabled": true,
+      "public": true,
+      "notes": "MVP3 uses the latest planetary K-index observation as a monitoring signal."
+    },
+    {
+      "id": "neso-demand-data-update",
+      "name": "NESO Demand Data Update",
+      "publisher": "National Energy System Operator",
+      "authority_type": "national_system_operator",
+      "source_type": "live_api",
+      "transport": "https",
+      "endpoint": "https://api.neso.energy/api/3/action/datastore_search?resource_id=177f6fa4-ae49-4182-81ea-0c6b35f26ca6",
+      "landing_url": "https://www.neso.energy/data-portal/daily-demand-update/demand_data_update",
+      "risk_themes": [
+        "accidents_and_system_failures"
+      ],
+      "risk_domains": [
+        "energy"
+      ],
+      "geographies": [
+        "UK"
+      ],
+      "expected_update_minutes": 1440,
+      "freshness_tolerance_minutes": 2880,
+      "enabled": true,
+      "public": true,
+      "notes": "Public CKAN datastore resource for electricity demand and related system data. MVP3 uses availability of the latest records as an energy monitoring signal."
     }
   ]
 }
