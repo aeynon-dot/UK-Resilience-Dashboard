@@ -72,7 +72,7 @@ function renderGeographicMap(d){
   const feed=feedName?d.feeds?.[feedName]:null;
   const items=[...selectedWeather.map(x=>({...x,type:'Weather'})),...selectedFlood.map(x=>({...x,type:'Flood'}))];
   const itemHtml=items.length?items.slice(0,5).map(x=>'<div class="map-detail-item"><span class="map-detail-item-level '+String(x.level||'Alert').toLowerCase()+'">'+esc(x.level||'Alert')+'</span><span>'+esc(x.title||x.area||'Current item')+'</span></div>').join(''):'<div class="muted">No current warning or flood items for this area.</div>';
-  const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'OK':feed.stale?'STALE — last successful data retained':'ERROR')+'</small>':'';
+  const feedHtml=feed?'<small>Flood data: '+esc(feed.ok?'OK':feed.stale?'STALE — last successful update '+ageLabel(feed.last_success_at):'ERROR')+'</small>':'';
   const niInfo=selected==='Northern Ireland'?'<small>DfI Rivers provides flood information and water-level data separately.</small><a class="map-detail-link" href="https://www.infrastructure-ni.gov.uk/topics/rivers-and-flooding" target="_blank" rel="noopener">Open DfI Rivers flood information →</a>':'';
   document.getElementById('map-detail').innerHTML='<strong>'+esc(selected==='UK'?'UK-wide':selected)+'</strong><span class="map-detail-risk '+nation.overall.toLowerCase()+'">'+esc(nation.overall==='Check'?'CHECK DATA':nation.overall.toUpperCase())+'</span><small>Weather: '+esc(nation.weather)+' · Flood: '+esc(nation.flood)+'</small>'+feedHtml+niInfo+'<div class="map-detail-items">'+itemHtml+'</div>';
   
@@ -102,6 +102,17 @@ const totalFor=d=>{
 const keyFor=x=>String(x.level||'')+'|'+String(x.title||x.area||'');
 const levelRank={Clear:0,Yellow:1,Amber:2,Red:3};
 const warningRank=x=>levelRank[x]??0;
+function ageLabel(iso){
+  if(!iso)return 'age unknown';
+  const ms=Math.max(0,Date.now()-new Date(iso).getTime());
+  const mins=Math.floor(ms/60000);
+  if(mins<60)return mins+' min'+(mins===1?'':'s')+' old';
+  const hours=Math.floor(mins/60);
+  const rem=mins%60;
+  if(hours<24)return hours+'h'+(rem?' '+rem+'m':'')+' old';
+  const days=Math.floor(hours/24);
+  return days+' day'+(days===1?'':'s')+' old';
+}
 const floodLevel=d=>{
   if((d.severe||0)>0)return 'Red';
   if((d.warnings||0)>0)return 'Amber';
@@ -150,7 +161,7 @@ function renderFocus(d){
     focus==='Wales'&&!d.feeds?.['Natural Resources Wales']?.ok ||
     focus==='Scotland'&&!d.feeds?.['SEPA']?.ok;
   let detail=focus==='UK'?weather+' active Met Office warning'+(weather===1?'':'s'):risk==='Clear'?'No current warning or flood item in connected feeds':risk+' risk item currently detected';
-  if(feedIssue) detail+=' · one feed needs checking';
+  if(feedIssue){const f=focus==='England'?d.feeds?.['Environment Agency']:focus==='Wales'?d.feeds?.['Natural Resources Wales']:focus==='Scotland'?d.feeds?.['SEPA']:null;detail+=' · '+(f?.stale?'STALE — last successful update '+ageLabel(f.last_success_at):'one feed needs checking');}
   document.getElementById('focus-result').innerHTML='<strong>'+esc(focus==='UK'?'UK-wide':focus)+'</strong><span class="focus-risk '+risk.toLowerCase()+'">'+esc(risk.toUpperCase())+'</span><small>'+esc(detail)+'</small>';
   document.getElementById('focus-area').value=focus;
 }
