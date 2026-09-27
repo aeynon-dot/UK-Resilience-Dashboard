@@ -170,29 +170,36 @@ function renderFocus(d){
   document.getElementById('focus-result').innerHTML='<strong>'+esc(focus==='UK'?'UK-wide':focus)+'</strong><span class="focus-risk '+risk.toLowerCase()+'">'+esc(risk.toUpperCase())+'</span><small>'+esc(detail)+'</small>';
   document.getElementById('focus-area').value=focus;
 }
-function renderWeatherToday(d){
+
+function focusMatchesItem(x,focus){
+  if(focus==='UK')return true;
+  if(x.source==='England'||x.source==='Wales'||x.source==='Scotland')return x.source===focus;
+  if(x.source==='Met Office')return regionMatch(x,focus);
+  return false;
+}
+function focusedItems(d,focus){
+  const weather=(d.met_office?.items||[]).map(x=>({...x,source:'Met Office'}));
+  const flood=focus==='England'?(d.england?.items||[]).map(x=>({...x,source:'England'})):focus==='Wales'?(d.wales?.items||[]).map(x=>({...x,source:'Wales'})):focus==='Scotland'?(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'})):[];
+  return [...weather.filter(x=>focusMatchesItem(x,focus)),...flood];
+}
+function focusedTotal(d,focus){return focusedItems(d,focus).length;}
+\nfunction renderWeatherToday(d){
   const el=document.getElementById('weather-today');
+  const focus=getFocus();
   const uw=d.uk_weather||{};
-  if(uw.error){
-    el.innerHTML='<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><span>See the Met Office national forecast directly.</span></div>';
-    return;
-  }
+  if(uw.error){el.innerHTML='<div class="weather-placeholder"><strong>'+esc(focus==='UK'?'UK-wide forecast unavailable':focus+' weather forecast context unavailable')+'</strong><span>See the Met Office national forecast directly.</span></div>';return;}
   const summary=String(uw.summary||'').trim();
-  if(!summary){
-    el.innerHTML='<div class="weather-placeholder"><strong>UK-wide forecast</strong><span>National forecast available.</span></div>';
-    return;
-  }
+  if(!summary){el.innerHTML='<div class="weather-placeholder"><strong>'+esc(focus==='UK'?'UK-wide forecast':focus+' weather context')+'</strong><span>National forecast available.</span></div>';return;}
   const sentences=summary.split(/(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean);
   const headline=(sentences[0]||summary).replace(/[.!?]$/,'');
   const bullets=sentences.slice(1,4);
-  const concern=summary.match(/\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\b/ig);
-  const mainConcern=concern?.[0]||'Weather conditions';
-  el.innerHTML='<div class="weather-today-content"><strong class="weather-headline">'+esc(headline)+'</strong>'+
-    '<div class="weather-concern"><span>Main concern</span><strong>'+esc(mainConcern)+'</strong></div>'+
-    (bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+
-    '</div>';
+  const focusWeather=focusedItems(d,focus).filter(x=>x.source==='Met Office');
+  const concern=focusWeather[0]?.level&&focusWeather[0]?.level!=='Clear' ? focusWeather[0].level+' warning' : summary.match(/\\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\\b/ig)?.[0]||'Weather conditions';
+  const context=focus==='UK'?'UK-wide forecast':focus+' focus — UK-wide forecast with '+focus.toLowerCase()+' warning context';
+  el.innerHTML='<div class="weather-today-content"><strong class="weather-headline">'+esc(headline)+'</strong><div class="weather-concern"><span>'+esc(context)+'</span><strong>'+esc(concern)+'</strong></div>'+(bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+'</div>';
 }
 function renderTimeline(history,current){
+  const focus=getFocus();
   const snapshots=[...(Array.isArray(history)?history:[])].filter(h=>h&&typeof h==='object'&&!Array.isArray(h)).slice(0,23).reverse();
   snapshots.push(current);
   if(snapshots.length<2){document.getElementById('warning-timeline').innerHTML='<div class="muted">Building warning history…</div>';return;}
@@ -203,11 +210,12 @@ function renderTimeline(history,current){
     const nowItems=[...(now.met_office?.items||[]).map(x=>({...x,source:'Met Office'})),...(now.england?.items||[]).map(x=>({...x,source:'England'})),...(now.wales?.items||[]).map(x=>({...x,source:'Wales'})),...(now.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))];
     const prevMap=new Map(prevItems.map(x=>[identityFor(x),x]));
     const nowMap=new Map(nowItems.map(x=>[identityFor(x),x]));
-    nowItems.forEach(x=>{const old=prevMap.get(identityFor(x));if(!old)events.push({time:now.updated_at,kind:'NEW',className:'new',source:x.source,title:x.title||x.area||'Current item',detail:'First detected in this collection'});else if(old.level!==x.level){const up=warningRank(x.level)>warningRank(old.level);events.push({time:now.updated_at,kind:up?'ESCALATED':'REDUCED',className:up?'escalated':'reduced',source:x.source,title:x.title||x.area||'Current item',detail:(old.level||'Unknown')+' → '+(x.level||'Alert')});}});
-    prevItems.forEach(x=>{if(!nowMap.has(identityFor(x)))events.push({time:now.updated_at,kind:'RESOLVED',className:'resolved',source:x.source,title:x.title||x.area||'Current item',detail:'No longer present in the latest collection'});});
+    nowItems.forEach(x=>{const old=prevMap.get(identityFor(x));if(!old)events.push({time:now.updated_at,kind:'NEW',className:'new',source:x.source,regions:x.regions||[],title:x.title||x.area||'Current item',detail:'First detected in this collection'});else if(old.level!==x.level){const up=warningRank(x.level)>warningRank(old.level);events.push({time:now.updated_at,kind:up?'ESCALATED':'REDUCED',className:up?'escalated':'reduced',source:x.source,regions:x.regions||[],title:x.title||x.area||'Current item',detail:(old.level||'Unknown')+' → '+(x.level||'Alert')});}});
+    prevItems.forEach(x=>{if(!nowMap.has(identityFor(x)))events.push({time:now.updated_at,kind:'RESOLVED',className:'resolved',source:x.source,regions:x.regions||[],title:x.title||x.area||'Current item',detail:'No longer present in the latest collection'});});
   }
   events.sort((a,b)=>new Date(b.time)-new Date(a.time));
-  const shown=events.slice(0,12);
+  const focusedEvents=focus==='UK'?events:events.filter(x=>x.source===focus||(x.source==='Met Office'&&((x.regions||[]).includes(focus)||String(x.title).toLowerCase().includes(focus.toLowerCase()))));
+  const shown=focusedEvents.slice(0,12);
   if(!shown.length){document.getElementById('warning-timeline').innerHTML='<div class="timeline-clear"><strong>No warning changes detected</strong><span>Recent collections have not recorded a new, escalated, reduced or resolved warning.</span></div>';return;}
   document.getElementById('warning-timeline').innerHTML=shown.map(x=>'<div class="timeline-item '+x.className+'"><div class="timeline-marker"></div><div class="timeline-body"><div class="timeline-top"><span class="timeline-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong><time datetime="'+esc(x.time||'')+'">'+esc(new Date(x.time).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}))+'</time></div><div class="timeline-title">'+esc(x.title)+'</div><div class="timeline-detail">'+esc(x.detail)+'</div></div></div>').join('');
 }
@@ -226,7 +234,8 @@ function renderTrend(history,current){
   document.getElementById('trend-note').textContent='Last '+values.length+' collected snapshots: active items '+direction+' from '+first+' to '+last+'.';
 }
 function renderAttention(d,history,newItems,changedItems){
-  const total=totalFor(d);
+  const focus=getFocus();
+  const total=focusedTotal(d,focus);
   const cards=[];
   const feeds=Object.entries(d.feeds||{});
   const focus=getFocus();
@@ -244,7 +253,7 @@ function renderAttention(d,history,newItems,changedItems){
     ...(d.wales?.items||[]).map(x=>({...x,source:'Wales'})),
     ...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))
   ];
-  currentItems.forEach(x=>{
+  currentItems.filter(x=>focusMatchesItem(x,focus)).forEach(x=>{
     const isNew=newItems.some(n=>identityFor(n)===identityFor(x));
     const changed=changedItems.some(n=>identityFor(n)===identityFor(x));
     const level=x.level||'Alert';
@@ -271,11 +280,13 @@ function renderAttention(d,history,newItems,changedItems){
 function render(d,history){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
   const weather=d.met_office||{}, ew=d.england||{}, wa=d.wales||{}, sc=d.scotland||{};
-  document.getElementById('weather-count').textContent=weather.count ?? 0;
-  document.getElementById('england-count').textContent=(ew.warnings||0)+(ew.alerts||0)+(ew.severe||0);
-  document.getElementById('wales-count').textContent=(wa.warnings||0)+(wa.alerts||0)+(wa.severe||0);
-  document.getElementById('scotland-count').textContent=(sc.warnings||0)+(sc.alerts||0)+(sc.severe||0);
-  const feedValues=Object.values(d.feeds||{}),hasFeedIssue=feedValues.some(v=>!v.ok),total=totalFor(d);
+  const focus=getFocus();
+  const focusItems=focusedItems(d,focus);
+  document.getElementById('weather-count').textContent=(focus==='UK'?weather.items||[]:focusItems.filter(x=>x.source==='Met Office')).length;
+  document.getElementById('england-count').textContent=focus==='England'||focus==='UK'?(ew.warnings||0)+(ew.alerts||0)+(ew.severe||0):0;
+  document.getElementById('wales-count').textContent=focus==='Wales'||focus==='UK'?(wa.warnings||0)+(wa.alerts||0)+(wa.severe||0):0;
+  document.getElementById('scotland-count').textContent=focus==='Scotland'||focus==='UK'?(sc.warnings||0)+(sc.alerts||0)+(sc.severe||0):0;
+  const feedValues=Object.entries(d.feeds||{}).filter(([name])=>focus==='UK'||(focus==='England'&&name==='Environment Agency')||(focus==='Wales'&&name==='Natural Resources Wales')||(focus==='Scotland'&&name==='SEPA')).map(([,v])=>v),hasFeedIssue=feedValues.some(v=>!v.ok),total=focusedTotal(d,focus);
   const previous=history.find(h=>h&&typeof h==='object'&&!Array.isArray(h));
   const previousKeys=new Set([
     ...(previous?.met_office?.items||[]).map(keyFor),...(previous?.england?.items||[]).map(keyFor),
@@ -295,19 +306,19 @@ function render(d,history){
   ];
   const previousByIdentity=new Map(previousItems.map(x=>[identityFor(x),x]));
   const currentByIdentity=new Map(currentItems.map(x=>[identityFor(x),x]));
-  const newItems=currentItems.filter(x=>!previousByIdentity.has(identityFor(x)));
-  const changedItems=currentItems.filter(x=>{
+  const newItems=currentItems.filter(x=>focusMatchesItem(x,focus)&&!previousByIdentity.has(identityFor(x)));
+  const changedItems=currentItems.filter(x=>focusMatchesItem(x,focus)&&{
     const old=previousByIdentity.get(identityFor(x));
     return old && old.level!==x.level;
   });
-  const resolvedItems=previousItems.filter(x=>!currentByIdentity.has(identityFor(x)));
+  const resolvedItems=previousItems.filter(x=>focusMatchesItem(x,focus)&&!currentByIdentity.has(identityFor(x)));
   const removedCount=resolvedItems.length;
   const status=document.getElementById('status');status.className='status';
-  if(hasFeedIssue){status.textContent='CHECK DATA';status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items — data feed issue':'No active items reported, but a data feed needs checking'}
-  else{status.textContent=total?'ATTENTION':'ALL CLEAR';if(total)status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items detected':'No active warning/alert items in the collected feeds'}
+  if(hasFeedIssue){status.textContent='CHECK DATA';status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items for '+(focus==='UK'?'the UK':focus)+' — data feed issue':'No active items reported for '+(focus==='UK'?'the UK':focus)+', but a data feed needs checking'}
+  else{status.textContent=total?'ATTENTION':'ALL CLEAR';if(total)status.classList.add('attention');document.getElementById('headline').textContent=total?total+' active warning/alert items for '+(focus==='UK'?'the UK':focus):'No active warning/alert items for '+(focus==='UK'?'the UK':focus)}
   const change=[];if(newItems.length)change.push('New: '+newItems.length);if(changedItems.length)change.push('Changed: '+changedItems.length);if(removedCount)change.push('Resolved: '+removedCount);if(!change.length)change.push(previous?'No significant change since the previous collection':'Baseline established');
   document.getElementById('changes').textContent=change.join(' · ');
-  list('weather-list',weather.items||[]);list('england-list',ew.items||[]);list('wales-list',wa.items||[]);list('scotland-list',sc.items||[]);
+  list('weather-list',focusItems.filter(x=>x.source==='Met Office'));list('england-list',focus==='England'||focus==='UK'?ew.items||[]:[]);list('wales-list',focus==='Wales'||focus==='UK'?wa.items||[]:[]);list('scotland-list',focus==='Scotland'||focus==='UK'?sc.items||[]:[]);
   const feeds=d.feeds||{};document.getElementById('feeds').innerHTML=Object.entries(feeds).map(([k,v])=>'<div class="feed"><span>'+esc(k)+'</span><span class="'+(v.ok?'ok':'bad')+'">'+(v.ok?'OK':(v.stale?'STALE':'ERROR'))+'</span></div>').join('');
   const changeCards=[
     ...newItems.map(x=>({kind:'NEW',className:'new',source:x.source,level:x.level||'Alert',title:x.title||x.area||'Current item'})),
@@ -319,7 +330,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);
+  renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
