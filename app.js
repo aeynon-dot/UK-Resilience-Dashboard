@@ -686,7 +686,7 @@ function render(d,history,riskSet,registry){
   const headline=document.getElementById('headline');
   const scopeLabel=focus==='UK'?'UK':focus;
   const openingPreferences=!window.__riskSessionInteracted;
-  const preferredThemes=openingPreferences?(window.__openingPreferredThemes||[]):[];
+  const preferredThemes=openingPreferences?(monitoringPreferences.themes||[]):[];
   const minimumPriority=openingPreferences?(monitoringPreferences.minimum_priority||'monitor'):'monitor';
   const preferredSignals=scopedRiskSignals.filter(x=>
     (preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t))) &&
