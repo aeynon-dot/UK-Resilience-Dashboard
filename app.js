@@ -1,4 +1,5 @@
 const FOCUS_KEY='ukResilienceFocus';
+const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
 let ukMapMarkup=null;
 
@@ -148,14 +149,27 @@ function regionRisk(d,nation){
 }
 function renderRiskMap(d){renderGeographicMap(d);}
 
-function getFocus(){
+function getDefaultFocus(){
   try{
-    const x=localStorage.getItem(FOCUS_KEY);
+    const x=localStorage.getItem(DEFAULT_FOCUS_KEY);
     return focusNames.includes(x)?x:'UK';
   }catch(e){return 'UK'}
 }
+function getFocus(){
+  try{
+    const x=localStorage.getItem(FOCUS_KEY);
+    return focusNames.includes(x)?x:getDefaultFocus();
+  }catch(e){return getDefaultFocus()}
+}
 function setFocus(v){
   try{localStorage.setItem(FOCUS_KEY,v)}catch(e){}
+}
+function setDefaultFocus(v){
+  try{localStorage.setItem(DEFAULT_FOCUS_KEY,v);localStorage.setItem(FOCUS_KEY,v)}catch(e){}
+}
+function renderPreferences(){
+  const el=document.getElementById('default-focus');
+  if(el)el.value=getDefaultFocus();
 }
 function renderDataConfidence(d){
   const el=document.getElementById('data-confidence');
@@ -362,7 +376,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  renderRiskMap(d);renderFocus(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderFocus(d);renderPreferences();renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
@@ -370,7 +384,12 @@ function list(id,items){
 }
 document.addEventListener('DOMContentLoaded',()=>{
   const focusArea=document.getElementById('focus-area');
+  const defaultFocus=document.getElementById('default-focus');
+  const applyDefault=document.getElementById('apply-default-focus');
   if(focusArea)focusArea.addEventListener('change',e=>{setFocus(e.target.value);load()});
+  if(defaultFocus)defaultFocus.addEventListener('change',e=>{setDefaultFocus(e.target.value);load()});
+  if(applyDefault)applyDefault.addEventListener('click',()=>{setFocus(getDefaultFocus());load()});
+  renderPreferences();
   load();
   setInterval(load,5*60*1000);
 });
