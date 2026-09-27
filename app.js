@@ -90,7 +90,7 @@ function renderRiskAssessment(d){
   const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
   if(!listEl||!summaryEl)return;
   const signals=d.risk_signals||[],selectedTheme=themeEl?.value||'all',selectedDomain=domainEl?.value||'all',selectedGeo=geoEl?.value||'all',selectedSeverity=severityEl?.value||'all',selectedStatus=statusEl?.value||'all';
-  const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
+  const useOpeningPreferences=!window.__riskSessionInteracted; const filtered=signals.filter(x=>signalMatchesTheme(x,selectedTheme)&&(selectedDomain==='all'||x.risk_domain===selectedDomain)&&(selectedGeo==='all'||x.geography?.scope===selectedGeo)&&(selectedSeverity==='all'||x.severity===selectedSeverity)&&(selectedStatus==='all'||x.status===selectedStatus)&&(!useOpeningPreferences||minimumPriorityAllows(x))).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
   const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length,severe=filtered.filter(x=>x.severity==='severe').length;
   summaryEl.innerHTML='<strong>'+filtered.length+'</strong> signals shown · <strong>'+high+'</strong> high/immediate · <strong>'+severe+'</strong> severe';
   if(!filtered.length){listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';return;}
@@ -104,6 +104,7 @@ function bindRiskAssessment(d){
   ['risk-theme-filter','risk-domain-filter','risk-geography-filter','risk-severity-filter','risk-status-filter'].forEach(id=>{
     const el=document.getElementById(id);
     if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('change',()=>{
+      window.__riskSessionInteracted=true;
       if(id==='risk-theme-filter' && document.getElementById('risk-domain-filter'))document.getElementById('risk-domain-filter').value='all';
       renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
     });}
@@ -115,6 +116,78 @@ function populateRiskAssessmentFilters(d){
   if(themeEl&&!themeEl.dataset.populated){themeEl.innerHTML='<option value="all">All risks</option>'+RISK_THEME_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskThemeLabel(x))+'</option>').join('');themeEl.value=getRiskTheme();themeEl.dataset.populated='1';}
   if(domainEl&&!domainEl.dataset.populated){domainEl.innerHTML='<option value="all">All domains</option>'+RISK_DOMAIN_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskDomainLabel(x))+'</option>').join('');domainEl.dataset.populated='1';}
   if(geoEl&&!geoEl.dataset.populated){const geos=[...new Set((d.risk_signals||[]).map(x=>x.geography?.scope).filter(Boolean))].sort();geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');geoEl.dataset.populated='1';}
+}
+const MONITORING_PREFERENCES_KEY='ukResilienceMonitoringPreferences';
+const PRIORITY_RANK={monitor:1,moderate:2,high:3,immediate:4};
+const DEFAULT_MONITORING_PREFERENCES={
+  geography:'UK',
+  themes:['cyber','natural_and_environmental_hazards'],
+  minimum_priority:'monitor'
+};
+let monitoringPreferences=loadMonitoringPreferences();
+let monitoringPreferencesApplied=false;
+
+function loadMonitoringPreferences(){
+  try{
+    const raw=localStorage.getItem(MONITORING_PREFERENCES_KEY);
+    if(!raw)return {...DEFAULT_MONITORING_PREFERENCES,themes:[...DEFAULT_MONITORING_PREFERENCES.themes]};
+    const x=JSON.parse(raw);
+    const themes=Array.isArray(x.themes)?x.themes.filter(t=>RISK_THEME_ORDER.includes(t)):[];
+    return {
+      geography:['all','UK','England','Wales','Scotland','Northern Ireland'].includes(x.geography)?x.geography:'UK',
+      themes:themes.length?themes:[...DEFAULT_MONITORING_PREFERENCES.themes],
+      minimum_priority:PRIORITY_RANK[x.minimum_priority]?x.minimum_priority:'monitor'
+    };
+  }catch(e){return {...DEFAULT_MONITORING_PREFERENCES,themes:[...DEFAULT_MONITORING_PREFERENCES.themes]}}
+}
+function saveMonitoringPreferences(){
+  const geography=document.getElementById('preference-geography')?.value||'UK';
+  const themes=[...document.querySelectorAll('#preference-themes input:checked')].map(x=>x.value);
+  const minimum_priority=document.getElementById('preference-priority')?.value||'monitor';
+  monitoringPreferences={
+    geography,
+    themes:themes.length?themes:[...RISK_THEME_ORDER],
+    minimum_priority
+  };
+  try{localStorage.setItem(MONITORING_PREFERENCES_KEY,JSON.stringify(monitoringPreferences))}catch(e){}
+  monitoringPreferencesApplied=false;
+  applyMonitoringPreferences();
+  const status=document.getElementById('monitoring-preferences-status');
+  if(status)status.textContent='Saved. Current investigation filters are unchanged.';
+}
+function renderMonitoringPreferences(){
+  const geo=document.getElementById('preference-geography');
+  const priority=document.getElementById('preference-priority');
+  const themes=document.getElementById('preference-themes');
+  if(!geo||!priority||!themes)return;
+  geo.value=monitoringPreferences.geography;
+  priority.value=monitoringPreferences.minimum_priority;
+  themes.innerHTML=RISK_THEME_ORDER.map(t=>'<label><input type="checkbox" value="'+esc(t)+'" '+(monitoringPreferences.themes.includes(t)?'checked':'')+'> '+esc(riskThemeLabel(t))+'</label>').join('');
+  const status=document.getElementById('monitoring-preferences-status');
+  if(status)status.textContent='Saved locally in this browser.';
+}
+function applyMonitoringPreferences(){
+  if(monitoringPreferencesApplied)return;
+  const themeEl=document.getElementById('risk-theme-filter');
+  const geoEl=document.getElementById('risk-geography-filter');
+  const severityEl=document.getElementById('risk-severity-filter');
+  if(!themeEl||!geoEl||!severityEl)return;
+  // A single preferred theme can map directly to the investigation selector.
+  // Multiple preferred themes remain an opening preference; the session selector stays "All risks".
+  if(monitoringPreferences.themes.length===1 && RISK_THEME_ORDER.includes(monitoringPreferences.themes[0])){
+    themeEl.value=monitoringPreferences.themes[0];
+  }else{
+    themeEl.value='all';
+  }
+  geoEl.value=monitoringPreferences.geography;
+  const minimum=monitoringPreferences.minimum_priority;
+  severityEl.value='all';
+  monitoringPreferencesApplied=true;
+  renderRiskWorkspace(window.__riskData||{});
+}
+function minimumPriorityAllows(signal){
+  const minimum=monitoringPreferences.minimum_priority||'monitor';
+  return (PRIORITY_RANK[signal.priority_band]||1)>=(PRIORITY_RANK[minimum]||1);
 }
 const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
@@ -211,7 +284,7 @@ async function load(){
       fetch('data/source-registry.json',{cache:'no-store'}).then(r=>r.json()),
       loadMapData()
     ]);
-    render(current,Array.isArray(history)?history:[]);
+    window.__riskData=current;render(current,Array.isArray(history)?history:[],riskSet,registry);
   }catch(e){
     document.getElementById('headline').textContent='Data not available yet';
     document.getElementById('status').textContent='OFFLINE';
@@ -514,7 +587,7 @@ function applyFocusToDashboard(focus){
   const weatherHeading=document.getElementById('weather-heading');
   if(weatherHeading)weatherHeading.textContent=focus==='UK'?'Met Office warnings':focus+' weather warnings';
 }
-function render(d,history){
+function render(d,history,riskSet,registry){
   document.getElementById('updated').textContent='Data updated '+new Date(d.updated_at).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'});
   const weather=d.met_office||{}, ew=d.england||{}, wa=d.wales||{}, sc=d.scotland||{};
   const focus=getFocus();
@@ -565,7 +638,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  populateRiskAssessmentFilters(d);bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
+  populateRiskAssessmentFilters(d);renderMonitoringPreferences();applyMonitoringPreferences();bindRiskAssessment(d);renderRiskWorkspace(d);renderRiskAssessment(d);updateDomainVisibility();
   renderRiskMap(d);renderCoverage(d,riskSet,registry);renderDataConfidence(d);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
@@ -584,6 +657,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   const example=document.getElementById('load-example-profile'); if(example)example.addEventListener('click',loadExampleExposureProfile);
   const clear=document.getElementById('clear-exposure-profile'); if(clear)clear.addEventListener('click',clearExposureProfile);
   renderPreferences();
+  renderMonitoringPreferences();
+  const savePreferences=document.getElementById('save-monitoring-preferences');
+  if(savePreferences&&!savePreferences.dataset.bound){savePreferences.dataset.bound='1';savePreferences.addEventListener('click',saveMonitoringPreferences)}
+  window.__riskSessionInteracted=false;
   load();
   setInterval(load,5*60*1000);
 });
