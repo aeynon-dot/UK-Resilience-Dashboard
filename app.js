@@ -170,6 +170,27 @@ function renderFocus(d){
   document.getElementById('focus-result').innerHTML='<strong>'+esc(focus==='UK'?'UK-wide':focus)+'</strong><span class="focus-risk '+risk.toLowerCase()+'">'+esc(risk.toUpperCase())+'</span><small>'+esc(detail)+'</small>';
   document.getElementById('focus-area').value=focus;
 }
+function renderWeatherToday(d){
+  const el=document.getElementById('weather-today');
+  const uw=d.uk_weather||{};
+  if(uw.error){
+    el.innerHTML='<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><span>See the Met Office national forecast directly.</span></div>';
+    return;
+  }
+  const summary=String(uw.summary||'').trim();
+  if(!summary){
+    el.innerHTML='<div class="weather-placeholder"><strong>UK-wide forecast</strong><span>National forecast available.</span></div>';
+    return;
+  }
+  const sentences=summary.split(/(?<=[.!?])\\s+/).map(x=>x.trim()).filter(Boolean);
+  const headline=(sentences[0]||summary).replace(/[.!?]$/,'');
+  const bullets=sentences.slice(1,4);
+  const concern=summary.match(/\\b(heavy rain|strong winds|coastal gales|heavy downpours|blustery winds|snow|ice|fog|heat)\\b/ig);
+  const mainConcern=concern?.[0]||'Weather conditions';
+  el.innerHTML='<div class="weather-today-content"><strong class="weather-headline">'+esc(headline)+'</strong>'+
+    (bullets.length?'<ul class="weather-bullets">'+bullets.map(x=>'<li>'+esc(x.replace(/[.!?]$/,''))+'</li>').join('')+'</ul>':'')+
+    '<div class="weather-concern"><span>Main concern</span><strong>'+esc(mainConcern)+'</strong></div></div>';
+}
 function renderTrend(history,current){
   const valid=[...history].filter(h=>h&&typeof h==='object'&&!Array.isArray(h)).slice(0,24).reverse();
   valid.push(current);
@@ -277,7 +298,7 @@ function render(d,history){
     ...resolvedItems.map(x=>({kind:'RESOLVED',className:'resolved',source:x.source,level:x.level||'Alert',title:x.title||x.area||'Current item'}))
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
-  const uw=d.uk_weather||{};document.getElementById('weather-today').innerHTML=uw.error?'<div class="weather-placeholder"><strong>UK-wide forecast unavailable</strong><br>See the Met Office national forecast directly.</div>':'<div class="weather-placeholder"><strong>UK-wide forecast</strong><br>'+esc(uw.summary||'National forecast available')+'</div>';
+  renderWeatherToday(d);
   renderRiskMap(d);renderFocus(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);
 }
 function list(id,items){
