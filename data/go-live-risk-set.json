@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "name": "UK Resilience Monitor Go-Live Risk Set",
+  "purpose": "Defines the risk coverage the public MVP can claim at go-live. Coverage means at least one automated public source is configured for the domain and passes the go-live feed assurance tests.",
+  "scope": "Public Risk Identification and Risk Assessment only. Organisational exposure, vulnerabilities, criticality and preparedness controls are out of scope.",
+  "authoritative_theme_basis": {
+    "name": "UK National Risk Register risk themes",
+    "edition": "2026",
+    "publisher": "UK Cabinet Office",
+    "url": "https://www.gov.uk/government/publications/national-risk-register-2026",
+    "note": "Used only as high-level vocabulary. This product does not reproduce or claim to apply the NRR/NSRA assessment methodology."
+  },
+  "status_definitions": {
+    "covered": "At least one automated source is intended to provide live signals and must pass the go-live feed assurance tests.",
+    "partial": "Some relevant automated coverage exists, but material geographic or risk coverage remains incomplete.",
+    "reference_only": "A public authoritative source is identified, but no automated live integration is claimed.",
+    "gap": "No automated source is currently claimed for this risk area."
+  },
+  "go_live_domains": [
+    {
+      "id": "climate_and_weather",
+      "label": "Climate & weather",
+      "theme": "natural_and_environmental_hazards",
+      "status": "covered",
+      "sources": [
+        "met-office-severe-weather-warnings"
+      ],
+      "geography": [
+        "UK",
+        "England",
+        "Wales",
+        "Scotland",
+        "Northern Ireland"
+      ]
+    },
+    {
+      "id": "flooding",
+      "label": "Flooding",
+      "theme": "natural_and_environmental_hazards",
+      "status": "partial",
+      "sources": [
+        "environment-agency-flood-monitoring",
+        "natural-resources-wales-flood-warning",
+        "sepa-flooding",
+        "dfe-rivers-northern-ireland"
+      ],
+      "geography": [
+        "England",
+        "Wales",
+        "Scotland",
+        "Northern Ireland"
+      ],
+      "notes": "England, Wales and Scotland have automated coverage; Northern Ireland is reference-only."
+    },
+    {
+      "id": "cyber",
+      "label": "Cyber",
+      "theme": "cyber",
+      "status": "covered",
+      "sources": [
+        "ncsc-rss-threat-intelligence",
+        "cisa-known-exploited-vulnerabilities"
+      ],
+      "geography": [
+        "UK",
+        "international"
+      ],
+      "notes": "Signals are public monitoring indicators, not organisation-specific cyber alerts."
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "theme": "human_animal_and_plant_health",
+      "status": "partial",
+      "sources": [
+        "ukhsa-data-dashboard"
+      ],
+      "geography": [
+        "England"
+      ],
+      "notes": "Current automated coverage is England-focused."
+    },
+    {
+      "id": "supply_chain",
+      "label": "Supply chain",
+      "theme": "human_animal_and_plant_health",
+      "status": "partial",
+      "sources": [
+        "fsa-food-alerts"
+      ],
+      "geography": [
+        "UK"
+      ],
+      "notes": "Current coverage is strongest for food safety and recalls rather than all supply-chain disruption."
+    },
+    {
+      "id": "energy",
+      "label": "Energy",
+      "theme": "accidents_and_system_failures",
+      "status": "partial",
+      "sources": [
+        "neso-demand-data-update"
+      ],
+      "geography": [
+        "UK"
+      ],
+      "notes": "Current signal is an energy-system monitoring indicator, not an outage-warning service."
+    },
+    {
+      "id": "space_weather",
+      "label": "Space weather",
+      "theme": "natural_and_environmental_hazards",
+      "status": "covered",
+      "sources": [
+        "noaa-space-weather-k-index"
+      ],
+      "geography": [
+        "international"
+      ],
+      "notes": "International indicator relevant to UK infrastructure and technology dependencies."
+    },
+    {
+      "id": "other_natural_hazards",
+      "label": "Other natural hazards",
+      "theme": "natural_and_environmental_hazards",
+      "status": "partial",
+      "sources": [
+        "usgs-earthquake-feed"
+      ],
+      "geography": [
+        "international"
+      ],
+      "notes": "Current automated coverage is limited to selected earthquake signals and is not a complete UK natural-hazard service."
+    }
+  ],
+  "go_live_theme_coverage": [
+    {
+      "theme": "terrorism",
+      "status": "gap",
+      "automated_sources": []
+    },
+    {
+      "theme": "cyber",
+      "status": "covered",
+      "automated_sources": [
+        "ncsc-rss-threat-intelligence",
+        "cisa-known-exploited-vulnerabilities"
+      ]
+    },
+    {
+      "theme": "state_threats",
+      "status": "gap",
+      "automated_sources": []
+    },
+    {
+      "theme": "geographic_and_diplomatic",
+      "status": "gap",
+      "automated_sources": []
+    },
+    {
+      "theme": "accidents_and_system_failures",
+      "status": "partial",
+      "automated_sources": [
+        "neso-demand-data-update"
+      ]
+    },
+    {
+      "theme": "natural_and_environmental_hazards",
+      "status": "covered",
+      "automated_sources": [
+        "met-office-severe-weather-warnings",
+        "environment-agency-flood-monitoring",
+        "natural-resources-wales-flood-warning",
+        "sepa-flooding",
+        "noaa-space-weather-k-index",
+        "usgs-earthquake-feed"
+      ]
+    },
+    {
+      "theme": "human_animal_and_plant_health",
+      "status": "partial",
+      "automated_sources": [
+        "ukhsa-data-dashboard",
+        "fsa-food-alerts"
+      ]
+    },
+    {
+      "theme": "societal",
+      "status": "gap",
+      "automated_sources": []
+    },
+    {
+      "theme": "conflict_and_instability",
+      "status": "gap",
+      "automated_sources": []
+    }
+  ],
+  "go_live_rule": "The dashboard must not imply that a risk theme is monitored merely because it exists in the taxonomy. A theme is covered only where an automated source has passed the feed assurance gate.",
+  "known_coverage_gaps": [
+    "No automated live feed currently claimed for terrorism.",
+    "No automated live feed currently claimed for state threats.",
+    "No automated live feed currently claimed for geographic and diplomatic risks.",
+    "No automated live feed currently claimed for societal risks.",
+    "No automated live feed currently claimed for conflict and instability.",
+    "Northern Ireland flooding remains reference-only.",
+    "Health coverage is currently England-focused.",
+    "Supply-chain coverage is currently strongest for food alerts rather than all supply-chain disruption.",
+    "Energy coverage is a system-monitoring indicator rather than an outage-warning feed.",
+    "Other natural-hazard coverage is not comprehensive."
+  ]
+}
