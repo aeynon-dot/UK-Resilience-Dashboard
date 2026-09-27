@@ -1,5 +1,66 @@
 [
   {
+    "updated_at": "2026-09-27T12:06:21.621643+00:00",
+    "uk_weather": {
+      "summary": "Heavy rain and strong winds will move in from the west on Sunday with coastal gales developing. Rain will turn showery across the south, with some warm bright spells in the southeast. Heavy downpours and blustery winds likely at times.",
+      "source": "Met Office UK national forecast",
+      "url": "https://weather.metoffice.gov.uk/forecast/uk"
+    },
+    "met_office": {
+      "count": 1,
+      "items": [
+        {
+          "level": "Yellow",
+          "title": "Yellow warning of rain affecting Northern Ireland",
+          "regions": [
+            "Northern Ireland"
+          ]
+        }
+      ]
+    },
+    "england": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "wales": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "scotland": {
+      "warnings": 0,
+      "alerts": 0,
+      "severe": 0,
+      "items": []
+    },
+    "feeds": {
+      "Met Office": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T12:06:21.621643+00:00"
+      },
+      "Environment Agency": {
+        "ok": false,
+        "stale": true,
+        "error": "HTTP Error 503: Service Temporarily Unavailable",
+        "last_success_at": "2026-09-27T11:55:12.508306+00:00"
+      },
+      "Natural Resources Wales": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T12:06:21.621643+00:00"
+      },
+      "SEPA": {
+        "ok": true,
+        "stale": false,
+        "last_success_at": "2026-09-27T12:06:21.621643+00:00"
+      }
+    }
+  },
+  {
     "updated_at": "2026-09-27T12:04:03.166582+00:00",
     "uk_weather": {
       "summary": "Heavy rain and strong winds will move in from the west on Sunday with coastal gales developing. Rain will turn showery across the south, with some warm bright spells in the southeast. Heavy downpours and blustery winds likely at times.",
