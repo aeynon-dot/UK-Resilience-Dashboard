@@ -1,4 +1,38 @@
 
+
+const SERVICE_KEY='ukResilienceCriticalService';
+function getServiceProfile(){try{return JSON.parse(localStorage.getItem(SERVICE_KEY)||'{}')}catch(e){return {}}}
+function saveServiceProfile(p){try{localStorage.setItem(SERVICE_KEY,JSON.stringify(p))}catch(e){}}
+function renderServiceTest(d){
+  const domainsEl=document.getElementById('service-domains'), result=document.getElementById('service-result');
+  if(!domainsEl||!result)return;
+  const p=getServiceProfile();
+  domainsEl.innerHTML=EXPOSURE_DOMAINS.map(([key,label])=>'<label><input type="checkbox" data-service-domain="'+esc(key)+'" '+((p.domains||[]).includes(key)?'checked':'')+'> '+esc(label)+'</label>').join('');
+  const set=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val||''};
+  set('service-name',p.name);set('service-rto',p.rto||'24');set('service-criticality',p.criticality||'medium');set('service-dependencies',p.dependencies||'');
+  const render=()=>{
+    const domains=[...domainsEl.querySelectorAll('[data-service-domain]:checked')].map(x=>x.dataset.serviceDomain);
+    const current={name:document.getElementById('service-name')?.value||'',rto:document.getElementById('service-rto')?.value||'24',criticality:document.getElementById('service-criticality')?.value||'medium',dependencies:document.getElementById('service-dependencies')?.value||'',domains};
+    saveServiceProfile(current);
+    const exposure=getExposureProfile();
+    const signals=(d.risk_signals||[]).filter(x=>domains.includes(x.risk_domain));
+    const matched=signals.map(x=>({...x,exposure:exposure[x.risk_domain]||'not_assessed',service_priority:Math.round((x.priority_score||0)*(EXPOSURE_LEVELS[exposure[x.risk_domain]]||0))})).filter(x=>x.service_priority>0).sort((a,b)=>b.service_priority-a.service_priority);
+    if(!current.name){result.innerHTML='<div class="muted">Enter a service name to test the service-level view.</div>';return}
+    const top=matched[0];
+    result.innerHTML='<div class="service-summary"><div><strong>'+esc(current.name)+'</strong><span>Criticality: '+esc(current.criticality)+' · recovery requirement: '+esc(current.rto)+' hours</span><span>Dependencies: '+esc(current.dependencies||'None entered')+'</span></div><div class="service-score"><strong>'+ (top?top.service_priority:'—') +'</strong><small>'+ (top?'Highest mapped preparedness priority':'No matched assessed exposure') +'</small></div></div>'+
+      '<div class="service-matches">'+(matched.length?matched.slice(0,5).map(x=>'<div><strong>'+esc(x.risk_domain.replaceAll('_',' '))+'</strong><span>'+esc(x.description)+'</span><b>'+x.service_priority+'</b></div>').join(''):'<div class="muted">No current public signals match the selected domains and assessed exposure.</div>')+'</div>'+
+      '<p class="muted preparedness-note">MVP3.6 test only: service information remains browser-local. This does not constitute a formal BIA, BCP or risk assessment.</p>';
+  };
+  ['service-name','service-rto','service-criticality','service-dependencies'].forEach(id=>document.getElementById(id)?.addEventListener('input',render));
+  domainsEl.querySelectorAll('[data-service-domain]').forEach(x=>x.addEventListener('change',render));
+  render();
+}
+function loadExampleService(){
+  saveServiceProfile({name:'Payroll service',rto:'24',criticality:'high',dependencies:'Microsoft 365, payroll supplier, network',domains:['cyber','communications','supply_chain','infrastructure']});
+  load();
+}
+function clearService(){try{localStorage.removeItem(SERVICE_KEY)}catch(e){}load();}
+
 const EXPOSURE_KEY='ukResilienceExposureProfile';
 const EXPOSURE_LEVELS={not_assessed:0,low:0.5,medium:0.75,high:1};
 const EXPOSURE_DOMAINS=[
@@ -428,7 +462,7 @@ function render(d,history){
   ];
   document.getElementById('new-items').innerHTML=changeCards.length?changeCards.slice(0,8).map(x=>'<div class="change-item '+x.className+'"><div class="change-top"><span class="change-tag '+x.className+'">'+esc(x.kind)+'</span><strong>'+esc(x.source)+'</strong></div><div>'+esc(x.title)+'</div>'+(x.detail?'<small>'+esc(x.detail)+'</small>':'')+'</div>').join(''):'<div class="muted">No new, changed or resolved warning items detected.</div>';
   renderWeatherToday(d);
-  renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
+  renderRiskMap(d);renderFocus(d);renderPreferences();renderExposureProfile(d);renderServiceTest(d);renderDataConfidence(d);renderAttention(d,history,newItems,changedItems);renderTrend(history,d);renderTimeline(history,d);
 }
 function list(id,items){
   const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="muted">No current items.</div>';return}
@@ -441,6 +475,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(focusArea)focusArea.addEventListener('change',e=>{setFocus(e.target.value);load()});
   if(defaultFocus)defaultFocus.addEventListener('change',e=>{setDefaultFocus(e.target.value);load()});
   if(applyDefault)applyDefault.addEventListener('click',()=>{setFocus(getDefaultFocus());load()});
+  const serviceExample=document.getElementById('load-example-service'); if(serviceExample)serviceExample.addEventListener('click',loadExampleService);
+  const serviceClear=document.getElementById('clear-service'); if(serviceClear)serviceClear.addEventListener('click',clearService);
   const example=document.getElementById('load-example-profile'); if(example)example.addEventListener('click',loadExampleExposureProfile);
   const clear=document.getElementById('clear-exposure-profile'); if(clear)clear.addEventListener('click',clearExposureProfile);
   renderPreferences();
