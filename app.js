@@ -1,91 +1,123 @@
+const RISK_DOMAIN_LABELS={
+  climate_and_weather:'Climate & weather',
+  flooding:'Flooding',
+  energy:'Energy',
+  infrastructure:'Infrastructure',
+  transport:'Transport',
+  communications:'Communications',
+  cyber:'Cyber',
+  health:'Health',
+  supply_chain:'Supply chain',
+  geopolitical:'Geopolitical',
+  security:'Security',
+  societal:'Societal',
+  industrial_and_technological:'Industrial & technology',
+  space_weather:'Space weather',
+  other:'Other'
+};
+const RISK_DOMAIN_ORDER=Object.keys(RISK_DOMAIN_LABELS);
+const SEVERITY_RANK={severe:5,high:4,moderate:3,low:2,unknown:1};
+const RISK_BAND_LABEL={immediate:'Immediate',high:'High',moderate:'Moderate',monitor:'Monitor'};
 
-
-const SERVICE_KEY='ukResilienceCriticalService';
-function getServiceProfile(){try{return JSON.parse(localStorage.getItem(SERVICE_KEY)||'{}')}catch(e){return {}}}
-function saveServiceProfile(p){try{localStorage.setItem(SERVICE_KEY,JSON.stringify(p))}catch(e){}}
-function renderServiceTest(d){
-  const domainsEl=document.getElementById('service-domains'), result=document.getElementById('service-result');
-  if(!domainsEl||!result)return;
-  const p=getServiceProfile();
-  domainsEl.innerHTML=EXPOSURE_DOMAINS.map(([key,label])=>'<label><input type="checkbox" data-service-domain="'+esc(key)+'" '+((p.domains||[]).includes(key)?'checked':'')+'> '+esc(label)+'</label>').join('');
-  const set=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val||''};
-  set('service-name',p.name);set('service-rto',p.rto||'24');set('service-criticality',p.criticality||'medium');set('service-dependencies',p.dependencies||'');
-  const render=()=>{
-    const domains=[...domainsEl.querySelectorAll('[data-service-domain]:checked')].map(x=>x.dataset.serviceDomain);
-    const current={name:document.getElementById('service-name')?.value||'',rto:document.getElementById('service-rto')?.value||'24',criticality:document.getElementById('service-criticality')?.value||'medium',dependencies:document.getElementById('service-dependencies')?.value||'',domains};
-    saveServiceProfile(current);
-    const exposure=getExposureProfile();
-    const signals=(d.risk_signals||[]).filter(x=>domains.includes(x.risk_domain));
-    const matched=signals.map(x=>({...x,exposure:exposure[x.risk_domain]||'not_assessed',service_priority:Math.round((x.priority_score||0)*(EXPOSURE_LEVELS[exposure[x.risk_domain]]||0))})).filter(x=>x.service_priority>0).sort((a,b)=>b.service_priority-a.service_priority);
-    if(!current.name){result.innerHTML='<div class="muted">Enter a service name to test the service-level view.</div>';return}
-    const top=matched[0];
-    result.innerHTML='<div class="service-summary"><div><strong>'+esc(current.name)+'</strong><span>Criticality: '+esc(current.criticality)+' · recovery requirement: '+esc(current.rto)+' hours</span><span>Dependencies: '+esc(current.dependencies||'None entered')+'</span></div><div class="service-score"><strong>'+ (top?top.service_priority:'—') +'</strong><small>'+ (top?'Highest mapped preparedness priority':'No matched assessed exposure') +'</small></div></div>'+
-      '<div class="service-matches">'+(matched.length?matched.slice(0,5).map(x=>'<div><strong>'+esc(x.risk_domain.replaceAll('_',' '))+'</strong><span>'+esc(x.description)+'</span><b>'+x.service_priority+'</b></div>').join(''):'<div class="muted">No current public signals match the selected domains and assessed exposure.</div>')+'</div>'+
-      '<p class="muted preparedness-note">MVP3.6 test only: service information remains browser-local. This does not constitute a formal BIA, BCP or risk assessment.</p>';
-  };
-  ['service-name','service-rto','service-criticality','service-dependencies'].forEach(id=>document.getElementById(id)?.addEventListener('input',render));
-  domainsEl.querySelectorAll('[data-service-domain]').forEach(x=>x.addEventListener('change',render));
-  render();
+function riskDomainLabel(key){
+  return RISK_DOMAIN_LABELS[key]||String(key||'Other').replaceAll('_',' ');
 }
-function loadExampleService(){
-  saveServiceProfile({name:'Payroll service',rto:'24',criticality:'high',dependencies:'Microsoft 365, payroll supplier, network',domains:['cyber','communications','supply_chain','infrastructure']});
-  load();
+function riskSeverityLabel(value){
+  return value==='unknown'?'Unknown':String(value||'unknown').replace(/\b\w/g,m=>m.toUpperCase());
 }
-function clearService(){try{localStorage.removeItem(SERVICE_KEY)}catch(e){}load();}
-
-const EXPOSURE_KEY='ukResilienceExposureProfile';
-const EXPOSURE_LEVELS={not_assessed:0,low:0.5,medium:0.75,high:1};
-const EXPOSURE_DOMAINS=[
-  ['climate_and_weather','Climate & weather'],['flooding','Flooding'],['energy','Energy'],
-  ['infrastructure','Infrastructure'],['transport','Transport'],['communications','Communications'],
-  ['cyber','Cyber'],['health','Health'],['supply_chain','Supply chain'],
-  ['geopolitical','Geopolitical'],['security','Security'],['societal','Societal'],
-  ['industrial_and_technological','Industrial & technology'],['space_weather','Space weather']
-];
-function getExposureProfile(){
-  try{return JSON.parse(localStorage.getItem(EXPOSURE_KEY)||'{}')}catch(e){return {}}
+function riskSignalMatchesFocus(x,focus){
+  return focus==='UK'||x.geography?.scope===focus||x.geography?.scope==='UK';
 }
-function saveExposureProfile(p){
-  try{localStorage.setItem(EXPOSURE_KEY,JSON.stringify(p))}catch(e){}
-}
-function renderExposureProfile(d){
-  const el=document.getElementById('exposure-domains'); if(!el)return;
-  const p=getExposureProfile();
-  el.innerHTML=EXPOSURE_DOMAINS.map(([key,label])=>{
-    const v=EXPOSURE_LEVELS[p[key]]!==undefined?p[key]:'not_assessed';
-    return '<label class="exposure-row"><span>'+esc(label)+'</span><select data-exposure="'+esc(key)+'" aria-label="'+esc(label)+' exposure"><option value="not_assessed"'+(v==='not_assessed'?' selected':'')+'>Not assessed</option><option value="low"'+(v==='low'?' selected':'')+'>Low</option><option value="medium"'+(v==='medium'?' selected':'')+'>Medium</option><option value="high"'+(v==='high'?' selected':'')+'>High</option></select></label>';
+function renderRiskOverview(d){
+  const grid=document.getElementById('risk-domain-grid');
+  const summary=document.getElementById('risk-overview-summary');
+  if(!grid||!summary)return;
+  const signals=d.risk_signals||[];
+  const active=signals.filter(x=>['active','monitoring'].includes(x.status||'active'));
+  const high=signals.filter(x=>['immediate','high'].includes(x.priority_band));
+  summary.textContent=signals.length+' signals · '+active.length+' active/monitoring · '+high.length+' high/immediate';
+  grid.innerHTML=RISK_DOMAIN_ORDER.map(domain=>{
+    const items=signals.filter(x=>x.risk_domain===domain);
+    const top=items.slice().sort((a,b)=>(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0)||(b.priority_score||0)-(a.priority_score||0))[0];
+    const highest=top?riskSeverityLabel(top.severity):'No signal';
+    const band=top?.priority_band||'';
+    return '<button type="button" class="risk-domain-card '+(items.length?'has-signal':'empty')+'" data-risk-domain="'+esc(domain)+'">'+
+      '<span class="risk-domain-name">'+esc(riskDomainLabel(domain))+'</span>'+
+      '<strong>'+items.length+'</strong>'+
+      '<span class="risk-domain-meta">'+esc(items.length?(highest+(band?' · '+(RISK_BAND_LABEL[band]||band):'')):'No current signal')+'</span>'+
+      '</button>';
   }).join('');
-  el.querySelectorAll('[data-exposure]').forEach(s=>s.addEventListener('change',e=>{
-    const p=getExposureProfile();p[e.target.dataset.exposure]=e.target.value;saveExposureProfile(p);renderPreparedness(d);
+  grid.querySelectorAll('[data-risk-domain]').forEach(btn=>btn.addEventListener('click',()=>{
+    const filter=document.getElementById('risk-domain-filter');
+    if(filter){filter.value=btn.dataset.riskDomain;renderRiskAssessment(d);}
+    document.getElementById('risk-assessment-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }));
-  renderPreparedness(d);
 }
-function renderPreparedness(d){
-  const el=document.getElementById('preparedness-summary'); if(!el)return;
-  const p=getExposureProfile();
-  const signals=(d.risk_signals||[]).filter(x=>x.priority_score>0);
-  const results=signals.map(x=>{
-    const level=p[x.risk_domain]||'not_assessed';
-    return {...x,exposure:level,preparedness_score:Math.round((x.priority_score||0)*(EXPOSURE_LEVELS[level]||0))};
-  }).filter(x=>x.preparedness_score>0).sort((a,b)=>b.preparedness_score-a.preparedness_score);
-  if(!results.length){
-    el.innerHTML='<div class="muted">Set one or more exposure levels to generate organisation-specific preparedness priorities. No profile data leaves this browser.</div>';return;
+function renderRiskAssessment(d){
+  const listEl=document.getElementById('risk-signal-list');
+  const summaryEl=document.getElementById('risk-assessment-summary');
+  const domainEl=document.getElementById('risk-domain-filter');
+  const geoEl=document.getElementById('risk-geography-filter');
+  const severityEl=document.getElementById('risk-severity-filter');
+  const statusEl=document.getElementById('risk-status-filter');
+  if(!listEl||!summaryEl)return;
+  const signals=d.risk_signals||[];
+  const selectedDomain=domainEl?.value||'all';
+  const selectedGeo=geoEl?.value||'all';
+  const selectedSeverity=severityEl?.value||'all';
+  const selectedStatus=statusEl?.value||'all';
+  const filtered=signals.filter(x=>
+    (selectedDomain==='all'||x.risk_domain===selectedDomain)&&
+    (selectedGeo==='all'||x.geography?.scope===selectedGeo)&&
+    (selectedSeverity==='all'||x.severity===selectedSeverity)&&
+    (selectedStatus==='all'||x.status===selectedStatus)
+  ).sort((a,b)=>(b.priority_score||0)-(a.priority_score||0)||(SEVERITY_RANK[b.severity]||0)-(SEVERITY_RANK[a.severity]||0));
+  const high=filtered.filter(x=>['immediate','high'].includes(x.priority_band)).length;
+  const severe=filtered.filter(x=>x.severity==='severe').length;
+  summaryEl.innerHTML='<strong>'+filtered.length+'</strong> signals shown · <strong>'+high+'</strong> high/immediate · <strong>'+severe+'</strong> severe';
+  if(!filtered.length){
+    listEl.innerHTML='<div class="risk-empty">No signals match the selected assessment filters.</div>';
+    return;
   }
-  const top=results.slice(0,5);
-  el.innerHTML='<div class="preparedness-heading"><strong>Preparedness priorities</strong><span>'+results.length+' signals matched to assessed exposure</span></div>'+top.map(x=>{
-    const band=x.preparedness_score>=60?'Immediate':x.preparedness_score>=40?'High':x.preparedness_score>=20?'Moderate':'Monitor';
-    return '<div class="preparedness-item"><div><strong>'+esc(x.risk_domain.replaceAll('_',' '))+'</strong><span>'+esc(x.description)+'</span></div><div class="preparedness-score"><strong>'+x.preparedness_score+'</strong><small>'+band+' · '+esc(x.exposure)+' exposure</small></div></div>';
-  }).join('')+'<p class="muted preparedness-note">This is a preparedness-priority aid, not a formal organisational risk score. It combines the public signal priority with your locally entered exposure level.</p>';
+  listEl.innerHTML=filtered.slice(0,50).map(x=>{
+    const band=x.priority_band||'monitor';
+    const scope=x.geography?.scope||'unknown';
+    const date=x.observed_at||x.published_at||x.collected_at;
+    const dateText=date?new Date(date).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Date unavailable';
+    const sourceLink=/^https:\/\//i.test(String(x.source_url||''))?'<a href="'+esc(x.source_url)+'" target="_blank" rel="noopener">Source ↗</a>':'';
+    return '<article class="risk-signal-item">'+
+      '<div class="risk-signal-top"><div><span class="risk-signal-domain">'+esc(riskDomainLabel(x.risk_domain))+'</span><strong>'+esc(x.source||'Unknown source')+'</strong></div>'+
+      '<div class="risk-signal-badges"><span class="risk-badge '+esc(x.severity||'unknown')+'">'+esc(riskSeverityLabel(x.severity))+'</span><span class="risk-badge '+esc(band)+'">'+esc(RISK_BAND_LABEL[band]||band)+'</span></div></div>'+
+      '<div class="risk-signal-description">'+esc(x.description||x.hazard||'Risk signal')+'</div>'+
+      '<div class="risk-signal-meta"><span>'+esc(scope)+'</span><span>'+esc(x.status||'unknown')+'</span><span>'+esc(dateText)+'</span><span>Monitoring priority '+esc(String(x.priority_score??'—'))+'</span>'+sourceLink+'</div>'+
+      '</article>';
+  }).join('')+(filtered.length>50?'<p class="muted">Showing the first 50 matching signals.</p>':'');
 }
-function loadExampleExposureProfile(){
-  const p={climate_and_weather:'medium',flooding:'high',energy:'high',infrastructure:'medium',transport:'medium',communications:'high',cyber:'high',health:'medium',supply_chain:'high',geopolitical:'low',security:'medium',societal:'medium',industrial_and_technological:'low',space_weather:'low'};
-  saveExposureProfile(p);load();
+function bindRiskAssessment(d){
+  ['risk-domain-filter','risk-geography-filter','risk-severity-filter','risk-status-filter'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&!el.dataset.bound){
+      el.dataset.bound='1';
+      el.addEventListener('change',()=>renderRiskAssessment(d));
+    }
+  });
 }
-function clearExposureProfile(){try{localStorage.removeItem(EXPOSURE_KEY)}catch(e){}load();}
-
+function populateRiskAssessmentFilters(d){
+  const domainEl=document.getElementById('risk-domain-filter');
+  const geoEl=document.getElementById('risk-geography-filter');
+  if(domainEl&&!domainEl.dataset.populated){
+    domainEl.innerHTML='<option value="all">All domains</option>'+RISK_DOMAIN_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskDomainLabel(x))+'</option>').join('');
+    domainEl.dataset.populated='1';
+  }
+  if(geoEl&&!geoEl.dataset.populated){
+    const geos=[...new Set((d.risk_signals||[]).map(x=>x.geography?.scope).filter(Boolean))].sort();
+    geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');
+    geoEl.dataset.populated='1';
+  }
+}
 const DEFAULT_FOCUS_KEY='ukResilienceDefaultFocus';
 const focusNames=['UK','England','Wales','Scotland','Northern Ireland'];
-let currentFocus='UK';
+let currentFocus=getDefaultFocus();
 let ukMapMarkup=null;
 
 async function loadMapData(){
