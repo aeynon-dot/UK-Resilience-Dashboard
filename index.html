@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UK Resilience Briefing — MVP2.3</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 </head>
 <body>
 <header><div><h1>UK Resilience Briefing</h1><p>Weather risk, warnings, flooding & daily change briefing</p></div><div id="updated">Loading…</div></header>
@@ -26,7 +28,7 @@
   <div class="section-heading"><div><h3>UK weather risk map</h3><p class="muted">A simple national view combining Met Office weather warnings with connected flood-warning feeds.</p></div><div id="weather-risk-summary" class="risk-summary">Checking…</div></div>
   <div class="map-wrap">
     <div class="map-stage" aria-label="Interactive UK national weather and flood risk map">
-      <svg id="uk-map" class="uk-map" viewBox="0 0 720 620" role="img" aria-label="Interactive geographic map of the four UK nations"></svg>
+      <svg id="uk-map" class="uk-map" viewBox="0 0 760 760" role="img" aria-label="Interactive geographic map of the four UK nations"></svg>
     </div>
     <div id="map-detail" class="map-detail" aria-live="polite"></div>
   </div>
