@@ -314,21 +314,22 @@ def noaa_space_weather():
 
 
 def neso():
-    url = 'https://api.neso.energy/dataset/7a12172a-939c-404c-b581-a6128b74f588/resource/177f6fa4-ae49-4182-81ea-0c6b35f26ca6/download/demanddataupdate.csv'
-    raw = get(url).decode('utf-8-sig', 'ignore')
-    import csv
-    rows = list(csv.DictReader(raw.splitlines()))
-    rows.sort(
-        key=lambda x: (
-            x.get('SETTLEMENT_DATE') or '',
-            int(x.get('SETTLEMENT_PERIOD') or 0)
-        ),
-        reverse=True
+    resource_id = '177f6fa4-ae49-4182-81ea-0c6b35f26ca6'
+    url = (
+        'https://api.neso.energy/api/3/action/datastore_search'
+        f'?resource_id={resource_id}&limit=20'
+        '&sort=SETTLEMENT_DATE%20desc%2CSETTLEMENT_PERIOD%20desc'
     )
-    records = rows[:20]
+    value = get_json(url)
+    if not isinstance(value, dict) or value.get('success') is not True:
+        raise ValueError('NESO Datastore API returned an invalid response')
+    result = value.get('result')
+    if not isinstance(result, dict) or not isinstance(result.get('records'), list):
+        raise ValueError('NESO Datastore API response is missing records')
+    records = result['records']
     return {
-        'resource_id': '177f6fa4-ae49-4182-81ea-0c6b35f26ca6',
-        'total': len(rows),
+        'resource_id': resource_id,
+        'total': result.get('total', len(records)),
         'records': records,
         'latest': records[0] if records else None,
         'source_url': url
