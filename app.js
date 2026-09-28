@@ -194,6 +194,7 @@ function saveMonitoringPreferences(){
   window.__riskSessionInteracted=false;
   applyMonitoringPreferences();
   if(window.__riskData){
+    updateMonitoringHeadline(window.__riskData);
     renderRiskWorkspace(window.__riskData);
     renderRiskAssessment(window.__riskData);
     updateDomainVisibility();
@@ -232,6 +233,29 @@ function applyMonitoringPreferences(){
   monitoringPreferencesApplied=true;
   renderRiskWorkspace(window.__riskData||{});
 }
+function updateMonitoringHeadline(d){
+  const focus=getFocus();
+  const focusSignals=(d.risk_signals||[]).filter(x=>riskSignalMatchesGeography(x,focus==='UK'?'UK':focus));
+  const preferredThemes=monitoringPreferences.themes||[];
+  const preferredSignals=focusSignals.filter(x=>
+    (preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t))) &&
+    minimumPriorityAllows(x)
+  );
+  const preferredDomainCount=new Set(preferredSignals.map(x=>x.risk_domain).filter(Boolean)).size;
+  const feedValues=Object.entries(d.feeds||{}).filter(([name])=>
+    focus==='UK'||(focus==='England'&&name==='Environment Agency')||(focus==='Wales'&&name==='Natural Resources Wales')||(focus==='Scotland'&&name==='SEPA')
+  ).map(([,v])=>v);
+  const hasFeedIssue=feedValues.some(v=>!v.ok);
+  const status=document.getElementById('status'),headline=document.getElementById('headline');
+  if(!status||!headline)return;
+  const scopeLabel=focus==='UK'?'UK':focus;
+  status.className='status';
+  status.textContent=hasFeedIssue?'CHECK DATA':'MONITORING · '+preferredSignals.length;
+  if(hasFeedIssue)status.classList.add('attention');
+  status.setAttribute('aria-label',hasFeedIssue?'Check data':'Monitoring '+preferredSignals.length+' signals');
+  headline.textContent=preferredSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+preferredDomainCount+' monitored domains';
+}
+
 function minimumPriorityAllows(signal){
   const minimum=monitoringPreferences.minimum_priority||'monitor';
   return (PRIORITY_RANK[signal.priority_band]||1)>=(PRIORITY_RANK[minimum]||1);
@@ -682,27 +706,7 @@ function render(d,history,riskSet,registry){
     else if(old.severity!==x.severity||old.status!==x.status||old.priority_band!==x.priority_band||x.change_type==='changed') riskChanged++;
   });
   const riskResolved=previousRiskSignals.filter(x=>riskSignalMatchesGeography(x,riskScope)&&x.id&&!currentRiskById.has(x.id)).length;
-  const status=document.getElementById('status');status.className='status';
-  const headline=document.getElementById('headline');
-  const scopeLabel=focus==='UK'?'UK':focus;
-  const openingPreferences=!window.__riskSessionInteracted;
-  const preferredThemes=openingPreferences?(monitoringPreferences.themes||[]):[];
-  const minimumPriority=openingPreferences?(monitoringPreferences.minimum_priority||'monitor'):'monitor';
-  const preferredSignals=scopedRiskSignals.filter(x=>
-    (preferredThemes.length===0||preferredThemes.some(t=>signalMatchesTheme(x,t))) &&
-    minimumPriorityAllows(x)
-  );
-  const preferredDomainCount=new Set(preferredSignals.map(x=>x.risk_domain).filter(Boolean)).size;
-  if(hasFeedIssue){
-    status.textContent='CHECK DATA';
-    status.classList.add('attention');
-    status.setAttribute('aria-label','Check data');
-    headline.textContent=preferredSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+preferredDomainCount+' monitored domains';
-  }else{
-    status.textContent='MONITORING · '+preferredSignals.length;
-    status.setAttribute('aria-label','Monitoring '+preferredSignals.length+' signals');
-    headline.textContent=preferredSignals.length+' current public risk signals in the '+scopeLabel+' monitoring view across '+preferredDomainCount+' monitored domains';
-  }
+  updateMonitoringHeadline(d);
   const change=[];
   if(riskNew)change.push('New: '+riskNew);
   if(riskChanged)change.push('Changed: '+riskChanged);
