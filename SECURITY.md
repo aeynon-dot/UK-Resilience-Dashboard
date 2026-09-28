@@ -50,3 +50,16 @@ Please allow reasonable time for assessment and remediation before public disclo
 This policy covers the Resilience Monitor source code, GitHub Actions workflows and project configuration.
 
 Third-party official data providers remain responsible for the security of their own services and infrastructure.
+
+
+## Current production verification — 28 September 2026
+
+The MVP4.6 public production deployment has completed its security hardening verification.
+
+Verified controls include explicit 404 responses for the known sensitive-looking paths, successful production dashboard operation after hardening, required security response headers verified in staging, protected production deployment through the `cloudflare-production` environment, a fail-closed public bundle allowlist, and automated security regression tests.
+
+These checks establish the current public MVP security baseline; they are not a substitute for independent penetration testing or enterprise security assessment.
+
+### Current open resilience issue
+
+The Environment Agency flood feed has a known ingestion-quality gap: a valid empty response can currently be treated as healthy with zero signals. This is tracked as a feed-resilience issue and should be corrected before the feed is relied upon as a complete representation of current flooding conditions.

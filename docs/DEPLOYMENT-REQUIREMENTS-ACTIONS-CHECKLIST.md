@@ -288,3 +288,26 @@ before progressing to:
 > **Organisational Context → Prevent / Mitigate → Plan → Validate**
 
 Organisational data should not be introduced merely to fill gaps in the public monitoring layer.
+
+
+## Post-go-live closure — 28 September 2026
+
+The MVP4.6 deployment gate is now **closed**. Production deployment was completed through the protected `cloudflare-production` environment after staging validation.
+
+### Final evidence recorded
+
+- [x] Secure-by-design hardening merged through PR #7.
+- [x] Explicit 404 boundary merged through PR #8.
+- [x] Staging deployment successful.
+- [x] Staging security-boundary smoke test passed.
+- [x] Staging security response headers verified.
+- [x] Production deployment successful.
+- [x] Production dashboard smoke test passed.
+- [x] Seven known sensitive-looking production probe paths returned 404.
+- [x] Production remains behind the protected deployment environment.
+
+### Release status
+
+**MVP4.6 production go-live: COMPLETE.**
+
+The Environment Agency flood-monitoring feed remains a known post-go-live data-resilience issue: a valid empty upstream response can currently be interpreted as a healthy feed with zero signals. This is an MVP4.6.1 item and must be distinguished from a genuine no-current-signal state.

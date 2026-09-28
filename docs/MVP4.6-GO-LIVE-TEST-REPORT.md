@@ -655,3 +655,33 @@ Organisational data should not be introduced merely to compensate for gaps in th
 **Report status:** Conditional Go-Live  
 **Release:** MVP4.6  
 **Prepared:** 27 September 2026
+
+
+## 18. Post-go-live closure — 28 September 2026
+
+The original report was marked **Conditional Go-Live** on 27 September 2026. The outstanding deployment and browser-evidence conditions have now been closed.
+
+### Closure evidence
+
+- PR #7 secure-by-design hardening was merged.
+- PR #8 explicit 404 boundary was merged.
+- Cloudflare staging deployment succeeded.
+- Staging security headers were verified in Edge Developer Tools, including CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy and Permissions-Policy.
+- All seven known sensitive-looking paths returned 404 in staging.
+- Production deployment succeeded through the protected `cloudflare-production` environment.
+- All seven known sensitive-looking paths returned 404 in production.
+- The production dashboard loaded and operated normally after deployment.
+
+### Final release status
+
+> **MVP4.6 PRODUCTION GO-LIVE — COMPLETE**
+
+The Conditional status in the original report is superseded by this closure section. The historical evidence is intentionally retained for auditability.
+
+### Post-go-live known issue
+
+The Environment Agency flood-monitoring integration remains an open reliability issue. A valid empty response can currently be represented as a healthy feed with zero signals. This is not evidence that there are no current flood warnings/alerts and is carried into MVP4.6.1 as a feed-resilience requirement.
+
+### Production security status
+
+Secure-by-design hardening is considered complete for the current public MVP scope. This means the implemented controls have been deployed and smoke-tested; it does not constitute independent penetration testing or enterprise security certification.

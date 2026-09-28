@@ -106,3 +106,21 @@ Once the Cloudflare path is proven, consider adding:
 - rollback procedures.
 
 Cloudflare Pages supports preview deployments and production rollbacks. citeturn0search2turn0search4
+
+
+## Current production state — 28 September 2026
+
+Cloudflare Pages is now an active production deployment rather than a parallel candidate.
+
+- Project: `uk-resilience-monitor`
+- Production URL: `https://uk-resilience-monitor.pages.dev`
+- Staging URL: `https://staging.uk-resilience-monitor.pages.dev`
+- Production deployment requires the protected `cloudflare-production` GitHub environment approval.
+- Pushes to `main` deploy to the Cloudflare staging branch; production is promoted manually through the workflow.
+- GitHub Pages remains the fallback deployment path.
+
+### Production security verification
+
+The production smoke test passed: the normal dashboard loads and functions, while `/.env`, `/worker/.env`, `/mailer/.env`, `/postmark/.env`, `/.git/config`, `/.aws/credentials.json` and `/gcloud-service-key.json` all return 404. Staging verification confirmed the required security response headers are served correctly.
+
+Production should continue to be treated as a controlled promotion from the tested `main` state.

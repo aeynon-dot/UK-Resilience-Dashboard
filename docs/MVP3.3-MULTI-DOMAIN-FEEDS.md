@@ -47,3 +47,8 @@ The integration also records feed status separately from risk signals. A source 
 - Source URLs and content are configuration/input, not trusted executable content.
 - Raw source data is not rendered directly into HTML by this MVP3.3 change.
 - Organisation-specific data remains outside the public data pipeline.
+
+
+## Current status note — 28 September 2026
+
+This document remains the design/history record for its MVP increment. MVP4.6 is now deployed to production and the public secure-by-design baseline has been verified. Future changes should preserve the separation between public risk intelligence and private organisational context described here.
