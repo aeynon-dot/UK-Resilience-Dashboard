@@ -62,3 +62,7 @@ Canonical JSON Schema: `schemas/risk-signal.schema.json`
 Classification vocabulary: `data/risk-taxonomy.json`
 
 Do not add organisation-specific assets, sites, vulnerabilities, dependencies, BIA results or recovery strategies to this public signal object. Those belong to the future private organisational layer.
+
+## Current status note — 28 September 2026
+
+This document remains the design/history record for its MVP increment. MVP4.6 is now deployed to production and the public secure-by-design baseline has been verified. Future changes should preserve the separation between public risk intelligence and private organisational context described here.
