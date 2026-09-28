@@ -140,13 +140,35 @@ function renderRiskAssessment(d){
   });
 }
 
+function updateMonitoringHeadlineFromFilters(d){
+  const themeEl=document.getElementById('risk-theme-filter');
+  const domainEl=document.getElementById('risk-domain-filter');
+  const geoEl=document.getElementById('risk-geography-filter');
+  const severityEl=document.getElementById('risk-severity-filter');
+  const statusEl=document.getElementById('risk-status-filter');
+  if(!themeEl||!domainEl||!geoEl||!severityEl||!statusEl)return;
+  const selectedTheme=themeEl.value||'all',selectedDomain=domainEl.value||'all',selectedGeo=geoEl.value||'all',selectedSeverity=severityEl.value||'all',selectedStatus=statusEl.value||'all';
+  const filtered=(d.risk_signals||[]).filter(x=>
+    signalMatchesTheme(x,selectedTheme) &&
+    (selectedDomain==='all'||x.risk_domain===selectedDomain) &&
+    riskSignalMatchesGeography(x,selectedGeo) &&
+    (selectedSeverity==='all'||x.severity===selectedSeverity) &&
+    (selectedStatus==='all'||x.status===selectedStatus)
+  );
+  const domains=new Set(filtered.map(x=>x.risk_domain).filter(Boolean)).size;
+  const status=document.getElementById('status'),headline=document.getElementById('headline');
+  if(status)status.textContent='MONITORING · '+filtered.length;
+  if(status)status.setAttribute('aria-label','Monitoring '+filtered.length+' signals');
+  if(headline)headline.textContent=filtered.length+' current public risk signals in the UK monitoring view across '+domains+' monitored domains';
+}
+
 function bindRiskAssessment(d){
   ['risk-theme-filter','risk-domain-filter','risk-geography-filter','risk-severity-filter','risk-status-filter'].forEach(id=>{
     const el=document.getElementById(id);
     if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('change',()=>{
       window.__riskSessionInteracted=true;
       if(id==='risk-theme-filter' && document.getElementById('risk-domain-filter'))document.getElementById('risk-domain-filter').value='all';
-      renderRiskWorkspace(d);renderRiskAssessment(d);riskAssessmentDetail(null);updateDomainVisibility();
+      renderRiskWorkspace(d);renderRiskAssessment(d);updateMonitoringHeadlineFromFilters(d);riskAssessmentDetail(null);updateDomainVisibility();
     });}
   });
 }
