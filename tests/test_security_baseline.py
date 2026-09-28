@@ -36,6 +36,19 @@ class SecurityBaselineTests(unittest.TestCase):
         self.assertIn("test -s dist/index.html", text)
         self.assertIn("test -s dist/404.html", text)
 
+    def test_data_publisher_uses_dedicated_app_identity(self):
+        workflow = ROOT / ".github" / "workflows" / "update-data.yml"
+        text = workflow.read_text(encoding="utf-8")
+        self.assertIn("contents: read", text)
+        self.assertIn("persist-credentials: false", text)
+        self.assertIn("actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1", text)
+        self.assertIn("secrets.RESILIENCE_PUBLISHER_APP_ID", text)
+        self.assertIn("secrets.RESILIENCE_PUBLISHER_PRIVATE_KEY", text)
+        self.assertIn("permission-contents: write", text)
+        self.assertIn("gh auth setup-git", text)
+        self.assertIn("git push", text)
+        self.assertNotIn("git push --force", text)
+
 
 if __name__ == "__main__":
     unittest.main()
