@@ -122,3 +122,18 @@ The intended progression is:
 **weather dashboard → cross-domain risk monitor → risk assessment → organisational relevance → mitigation → planning → validation**
 
 MVP4's monitoring priority remains a public-information aid. It is not an organisational risk score or a substitute for formal risk assessment.
+
+
+## Current release status — 28 September 2026
+
+MVP4.6 is now **deployed to production** on Cloudflare Pages at `https://uk-resilience-monitor.pages.dev`.
+
+The production release completed the controlled go-live and secure-by-design verification. The normal production dashboard loads and operates correctly; the seven known sensitive-looking probe paths return explicit 404 responses; staging security-header verification confirmed CSP, HSTS, clickjacking, MIME-sniffing, referrer and permissions protections; and the secure-by-design hardening from PR #7 plus the explicit 404 boundary from PR #8 are now part of the production baseline. GitHub Pages remains the fallback deployment path.
+
+### Known open data-quality issue
+
+The Environment Agency flood-monitoring integration remains an open resilience issue. The dashboard can currently receive a valid-looking empty response and represent the feed as healthy with zero current signals, while the public flood service may show active warnings/alerts. This must not be interpreted as evidence that no flooding exists.
+
+### Next product increment
+
+The next planned work is **MVP4.6.1 — Environment Agency feed resilience**, covering stronger response validation, anomalous-empty detection, degraded/unavailable states, retention of the last valid snapshot where appropriate, and explicit failure/recovery tests.
