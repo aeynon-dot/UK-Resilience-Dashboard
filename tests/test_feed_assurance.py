@@ -25,6 +25,25 @@ class FeedAssuranceUnitTests(unittest.TestCase):
                 b"<rss><channel>"
             )
 
+    def test_neso_assurance_uses_resource_show_not_datastore_search(self):
+        self.assertIn("resource_show?id=177f6fa4-ae49-4182-81ea-0c6b35f26ca6", feed_assurance.NESO_RESOURCE_SHOW)
+        self.assertNotIn("datastore_search", feed_assurance.NESO_RESOURCE_SHOW)
+
+    def test_neso_resource_show_shape_accepts_valid_response(self):
+        payload = {
+            "success": True,
+            "result": {
+                "id": "177f6fa4-ae49-4182-81ea-0c6b35f26ca6",
+                "name": "demanddataupdate.csv"
+            }
+        }
+        raw = __import__("json").dumps(payload).encode()
+        value = __import__("json").loads(raw.decode())
+        self.assertTrue(
+            value["success"] is True
+            and value["result"]["id"] == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
+        )
+
     def test_neso_ckan_shape_accepts_valid_response(self):
         payload = {
             "success": True,
@@ -99,6 +118,19 @@ class FeedAssuranceUnitTests(unittest.TestCase):
             c["name"] == "signal_ids_unique" and c["status"] == "fail"
             for c in result["checks"]
         ))
+
+
+    def test_stale_freshness_does_not_become_hard_failure(self):
+        item = {"checks": [{"name": "freshness", "status": "stale"}]}
+        self.assertEqual(feed_assurance.classify_assurance_health(item, {"last_success_at": "2026-09-28T13:00:00+00:00"}), "stale")
+
+    def test_availability_failure_with_previous_success_is_degraded(self):
+        item = {"checks": [{"name": "availability", "status": "fail"}]}
+        self.assertEqual(feed_assurance.classify_assurance_health(item, {"last_success_at": "2026-09-28T13:00:00+00:00"}), "degraded")
+
+    def test_availability_failure_without_previous_success_is_unavailable(self):
+        item = {"checks": [{"name": "availability", "status": "fail"}]}
+        self.assertEqual(feed_assurance.classify_assurance_health(item, {"last_success_at": None}), "unavailable")
 
     def test_no_current_signal_is_not_a_failure(self):
         result = feed_assurance.current_signal_checks(
