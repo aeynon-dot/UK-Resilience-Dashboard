@@ -25,6 +25,49 @@ class FeedAssuranceUnitTests(unittest.TestCase):
                 b"<rss><channel>"
             )
 
+    def test_neso_ckan_shape_accepts_valid_response(self):
+        payload = {
+            "success": True,
+            "result": {
+                "records": [
+                    {"SETTLEMENT_DATE": "2026-09-28", "SETTLEMENT_PERIOD": 1}
+                ]
+            }
+        }
+        self.assertTrue(
+            feed_assurance.live_shape(
+                "neso-demand-data-update",
+                __import__("json").dumps(payload).encode()
+            )
+        )
+
+    def test_neso_ckan_shape_rejects_invalid_response(self):
+        payload = {"success": False, "result": {"records": []}}
+        self.assertFalse(
+            feed_assurance.live_shape(
+                "neso-demand-data-update",
+                __import__("json").dumps(payload).encode()
+            )
+        )
+
+    def test_neso_collector_uses_ckan_records(self):
+        payload = {
+            "success": True,
+            "result": {
+                "total": 2,
+                "records": [
+                    {"SETTLEMENT_DATE": "2026-09-28", "SETTLEMENT_PERIOD": 48},
+                    {"SETTLEMENT_DATE": "2026-09-28", "SETTLEMENT_PERIOD": 47}
+                ]
+            }
+        }
+        with patch.object(build_data, "get_json", return_value=payload):
+            result = build_data.neso()
+        self.assertEqual(result["total"], 2)
+        self.assertEqual(len(result["records"]), 2)
+        self.assertEqual(result["latest"]["SETTLEMENT_PERIOD"], 48)
+        self.assertIn("api.neso.energy/api/3/action/datastore_search", result["source_url"])
+
     def test_duplicate_signal_ids_fail_provenance_check(self):
         current = {
             "risk_signals": [
