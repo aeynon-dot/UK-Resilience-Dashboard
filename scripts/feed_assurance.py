@@ -82,7 +82,20 @@ def live_shape(source_id, raw):
         return "SETTLEMENT_DATE" in text and "SETTLEMENT_PERIOD" in text
     if source_id == "environment-agency-flood-monitoring":
         value = json.loads(text)
-        return isinstance(value, dict) and isinstance(value.get("items"), list)
+        items = value.get("items") if isinstance(value, dict) else None
+        if not isinstance(items, list):
+            return False
+        for item in items:
+            if not isinstance(item, dict):
+                return False
+            severity_level = item.get("severityLevel")
+            if (
+                isinstance(severity_level, bool)
+                or not isinstance(severity_level, int)
+                or severity_level not in (1, 2, 3, 4)
+            ):
+                return False
+        return True
     if source_id == "ukhsa-data-dashboard":
         return len(text) >= 1000 and "respiratory" in text.lower()
     if source_id in {"natural-resources-wales-flood-warning", "sepa-flooding"}:
