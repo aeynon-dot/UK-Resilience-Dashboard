@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-from scripts.feed_health import classify_feed_health
+from feed_health import classify_feed_health
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data/source-registry.json"
