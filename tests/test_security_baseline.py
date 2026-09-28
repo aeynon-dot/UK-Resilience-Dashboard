@@ -31,9 +31,10 @@ class SecurityBaselineTests(unittest.TestCase):
     def test_public_bundle_allowlist_is_documented(self):
         workflow = ROOT / ".github" / "workflows" / "cloudflare-pages.yml"
         text = workflow.read_text(encoding="utf-8")
-        for required in ("index.html", "style.css", "app.js", "data/current.json"):
+        for required in ("index.html", "404.html", "style.css", "app.js", "data/current.json"):
             self.assertIn(required, text)
         self.assertIn("test -s dist/index.html", text)
+        self.assertIn("test -s dist/404.html", text)
 
 
 if __name__ == "__main__":
