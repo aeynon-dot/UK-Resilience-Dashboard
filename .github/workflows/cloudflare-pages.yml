@@ -45,8 +45,8 @@ jobs:
           cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
           cp data/uk-map.svg dist/data/
           test -s dist/index.html
-test -s dist/_headers
-test -s dist/robots.txt
+          test -s dist/_headers
+          test -s dist/robots.txt
           test -s dist/style.css
           test -s dist/app.js
           test -s dist/data/current.json
