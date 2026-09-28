@@ -64,3 +64,8 @@ No credentials, API keys, organisation-specific endpoints or private data belong
 The registry covers the four automated sources currently feeding the dashboard plus the Northern Ireland DfI Rivers reference source.
 
 Future feeds can be added without changing the Risk Signal contract.
+
+
+## Current status note — 28 September 2026
+
+This document remains the design/history record for its MVP increment. MVP4.6 is now deployed to production and the public secure-by-design baseline has been verified. Future changes should preserve the separation between public risk intelligence and private organisational context described here.
