@@ -41,10 +41,12 @@ jobs:
           set -euo pipefail
           rm -rf dist
           mkdir -p dist/data
-          cp index.html style.css app.js dist/
+          cp index.html style.css app.js robots.txt _headers dist/
           cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
           cp data/uk-map.svg dist/data/
           test -s dist/index.html
+test -s dist/_headers
+test -s dist/robots.txt
           test -s dist/style.css
           test -s dist/app.js
           test -s dist/data/current.json
@@ -52,6 +54,16 @@ jobs:
           test -s dist/data/go-live-risk-set.json
           test -s dist/data/source-registry.json
           test -s dist/data/uk-map.svg
+
+          # Public bundle allowlist: fail closed if unexpected files are introduced.
+          allowed='index.html style.css app.js robots.txt _headers data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json data/uk-map.svg'
+          while IFS= read -r file; do
+            rel="${file#dist/}"
+            case " $allowed " in
+              *" $rel "*) ;;
+              *) echo "Unexpected public bundle file: $rel"; exit 1 ;;
+            esac
+          done < <(find dist -type f | sort)
 
       - name: Deploy to Cloudflare Pages
         id: deploy
