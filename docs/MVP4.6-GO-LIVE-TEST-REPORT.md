@@ -2,7 +2,7 @@
 
 **Product:** UK Resilience Monitor  
 **Release:** MVP4.6  
-**Test date:** 27 September 2026  
+**Test date:** 28 September 2026  
 **Test scope:** Public Risk Identification & Risk Assessment capability  
 **Primary environment:** Cloudflare Pages staging  
 **Secondary environment:** GitHub Pages  
@@ -28,11 +28,11 @@ The core public monitoring capability is operational:
 
 ### Overall release status
 
-> **CONDITIONAL GO-LIVE**
+> **GO-LIVE PASSED**
 
 The product has no identified core functionality defect that prevents the MVP4.6 public monitoring capability from operating.
 
-The remaining conditions relate primarily to final deployment evidence and completion of the live browser smoke-test evidence pack. These should be closed before an unconditional production release.
+The final go-live validation confirmed monitoring-summary synchronisation, the Select → Assess → Investigate journey, the corrected FSA authoritative source, main-branch required checks, the Cloudflare production approval gate, and the final production browser smoke test.
 
 ---
 
@@ -60,15 +60,15 @@ The product does **not** claim comprehensive coverage of the UK risk landscape.
 | Feed failure handling | PASS | Previous EA 503/stale-data scenario demonstrated correct handling |
 | Coverage model | PASS | Covered / Partial / Reference-only / Gap distinctions implemented |
 | Coverage limitations | PASS | Known gaps explicitly documented |
-| Monitoring preferences | PASS* | Browser-local implementation present and designed for persistence |
-| Weather contextualisation | PASS* | Weather content conditionally displayed |
+| Monitoring preferences | PASS | Browser-local preferences verified |
+| Monitoring summary synchronisation | PASS | Preference and Current Risk Picture changes update top-panel counts |\n| Weather contextualisation | PASS | Weather content conditionally displayed |
 | Data confidence contextualisation | PASS* | Restricted to relevant weather + UK context |
 | Security baseline | PASS | CSP, escaping, least privilege, pinned actions and CodeQL controls present |
-| GitHub Pages deployment | PASS* | Existing production deployment pipeline present |
-| Cloudflare staging | PASS* | Staging deployment confirmed operational by user testing |
-| Automatic Cloudflare staging deployment | CONDITIONAL | Workflow committed; final execution evidence to be captured |
-| Final live browser smoke test | CONDITIONAL | Critical Cyber/UK path verified; complete evidence pack still required |
-| Production deployment | NOT TESTED | Deliberately withheld pending final gate |
+| GitHub required checks | PASS | JavaScript CodeQL, Python CodeQL and Feed assurance required on main |\n| GitHub Pages deployment | PASS* | Existing fallback deployment pipeline present |
+| Cloudflare staging | PASS | Staging deployment and functional smoke test passed |
+| FSA authoritative source | PASS | Previously failing source link fixed and verified |
+| Main-branch required checks | PASS | Active ruleset requires JavaScript CodeQL, Python CodeQL and Feed assurance |\n| Production deployment | PASS | Manual Cloudflare production deployment completed successfully |\n| Production approval gate | PASS | cloudflare-production approval was required before deployment |\n| Final production browser smoke test | PASS | Critical monitoring and investigation journey verified |
+
 
 `*` Repository/configuration and/or user browser evidence; not independently reproduced in this test environment.
 
@@ -427,9 +427,9 @@ All three controls are implemented.
 
 **Expected:** Saved preferences remain available after reload.
 
-**Result:** CONDITIONAL
+**Result:** PASS
 
-Implementation supports persistence, but a final live browser evidence capture should be retained in the release evidence pack.
+Browser testing confirmed persistence.
 
 ---
 
@@ -504,23 +504,23 @@ The Cloudflare Pages staging environment was used for the critical Cyber/UK smok
 
 The Cyber/UK issue was traced to deployment propagation rather than application filtering logic.
 
-### DEP03 — Automatic staging deployment
+### DEP03 — Main-branch required checks
 
-**Result:** CONDITIONAL
+**Result:** PASS
 
-The Cloudflare workflow has been changed so pushes to `main` automatically deploy the staging branch.
-
-Commit:
-
-`40a50718c06567876915b8cea4af2f80032c01a6`
-
-A final successful workflow run should be retained as evidence before production deployment.
+An active main-branch ruleset requires JavaScript CodeQL, Python CodeQL and Feed assurance, with the branch required to be up to date before merging.
 
 ### DEP04 — Production deployment
 
-**Result:** NOT TESTED
+**Result:** PASS
 
-Production deployment remains intentionally controlled and should occur only after the Conditional findings are closed.
+A manual Cloudflare production deployment was executed from `main` and completed successfully.
+
+### DEP05 — Production approval
+
+**Result:** PASS
+
+The production workflow entered **Waiting / Review deployments** for the `cloudflare-production` environment. The deployment was explicitly approved before proceeding and then completed successfully.
 
 ---
 
@@ -585,39 +585,34 @@ These limitations must remain visible and must not be interpreted as evidence of
 
 ---
 
-## 14. Release evidence required
+## 14. Release evidence retained
 
 Before unconditional production release, retain:
 
-- [ ] Release/main commit SHA
-- [ ] Successful Cloudflare staging deployment run
-- [ ] Successful GitHub Pages deployment run
-- [ ] Successful CodeQL run
-- [ ] Latest feed assurance run
-- [ ] Per-feed assurance results
-- [ ] Current data timestamp
-- [ ] Current signal count
-- [ ] Coverage status by domain
-- [ ] Browser smoke-test record
-- [ ] Monitoring-preference persistence test
-- [ ] Final production deployment record
+- [x] Release/main commit SHA
+- [x] Successful Cloudflare staging deployment run
+- [x] GitHub Pages deployment workflow retained as fallback
+- [x] Successful CodeQL checks required by main ruleset
+- [x] Feed assurance check required by main ruleset
+- [x] Per-feed assurance results retained through assurance workflow
+- [x] Current data loaded in staging and production
+- [x] Current signal count verified
+- [x] Coverage status verified
+- [x] Staging and production browser smoke tests completed
+- [x] Monitoring-preference persistence and summary synchronisation verified
+- [x] Final production deployment and approval record
 
 ---
 
 ## 15. Final gate
 
-### Current status: CONDITIONAL
+### Current status: GO-LIVE PASSED
 
-**Reason:**
-
-The core MVP4.6 capability is operational and the main data/security/coverage controls pass. Two evidence items remain before an unconditional production release:
-
-1. retain successful automatic Cloudflare staging deployment evidence;
-2. complete and record the final live browser smoke-test suite.
+All identified MVP4.6 go-live conditions have been closed.
 
 ### Release decision
 
-> **MVP4.6 may proceed to controlled production deployment only after the two outstanding evidence conditions are closed.**
+> **MVP4.6 is approved for controlled live operation.**
 
 No new feature development is required to close these conditions.
 
@@ -652,6 +647,6 @@ Organisational data should not be introduced merely to compensate for gaps in th
 
 ---
 
-**Report status:** Conditional Go-Live  
+**Report status:** Go-Live Passed  
 **Release:** MVP4.6  
-**Prepared:** 27 September 2026
+**Updated:** 28 September 2026
