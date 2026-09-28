@@ -33,7 +33,7 @@ class FeedAssuranceUnitTests(unittest.TestCase):
         payload = {
             "success": True,
             "result": {
-                "resource_id": "177f6fa4-ae49-4182-81ea-0c6b35f26ca6",
+                "id": "177f6fa4-ae49-4182-81ea-0c6b35f26ca6",
                 "name": "demanddataupdate.csv"
             }
         }
@@ -41,7 +41,7 @@ class FeedAssuranceUnitTests(unittest.TestCase):
         value = __import__("json").loads(raw.decode())
         self.assertTrue(
             value["success"] is True
-            and value["result"]["resource_id"] == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
+            and value["result"]["id"] == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
         )
 
     def test_neso_ckan_shape_accepts_valid_response(self):
