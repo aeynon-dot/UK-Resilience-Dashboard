@@ -86,3 +86,16 @@ Before introducing organisational data:
 ## Current status
 
 The current MVP is intentionally limited to public information and browser-local preferences. It is **not** an enterprise organisational resilience system and should not be used to store confidential organisational information.
+
+
+## Post-go-live verification — 28 September 2026
+
+The MVP4.6 secure-by-design baseline has now been deployed and verified in production.
+
+Verified controls include explicit 404 boundaries; deployment-level CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy and Permissions-Policy; a fail-closed public bundle allowlist; repository secret/build-artifact exclusions; automated security regression coverage; successful staging security-boundary testing; successful production security-boundary testing; and protected production deployment through the `cloudflare-production` environment.
+
+The production dashboard was smoke-tested after deployment and remains functional.
+
+The secure-by-design baseline is therefore **complete for the current public MVP scope**. This is not enterprise security assurance and further threat modelling is required before private organisational data is introduced.
+
+The Environment Agency flood-feed issue is tracked separately as a data-quality/reliability concern.
