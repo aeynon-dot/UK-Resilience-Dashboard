@@ -25,6 +25,21 @@ The assurance runner is read-only. It does not modify source systems or dashboar
 
 A NO_CURRENT_SIGNAL result is not a feed failure.
 
+## MVP4.6.1 Environment Agency resilience
+
+MVP4.6.1 hardened the Environment Agency flood feed after the collector was found to be reading the descriptive `severity` field rather than the numeric `severityLevel` field.
+
+The assurance layer now validates:
+
+- `items` is present and is a list;
+- each item is an object;
+- `severityLevel` is an integer in the supported range 1–4;
+- malformed responses fail validation rather than being silently treated as zero signals.
+
+A valid empty `items` list remains a healthy zero-signal state.
+
+See `docs/MVP4.6.1-EA-FEED-RESILIENCE.md` for the release record and acceptance result.
+
 ## Go-live use
 
 A risk domain should only be treated as automatically covered after its automated source has passed assurance.
