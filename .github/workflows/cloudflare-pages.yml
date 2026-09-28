@@ -41,10 +41,11 @@ jobs:
           set -euo pipefail
           rm -rf dist
           mkdir -p dist/data
-          cp index.html style.css app.js robots.txt _headers dist/
+          cp index.html 404.html style.css app.js robots.txt _headers dist/
           cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
           cp data/uk-map.svg dist/data/
           test -s dist/index.html
+          test -s dist/404.html
           test -s dist/_headers
           test -s dist/robots.txt
           test -s dist/style.css
@@ -56,7 +57,7 @@ jobs:
           test -s dist/data/uk-map.svg
 
           # Public bundle allowlist: fail closed if unexpected files are introduced.
-          allowed='index.html style.css app.js robots.txt _headers data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json data/uk-map.svg'
+          allowed='index.html 404.html style.css app.js robots.txt _headers data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json data/uk-map.svg'
           while IFS= read -r file; do
             rel="${file#dist/}"
             case " $allowed " in
