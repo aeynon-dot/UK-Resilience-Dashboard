@@ -68,3 +68,8 @@ Before adding organisational exposure or service modelling, strengthen the publi
 **signal → severity/status/geography → change → monitoring priority → assessment context**
 
 This should establish a robust external risk picture before organisational relevance is introduced.
+
+
+## Current status note — 28 September 2026
+
+This document remains the design/history record for its MVP increment. MVP4.6 is now deployed to production and the public secure-by-design baseline has been verified. Future changes should preserve the separation between public risk intelligence and private organisational context described here.
