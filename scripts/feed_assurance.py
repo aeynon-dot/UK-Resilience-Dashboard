@@ -79,7 +79,15 @@ def live_shape(source_id, raw):
         value = json.loads(text)
         return isinstance(value, dict) and isinstance(value.get("items"), list)
     if source_id == "neso-demand-data-update":
-        return "SETTLEMENT_DATE" in text and "SETTLEMENT_PERIOD" in text
+        value = json.loads(text)
+        result = value.get("result") if isinstance(value, dict) else None
+        return (
+            isinstance(value, dict)
+            and value.get("success") is True
+            and isinstance(result, dict)
+            and isinstance(result.get("records"), list)
+            and all(isinstance(record, dict) for record in result["records"])
+        )
     if source_id == "environment-agency-flood-monitoring":
         value = json.loads(text)
         items = value.get("items") if isinstance(value, dict) else None
