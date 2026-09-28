@@ -13,6 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
+from scripts.feed_health import classify_feed_health
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data/source-registry.json"
 CURRENT = ROOT / "data/current.json"
@@ -132,6 +134,25 @@ def age_minutes(value, now):
     except ValueError:
         return None
 
+def classify_assurance_health(item, feed_status):
+    """Map assurance observations onto the canonical feed-health states."""
+    checks = item.get("checks", [])
+    by_name = {check.get("name"): check for check in checks}
+    last_success = feed_status.get("last_success_at") if isinstance(feed_status, dict) else None
+
+    if by_name.get("collector_output", {}).get("status") == "fail":
+        return classify_feed_health(ok=False, has_last_success=bool(last_success))
+    if by_name.get("availability", {}).get("status") == "fail":
+        return classify_feed_health(ok=False, has_last_success=bool(last_success), degraded=bool(last_success))
+    if by_name.get("payload_shape", {}).get("status") == "fail":
+        return "degraded"
+    if any(check.get("status") == "fail" for check in checks if check.get("name") in {"signal_ids_unique", "signal_provenance"}):
+        return "degraded"
+    if by_name.get("runtime_status", {}).get("status") == "fail":
+        return classify_feed_health(ok=False, has_last_success=bool(last_success))
+    if by_name.get("freshness", {}).get("status") == "stale":
+        return "stale"
+    return "healthy"
 def current_signal_checks(current, registry_entry):
     source_name = registry_entry["name"]
     signals = current.get("risk_signals", [])
