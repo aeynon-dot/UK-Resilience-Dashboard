@@ -286,7 +286,7 @@
       "authority_type": "national_system_operator",
       "source_type": "live_api",
       "transport": "https",
-      "endpoint": "https://api.neso.energy/dataset/7a12172a-939c-404c-b581-a6128b74f588/resource/177f6fa4-ae49-4182-81ea-0c6b35f26ca6/download/demanddataupdate.csv",
+      "endpoint": "https://api.neso.energy/api/3/action/datastore_search?resource_id=177f6fa4-ae49-4182-81ea-0c6b35f26ca6&limit=20&sort=SETTLEMENT_DATE%20desc%2CSETTLEMENT_PERIOD%20desc",
       "landing_url": "https://www.neso.energy/data-portal/daily-demand-update/demand_data_update",
       "risk_themes": [
         "accidents_and_system_failures"
