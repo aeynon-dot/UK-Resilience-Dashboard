@@ -10,6 +10,8 @@ on:
       - 'data/go-live-risk-set.json'
       - 'data/current.json'
       - '.github/workflows/feed-assurance.yml'
+      - '.github/workflows/update-data.yml'
+      - 'tests/**'
   schedule:
     - cron: '0 * * * *'
   pull_request:
@@ -22,6 +24,8 @@ on:
       - 'data/go-live-risk-set.json'
       - 'data/current.json'
       - '.github/workflows/feed-assurance.yml'
+      - '.github/workflows/update-data.yml'
+      - 'tests/**'
   workflow_dispatch:
 
 permissions:
