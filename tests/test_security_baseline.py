@@ -28,6 +28,16 @@ class SecurityBaselineTests(unittest.TestCase):
                 offenders.append(str(path.relative_to(ROOT)))
         self.assertEqual(offenders, [], f"Sensitive files in public tree: {offenders}")
 
+    def test_data_publication_uses_pr_path_for_protected_main(self):
+        workflow = ROOT / ".github" / "workflows" / "update-data.yml"
+        text = workflow.read_text(encoding="utf-8")
+        self.assertIn("pull-requests: write", text)
+        self.assertIn("git push --force-with-lease origin HEAD:automation/data-update", text)
+        self.assertIn("gh pr create", text)
+        self.assertIn("gh pr merge", text)
+        self.assertIn("--auto --squash", text)
+        self.assertNotIn("git push\n", text)
+
     def test_public_bundle_allowlist_is_documented(self):
         workflow = ROOT / ".github" / "workflows" / "cloudflare-pages.yml"
         text = workflow.read_text(encoding="utf-8")
