@@ -96,6 +96,43 @@ See SECURITY.md and SECURE-BY-DESIGN.md.
 This dashboard is an information aid and does not replace official warning/alert channels. Always follow the latest advice from the relevant official service.
 
 
+
+
+## MVP4.6.1 — Environment Agency feed resilience
+
+MVP4.6.1 is complete and deployed to production.
+
+The Environment Agency flood-monitoring collector now uses the official numeric `severityLevel` field as the canonical classification:
+
+- `1` — Severe Flood Warning
+- `2` — Flood Warning
+- `3` — Flood Alert
+- `4` — Warning no Longer in Force; ignored for active signals
+
+The collector and feed-assurance tests now distinguish:
+
+- a valid empty response with zero current signals;
+- malformed or schema-invalid responses;
+- unavailable/degraded upstream responses.
+
+Staging and production were verified after deployment, with current Environment Agency flood signals appearing correctly.
+
+See `docs/MVP4.6.1-EA-FEED-RESILIENCE.md`.
+
+## Next build target — MVP4.7
+
+With the public monitoring pipeline and core feed-assurance foundation operational, the next build target is **MVP4.7 — Monitoring & source-quality hardening**.
+
+The next increment should focus on evidence-led improvements to:
+
+1. source/feed reliability and recovery visibility;
+2. authoritative source-link validation;
+3. stale/degraded feed presentation;
+4. monitoring and data-confidence transparency;
+5. regression coverage for feed classification and zero-signal states.
+
+MVP4.7 should remain within the public monitoring scope. Organisational/private resilience data remains outside the public pipeline until a dedicated data-classification, access-control, retention and threat-model design is agreed.
+
 ## MVP3.5 — Organisational exposure
 
 MVP3.5 adds a browser-local organisation exposure profile and transparent preparedness-priority calculation. Organisational exposure is not sent to the public data pipeline or stored in the repository. See `docs/MVP3.5-ORGANISATIONAL-EXPOSURE.md`.
