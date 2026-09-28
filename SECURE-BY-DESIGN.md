@@ -83,6 +83,14 @@ Before introducing organisational data:
 6. Run automated security checks.
 7. Perform an appropriate independent security review before production use.
 
+## Current assurance checkpoint
+
+On 2026-09-28, the current public MVP completed a security assurance review covering the repository security baseline, protected GitHub publication path and Cloudflare traffic/security controls.
+
+The review recorded **GREEN security assurance for the current public-data architecture**. Cloudflare traffic included routine automated probing of predictable `.env` paths, with no evidence in the reviewed views of successful environment-file exposure. Cloudflare account MFA was enabled during the review.
+
+This checkpoint is deliberately bounded to the current public, read-only MVP. It is not a security approval for future authenticated, organisational or confidential-data functionality.
+
 ## Current status
 
 The current MVP is intentionally limited to public information and browser-local preferences. It is **not** an enterprise organisational resilience system and should not be used to store confidential organisational information.
