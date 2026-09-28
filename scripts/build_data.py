@@ -40,20 +40,40 @@ def get_text_prefix(url, max_bytes=300_000):
 
 def ea():
     raw = get_json('https://environment.data.gov.uk/flood-monitoring/id/floods')
+    if not isinstance(raw, dict) or not isinstance(raw.get('items'), list):
+        raise ValueError('Environment Agency flood feed has an invalid items payload')
+
     counts = {1: 0, 2: 0, 3: 0}
     items = []
-    for x in raw.get('items', []):
-        s = x.get('severity')
-        counts[s] = counts.get(s, 0) + 1
-        if s in (1, 2, 3):
+    for x in raw['items']:
+        if not isinstance(x, dict):
+            raise ValueError('Environment Agency flood feed contains a malformed item')
+
+        severity_level = x.get('severityLevel')
+        if (
+            isinstance(severity_level, bool)
+            or not isinstance(severity_level, int)
+            or severity_level not in (1, 2, 3, 4)
+        ):
+            raise ValueError(
+                'Environment Agency flood feed contains an invalid severityLevel'
+            )
+
+        if severity_level in (1, 2, 3):
+            counts[severity_level] += 1
             items.append({
-                'level': {1: 'Severe', 2: 'Warning', 3: 'Alert'}[s],
+                'level': {
+                    1: 'Severe',
+                    2: 'Warning',
+                    3: 'Alert'
+                }[severity_level],
                 'title': x.get('description') or x.get('eaAreaName') or 'Current flood item'
             })
+
     return {
-        'warnings': counts.get(2, 0),
-        'alerts': counts.get(3, 0),
-        'severe': counts.get(1, 0),
+        'warnings': counts[2],
+        'alerts': counts[3],
+        'severe': counts[1],
         'items': items
     }
 
