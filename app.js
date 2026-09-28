@@ -56,9 +56,9 @@ function riskSignalMatchesFocus(x,focus){
 function riskSignalMatchesGeography(x,geography){
   if(geography==='all')return true;
   const scope=x.geography?.scope;
-  // The UK-wide monitoring view includes international signals that can
-  // contribute to UK resilience risk; the source geography remains visible.
-  if(geography==='UK')return scope==='UK'||scope==='international';
+  // UK is the parent geography: include the four constituent nations as well
+  // as explicit UK-wide and relevant international monitoring signals.
+  if(geography==='UK')return ['UK','England','Wales','Scotland','Northern Ireland','international'].includes(scope);
   return scope===geography;
 }
 function riskThemeLabel(key){return RISK_THEME_LABELS[key]||String(key||'Other').replaceAll('_',' ')}
