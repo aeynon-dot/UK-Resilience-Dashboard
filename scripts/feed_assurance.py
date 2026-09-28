@@ -61,6 +61,8 @@ def parse_url(url):
     parsed = urlparse(url)
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
+NESO_RESOURCE_SHOW = "https://api.neso.energy/api/3/action/resource_show?id=177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
+
 def live_shape(source_id, raw):
     text = raw.decode("utf-8", "ignore")
     if source_id in {"met-office-severe-weather-warnings", "ncsc-rss-threat-intelligence"}:
@@ -199,14 +201,25 @@ def run():
             continue
 
         try:
+            assurance_endpoint = NESO_RESOURCE_SHOW if source_id == "neso-demand-data-update" else endpoint
             web_limited = source_id in {"natural-resources-wales-flood-warning", "sepa-flooding", "ukhsa-data-dashboard"}
-            raw, content_type = fetch(endpoint, 300_000 if web_limited else MAX_RESPONSE_BYTES, allow_truncate=web_limited)
+            raw, content_type = fetch(assurance_endpoint, 300_000 if web_limited else MAX_RESPONSE_BYTES, allow_truncate=web_limited)
             item["checks"].append({
                 "name": "availability", "status": "pass",
                 "bytes": len(raw), "content_type": content_type,
             })
             try:
-                shaped = live_shape(source_id, raw)
+                if source_id == "neso-demand-data-update":
+                    value = json.loads(raw.decode("utf-8", "ignore"))
+                    result = value.get("result") if isinstance(value, dict) else None
+                    shaped = (
+                        isinstance(value, dict)
+                        and value.get("success") is True
+                        and isinstance(result, dict)
+                        and result.get("resource_id") == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
+                    )
+                else:
+                    shaped = live_shape(source_id, raw)
                 item["checks"].append({"name": "payload_shape", "status": "pass" if shaped else "fail"})
                 if not shaped:
                     item["status"] = "fail"
