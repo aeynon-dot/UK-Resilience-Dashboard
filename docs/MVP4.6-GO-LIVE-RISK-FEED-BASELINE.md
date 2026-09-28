@@ -90,3 +90,12 @@ Every source in the go-live set should then be tested for:
 8. Change detection
 9. Stale/error handling
 10. Recovery
+
+
+## Post-go-live update — 28 September 2026
+
+The MVP4.6 risk-feed baseline has now been promoted to production. The documented coverage limitations remain applicable.
+
+A post-go-live issue is now recorded: the Environment Agency flood feed can produce a valid-looking empty response that is treated as healthy with zero signals. This needs stronger validation and corroboration before it can safely be interpreted as genuine absence of current flood warnings/alerts.
+
+This issue is assigned to MVP4.6.1. Until corrected, users should continue to use the official Environment Agency/GOV.UK flood-warning service for authoritative current warnings.
