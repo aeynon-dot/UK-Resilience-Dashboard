@@ -33,3 +33,40 @@ def classify_feed_health(
     if ok:
         return "healthy"
     return "unavailable"
+
+
+def update_feed_status(
+    previous,
+    *,
+    ok,
+    now_iso,
+    stale=False,
+    degraded=False,
+    error=None,
+):
+    """Update feed status while preserving recovery history across failures."""
+    previous = previous if isinstance(previous, dict) else {}
+    status = dict(previous)
+
+    status["ok"] = bool(ok)
+    status["stale"] = bool(stale)
+
+    if ok:
+        status["last_success_at"] = now_iso
+        if previous.get("ok") is False:
+            status["recovered_at"] = now_iso
+        status.pop("error", None)
+        return status
+
+    if previous.get("last_success_at"):
+        status["last_success_at"] = previous["last_success_at"]
+
+    if previous.get("degraded_since"):
+        status["degraded_since"] = previous["degraded_since"]
+    elif previous.get("ok") is True or degraded:
+        status["degraded_since"] = now_iso
+
+    if error is not None:
+        status["error"] = error
+
+    return status
