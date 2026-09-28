@@ -237,7 +237,7 @@ def run():
                         isinstance(value, dict)
                         and value.get("success") is True
                         and isinstance(result, dict)
-                        and result.get("resource_id") == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
+                        and result.get("id") == "177f6fa4-ae49-4182-81ea-0c6b35f26ca6"
                     )
                 else:
                     shaped = live_shape(source_id, raw)
