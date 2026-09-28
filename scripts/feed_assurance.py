@@ -206,7 +206,7 @@ def run():
         if not entry.get("enabled") or source_id not in go_live_ids:
             continue
 
-        item = {"id": source_id, "name": entry.get("name"), "status": "pass", "checks": []}
+        item = {"id": source_id, "name": entry.get("name"), "status": "pass", "health_state": "healthy", "checks": []}
         endpoint = entry.get("endpoint")
 
         if not endpoint:
@@ -242,13 +242,9 @@ def run():
                 else:
                     shaped = live_shape(source_id, raw)
                 item["checks"].append({"name": "payload_shape", "status": "pass" if shaped else "fail"})
-                if not shaped:
-                    item["status"] = "fail"
             except Exception as exc:
-                item["status"] = "fail"
                 item["checks"].append({"name": "payload_shape", "status": "fail", "detail": str(exc)})
         except Exception as exc:
-            item["status"] = "fail"
             item["checks"].append({"name": "availability", "status": "fail", "detail": str(exc)})
 
         path = EXPECTED_KEYS.get(source_id)
@@ -257,8 +253,6 @@ def run():
             "name": "collector_output",
             "status": "pass" if collector_value is not None else "fail",
         })
-        if collector_value is None:
-            item["status"] = "fail"
 
         signal_result = current_signal_checks(current, entry)
         item["signal_count"] = signal_result["signal_count"]
@@ -273,8 +267,6 @@ def run():
                 "status": "pass" if feed_status.get("ok") else "fail",
                 "detail": "runtime collector reports ok" if feed_status.get("ok") else feed_status.get("error"),
             })
-            if not feed_status.get("ok"):
-                item["status"] = "fail"
 
         last_success = feed_status.get("last_success_at") if isinstance(feed_status, dict) else None
         age = age_minutes(last_success, now)
@@ -287,9 +279,9 @@ def run():
                 "age_minutes": round(age, 1),
                 "tolerance_minutes": tolerance,
             })
-            if not freshness_ok:
-                item["status"] = "fail"
 
+        item["health_state"] = classify_assurance_health(item, feed_status)
+        item["status"] = "pass" if item["health_state"] == "healthy" else item["health_state"]
         results.append(item)
 
     summary = {
@@ -298,9 +290,12 @@ def run():
         "results": results,
         "summary": {
             "feeds_tested": len(results),
-            "passed": sum(r["status"] == "pass" for r in results),
-            "failed": sum(r["status"] == "fail" for r in results),
-            "reference_only": sum(r["status"] == "reference_only" for r in results),
+            "passed": sum(r["health_state"] == "healthy" for r in results),
+            "stale": sum(r["health_state"] == "stale" for r in results),
+            "degraded": sum(r["health_state"] == "degraded" for r in results),
+            "unavailable": sum(r["health_state"] == "unavailable" for r in results),
+            "failed": sum(r["health_state"] in {"degraded", "unavailable"} for r in results),
+            "reference_only": sum(r["health_state"] == "reference_only" for r in results),
             "no_current_signal": sum(any(c.get("status") == "no_current_signal" for c in r["checks"]) for r in results),
         },
     }
@@ -316,11 +311,14 @@ def main():
     else:
         print("UK Resilience Monitor — MVP4.6 Feed Assurance")
         print(f"Feeds tested: {result['summary']['feeds_tested']}")
-        print(f"Passed: {result['summary']['passed']}")
-        print(f"Failed: {result['summary']['failed']}")
+        print(f"Healthy: {result['summary']['passed']}")
+        print(f"Stale: {result['summary']['stale']}")
+        print(f"Degraded: {result['summary']['degraded']}")
+        print(f"Unavailable: {result['summary']['unavailable']}")
         print(f"Reference only: {result['summary']['reference_only']}")
+        print(f"Hard failures: {result['summary']['failed']}")
         for item in result["results"]:
-            print(f"- {item['id']}: {item['status']} ({item.get('signal_count', 0)} signals)")
+            print(f"- {item['id']}: {item['health_state']} ({item.get('signal_count', 0)} signals)")
             for check in item["checks"]:
                 if check.get("status") == "fail":
                     print(f"  FAIL {check.get('name')}: {check.get('detail', '')}")
