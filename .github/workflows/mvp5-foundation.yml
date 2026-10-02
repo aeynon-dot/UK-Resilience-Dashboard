@@ -22,3 +22,4 @@ jobs:
       - run: node tests/assessment-context.mjs
       - run: node tests/mvp5-1-landscape-contract.mjs
       - run: node tests/landscape-change-gate.mjs
+      - run: node tests/landscape-assessment.mjs
