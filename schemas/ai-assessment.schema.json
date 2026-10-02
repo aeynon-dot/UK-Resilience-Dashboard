@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uk-resilience-monitor.pages.dev/schemas/ai-assessment.schema.json",
+  "title": "Resilience Monitor AI Assessment",
+  "type": "object",
+  "required": [
+    "assessment_status",
+    "assessment_id",
+    "generated_at",
+    "landscape_snapshot_id"
+  ],
+  "properties": {
+    "assessment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "landscape_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assessment_status": {
+      "type": "string",
+      "enum": [
+        "supported",
+        "with_limitations",
+        "insufficient_evidence",
+        "unavailable"
+      ]
+    },
+    "provider": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "attention_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "assessment",
+          "supporting_signal_ids",
+          "rationale",
+          "evidence_strength",
+          "uncertainty",
+          "investigation_areas"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "assessment": {
+            "type": "string"
+          },
+          "supporting_signal_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence_strength": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "investigation_areas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "estimated_cost": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
