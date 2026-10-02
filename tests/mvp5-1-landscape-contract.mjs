@@ -21,7 +21,10 @@ const expectedTriggerNames = new Set([
   'material_signal_change',
   'escalation_or_deescalation',
   'related_signals_emerge',
-  'manual_reassess'
+  'manual_reassess',
+  'routine_refresh',
+  'timestamp_only_change',
+  'minor_metadata_change'
 ]);
 
 for (const testCase of cases.reassessment_cases) {
