@@ -22,6 +22,10 @@ assert.match(app,/const flood=focus==='UK'\?\[\.\.\.\(d\.england\?\.items\|\|\[\
 
 // Tester 01: monitoring preferences are user settings, not a permanent dashboard card.
 for (const id of ['monitoring-settings-dialog','open-monitoring-settings','close-monitoring-settings','save-monitoring-preferences']) assert.match(html,new RegExp('id="'+id+'"'));
+assert.match(html,/settings-header-actions/);
+assert.match(app,/setDefaultFocus\(geography==='all'\?'UK':geography\)/);
+assert.match(app,/async function saveMonitoringPreferences\(\)/);
+assert.match(app,/await load\(\)/);
 
 // Tester 01: history may use short-lived caching; current data remains no-store.
 assert.match(app,/fetch\('data\/history\.json',\{cache:'default'\}\)/);
