@@ -16,4 +16,6 @@ __pycache__/
 venv/
 dist/
 .DS_Store
-\n# Cloud credentials and local AWS configuration\n.aws/\n
+
+# Cloud credentials and local AWS configuration
+.aws/
