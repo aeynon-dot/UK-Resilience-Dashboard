@@ -182,7 +182,7 @@ function populateRiskAssessmentFilters(d){
   const themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter');
   if(themeEl&&!themeEl.dataset.populated){themeEl.innerHTML='<option value="all">All risks</option>'+RISK_THEME_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskThemeLabel(x))+'</option>').join('');themeEl.value=getRiskTheme();themeEl.dataset.populated='1';}
   if(domainEl&&!domainEl.dataset.populated){domainEl.innerHTML='<option value="all">All domains</option>'+RISK_DOMAIN_ORDER.map(x=>'<option value="'+esc(x)+'">'+esc(riskDomainLabel(x))+'</option>').join('');domainEl.dataset.populated='1';}
-  if(geoEl&&!geoEl.dataset.populated){const geos=[...new Set((d.risk_signals||[]).map(x=>x.geography?.scope).filter(Boolean))].sort();geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');geoEl.dataset.populated='1';}
+  if(geoEl&&!geoEl.dataset.populated){const geos=['UK','England','Wales','Scotland','Northern Ireland','international'];geoEl.innerHTML='<option value="all">All geographies</option>'+geos.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join('');geoEl.dataset.populated='1';}
 }
 const MONITORING_PREFERENCES_KEY='ukResilienceMonitoringPreferences';
 const PRIORITY_RANK={monitor:1,moderate:2,high:3,immediate:4};
