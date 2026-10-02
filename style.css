@@ -234,3 +234,13 @@
 .risk-detail-grid p+p{margin-top:7px}
 .risk-detail-reference{font-size:.7rem!important;color:#627d98}
 @media(max-width:700px){.risk-detail{margin:0 14px 12px}.risk-detail-grid{grid-template-columns:1fr}}
+
+
+/* Evaluation remediation: user settings dialog */
+.header-actions{display:flex;align-items:center;gap:1rem}
+.settings-button,.preference-close,.preference-save{font:inherit;border:1px solid currentColor;border-radius:.5rem;padding:.5rem .8rem;background:transparent;cursor:pointer}
+.monitoring-settings-dialog{border:0;border-radius:.75rem;padding:0;width:min(760px,calc(100% - 2rem));max-width:760px}
+.monitoring-settings-dialog::backdrop{background:rgba(0,0,0,.45)}
+.monitoring-settings-card{padding:1.25rem}
+.monitoring-settings-dialog .section-heading{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+.settings-actions{display:flex;justify-content:flex-end;margin-top:1rem}

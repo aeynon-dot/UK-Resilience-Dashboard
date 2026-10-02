@@ -1,0 +1,4 @@
+Contact: https://github.com/aeynon-dot/UK-Resilience-Dashboard/security/advisories/new
+Expires: 2027-10-02T00:00:00Z
+Preferred-Languages: en
+Policy: https://github.com/aeynon-dot/UK-Resilience-Dashboard/security/policy

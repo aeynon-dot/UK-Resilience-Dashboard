@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css?v=20260927-mvp5a">
 </head>
 <body>
-<header><div><h1>UK Resilience Monitor</h1><p>Risk and threat identification, assessment and daily change</p></div><div id="updated">Loading…</div></header>
+<header><div><h1>UK Resilience Monitor</h1><p>Risk and threat identification, assessment and daily change</p></div><div class="header-actions"><button id="open-monitoring-settings" type="button" class="settings-button">Settings</button><div id="updated">Loading…</div></div></header>
 <main>
 <section class="hero"><div><span class="eyebrow">UK RESILIENCE RISK MONITOR · MVP5</span><h2 id="headline">Checking official feeds…</h2><p id="summary">A curated view of current external resilience risk signals across monitored UK risk domains, using official and authoritative sources. It supports investigation and does not replace official alerts.</p><p class="changes"><strong>Since previous collection:</strong> <span id="changes">Checking…</span></p></div><div id="status" class="status">CHECKING</div></section>
 
@@ -45,11 +45,7 @@
   <p id="coverage-note" class="muted coverage-note"></p>
 </section>
 
-<section id="monitoring-preferences-card" class="card monitoring-preferences-card">
-  <div class="section-heading">
-    <div><h3>Monitoring preferences</h3><p class="muted">Set the view used when the monitor opens. These preferences are saved only in this browser and do not change your current investigation filters.</p></div>
-    <button id="save-monitoring-preferences" type="button" class="preference-save">Save preferences</button>
-  </div>
+<dialog id="monitoring-settings-dialog" class="monitoring-settings-dialog" aria-labelledby="monitoring-settings-title"><div class="monitoring-settings-card"><div class="section-heading"><div><span class="eyebrow">USER SETTINGS</span><h3 id="monitoring-settings-title">Monitoring preferences</h3><p class="muted">Set the view used when the monitor opens. These preferences are saved only in this browser and do not change your current investigation filters.</p></div><button id="close-monitoring-settings" type="button" class="preference-close">Close</button></div>
   <div class="monitoring-preference-grid">
     <label>Default geography
       <select id="preference-geography">
@@ -75,7 +71,8 @@
     </label>
   </div>
   <p id="monitoring-preferences-status" class="muted preference-status"></p>
-</section>
+  <div class="settings-actions"><button id="save-monitoring-preferences" type="button" class="preference-save">Save preferences</button></div>
+</div></dialog>
 
 <section id="data-confidence-card" class="card confidence-card risk-domain-content">
   <div class="section-heading">

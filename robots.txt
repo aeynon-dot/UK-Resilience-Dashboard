@@ -1,7 +1,2 @@
 User-agent: *
-Disallow: /data/
-Disallow: /worker/
-Disallow: /mailer/
-Disallow: /postmark/
-Disallow: /.git/
-Disallow: /.aws/
+Allow: /

@@ -1,0 +1,20 @@
+name: Regression remediation checks
+
+on:
+  push:
+    branches: ["main", "regression/**"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - run: node tests/regression-remediation.mjs
