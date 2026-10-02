@@ -19,3 +19,4 @@ jobs:
           node-version: 24
       - run: node tests/mvp5-foundation.mjs
       - run: node tests/assessment-gateway.mjs
+      - run: node tests/assessment-context.mjs
