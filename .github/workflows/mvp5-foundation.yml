@@ -1,0 +1,20 @@
+name: MVP5 Foundation contract checks
+
+on:
+  push:
+    branches: ["main", "feature/mvp5-foundation", "feature/**"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - run: node tests/mvp5-foundation.mjs
