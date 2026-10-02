@@ -1,0 +1,74 @@
+{
+  "assessment_id": "LS-2026-10-02-001",
+  "timestamp": "2026-10-02T12:45:16Z",
+  "monitoring_scope": {
+    "geography": "UK",
+    "domains": [
+      "flooding",
+      "climate_and_weather"
+    ],
+    "filters": {
+      "status": [
+        "active",
+        "monitoring"
+      ]
+    }
+  },
+  "signals": [
+    {
+      "signal_id": "flood-001",
+      "title": "Flood warning near Cardiff",
+      "description": "Example active flood warning used for contract testing.",
+      "domain": "flooding",
+      "hazard": "river flooding",
+      "geography": {
+        "scope": "Wales",
+        "region": "Cardiff"
+      },
+      "severity": "high",
+      "status": "active",
+      "published_at": "2026-10-02T10:00:00Z",
+      "updated_at": "2026-10-02T11:30:00Z",
+      "change_status": "new",
+      "source": "Example Flood Authority",
+      "authoritative_source": true,
+      "evidence_confidence": "high"
+    },
+    {
+      "signal_id": "weather-001",
+      "title": "Heavy rain warning",
+      "description": "Example weather warning used for contract testing.",
+      "domain": "climate_and_weather",
+      "hazard": "heavy rain",
+      "geography": {
+        "scope": "Wales",
+        "region": "Cardiff"
+      },
+      "severity": "moderate",
+      "status": "monitoring",
+      "published_at": "2026-10-02T09:00:00Z",
+      "updated_at": "2026-10-02T11:00:00Z",
+      "change_status": "changed",
+      "source": "Example Weather Authority",
+      "authoritative_source": true,
+      "evidence_confidence": "high"
+    }
+  ],
+  "relationships": [
+    {
+      "signal_ids": [
+        "flood-001",
+        "weather-001"
+      ],
+      "relationship_type": "common_geography_and_hazard_context",
+      "supporting_evidence": [
+        "Both signals concern Cardiff and overlapping rainfall/flooding conditions."
+      ]
+    }
+  ],
+  "data_quality": {
+    "stale_sources": [],
+    "failed_sources": [],
+    "limitations": []
+  }
+}
