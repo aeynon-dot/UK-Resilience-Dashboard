@@ -12,7 +12,7 @@ const security=fs.readFileSync('.well-known/security.txt','utf8');
 new Function(app);
 
 // Tester 01: UK monitoring view must include constituent-nation signals.
-assert.match(app,/if\(geography==='UK'\)return \['UK','England','Wales','Scotland','Northern Ireland','international'\]\.includes\(scope\)/);
+assert.match(app,/if\(geography==='UK'\)return \['UK','England','Wales','Scotland','Northern Ireland'\]\.includes\(scope\)/);
 
 // Tester 01: UK geographic detail must aggregate England/Wales/Scotland flood items.
 assert.match(app,/const selectedFlood=selected==='UK'\?\[\.\.\.\(d\.england\?\.items\|\|\[\]\),\.\.\.\(d\.wales\?\.items\|\|\[\]\),\.\.\.\(d\.scotland\?\.items\|\|\[\]\)\]/);
