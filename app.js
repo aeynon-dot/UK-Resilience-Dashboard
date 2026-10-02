@@ -56,14 +56,14 @@ function warningLevelClass(value){
   return WARNING_LEVEL_CLASSES.has(level)?level:'alert';
 }
 function riskSignalMatchesFocus(x,focus){
-  return focus==='UK'||x.geography?.scope===focus||x.geography?.scope==='UK';
+  return focus==='UK'?['UK','England','Wales','Scotland','Northern Ireland'].includes(x.geography?.scope):x.geography?.scope===focus||x.geography?.scope==='UK';
 }
 function riskSignalMatchesGeography(x,geography){
   if(geography==='all')return true;
   const scope=x.geography?.scope;
-  // UK is an aggregate monitoring view: include UK-wide, constituent-nation
-  // signals and international signals that can contribute to UK resilience.
-  if(geography==='UK')return ['UK','England','Wales','Scotland','Northern Ireland','international'].includes(scope);
+  // UK is an aggregate monitoring view: include UK-wide and constituent-nation
+  // signals. International signals remain outside the UK geography filter.
+  if(geography==='UK')return ['UK','England','Wales','Scotland','Northern Ireland'].includes(scope);
   return scope===geography;
 }
 function riskThemeLabel(key){return RISK_THEME_LABELS[key]||String(key||'Other').replaceAll('_',' ')}
