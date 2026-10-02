@@ -1,0 +1,65 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const readJson = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
+const assessmentSchema = readJson('schemas/ai-assessment.schema.json');
+const contextSchema = readJson('schemas/assessment-context.schema.json');
+const fixture = readJson('tests/fixtures/assessment-context.valid.json');
+
+const assessmentStatuses = new Set(['supported', 'with_limitations', 'insufficient_evidence', 'unavailable']);
+assert.equal(assessmentSchema.type, 'object');
+assert.deepEqual(
+  assessmentSchema.properties.assessment_status.enum,
+  [...assessmentStatuses]
+);
+
+const requiredContext = [
+  'assessment_id',
+  'timestamp',
+  'monitoring_scope',
+  'signals',
+  'relationships',
+  'data_quality'
+];
+assert.deepEqual(contextSchema.required, requiredContext);
+
+assert.equal(typeof fixture.assessment_id, 'string');
+assert.match(fixture.timestamp, /^\d{4}-\d{2}-\d{2}T/);
+assert.equal(typeof fixture.monitoring_scope.geography, 'string');
+assert.ok(Array.isArray(fixture.monitoring_scope.domains));
+assert.ok(Array.isArray(fixture.signals));
+assert.ok(Array.isArray(fixture.relationships));
+assert.ok(Array.isArray(fixture.data_quality.stale_sources));
+assert.ok(Array.isArray(fixture.data_quality.failed_sources));
+assert.ok(Array.isArray(fixture.data_quality.limitations));
+
+const signalIds = new Set();
+for (const signal of fixture.signals) {
+  for (const key of [
+    'signal_id', 'title', 'description', 'domain', 'hazard', 'geography',
+    'severity', 'status', 'published_at', 'updated_at', 'change_status',
+    'source', 'authoritative_source', 'evidence_confidence'
+  ]) assert.ok(Object.hasOwn(signal, key), `missing signal field: ${key}`);
+  assert.ok(!signalIds.has(signal.signal_id), `duplicate signal id: ${signal.signal_id}`);
+  signalIds.add(signal.signal_id);
+  assert.ok(['new', 'changed', 'unchanged', 'resolved', 'unknown'].includes(signal.change_status));
+  assert.equal(typeof signal.authoritative_source, 'boolean');
+}
+
+for (const relationship of fixture.relationships) {
+  assert.ok(Array.isArray(relationship.signal_ids));
+  assert.ok(relationship.signal_ids.length >= 2);
+  for (const id of relationship.signal_ids) assert.ok(signalIds.has(id), `unknown relationship signal: ${id}`);
+  assert.ok(Array.isArray(relationship.supporting_evidence));
+}
+
+// The gateway contract must not permit credentials or arbitrary model text to become RM evidence.
+const serialised = JSON.stringify(fixture).toLowerCase();
+for (const forbidden of ['api_key', 'apikey', 'authorization', 'password', 'secret']) {
+  assert.equal(serialised.includes(forbidden), false, `forbidden credential-like field: ${forbidden}`);
+}
+
+// Safe failure is an explicit state, not an invented fallback assessment.
+assert.ok(assessmentStatuses.has('unavailable'));
+
+console.log('MVP5 Foundation contract checks: PASS');
