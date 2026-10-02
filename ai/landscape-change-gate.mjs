@@ -25,8 +25,14 @@ function isEscalationOrDeescalation(previous, current) {
 }
 
 function relationshipsChanged(previous, current) {
-  const before = new Set((previous?.relationships ?? []).map(r => \`\${(r.signal_ids ?? []).join('|')}::\${r.relationship_type}\`));
-  return (current?.relationships ?? []).some(r => !before.has(\`\${(r.signal_ids ?? []).join('|')}::\${r.relationship_type}\`));
+  const before = new Set(
+    (previous?.relationships ?? []).map(
+      r => `${(r.signal_ids ?? []).join('|')}::${r.relationship_type}`
+    )
+  );
+  return (current?.relationships ?? []).some(
+    r => !before.has(`${(r.signal_ids ?? []).join('|')}::${r.relationship_type}`)
+  );
 }
 
 function dataQualityMateriallyChanged(previous, current) {
