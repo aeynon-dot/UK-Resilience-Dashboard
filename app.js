@@ -207,7 +207,7 @@ function loadMonitoringPreferences(){
     };
   }catch(e){return {...DEFAULT_MONITORING_PREFERENCES,themes:[...DEFAULT_MONITORING_PREFERENCES.themes]}}
 }
-function saveMonitoringPreferences(){
+async function saveMonitoringPreferences(){
   const geography=document.getElementById('preference-geography')?.value||'UK';
   const themes=[...document.querySelectorAll('#preference-themes input:checked')].map(x=>x.value);
   const minimum_priority=document.getElementById('preference-priority')?.value||'monitor';
@@ -217,17 +217,16 @@ function saveMonitoringPreferences(){
     minimum_priority
   };
   try{localStorage.setItem(MONITORING_PREFERENCES_KEY,JSON.stringify(monitoringPreferences))}catch(e){}
+  // Monitoring geography is also the dashboard's opening focus so the
+  // preference changes the complete monitoring view, not just the risk list.
+  setDefaultFocus(geography==='all'?'UK':geography);
   monitoringPreferencesApplied=false;
   window.__riskSessionInteracted=false;
-  applyMonitoringPreferences();
-  if(window.__riskData){
-    updateMonitoringHeadline(window.__riskData);
-    renderRiskWorkspace(window.__riskData);
-    renderRiskAssessment(window.__riskData);
-    updateDomainVisibility();
-  }
   const status=document.getElementById('monitoring-preferences-status');
-  if(status)status.textContent='Saved and applied. These preferences will also be used when the monitor opens.';
+  if(status)status.textContent='Saved. Refreshing the monitoring view…';
+  if(window.__riskData){
+    await load();
+  }
 }
 function renderMonitoringPreferences(){
   const geo=document.getElementById('preference-geography');

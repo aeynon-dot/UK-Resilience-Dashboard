@@ -244,3 +244,39 @@
 .monitoring-settings-card{padding:1.25rem}
 .monitoring-settings-dialog .section-heading{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
 .settings-actions{display:flex;justify-content:flex-end;margin-top:1rem}
+
+/* Evaluation remediation: make settings controls consistently visible and usable */
+.settings-button{
+  font:inherit;
+  padding:.55rem .9rem;
+  border:1px solid #d9e2ec;
+  border-radius:.5rem;
+  background:#102a43;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.settings-button:hover,.preference-save:hover{
+  background:#243b53;
+  opacity:1;
+}
+.settings-header-actions{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  flex-shrink:0;
+}
+.monitoring-settings-dialog{
+  max-height:85vh;
+  overflow:auto;
+}
+.preference-save{
+  border:1px solid #102a43;
+  background:#102a43;
+  color:#fff;
+}
+.preference-close{
+  border:1px solid #9fb3c8;
+  background:#fff;
+  color:#243b53;
+}
