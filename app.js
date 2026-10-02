@@ -61,9 +61,9 @@ function riskSignalMatchesFocus(x,focus){
 function riskSignalMatchesGeography(x,geography){
   if(geography==='all')return true;
   const scope=x.geography?.scope;
-  // The UK-wide monitoring view includes international signals that can
-  // contribute to UK resilience risk; the source geography remains visible.
-  if(geography==='UK')return scope==='UK'||scope==='international';
+  // UK is an aggregate monitoring view: include UK-wide, constituent-nation
+  // signals and international signals that can contribute to UK resilience.
+  if(geography==='UK')return ['UK','England','Wales','Scotland','Northern Ireland','international'].includes(scope);
   return scope===geography;
 }
 function riskThemeLabel(key){return RISK_THEME_LABELS[key]||String(key||'Other').replaceAll('_',' ')}
@@ -354,10 +354,10 @@ function renderGeographicMap(d){
     group.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}};
   });
 
-  const nation=selected==='UK'?{overall:regionRisk(d,'UK'),weather:regionWeather(d,'UK'),flood:'See nations'}:statuses[selected]||statuses.England;
+  const nation=selected==='UK'?{overall:regionRisk(d,'UK'),weather:regionWeather(d,'UK'),flood:ukFloodLevel(d)}:statuses[selected]||statuses.England;
   const weatherItems=d.met_office?.items||[];
   const selectedWeather=selected==='UK'?weatherItems:weatherItems.filter(x=>regionMatch(x,selected));
-  const selectedFlood=selected==='England'?(d.england?.items||[]):selected==='Wales'?(d.wales?.items||[]):selected==='Scotland'?(d.scotland?.items||[]):[];
+  const selectedFlood=selected==='UK'?[...(d.england?.items||[]),...(d.wales?.items||[]),...(d.scotland?.items||[])]:selected==='England'?(d.england?.items||[]):selected==='Wales'?(d.wales?.items||[]):selected==='Scotland'?(d.scotland?.items||[]):[];
   const feedName=selected==='England'?'Environment Agency':selected==='Wales'?'Natural Resources Wales':selected==='Scotland'?'SEPA':null;
   const feed=feedName?d.feeds?.[feedName]:null;
   const items=[...selectedWeather.map(x=>({...x,type:'Weather'})),...selectedFlood.map(x=>({...x,type:'Flood'}))];
@@ -377,7 +377,7 @@ async function load(){
   try{
     const [current,history,riskSet,registry]=await Promise.all([
       fetch('data/current.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
-      fetch('data/history.json',{cache:'no-store'}).then(r=>r.ok?r.json():[]),
+      fetch('data/history.json',{cache:'default'}).then(r=>r.ok?r.json():[]),
       fetch('data/go-live-risk-set.json',{cache:'no-store'}).then(r=>r.json()),
       fetch('data/source-registry.json',{cache:'no-store'}).then(r=>r.json()),
       loadMapData()
@@ -415,6 +415,7 @@ const floodLevel=d=>{
   if((d.alerts||0)>0)return 'Yellow';
   return 'Clear';
 };
+const ukFloodLevel=d=>['england','wales','scotland'].map(k=>floodLevel(d[k]||{})).reduce((best,x)=>warningRank(x)>warningRank(best)?x:best,'Clear');
 const regionMatch=(item,nation)=>{
   const rs=item.regions||[];
   if(rs.includes('UK')) return true;
@@ -569,7 +570,7 @@ function focusMatchesItem(x,focus){
 }
 function focusedItems(d,focus){
   const weather=(d.met_office?.items||[]).map(x=>({...x,source:'Met Office'}));
-  const flood=focus==='England'?(d.england?.items||[]).map(x=>({...x,source:'England'})):focus==='Wales'?(d.wales?.items||[]).map(x=>({...x,source:'Wales'})):focus==='Scotland'?(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'})):[];
+  const flood=focus==='UK'?[...(d.england?.items||[]).map(x=>({...x,source:'England'})),...(d.wales?.items||[]).map(x=>({...x,source:'Wales'})),...(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'}))]:focus==='England'?(d.england?.items||[]).map(x=>({...x,source:'England'})):focus==='Wales'?(d.wales?.items||[]).map(x=>({...x,source:'Wales'})):focus==='Scotland'?(d.scotland?.items||[]).map(x=>({...x,source:'Scotland'})):[];
   return [...weather.filter(x=>focusMatchesItem(x,focus)),...flood];
 }
 function focusedTotal(d,focus){return focusedItems(d,focus).length;}
@@ -774,6 +775,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderMonitoringPreferences();
   const savePreferences=document.getElementById('save-monitoring-preferences');
   if(savePreferences&&!savePreferences.dataset.bound){savePreferences.dataset.bound='1';savePreferences.addEventListener('click',saveMonitoringPreferences)}
+  const settingsDialog=document.getElementById('monitoring-settings-dialog');
+  const openSettings=document.getElementById('open-monitoring-settings');
+  const closeSettings=document.getElementById('close-monitoring-settings');
+  if(openSettings&&settingsDialog&&!openSettings.dataset.bound){openSettings.dataset.bound='1';openSettings.addEventListener('click',()=>settingsDialog.showModal())}
+  if(closeSettings&&settingsDialog&&!closeSettings.dataset.bound){closeSettings.dataset.bound='1';closeSettings.addEventListener('click',()=>settingsDialog.close())}
   window.__riskSessionInteracted=false;
   load();
   setInterval(load,5*60*1000);
