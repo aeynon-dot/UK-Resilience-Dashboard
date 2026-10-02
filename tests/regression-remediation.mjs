@@ -39,3 +39,5 @@ assert.match(gitignore,/\.aws\//);
 assert.match(security,/^Contact: https:\/\/github\.com\/aeynon-dot\/UK-Resilience-Dashboard\/security\/advisories\/new/m);
 
 console.log('Regression remediation checks: PASS');
+
+assert.match(app,/const geos=\['UK','England','Wales','Scotland','Northern Ireland','international'\]/);
