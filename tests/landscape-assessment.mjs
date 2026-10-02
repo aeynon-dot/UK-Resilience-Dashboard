@@ -13,7 +13,11 @@ let calls = 0;
 const gateway = {
   async assess(input) {
     calls += 1;
-    assert.equal(input, context);
+    if (calls === 1) {
+      assert.equal(input, context);
+    } else {
+      assert.equal(input.monitoring_scope.geography, 'England');
+    }
     return {
       assessment_status: 'supported',
       attention_items: [{
