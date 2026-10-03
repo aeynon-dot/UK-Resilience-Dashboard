@@ -37,6 +37,31 @@ function validateStringArray(value, field) {
   }
 }
 
+const EVIDENCE_FIELDS = new Set([
+  'title', 'description', 'domain', 'hazard', 'geography', 'severity',
+  'priority_band', 'change_status', 'source', 'source_record_id',
+  'source_native_status', 'authoritative_source_url', 'observed_at',
+  'collected_at', 'evidence_confidence'
+]);
+
+function validateEvidenceClaims(claims, context) {
+  if (!Array.isArray(claims) || claims.length === 0) invalid('evidence_claims must be a non-empty array');
+  for (const claim of claims) {
+    if (!claim || typeof claim !== 'object' || Array.isArray(claim)) invalid('evidence claim must be an object');
+    const keys = Object.keys(claim);
+    if (!['signal_id', 'field', 'value'].every(field => keys.includes(field))) invalid('evidence claim requires signal_id, field and value');
+    if (keys.some(key => !['signal_id', 'field', 'value'].includes(key))) invalid('unsupported evidence-claim fields');
+    validateString(claim.signal_id, 'evidence claim signal_id');
+    validateString(claim.field, 'evidence claim field');
+    validateString(claim.value, 'evidence claim value');
+    if (!EVIDENCE_FIELDS.has(claim.field)) invalid('unsupported evidence claim field: ' + claim.field);
+    const signal = (context.signals ?? []).find(s => s.signal_id === claim.signal_id);
+    if (!signal) invalid('unknown evidence claim signal ID: ' + claim.signal_id);
+    const actual = signal[claim.field];
+    const normalised = Array.isArray(actual) ? actual.join(', ') : String(actual ?? '');
+    if (normalised !== claim.value) invalid('evidence claim does not match context: ' + claim.signal_id + '.' + claim.field);
+  }
+}
 function validateAttentionItems(items, context) {
   if (!Array.isArray(items)) invalid('attention_items must be an array');
   if (items.length > MAX_ATTENTION_ITEMS) invalid(`attention_items must contain at most ${MAX_ATTENTION_ITEMS} items`);
@@ -44,7 +69,7 @@ function validateAttentionItems(items, context) {
   const knownIds = new Set((context.signals ?? []).map(signal => signal.signal_id));
   for (const item of items) {
     if (!item || typeof item !== 'object' || Array.isArray(item)) invalid('attention item must be an object');
-    const required = ['title', 'assessment', 'supporting_signal_ids', 'rationale', 'evidence_strength', 'uncertainty', 'investigation_areas'];
+    const required = ['title', 'assessment', 'supporting_signal_ids', 'evidence_claims', 'rationale', 'evidence_strength', 'uncertainty', 'investigation_areas'];
     for (const field of required) {
       if (!(field in item)) invalid(`attention item missing required field: ${field}`);
     }
@@ -52,6 +77,7 @@ function validateAttentionItems(items, context) {
       validateString(item[field], `attention item ${field}`);
     }
     validateStringArray(item.supporting_signal_ids, 'supporting_signal_ids');
+    validateEvidenceClaims(item.evidence_claims, context);
     validateStringArray(item.uncertainty, 'uncertainty');
     validateStringArray(item.investigation_areas, 'investigation_areas');
 
