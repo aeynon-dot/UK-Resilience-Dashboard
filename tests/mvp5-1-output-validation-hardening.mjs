@@ -51,8 +51,13 @@ const unsupportedSourceWording = await gatewayFor({
   assessment_status: 'supported',
   attention_items: [{ ...item, assessment: 'The source reports “Flooding is possible – be prepared”.' }]
 }).assess({ ...context, signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }] });
-assert.equal(unsupportedSourceWording.assessment_status, 'supported');
-assert.equal(unsupportedSourceWording.attention_items[0].assessment.includes('Flooding is possible'), true);
+assert.equal(unsupportedSourceWording.assessment_status, 'unavailable');
+
+const supportedSourceStatusClaim = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{ ...item, assessment: 'The source status is “Alert”.', evidence_claims: [{ signal_id: 'sig-1', field: 'source_native_status', value: 'Alert' }] }]
+}).assess({ ...context, signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }] });
+assert.equal(supportedSourceStatusClaim.assessment_status, 'supported');
 
 const unknownEvidenceValue = await gatewayFor({
   assessment_status: 'supported',
