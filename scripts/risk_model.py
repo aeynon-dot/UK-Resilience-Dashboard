@@ -79,6 +79,7 @@ def signal(
     confidence="high",
     observed_at=None,
     published_at=None,
+    source_native_status=None,
 ):
     identity = "|".join([source, source_record_id or description, scope, hazard])
     result = {
@@ -101,6 +102,7 @@ def signal(
         "raw_reference": None,
         "tags": [],
         "source_record_id": source_record_id,
+        "source_native_status": source_native_status,
     }
     result.update(_priority(result))
     return result
