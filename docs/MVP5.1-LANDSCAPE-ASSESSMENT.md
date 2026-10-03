@@ -65,6 +65,7 @@ For a supported assessment, attention items contain:
 - title
 - assessment
 - supporting signal IDs
+- structured evidence claims (signal ID + approved context field + exact value)
 - rationale
 - evidence strength
 - uncertainty
@@ -144,3 +145,10 @@ MVP5.1 does not:
 ## Authoritative source provenance
 
 AssessmentContext preserves source-native warning/status separately from RM severity and priority. Where available it also carries the authoritative source URL, source record identifier, observed/collected timestamps and curated guidance references supplied by the deterministic RM source layer. These are bounded evidence/provenance fields; the AI must not strengthen or reinterpret source-native warning levels. Missing source detail remains missing and must not be inferred.
+
+
+## Evidence-grounding boundary
+
+Each supported attention item must include structured `evidence_claims`. Each claim is bound to a known AssessmentContext signal, an approved evidence field and the exact value present in that context. Unknown signals, fields or values are rejected.
+
+Quoted factual or source-native wording in the attention item must also be present in the bounded AssessmentContext. This prevents unsupported source wording from being presented as evidence. This is a deterministic evidence boundary, not a general semantic fact-checker, and does not add unrestricted external browsing.
