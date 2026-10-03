@@ -280,3 +280,26 @@
   background:#fff;
   color:#243b53;
 }
+
+
+/* MVP5.2 — individual risk interpretation */
+.mvp52-interpretation{margin:0 20px 20px;border:1px solid #d7e0e7;border-radius:10px;background:#f7f9fa;padding:14px}
+.mvp52-header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:1px solid #e2e8ed;padding-bottom:10px;margin-bottom:10px}
+.mvp52-header h4{margin:5px 0 3px;font-size:.95rem}
+.mvp52-header p{margin:0;font-size:.74rem}
+.mvp52-status{font-size:.62rem;font-weight:900;padding:4px 7px;border-radius:999px;background:#e2e7eb;color:#52606d;white-space:nowrap}
+.mvp52-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mvp52-grid article,.mvp52-investigate{background:#fff;border:1px solid #e1e6eb;border-radius:8px;padding:10px}
+.mvp52-grid h5,.mvp52-investigate h5{margin:0 0 5px;font-size:.76rem;color:#334e68}
+.mvp52-grid p,.mvp52-grid li,.mvp52-investigate li{font-size:.78rem;line-height:1.4;margin:0}
+.mvp52-grid ul,.mvp52-investigate ul{margin:0;padding-left:18px}
+.mvp52-evidence{margin-top:8px;background:#fff;border:1px solid #e1e6eb;border-radius:8px;padding:9px}
+.mvp52-evidence summary{cursor:pointer;font-size:.76rem;font-weight:800;color:#334e68}
+.mvp52-evidence ul{margin:7px 0;padding-left:18px}
+.mvp52-evidence li{font-size:.74rem;line-height:1.4}
+.mvp52-evidence code{font-size:.7rem}
+.mvp52-investigate{margin-top:8px}
+.mvp52-feedback{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px;font-size:.74rem}
+.mvp52-feedback button{font:inherit;font-weight:800;border:1px solid #9fb3c8;border-radius:7px;background:#fff;color:#243b53;padding:5px 8px;cursor:pointer}
+.mvp52-feedback button:hover{background:#eef3f7}
+@media(max-width:700px){.mvp52-grid{grid-template-columns:1fr}.mvp52-header{flex-direction:column}.mvp52-interpretation{margin:0 14px 12px}}
