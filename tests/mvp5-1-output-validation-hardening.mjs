@@ -10,6 +10,7 @@ const item = {
   title: 'Developing concern',
   assessment: 'Potentially significant within the monitored landscape.',
   supporting_signal_ids: ['sig-1'],
+  evidence_claims: [{ signal_id: 'sig-1', field: 'severity', value: 'moderate' }],
   rationale: 'Recent material signal with strong relevance.',
   evidence_strength: 'strong',
   uncertainty: ['Organisational impact has not been assessed.'],
@@ -46,6 +47,24 @@ assert.equal(reserved.assessment_status, 'unavailable');
 assert.equal(reserved.landscape_snapshot_id, context.assessment_id);
 assert.equal(reserved.generated_at, '2026-10-02T15:00:00.000Z');
 
+const unsupportedSourceWording = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{ ...item, assessment: 'The source reports “Flooding is possible – be prepared”.' }]
+}).assess({ ...context, signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }] });
+assert.equal(unsupportedSourceWording.assessment_status, 'supported');
+assert.equal(unsupportedSourceWording.attention_items[0].assessment.includes('Flooding is possible'), true);
+
+const unknownEvidenceValue = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{ ...item, evidence_claims: [{ signal_id: 'sig-1', field: 'source_native_status', value: 'Flooding is possible – be prepared' }] }]
+}).assess({ ...context, signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }] });
+assert.equal(unknownEvidenceValue.assessment_status, 'unavailable');
+
+const invalidEvidenceField = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{ ...item, evidence_claims: [{ signal_id: 'sig-1', field: 'unknown_field', value: 'x' }] }]
+}).assess(context);
+assert.equal(invalidEvidenceField.assessment_status, 'unavailable');
 const unknownSignal = await gatewayFor({
   assessment_status: 'supported',
   attention_items: [{ ...item, supporting_signal_ids: ['not-real'] }]
