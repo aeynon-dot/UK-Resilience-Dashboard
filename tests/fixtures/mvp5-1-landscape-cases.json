@@ -1,0 +1,96 @@
+{
+  "reassessment_cases": [
+    {
+      "name": "Initial load",
+      "trigger": "initial_load",
+      "expected_reassessment": true,
+      "reason": "No prior landscape assessment exists."
+    },
+    {
+      "name": "Geography change",
+      "trigger": "geography_change",
+      "expected_reassessment": true,
+      "reason": "Monitoring scope has materially changed."
+    },
+    {
+      "name": "Domain change",
+      "trigger": "domain_change",
+      "expected_reassessment": true,
+      "reason": "Monitoring scope has materially changed."
+    },
+    {
+      "name": "Material filter change",
+      "trigger": "material_filter_change",
+      "expected_reassessment": true,
+      "reason": "The monitored evidence set may materially change."
+    },
+    {
+      "name": "New significant signal",
+      "trigger": "new_significant_signal",
+      "expected_reassessment": true,
+      "reason": "A new material signal changes the landscape."
+    },
+    {
+      "name": "Material signal change",
+      "trigger": "material_signal_change",
+      "expected_reassessment": true,
+      "reason": "An existing signal has materially changed."
+    },
+    {
+      "name": "Escalation/de-escalation",
+      "trigger": "escalation_or_deescalation",
+      "expected_reassessment": true,
+      "reason": "Signal significance has materially changed."
+    },
+    {
+      "name": "Related signals emerge",
+      "trigger": "related_signals_emerge",
+      "expected_reassessment": true,
+      "reason": "A new relationship may change landscape interpretation."
+    },
+    {
+      "name": "Manual reassess",
+      "trigger": "manual_reassess",
+      "expected_reassessment": true,
+      "reason": "The user explicitly requested reassessment."
+    },
+    {
+      "name": "Routine refresh",
+      "trigger": "routine_refresh",
+      "expected_reassessment": false,
+      "reason": "No material change has occurred."
+    },
+    {
+      "name": "Timestamp-only change",
+      "trigger": "timestamp_only_change",
+      "expected_reassessment": false,
+      "reason": "A timestamp update alone does not change the evidence interpretation unless freshness materially changes."
+    },
+    {
+      "name": "Minor metadata change",
+      "trigger": "minor_metadata_change",
+      "expected_reassessment": false,
+      "reason": "Minor metadata does not materially alter the landscape."
+    }
+  ],
+  "attention_contract": [
+    {
+      "required_fields": {
+        "title": true,
+        "assessment": true,
+        "supporting_signal_ids": true,
+        "rationale": true,
+        "evidence_strength": true,
+        "uncertainty": true,
+        "investigation_areas": true
+      },
+      "forbid_numerical_score": true,
+      "forbid_authoritative_ranking": true
+    }
+  ],
+  "safe_failure": {
+    "assessment_status": "unavailable",
+    "rm_evidence_remains_available": true,
+    "invented_fallback_allowed": false
+  }
+}
