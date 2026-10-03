@@ -29,9 +29,35 @@ function render(signal){
   detail.appendChild(panel);
   panel.querySelectorAll('[data-mvp52-feedback]').forEach(btn=>btn.addEventListener('click',()=>{try{localStorage.setItem(key,btn.dataset.mvp52Feedback)}catch(e){}panel.querySelector('.mvp52-feedback-status').textContent='Feedback recorded for this evaluation.';}));
 }
+function findSignal(reference){
+  const signals=window.__riskData?.risk_signals||[];
+  const value=String(reference||'').trim();
+  return signals.find(x=>String(x.id||'')===value||String(x.source_record_id||'')===value)||null;
+}
+function renderFromDetail(){
+  const detail=document.getElementById('risk-detail');if(!detail||detail.hidden)return;
+  const reference=detail.querySelector('.risk-detail-reference');
+  if(!reference)return;
+  const value=String(reference.textContent||'').replace(/^Source reference:\s*/,'').trim();
+  const signal=findSignal(value);
+  if(signal)render(signal);
+}
 function observe(){
   const detail=document.getElementById('risk-detail');if(!detail)return;
-  const observer=new MutationObserver(()=>{if(detail.hidden){const old=document.getElementById('mvp52-development-panel');if(old)old.remove();return;}const id=detail.querySelector('.risk-detail-reference');if(!id||document.getElementById('mvp52-development-panel'))return;const signals=window.__riskData?.risk_signals||[];const signal=signals.find(x=>String(x.source_record_id||x.id||'')===String(id.textContent||'').replace(/^Source reference:\s*/,'').trim())||null;if(signal)render(signal);});
+  // Bind directly to the existing RM risk-selection interaction. This is
+  // more reliable than depending on MutationObserver timing alone.
+  document.addEventListener('click',event=>{
+    const item=event.target.closest?.('.risk-signal-item');
+    if(!item)return;
+    window.setTimeout(renderFromDetail,0);
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key!=='Enter'&&event.key!==' ')return;
+    const item=event.target.closest?.('.risk-signal-item');
+    if(!item)return;
+    window.setTimeout(renderFromDetail,0);
+  });
+  const observer=new MutationObserver(()=>renderFromDetail());
   observer.observe(detail,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
 }
 function addStyle(){
