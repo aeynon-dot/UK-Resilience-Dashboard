@@ -24,6 +24,7 @@ const gateway = {
         title: 'Developing flood-related concern',
         assessment: 'Potentially significant within the monitored landscape.',
         supporting_signal_ids: ['a'],
+        evidence_claims: [{ signal_id: 'a', field: 'severity', value: 'high' }],
         rationale: 'Recent material signal with strong relevance to the monitored scope.',
         evidence_strength: 'strong',
         uncertainty: ['Organisational impact has not been assessed.'],
