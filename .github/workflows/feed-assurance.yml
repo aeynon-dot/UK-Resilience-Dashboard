@@ -1,4 +1,5 @@
 name: Feed assurance
+# Required check: run for deployment-bundle changes as well as feed/data changes.
 
 on:
   push:
