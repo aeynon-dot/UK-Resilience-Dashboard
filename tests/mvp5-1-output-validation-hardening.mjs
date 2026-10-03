@@ -3,7 +3,7 @@ import { createAssessmentGateway } from '../ai/assessment-gateway.mjs';
 
 const context = {
   assessment_id: 'LS-20261002T150000Z',
-  signals: [{ signal_id: 'sig-1' }, { signal_id: 'sig-2' }]
+  signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }]
 };
 
 const item = {
