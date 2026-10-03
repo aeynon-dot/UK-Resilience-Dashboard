@@ -122,9 +122,71 @@ function riskAssessmentDetail(signal){
       '<article><h4>Why does it matter?</h4><p>This is a public monitoring signal classified as <strong>'+esc(riskSeverityLabel(signal.severity))+'</strong> severity and <strong>'+esc(RISK_BAND_LABEL[band]||band)+'</strong> monitoring priority. Its recorded status is <strong>'+esc(signal.status||'unknown')+'</strong> and its source geography is <strong>'+esc(scope)+'</strong>.</p></article>'+
       '<article><h4>What is changing?</h4><p><strong>'+esc(change)+'</strong>. The latest available signal time is '+esc(dateText)+'.</p></article>'+
       '<article><h4>What should I investigate?</h4><p>Check the authoritative source for the underlying warning, advisory or data record. Review the relevant risk domain and geography before drawing any organisation-specific conclusion.</p><p class="risk-detail-reference">Source reference: '+esc(String(reference))+'</p><p>'+sourceLink+'</p></article>'+
-    '</div>';
+    '</div>'+
+    '<section id="mvp52-interpretation" class="mvp52-interpretation"></section>';
+  renderMvp52Interpretation(signal);
   const close=detail.querySelector('.risk-detail-close');
   if(close)close.addEventListener('click',()=>{detail.hidden=true;detail.innerHTML='';});
+}
+function mvp52DevelopmentAssessment(signal){
+  const change=signal.change_type&&signal.change_type!=='unknown'?signal.change_type:'no change classification provided';
+  const band=signal.priority_band||'monitor';
+  const severity=riskSeverityLabel(signal.severity);
+  const native=signal.source_native_status||null;
+  const source=signal.source||'Unknown source';
+  const evidenceClaims=[
+    {field:'source',value:source},
+    {field:'change_status',value:change==='no change classification provided'?'unknown':(change==='new'?'new':'changed')},
+    {field:'priority_band',value:band}
+  ];
+  if(native)evidenceClaims.push({field:'source_native_status',value:native});
+  const why=change==='new'
+    ? 'The signal is newly recorded in the RM snapshot, so checking the underlying authoritative record is a useful next investigation.'
+    : 'The signal has a recorded RM status and monitoring priority that make the underlying authoritative record worth checking.';
+  return {
+    status:'development',
+    assessment:'This development assessment interprets the selected RM signal only; it does not establish organisational impact.',
+    why_it_matters:why,
+    potential_significance:'Potential significance depends on the monitored geography, domain and the user’s own context. RM evidence alone does not establish organisational exposure.',
+    uncertainty:[
+      'This is a deterministic development/shadow assessment, not a live AI provider response.',
+      'The RM signal does not establish organisational exposure.'
+    ],
+    investigation_areas:[
+      'Open the authoritative source and confirm the current source-native status.',
+      'Check whether the monitored geography and risk domain are relevant to your organisation.',
+      'Review any related signals before drawing a conclusion.'
+    ],
+    evidenceClaims,
+    sourceNativeStatus:native
+  };
+}
+function renderMvp52Interpretation(signal){
+  const host=document.getElementById('mvp52-interpretation');
+  if(!host)return;
+  if(!signal){host.hidden=true;host.innerHTML='';return;}
+  const a=mvp52DevelopmentAssessment(signal);
+  const evidence=a.evidenceClaims.map(x=>'<li><code>'+esc(x.field)+'</code> = <strong>'+esc(String(x.value))+'</strong></li>').join('');
+  const feedbackKey='mvp52-feedback-'+String(signal.id||'');
+  host.hidden=false;
+  host.innerHTML=
+    '<div class="mvp52-header"><div><span class="eyebrow">MVP5.2 INDIVIDUAL INTERPRETATION</span><h4>Development assessment</h4><p class="muted">This is a deterministic development/shadow assessment used to exercise the MVP5.2 journey. It is not live AI.</p></div><span class="mvp52-status">DEVELOPMENT</span></div>'+
+    '<div class="mvp52-grid">'+
+      '<article><h5>What RM evidence may indicate</h5><p>'+esc(a.assessment)+'</p></article>'+
+      '<article><h5>Why it may matter</h5><p>'+esc(a.why_it_matters)+'</p></article>'+
+      '<article><h5>Potential significance</h5><p>'+esc(a.potential_significance)+'</p></article>'+
+      '<article><h5>Uncertainty</h5><ul>'+a.uncertainty.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></article>'+
+    '</div>'+
+    '<details class="mvp52-evidence"><summary>Show me the evidence</summary><div><p class="muted">The interpretation is bounded to these exact RM fields:</p><ul>'+evidence+'</ul><p class="muted">Source record: '+esc(String(signal.source_record_id||'Not provided'))+'</p></div></details>'+
+    '<div class="mvp52-investigate"><h5>Investigate next</h5><ul>'+a.investigation_areas.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>'+
+    '<div class="mvp52-feedback"><strong>Was this interpretation useful?</strong><button type="button" data-feedback="useful">Useful</button><button type="button" data-feedback="not-useful">Not useful</button><span class="muted" id="mvp52-feedback-status"></span></div>';
+  const stored=(()=>{try{return localStorage.getItem(feedbackKey)}catch(e){return null}})();
+  const status=host.querySelector('#mvp52-feedback-status');
+  if(stored&&status)status.textContent='Feedback recorded for this evaluation.';
+  host.querySelectorAll('[data-feedback]').forEach(btn=>btn.addEventListener('click',()=>{
+    try{localStorage.setItem(feedbackKey,btn.dataset.feedback)}catch(e){}
+    if(status)status.textContent='Feedback recorded for this evaluation.';
+  }));
 }
 function renderRiskAssessment(d){
   const listEl=document.getElementById('risk-signal-list'),summaryEl=document.getElementById('risk-assessment-summary'),themeEl=document.getElementById('risk-theme-filter'),domainEl=document.getElementById('risk-domain-filter'),geoEl=document.getElementById('risk-geography-filter'),severityEl=document.getElementById('risk-severity-filter'),statusEl=document.getElementById('risk-status-filter');
