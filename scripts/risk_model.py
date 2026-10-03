@@ -134,6 +134,7 @@ def normalise_current(data):
             severity=severity_from_level(item.get("level")), scope="England",
             description=title, collected_at=collected_at,
             source_record_id=f"ea:{hashlib.sha256(title.encode('utf-8')).hexdigest()[:16]}",
+            source_native_status=item.get("level"),
             change_type="new",
         ))
 
