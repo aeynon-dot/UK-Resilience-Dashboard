@@ -82,7 +82,8 @@
         "rationale": true,
         "evidence_strength": true,
         "uncertainty": true,
-        "investigation_areas": true
+        "investigation_areas": true,
+        "evidence_claims": true
       },
       "forbid_numerical_score": true,
       "forbid_authoritative_ranking": true
