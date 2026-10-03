@@ -62,6 +62,16 @@ function validateEvidenceClaims(claims, context) {
     if (normalised !== claim.value) invalid('evidence claim does not match context: ' + claim.signal_id + '.' + claim.field);
   }
 }
+
+function validateQuotedClaims(item, context) {
+  const text = [item.title, item.assessment, item.rationale, ...item.uncertainty, ...item.investigation_areas].join(' ');
+  const quoted = [...text.matchAll(/[“”"']([^“”"']{4,})[“”"']/g)].map(match => match[1].trim());
+  if (!quoted.length) return;
+  const contextText = JSON.stringify(context.signals ?? []);
+  for (const quote of quoted) {
+    if (!contextText.includes(quote)) invalid('quoted claim is not present in AssessmentContext: ' + quote);
+  }
+}
 function validateAttentionItems(items, context) {
   if (!Array.isArray(items)) invalid('attention_items must be an array');
   if (items.length > MAX_ATTENTION_ITEMS) invalid(`attention_items must contain at most ${MAX_ATTENTION_ITEMS} items`);
@@ -78,6 +88,7 @@ function validateAttentionItems(items, context) {
     }
     validateStringArray(item.supporting_signal_ids, 'supporting_signal_ids');
     validateEvidenceClaims(item.evidence_claims, context);
+    validateQuotedClaims(item, context);
     validateStringArray(item.uncertainty, 'uncertainty');
     validateStringArray(item.investigation_areas, 'investigation_areas');
 
