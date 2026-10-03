@@ -34,7 +34,7 @@ for (const testCase of cases.reassessment_cases) {
 for (const item of cases.attention_contract) {
   assert.deepEqual(
     Object.keys(item.required_fields).sort(),
-    ['assessment','evidence_strength','investigation_areas','rationale','supporting_signal_ids','title','uncertainty'].sort()
+    ['assessment','evidence_claims','evidence_strength','investigation_areas','rationale','supporting_signal_ids','title','uncertainty'].sort()
   );
   assert.equal(item.forbid_numerical_score, true);
   assert.equal(item.forbid_authoritative_ranking, true);
