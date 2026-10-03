@@ -139,3 +139,8 @@ MVP5.1 does not:
 - modify organisational context
 - generate autonomous alerts
 - add detailed organisational context
+
+
+## Authoritative source provenance
+
+AssessmentContext preserves source-native warning/status separately from RM severity and priority. Where available it also carries the authoritative source URL, source record identifier, observed/collected timestamps and curated guidance references supplied by the deterministic RM source layer. These are bounded evidence/provenance fields; the AI must not strengthen or reinterpret source-native warning levels. Missing source detail remains missing and must not be inferred.
