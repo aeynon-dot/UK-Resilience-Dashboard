@@ -3,13 +3,14 @@ import { createAssessmentGateway } from '../ai/assessment-gateway.mjs';
 
 const context = {
   assessment_id: 'LS-20261002T150000Z',
-  signals: [{ signal_id: 'sig-1' }, { signal_id: 'sig-2' }]
+  signals: [{ signal_id: 'sig-1', severity: 'moderate', source_native_status: 'Alert' }, { signal_id: 'sig-2' }]
 };
 
 const item = {
   title: 'Developing concern',
   assessment: 'Potentially significant within the monitored landscape.',
   supporting_signal_ids: ['sig-1'],
+  evidence_claims: [{ signal_id: 'sig-1', field: 'severity', value: 'moderate' }],
   rationale: 'Recent material signal with strong relevance.',
   evidence_strength: 'strong',
   uncertainty: ['Organisational impact has not been assessed.'],
@@ -45,6 +46,31 @@ const reserved = await gatewayFor({
 assert.equal(reserved.assessment_status, 'unavailable');
 assert.equal(reserved.landscape_snapshot_id, context.assessment_id);
 assert.equal(reserved.generated_at, '2026-10-02T15:00:00.000Z');
+
+const unsupportedSourceWording = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{ ...item, assessment: 'The source reports “Flooding is possible – be prepared”.' }]
+}).assess(context);
+assert.equal(unsupportedSourceWording.assessment_status, 'unavailable');
+
+const supportedSourceWording = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{
+    ...item,
+    assessment: 'The source status is “Alert”.',
+    evidence_claims: [{ signal_id: 'sig-1', field: 'source_native_status', value: 'Alert' }]
+  }]
+}).assess(context);
+assert.equal(supportedSourceWording.assessment_status, 'supported');
+
+const mismatchedEvidenceClaim = await gatewayFor({
+  assessment_status: 'supported',
+  attention_items: [{
+    ...item,
+    evidence_claims: [{ signal_id: 'sig-1', field: 'source_native_status', value: 'Flooding is possible – be prepared' }]
+  }]
+}).assess(context);
+assert.equal(mismatchedEvidenceClaim.assessment_status, 'unavailable');
 
 const unknownSignal = await gatewayFor({
   assessment_status: 'supported',
