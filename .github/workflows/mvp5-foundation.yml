@@ -24,3 +24,5 @@ jobs:
       - run: node tests/landscape-change-gate.mjs
       - run: node tests/landscape-assessment.mjs
       - run: node tests/mvp5-1-output-validation-hardening.mjs
+
+      - run: node tests/individual-risk-assessment.mjs
