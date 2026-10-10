@@ -12,6 +12,7 @@ on:
       - 'data/current.json'
       - '.github/workflows/feed-assurance.yml'
       - '.github/workflows/update-data.yml'
+      - '.github/workflows/cloudflare-pages.yml'
       - 'tests/**'
   schedule:
     - cron: '0 * * * *'
@@ -26,6 +27,7 @@ on:
       - 'data/current.json'
       - '.github/workflows/feed-assurance.yml'
       - '.github/workflows/update-data.yml'
+      - '.github/workflows/cloudflare-pages.yml'
       - 'tests/**'
   workflow_dispatch:
 
