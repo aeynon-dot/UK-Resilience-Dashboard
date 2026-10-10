@@ -76,7 +76,7 @@ jobs:
           command: >-
             pages deploy dist
             --project-name=uk-resilience-monitor
-            ${{ (github.event_name == 'push' || inputs.target == 'staging') && '--branch=staging' || '' }}
+            ${{ (github.event_name == 'push' || inputs.target == 'staging') && '--branch=staging' || '--branch=main' }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deployment summary
