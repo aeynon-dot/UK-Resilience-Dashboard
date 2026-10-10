@@ -14,6 +14,10 @@ on:
         options:
           - staging
           - production
+  workflow_run:
+    workflows: ["Update UK resilience data"]
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
@@ -25,14 +29,19 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy to Cloudflare Pages (${{ github.event_name == 'push' && 'staging' || inputs.target }})
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.name == 'Update UK resilience data' &&
+       github.event.workflow_run.conclusion == 'success')
+    name: Deploy to Cloudflare Pages (${{ github.event_name == 'workflow_run' && 'production-data' || (github.event_name == 'push' && 'staging' || inputs.target) }})
     runs-on: ubuntu-latest
     environment:
-      name: ${{ inputs.target == 'production' && 'cloudflare-production' || 'cloudflare-staging' }}
+      name: ${{ (github.event_name == 'workflow_run' || inputs.target == 'production') && 'cloudflare-production' || 'cloudflare-staging' }}
     steps:
-      - name: Checkout
+      - name: Checkout approved production release or staging
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
+          ref: ${{ (github.event_name == 'workflow_run' || inputs.target == 'production') && 'production-data-refresh-2026-10-10' || github.ref }}
           persist-credentials: false
 
       - name: Build public site bundle
@@ -41,7 +50,9 @@ jobs:
           set -euo pipefail
           rm -rf dist
           mkdir -p dist/data
-          cp index.html 404.html style.css app.js mvp5-2-ui.js robots.txt _headers dist/
+          cp index.html 404.html style.css app.js robots.txt _headers dist/
+          # The optional MVP5.2 UI module exists on newer branches, not on the approved legacy production baseline.
+          if [[ -f mvp5-2-ui.js ]]; then cp mvp5-2-ui.js dist/; fi
           cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
           cp data/uk-map.svg dist/data/
           test -s dist/index.html
@@ -76,10 +87,10 @@ jobs:
           command: >-
             pages deploy dist
             --project-name=uk-resilience-monitor
-            ${{ (github.event_name == 'push' || inputs.target == 'staging') && '--branch=staging' || '--branch=main' }}
+            ${{ (github.event_name == 'workflow_run' || inputs.target == 'production') && '--branch=main' || '--branch=staging' }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deployment summary
         run: |
-          echo "Target: ${{ github.event_name == 'push' && 'staging' || inputs.target }}"
+          echo "Target: ${{ (github.event_name == 'workflow_run' || inputs.target == 'production') && 'production' || 'staging' }}"
           echo "Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
