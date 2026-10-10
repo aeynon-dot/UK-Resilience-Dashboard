@@ -41,7 +41,9 @@ jobs:
           set -euo pipefail
           rm -rf dist
           mkdir -p dist/data
-          cp index.html 404.html style.css app.js mvp5-2-ui.js robots.txt _headers dist/
+          cp index.html 404.html style.css app.js robots.txt _headers dist/
+          # The optional MVP5.2 UI module exists on newer branches, not on the approved legacy production baseline.
+          if [[ -f mvp5-2-ui.js ]]; then cp mvp5-2-ui.js dist/; fi
           cp data/current.json data/history.json data/go-live-risk-set.json data/source-registry.json dist/data/
           cp data/uk-map.svg dist/data/
           test -s dist/index.html
