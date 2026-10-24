@@ -57,6 +57,21 @@ jobs:
         run: |
           git add data/current.json data/history.json
           git diff --cached --quiet || git commit -m 'Update resilience data'
-          git push
+          git push origin HEAD:main
+
+          # Keep approved production UI isolated; publish only validated data files.
+          mkdir -p "$RUNNER_TEMP/validated-data"
+          cp data/current.json data/history.json "$RUNNER_TEMP/validated-data/"
+          git fetch origin production-data-refresh-2026-10-10
+          git checkout -B production-data-refresh-2026-10-10 origin/production-data-refresh-2026-10-10
+          cp "$RUNNER_TEMP/validated-data/current.json" data/current.json
+          cp "$RUNNER_TEMP/validated-data/history.json" data/history.json
+          git add data/current.json data/history.json
+          if git diff --cached --quiet; then
+            echo "No production data changes to publish."
+            exit 0
+          fi
+          git commit -m 'Update production resilience data'
+          git push origin HEAD:production-data-refresh-2026-10-10
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
