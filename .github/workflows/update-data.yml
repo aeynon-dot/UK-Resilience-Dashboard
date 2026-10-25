@@ -23,7 +23,6 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
-        # The publisher App token, not GITHUB_TOKEN, performs the data push.
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
@@ -53,10 +52,27 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
-      - name: Commit and publish updated data
+      - name: Publish validated data to main and approved production branch
+        shell: bash
         run: |
+          set -euo pipefail
           git add data/current.json data/history.json
           git diff --cached --quiet || git commit -m 'Update resilience data'
-          git push
+          git push origin HEAD:main
+
+          # Preserve the approved production UI: carry only the two validated data files.
+          mkdir -p "$RUNNER_TEMP/validated-data"
+          cp data/current.json data/history.json "$RUNNER_TEMP/validated-data/"
+          git fetch origin production-data-refresh-2026-10-10
+          git checkout -B production-data-refresh-2026-10-10 origin/production-data-refresh-2026-10-10
+          cp "$RUNNER_TEMP/validated-data/current.json" data/current.json
+          cp "$RUNNER_TEMP/validated-data/history.json" data/history.json
+          git add data/current.json data/history.json
+          if git diff --cached --quiet; then
+            echo "No production data changes to publish."
+            exit 0
+          fi
+          git commit -m 'Update production resilience data'
+          git push origin HEAD:production-data-refresh-2026-10-10
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
