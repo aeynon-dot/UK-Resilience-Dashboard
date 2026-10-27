@@ -1,76 +1,26 @@
 {
-  "updated_at": "2026-10-27T12:52:24.411312+00:00",
+  "updated_at": "2026-10-27T18:31:34.941857+00:00",
   "uk_weather": {
-    "summary": "Sunny spells and showers today. Showers heaviest and most frequent across the north of the UK. A rather cool and windy day for all, but very windy across Scotland with severe gales across northern Scotland. Large waves along the coasts.",
+    "summary": "National forecast available",
     "source": "Met Office UK national forecast",
     "url": "https://weather.metoffice.gov.uk/forecast/uk"
   },
   "met_office": {
-    "count": 7,
-    "items": [
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Dumfries, Galloway, Lothian & Borders",
-        "regions": [
-          "Scotland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Grampian",
-        "regions": [
-          "Scotland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Highlands & Eilean Siar",
-        "regions": [
-          "Scotland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Northern Ireland",
-        "regions": [
-          "Northern Ireland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Orkney & Shetland",
-        "regions": [
-          "Scotland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Central, Tayside & Fife",
-        "regions": [
-          "Scotland"
-        ]
-      },
-      {
-        "level": "Yellow",
-        "title": "Yellow warning of wind affecting Strathclyde",
-        "regions": [
-          "Scotland"
-        ]
-      }
-    ]
+    "count": 0,
+    "items": []
   },
   "england": {
-    "warnings": 4,
-    "alerts": 30,
+    "warnings": 15,
+    "alerts": 42,
     "severe": 0,
     "items": [
       {
         "level": "Alert",
-        "title": "Christchurch Harbour"
+        "title": "Climping Seafront"
       },
       {
-        "level": "Alert",
-        "title": "Climping Seafront"
+        "level": "Warning",
+        "title": "North Sea coast at Bridlington - Harbour Road and Floral Pavilion"
       },
       {
         "level": "Alert",
@@ -78,11 +28,27 @@
       },
       {
         "level": "Alert",
+        "title": "Tyne and Wear coast"
+      },
+      {
+        "level": "Alert",
+        "title": "Wear estuary"
+      },
+      {
+        "level": "Alert",
         "title": "South Cornwall coast from Gribbin Head to Rame Head"
       },
       {
         "level": "Alert",
+        "title": "North Sea coast from Staithes to Whitby including tidal River Esk"
+      },
+      {
+        "level": "Alert",
         "title": "Upper River Derwent, Stonethwaite Beck and Derwent Water"
+      },
+      {
+        "level": "Alert",
+        "title": "Tidal Thames riverside from Putney Bridge to Teddington Weir"
       },
       {
         "level": "Alert",
@@ -110,7 +76,15 @@
       },
       {
         "level": "Alert",
-        "title": "Tidal River Avon at Bristol, Pill and Shirehampton"
+        "title": "Tyne estuary"
+      },
+      {
+        "level": "Alert",
+        "title": "Northumberland coast"
+      },
+      {
+        "level": "Alert",
+        "title": "North Sea coast at Withernsea, Easington and Kilnsea"
       },
       {
         "level": "Alert",
@@ -121,8 +95,48 @@
         "title": "Mersey Estuary at Warrington"
       },
       {
+        "level": "Alert",
+        "title": "Tweed estuary"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea coast at Easington and Kilnsea"
+      },
+      {
+        "level": "Alert",
+        "title": "Humber estuary from Spurn Point to Winestead Outfall"
+      },
+      {
+        "level": "Alert",
+        "title": "The tidal River Waveney from Ellingham to Breydon Water"
+      },
+      {
+        "level": "Alert",
+        "title": "The tidal River Yare from Thorpe St Andrew to Breydon Water"
+      },
+      {
+        "level": "Alert",
+        "title": "The tidal Deben estuary"
+      },
+      {
+        "level": "Alert",
+        "title": "The Suffolk and Essex coast from Felixstowe to Clacton including Orwell and Stour estuaries"
+      },
+      {
+        "level": "Alert",
+        "title": "The Essex coast from Clacton to and including, St Peters Flat and the Colne and Blackwater estuaries"
+      },
+      {
+        "level": "Alert",
+        "title": "The tidal Rivers Bure, Ant and Thurne"
+      },
+      {
         "level": "Warning",
         "title": "Keswick Campsite"
+      },
+      {
+        "level": "Alert",
+        "title": "The Essex coast at Coalhouse Fort"
       },
       {
         "level": "Alert",
@@ -130,51 +144,15 @@
       },
       {
         "level": "Alert",
-        "title": "Lune estuary south west of Lancaster"
+        "title": "Humber estuary from Hessle Haven to Faxfleet"
       },
       {
         "level": "Alert",
-        "title": "Coast from Fleetwood to Blackpool"
+        "title": "The north Norfolk coast from Old Hunstanton, to and including Cley"
       },
       {
         "level": "Alert",
-        "title": "Irish Sea from New Brighton to Hoylake"
-      },
-      {
-        "level": "Alert",
-        "title": "Irish Sea from Hilbre Island to Heswall"
-      },
-      {
-        "level": "Warning",
-        "title": "Irish Sea at New Brighton"
-      },
-      {
-        "level": "Alert",
-        "title": "Mersey Estuary from Liverpool and Wirral to Widnes"
-      },
-      {
-        "level": "Alert",
-        "title": "Coast from St Bees Head to Haverigg"
-      },
-      {
-        "level": "Alert",
-        "title": "Coast from Gretna to Silloth"
-      },
-      {
-        "level": "Alert",
-        "title": "Coast from Silloth to St Bees"
-      },
-      {
-        "level": "Alert",
-        "title": "Coast at Barrow in Furness"
-      },
-      {
-        "level": "Alert",
-        "title": "Coast at Duddon estuary"
-      },
-      {
-        "level": "Warning",
-        "title": "Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe"
+        "title": "The Essex coast from St Peters Flat to and including Shoeburyness and the Crouch and Roach estuaries"
       },
       {
         "level": "Alert",
@@ -182,7 +160,19 @@
       },
       {
         "level": "Alert",
-        "title": "Coast from Heysham to Cockerham"
+        "title": "Tidal areas of Littlehampton Rope Walk"
+      },
+      {
+        "level": "Alert",
+        "title": "The Norfolk coast from Eccles on Sea, to and including, Winterton-on-Sea"
+      },
+      {
+        "level": "Alert",
+        "title": "Coast from Ramsgate to Kingsdown"
+      },
+      {
+        "level": "Alert",
+        "title": "Coast from St Margaret's at Cliffe to Sandgate"
       },
       {
         "level": "Alert",
@@ -190,15 +180,67 @@
       },
       {
         "level": "Alert",
-        "title": "Ribble estuary west of Preston"
-      },
-      {
-        "level": "Alert",
-        "title": "Dee Estuary from Parkgate to Chester"
-      },
-      {
-        "level": "Alert",
         "title": "King's Lynn, West Lynn and The Wash frontage in Norfolk"
+      },
+      {
+        "level": "Warning",
+        "title": "North Bank of the Humber estuary from Kilnsea to Skeffling and Weeton"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea coast at Bridlington - South Pier"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea and River Esk at Whitby Harbour"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea at Staithes"
+      },
+      {
+        "level": "Warning",
+        "title": "North Bank of the Humber estuary at Hessle Haven"
+      },
+      {
+        "level": "Warning",
+        "title": "The north Norfolk coast at Wells Quay"
+      },
+      {
+        "level": "Warning",
+        "title": "The north Norfolk coast at Salthouse and east Cley"
+      },
+      {
+        "level": "Alert",
+        "title": "Tidal River Ouse, Don and the Dutch River catchment"
+      },
+      {
+        "level": "Alert",
+        "title": "Tidal flooding near the South Humber Bank from Barton Upon Humber to Humberston"
+      },
+      {
+        "level": "Alert",
+        "title": "Tidal flooding near the South Humber Bank from Whitton to South Ferriby"
+      },
+      {
+        "level": "Warning",
+        "title": "Tyne estuary at Newcastle Quayside, Low Walker, Lower Derwenthaugh Industrial Estate and Willington"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea at Alnmouth"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea at Berwick-Upon-Tweed and Tweedmouth"
+      },
+      {
+        "level": "Alert",
+        "title": "Areas near the tidal River Welland, tidal River Nene, and the Wash"
+      },
+      {
+        "level": "Warning",
+        "title": "North Sea at Whitley Bay, Cullercoats and Tynemouth"
       }
     ]
   },
@@ -209,7 +251,7 @@
     "items": []
   },
   "scotland": {
-    "warnings": 36,
+    "warnings": 50,
     "alerts": 13,
     "severe": 0,
     "items": []
@@ -640,13 +682,13 @@
           "published_at": "2026-10-20T12:00:00+00:00"
         },
         {
-          "title": "Post-quantum updates to our TLS guidance",
-          "link": "https://www.ncsc.gov.uk/blogs/post-quantum-updates-to-our-tls-guidance",
+          "title": "Using TLS to protect data",
+          "link": "https://www.ncsc.gov.uk/guidance/using-tls-to-protect-data",
           "published_at": "2026-10-15T12:00:00+00:00"
         },
         {
-          "title": "Using TLS to protect data",
-          "link": "https://www.ncsc.gov.uk/guidance/using-tls-to-protect-data",
+          "title": "Post-quantum updates to our TLS guidance",
+          "link": "https://www.ncsc.gov.uk/blogs/post-quantum-updates-to-our-tls-guidance",
           "published_at": "2026-10-15T12:00:00+00:00"
         },
         {
@@ -675,23 +717,23 @@
           "published_at": "2026-09-21T12:00:00+00:00"
         },
         {
-          "title": "Adversary simulation: what you need to know",
-          "link": "https://www.ncsc.gov.uk/guidance/adversary-simulation-what-you-need-to-know",
-          "published_at": "2026-09-17T12:00:00+00:00"
-        },
-        {
           "title": "Cyber Adversary Simulation (CyAS): scheme documents now available",
           "link": "https://www.ncsc.gov.uk/blogs/cyber-adversary-simulation-cyas-scheme-documents-now-available",
           "published_at": "2026-09-17T12:00:00+00:00"
         },
         {
-          "title": "Iranian cyber targeting of dissidents, activists and journalists",
-          "link": "https://www.ncsc.gov.uk/news/iranian-cyber-targeting-of-dissidents-activists-and-journalists",
-          "published_at": "2026-09-15T12:00:00+00:00"
+          "title": "Adversary simulation: what you need to know",
+          "link": "https://www.ncsc.gov.uk/guidance/adversary-simulation-what-you-need-to-know",
+          "published_at": "2026-09-17T12:00:00+00:00"
         },
         {
           "title": "UK and allies expose spyware used by Iranian state actors to target dissidents, activists and journalists",
           "link": "https://www.ncsc.gov.uk/news/uk-allies-expose-spyware-iranian-state-actors-target-dissidents-activists-journalists",
+          "published_at": "2026-09-15T12:00:00+00:00"
+        },
+        {
+          "title": "Iranian cyber targeting of dissidents, activists and journalists",
+          "link": "https://www.ncsc.gov.uk/news/iranian-cyber-targeting-of-dissidents-activists-and-journalists",
           "published_at": "2026-09-15T12:00:00+00:00"
         },
         {
@@ -1051,8 +1093,41 @@
       ]
     },
     "usgs_earthquakes": {
-      "count": 5,
+      "count": 8,
       "items": [
+        {
+          "id": "us7000ttgq",
+          "magnitude": 5,
+          "place": "south of the Fiji Islands",
+          "time": 1793115102073,
+          "updated": 1793116256040,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttgq",
+          "longitude": -179.7358,
+          "latitude": -23.7469,
+          "depth_km": 509.065
+        },
+        {
+          "id": "us7000ttgm",
+          "magnitude": 5,
+          "place": "27 km W of Río Grande, Panama",
+          "time": 1793114762987,
+          "updated": 1793124484723,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttgm",
+          "longitude": -81.584,
+          "latitude": 7.706,
+          "depth_km": 10
+        },
+        {
+          "id": "us7000ttgf",
+          "magnitude": 5.4,
+          "place": "128 km S of Pundong, Indonesia",
+          "time": 1793112240933,
+          "updated": 1793119799847,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttgf",
+          "longitude": 110.3305,
+          "latitude": -9.1162,
+          "depth_km": 10
+        },
         {
           "id": "us7000ttfk",
           "magnitude": 5.2,
@@ -1113,24 +1188,12 @@
     "noaa_space_weather": {
       "headers": [],
       "latest": {
-        "time_tag": "2026-10-27T09:00:00",
-        "Kp": 1.33,
-        "a_running": 5,
+        "time_tag": "2026-10-27T15:00:00",
+        "Kp": 1.0,
+        "a_running": 4,
         "station_count": 8
       },
       "recent": [
-        {
-          "time_tag": "2026-10-24T12:00:00",
-          "Kp": 1.67,
-          "a_running": 6,
-          "station_count": 8
-        },
-        {
-          "time_tag": "2026-10-24T15:00:00",
-          "Kp": 1.67,
-          "a_running": 6,
-          "station_count": 8
-        },
         {
           "time_tag": "2026-10-24T18:00:00",
           "Kp": 1.67,
@@ -1261,6 +1324,18 @@
           "time_tag": "2026-10-27T09:00:00",
           "Kp": 1.33,
           "a_running": 5,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-10-27T12:00:00",
+          "Kp": 2.0,
+          "a_running": 7,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-10-27T15:00:00",
+          "Kp": 1.0,
+          "a_running": 4,
           "station_count": 8
         }
       ]
@@ -1823,324 +1898,60 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "Environment Agency": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "CISA KEV": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "NCSC": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "UKHSA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "FSA Food Alerts": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "USGS Earthquakes": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "NOAA Space Weather": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     },
     "NESO": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-10-27T12:52:24.411312+00:00"
+      "last_success_at": "2026-10-27T18:31:34.941857+00:00"
     }
   },
   "risk_signals": [
-    {
-      "id": "risk:9f8a7e2da66b793c",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Dumfries, Galloway, Lothian & Borders",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:bd990b6a22350c7d",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:815f51d4460306aa",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Grampian",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:6694521969d7dfed",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:cae6f3b64f4dd45c",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Highlands & Eilean Siar",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:08c56ac76fd7060b",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:16d90e2719406ae8",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Northern Ireland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Northern Ireland",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:7c5fbc97c6f3127c",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Northern Ireland"
-      ]
-    },
-    {
-      "id": "risk:3cc263723136aa80",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Orkney & Shetland",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:1f0dd75ed3600d37",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:2b3530857510347f",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Central, Tayside & Fife",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:b51bb6dd98d11981",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:a3f321d2d944581a",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "climate_and_weather",
-      "hazard": "severe weather",
-      "source": "Met Office",
-      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "Scotland"
-      },
-      "confidence": "high",
-      "description": "Yellow warning of wind affecting Strathclyde",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "met:63ad0c5d07e80dee",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:Scotland"
-      ]
-    },
-    {
-      "id": "risk:43f48dbedcdabf31",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Christchurch Harbour",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:9dc30d133ad41fa9",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
     {
       "id": "risk:72b46fd78e0b38d1",
       "schema_version": "1.0",
@@ -2151,7 +1962,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2175,6 +1986,39 @@
       ]
     },
     {
+      "id": "risk:f0e0997198fd4726",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea coast at Bridlington - Harbour Road and Floral Pavilion",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:aaef78d58f5a9e6e",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:4a880643076eee82",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2184,7 +2028,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2208,6 +2052,72 @@
       ]
     },
     {
+      "id": "risk:ec4c0820abb1e745",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tyne and Wear coast",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:bf75def165a011ac",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:a597e7fc45b1f6f0",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Wear estuary",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:d42ad3d8e5d4d583",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:b585a793e7157afc",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2217,7 +2127,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2241,6 +2151,39 @@
       ]
     },
     {
+      "id": "risk:f2555da1e8f61507",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea coast from Staithes to Whitby including tidal River Esk",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:2b65a3a1a364e68a",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:8806b18bde839454",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2250,7 +2193,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2274,6 +2217,39 @@
       ]
     },
     {
+      "id": "risk:079f912017b2629f",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tidal Thames riverside from Putney Bridge to Teddington Weir",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:0623731849df61ba",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:846305b790f964b5",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2283,7 +2259,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2316,7 +2292,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2349,7 +2325,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "high",
       "geography": {
@@ -2382,7 +2358,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2415,7 +2391,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2448,7 +2424,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2472,7 +2448,7 @@
       ]
     },
     {
-      "id": "risk:b810eb83b555df49",
+      "id": "risk:735618f61a1845f5",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2481,18 +2457,84 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Tidal River Avon at Bristol, Pill and Shirehampton",
+      "description": "Tyne estuary",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:041bc8a0ffaeb1e1",
+      "source_record_id": "ea:17f432f3cb6be193",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:577c5b12c5d7a673",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Northumberland coast",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:4dde6ddce83de3fe",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:d05d236733dac026",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea coast at Withernsea, Easington and Kilnsea",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:654ce71091e0297f",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -2514,7 +2556,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2547,7 +2589,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2571,6 +2613,303 @@
       ]
     },
     {
+      "id": "risk:baaf8d72c5d7eab5",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tweed estuary",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:629a07b115d781be",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:04eb36f8acea36d6",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea coast at Easington and Kilnsea",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:d7e984e5b2cbd317",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:15b1db4ab86433df",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Humber estuary from Spurn Point to Winestead Outfall",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:a4dcde6d7f26edc2",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:c0acc4e0a0919f98",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The tidal River Waveney from Ellingham to Breydon Water",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:2a9732af171684c8",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:6da4176a4c1f622f",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The tidal River Yare from Thorpe St Andrew to Breydon Water",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:c78528efe6e711c1",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:fe55440c710492c5",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The tidal Deben estuary",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:291bc81738787e2c",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:9528f3613b0f8181",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The Suffolk and Essex coast from Felixstowe to Clacton including Orwell and Stour estuaries",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:d6abec384bec2f40",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:f2f82a4e110ab3df",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The Essex coast from Clacton to and including, St Peters Flat and the Colne and Blackwater estuaries",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:27f2400be8fd64e3",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:9681e2750bd3571f",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The tidal Rivers Bure, Ant and Thurne",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:c70bc73252b827a9",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:971ef98319756703",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2580,7 +2919,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "high",
       "geography": {
@@ -2604,6 +2943,39 @@
       ]
     },
     {
+      "id": "risk:3bcf0159028653bd",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The Essex coast at Coalhouse Fort",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:b52d5ad28f46258f",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:93d06fed97410a3e",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2613,7 +2985,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2637,7 +3009,7 @@
       ]
     },
     {
-      "id": "risk:74cebfbaf5440b4b",
+      "id": "risk:10c949bb736181b2",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2646,18 +3018,18 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Lune estuary south west of Lancaster",
+      "description": "Humber estuary from Hessle Haven to Faxfleet",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:07116c22fed3aa05",
+      "source_record_id": "ea:208f00589e86a9e1",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -2670,7 +3042,7 @@
       ]
     },
     {
-      "id": "risk:b95e742c0e378aef",
+      "id": "risk:e77c41ebda229eea",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2679,18 +3051,18 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Coast from Fleetwood to Blackpool",
+      "description": "The north Norfolk coast from Old Hunstanton, to and including Cley",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:dffe153a33431b48",
+      "source_record_id": "ea:a0ffe74c2fc53668",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -2703,7 +3075,7 @@
       ]
     },
     {
-      "id": "risk:26b1867922d0a881",
+      "id": "risk:69be11069817448b",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2712,321 +3084,24 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Irish Sea from New Brighton to Hoylake",
+      "description": "The Essex coast from St Peters Flat to and including Shoeburyness and the Crouch and Roach estuaries",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:9863dfba2d80c13b",
+      "source_record_id": "ea:b41498e0de8f2932",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
       "priority_band": "high",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:ece178382ffbbc05",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Irish Sea from Hilbre Island to Heswall",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:fe515dea2d86f903",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:7c3dd65f21a8a1d0",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "high",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Irish Sea at New Brighton",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:f2c8f1d0c687144c",
-      "source_native_status": "Warning",
-      "priority_model_version": "1.0",
-      "priority_score": 78,
-      "priority_band": "immediate",
-      "priority_basis": [
-        "severity:high",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:73330964572844bd",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Mersey Estuary from Liverpool and Wirral to Widnes",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:a3b28e3d2a632f6f",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:e7633af9af567a67",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Coast from St Bees Head to Haverigg",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:ac8414516f8df913",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:2f2c218729a7ba7b",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Coast from Gretna to Silloth",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:b846e36363bf76a8",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:ac922311c6b14844",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Coast from Silloth to St Bees",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:33dfb8984b8d7690",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:47c65e9599b9be5e",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Coast at Barrow in Furness",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:1204c72c23ab58bd",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:419af36b017026ed",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Coast at Duddon estuary",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:eb7b31603f0390e4",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:4ae597574a043e77",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "high",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:bc69f80f26c4465c",
-      "source_native_status": "Warning",
-      "priority_model_version": "1.0",
-      "priority_score": 78,
-      "priority_band": "immediate",
-      "priority_basis": [
-        "severity:high",
         "freshness:current",
         "confidence:high",
         "scope:England"
@@ -3042,7 +3117,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3066,7 +3141,7 @@
       ]
     },
     {
-      "id": "risk:edbd9af8ab84d486",
+      "id": "risk:2f400d24e553aef6",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -3075,18 +3150,117 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Coast from Heysham to Cockerham",
+      "description": "Tidal areas of Littlehampton Rope Walk",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:dca81475e573d95b",
+      "source_record_id": "ea:0fb71ba545897cb9",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:7ba453d707a4ca8b",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The Norfolk coast from Eccles on Sea, to and including, Winterton-on-Sea",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:1418047b63718408",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:95c309c2b1dd38e6",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Coast from Ramsgate to Kingsdown",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:223cdbfc3e57ee9d",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:3f0a88386e5d35b0",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Coast from St Margaret's at Cliffe to Sandgate",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:9f55b6c338055949",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -3108,7 +3282,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3132,72 +3306,6 @@
       ]
     },
     {
-      "id": "risk:f6899d6217a92786",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Ribble estuary west of Preston",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:66ad6cc2ac8b1e71",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:bc41d03544269e20",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Dee Estuary from Parkgate to Chester",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:89522b7cde6c8b15",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
       "id": "risk:6e4f951ca153cd43",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -3207,7 +3315,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -3231,6 +3339,501 @@
       ]
     },
     {
+      "id": "risk:57ec7eb61729835d",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Bank of the Humber estuary from Kilnsea to Skeffling and Weeton",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:0ce8040f2d2a7b33",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:8b609971f3c24403",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea coast at Bridlington - South Pier",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:91a7a1f8016ebbb0",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:71d96996d02b2e49",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea and River Esk at Whitby Harbour",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:3210c5331c3ea583",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:cbe1f8a3e2d5bd66",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea at Staithes",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:152e30156a9e455e",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:2c43692691729794",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Bank of the Humber estuary at Hessle Haven",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:9c83fba9a38d8cc4",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:5e466076a4ef45f2",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The north Norfolk coast at Wells Quay",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:75b692f0db571769",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:c180e7fc17cd908e",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "The north Norfolk coast at Salthouse and east Cley",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:a54751a831b8eeca",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:fb59f760e845ef04",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tidal River Ouse, Don and the Dutch River catchment",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:0632d17f96324a3b",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:0214d5cc6f62a150",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tidal flooding near the South Humber Bank from Barton Upon Humber to Humberston",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:394836a1765248ed",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:2a2257408b01cf21",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tidal flooding near the South Humber Bank from Whitton to South Ferriby",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:9384c283201319f5",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:49ce77804b7ee022",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Tyne estuary at Newcastle Quayside, Low Walker, Lower Derwenthaugh Industrial Estate and Willington",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:fb353432a968767d",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:a80fe2237d7fafbd",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea at Alnmouth",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:20866a7bcab6cb75",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:ed1ad639cdaf1134",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea at Berwick-Upon-Tweed and Tweedmouth",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:7225dd615b950e81",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:ab96cca97028a078",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "Areas near the tidal River Welland, tidal River Nene, and the Wash",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:c075ab03eb81d3b1",
+      "source_native_status": "Alert",
+      "priority_model_version": "1.0",
+      "priority_score": 52,
+      "priority_band": "high",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
+      "id": "risk:fd2bf7187dccae6b",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "flooding",
+      "hazard": "flooding",
+      "source": "Environment Agency",
+      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "published_at": null,
+      "observed_at": null,
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "high",
+      "geography": {
+        "scope": "England"
+      },
+      "confidence": "high",
+      "description": "North Sea at Whitley Bay, Cullercoats and Tynemouth",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "ea:73ca77a11f3288ad",
+      "source_native_status": "Warning",
+      "priority_model_version": "1.0",
+      "priority_score": 78,
+      "priority_band": "immediate",
+      "priority_basis": [
+        "severity:high",
+        "freshness:current",
+        "confidence:high",
+        "scope:England"
+      ]
+    },
+    {
       "id": "risk:4a31503b97c2ccc6",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -3240,14 +3843,14 @@
       "source_url": "https://beta.sepa.scot/flooding",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "high",
       "geography": {
         "scope": "Scotland"
       },
       "confidence": "high",
-      "description": "SEPA reports 49 current flood warning/alert item(s).",
+      "description": "SEPA reports 63 current flood warning/alert item(s).",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
@@ -3273,7 +3876,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3306,7 +3909,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3339,7 +3942,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3372,7 +3975,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3405,7 +4008,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3438,7 +4041,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3471,7 +4074,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3504,7 +4107,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3537,7 +4140,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3570,7 +4173,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3603,7 +4206,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3636,7 +4239,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3669,7 +4272,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-15T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3702,7 +4305,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3735,7 +4338,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3768,7 +4371,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3801,7 +4404,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3834,7 +4437,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-13T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3867,7 +4470,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-13T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3900,7 +4503,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3933,7 +4536,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3966,7 +4569,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3999,7 +4602,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4032,7 +4635,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4065,7 +4668,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-04T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4098,7 +4701,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-02T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4131,7 +4734,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-02T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4164,7 +4767,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-01T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4197,7 +4800,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-30T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4230,7 +4833,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-29T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4263,7 +4866,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-27T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4296,7 +4899,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-27T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4329,7 +4932,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-25T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4362,7 +4965,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-25T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4395,7 +4998,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-25T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4428,7 +5031,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-24T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4461,7 +5064,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-24T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4494,7 +5097,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-22T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4527,7 +5130,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-22T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4560,7 +5163,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-22T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4593,7 +5196,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-22T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4626,7 +5229,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-21T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4659,7 +5262,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-18T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4692,7 +5295,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-18T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4725,7 +5328,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-18T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4758,7 +5361,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-16T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4791,7 +5394,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-16T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4824,7 +5427,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-16T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4857,7 +5460,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-14T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4890,7 +5493,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-09-11T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4923,7 +5526,7 @@
       "source_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "published_at": null,
       "observed_at": "2026-10-18T00:00:00+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -4956,7 +5559,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-49-2026",
       "published_at": "2026-10-24T13:04:38.17Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4970,11 +5573,11 @@
       "source_record_id": "FSA-AA-49-2026",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 16,
+      "priority_score": 13,
       "priority_band": "monitor",
       "priority_basis": [
         "severity:unknown",
-        "freshness:recent",
+        "freshness:dated",
         "confidence:high",
         "scope:UK"
       ]
@@ -4989,7 +5592,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-51-2026",
       "published_at": "2026-10-23T17:50:45.95Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5022,7 +5625,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-50-2026",
       "published_at": "2026-10-21T14:45:34.157Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5055,7 +5658,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-48-2026",
       "published_at": "2026-10-21T11:39:29.034Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5088,7 +5691,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-47-2026",
       "published_at": "2026-10-18T12:15:39.76Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5121,7 +5724,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-46-2026",
       "published_at": "2026-10-15T12:42:16.282Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5154,7 +5757,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026-update-1",
       "published_at": "2026-10-14T18:48:17.157Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5187,7 +5790,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-49-2026",
       "published_at": "2026-10-13T18:21:06.975Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5220,7 +5823,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026",
       "published_at": "2026-10-13T16:34:52.072Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5253,7 +5856,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-fafa-03-2026",
       "published_at": "2026-10-11T09:42:12.916Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5286,7 +5889,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-48-2026",
       "published_at": "2026-10-08T20:51:06.928Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5319,7 +5922,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-44-2026",
       "published_at": "2026-10-03T15:32:31.29Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5352,7 +5955,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-43-2026",
       "published_at": "2026-10-02T16:39:31.821Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5385,7 +5988,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026-update-1",
       "published_at": "2026-09-25T13:00:40.592Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5418,7 +6021,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-46-2026",
       "published_at": "2026-09-25T10:20:09.499Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5451,7 +6054,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026",
       "published_at": "2026-09-24T20:13:30.099Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5484,7 +6087,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-45-2026",
       "published_at": "2026-09-22T19:55:28.156Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5517,7 +6120,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-44-2026",
       "published_at": "2026-09-10T19:17:21.913Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5550,7 +6153,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-43-2026",
       "published_at": "2026-09-04T18:39:45.509Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5583,7 +6186,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-42-2026",
       "published_at": "2026-09-03T16:11:41.515Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5616,7 +6219,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-41-2026",
       "published_at": "2026-09-03T13:34:09.742Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5649,7 +6252,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-42-2026",
       "published_at": "2026-08-28T09:51:57.466Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5682,7 +6285,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-41-2026",
       "published_at": "2026-08-25T17:30:42.667Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5715,7 +6318,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-40-2026",
       "published_at": "2026-08-21T16:45:36.179Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5748,7 +6351,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-39-2026",
       "published_at": "2026-08-10T15:49:00.442Z",
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5772,6 +6375,105 @@
       ]
     },
     {
+      "id": "risk:c22afa5dc01ed90d",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-10-27T15:31:42.073000+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5 earthquake: south of the Fiji Islands.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us7000ttgq",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 30,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:96c7197e77b1f905",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-10-27T15:26:02.987000+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5 earthquake: 27 km W of Río Grande, Panama.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us7000ttgm",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 30,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:6529634e21e415ea",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-10-27T14:44:00.933000+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5.4 earthquake: 128 km S of Pundong, Indonesia.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us7000ttgf",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 30,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
       "id": "risk:d203227b7c82be10",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -5781,7 +6483,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-10-27T10:50:35.418000+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5795,11 +6497,11 @@
       "source_record_id": "us7000ttfk",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5814,7 +6516,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-10-27T10:06:31.916000+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5828,11 +6530,11 @@
       "source_record_id": "us7000ttfj",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5847,7 +6549,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-10-27T09:20:55.730000+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5861,11 +6563,11 @@
       "source_record_id": "us7000ttfe",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5880,7 +6582,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-10-27T09:07:45.122000+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5894,11 +6596,11 @@
       "source_record_id": "us7000ttfc",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5913,7 +6615,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-10-27T08:55:23.290000+00:00",
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5927,11 +6629,11 @@
       "source_record_id": "us7000ttfb",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5946,7 +6648,7 @@
       "source_url": "https://www.swpc.noaa.gov/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -5979,7 +6681,7 @@
       "source_url": "https://www.neso.energy/data-portal",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-10-27T12:52:24.411312+00:00",
+      "collected_at": "2026-10-27T18:31:34.941857+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
