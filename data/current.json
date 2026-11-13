@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T16:39:37.563705+00:00",
+  "updated_at": "2026-11-13T22:11:15.954171+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
@@ -38,9 +38,25 @@
   },
   "multi_domain": {
     "cisa_kev": {
-      "catalog_version": "2026.11.10",
-      "count": 1779,
+      "catalog_version": "2026.11.13",
+      "count": 1781,
       "items": [
+        {
+          "cveID": "CVE-2026-114713",
+          "vendorProject": "UnrealIRCd",
+          "product": "UnrealIRCd",
+          "vulnerabilityName": "UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
+          "dateAdded": "2026-11-13",
+          "dueDate": "2026-11-16"
+        },
+        {
+          "cveID": "CVE-2026-123039",
+          "vendorProject": "Check Point",
+          "product": "Multiple Products",
+          "vulnerabilityName": "Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
+          "dateAdded": "2026-11-13",
+          "dueDate": "2026-11-16"
+        },
         {
           "cveID": "CVE-2026-124194",
           "vendorProject": "Microsoft",
@@ -365,7 +381,7 @@
           "cveID": "CVE-2015-5477",
           "vendorProject": "ISC",
           "product": "BIND",
-          "vulnerabilityName": " ISC BIND Data Processing Errors Vulnerability",
+          "vulnerabilityName": "ISC BIND Data Processing Errors Vulnerability",
           "dateAdded": "2026-10-08",
           "dueDate": "2026-10-11"
         },
@@ -424,22 +440,6 @@
           "vulnerabilityName": "Zammad GmbH Zammad Session Fixation Vulnerability",
           "dateAdded": "2026-10-02",
           "dueDate": "2026-10-05"
-        },
-        {
-          "cveID": "CVE-2026-104286",
-          "vendorProject": "Fortinet",
-          "product": "FortiMail",
-          "vulnerabilityName": "Fortinet FortiMail Path Traversal Vulnerability",
-          "dateAdded": "2026-10-01",
-          "dueDate": "2026-10-04"
-        },
-        {
-          "cveID": "CVE-2026-76504",
-          "vendorProject": "Cisco",
-          "product": "Catalyst SD-WAN Manager",
-          "vulnerabilityName": "Cisco Catalyst SD-WAN Manager Hex Encoding Vulnerability",
-          "dateAdded": "2026-09-30",
-          "dueDate": "2026-10-03"
         }
       ]
     },
@@ -570,6 +570,18 @@
     "fsa_food_alerts": {
       "count": 25,
       "items": [
+        {
+          "id": "FSA-AA-53-2026",
+          "title": "Tesco recalls various Tesco Steak and Guinness Pie products because of undeclared milk",
+          "modified": "2026-11-13T18:29:17.594Z",
+          "type": [
+            "http://data.food.gov.uk/food-alerts/def/AA",
+            "http://data.food.gov.uk/food-alerts/def/Alert"
+          ],
+          "status": null,
+          "alert_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-53-2026",
+          "country": null
+        },
         {
           "id": "FSA-AA-52-2026",
           "title": "Waitrose & Partners recalls various Waitrose & Partners Doughnuts 5’s because of undeclared soya",
@@ -857,24 +869,34 @@
           "status": null,
           "alert_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-43-2026",
           "country": null
-        },
-        {
-          "id": "FSA-AA-42-2026",
-          "title": "Tesco recalls Tesco Finest Caesar & Smoked Bacon Coleslaw because of undeclared mustard",
-          "modified": "2026-09-03T16:11:41.515Z",
-          "type": [
-            "http://data.food.gov.uk/food-alerts/def/AA",
-            "http://data.food.gov.uk/food-alerts/def/Alert"
-          ],
-          "status": null,
-          "alert_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-42-2026",
-          "country": null
         }
       ]
     },
     "usgs_earthquakes": {
       "count": 6,
       "items": [
+        {
+          "id": "us7000ty3q",
+          "magnitude": 5.1,
+          "place": "South Sandwich Islands region",
+          "time": 1794596647703,
+          "updated": 1794597749040,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ty3q",
+          "longitude": -25.7253,
+          "latitude": -58.962,
+          "depth_km": 63.81
+        },
+        {
+          "id": "us7000ty1a",
+          "magnitude": 5.8,
+          "place": "79 km WSW of Changuillo, Peru",
+          "time": 1794588182131,
+          "updated": 1794605849498,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ty1a",
+          "longitude": -75.8807,
+          "latitude": -14.9934,
+          "depth_km": 10
+        },
         {
           "id": "us7000ty14",
           "magnitude": 5.2,
@@ -918,52 +940,18 @@
           "longitude": 24.8798,
           "latitude": 34.6967,
           "depth_km": 43.358
-        },
-        {
-          "id": "us7000txwp",
-          "magnitude": 5.8,
-          "place": "148 km NW of Kavieng, Papua New Guinea",
-          "time": 1794521046729,
-          "updated": 1794581120040,
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000txwp",
-          "longitude": 149.8877,
-          "latitude": -1.5882,
-          "depth_km": 10
-        },
-        {
-          "id": "us7000txw9",
-          "magnitude": 5.1,
-          "place": "western Indian-Antarctic Ridge",
-          "time": 1794517754685,
-          "updated": 1794524412040,
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000txw9",
-          "longitude": 139.5909,
-          "latitude": -51.4273,
-          "depth_km": 10
         }
       ]
     },
     "noaa_space_weather": {
       "headers": [],
       "latest": {
-        "time_tag": "2026-11-13T12:00:00",
+        "time_tag": "2026-11-13T18:00:00",
         "Kp": 0.67,
         "a_running": 3,
         "station_count": 8
       },
       "recent": [
-        {
-          "time_tag": "2026-11-10T15:00:00",
-          "Kp": 3.0,
-          "a_running": 15,
-          "station_count": 8
-        },
-        {
-          "time_tag": "2026-11-10T18:00:00",
-          "Kp": 2.33,
-          "a_running": 9,
-          "station_count": 8
-        },
         {
           "time_tag": "2026-11-10T21:00:00",
           "Kp": 2.0,
@@ -1092,6 +1080,18 @@
         },
         {
           "time_tag": "2026-11-13T12:00:00",
+          "Kp": 0.67,
+          "a_running": 3,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-13T15:00:00",
+          "Kp": 0.67,
+          "a_running": 3,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-13T18:00:00",
           "Kp": 0.67,
           "a_running": 3,
           "station_count": 8
@@ -1656,57 +1656,57 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "Environment Agency": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "CISA KEV": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "NCSC": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "UKHSA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "FSA Food Alerts": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "USGS Earthquakes": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "NOAA Space Weather": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     },
     "NESO": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-13T16:39:37.563705+00:00"
+      "last_success_at": "2026-11-13T22:11:15.954171+00:00"
     }
   },
   "risk_signals": [
@@ -1720,7 +1720,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -1753,7 +1753,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -1777,6 +1777,72 @@
       ]
     },
     {
+      "id": "risk:627a867452034ab6",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-11-13T00:00:00+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-114713: UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-114713",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 11,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:ebefd2d3b6f0454d",
+      "schema_version": "1.0",
+      "risk_theme": "cyber",
+      "risk_domain": "cyber",
+      "hazard": "known_exploited_vulnerability",
+      "source": "CISA Known Exploited Vulnerabilities",
+      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "published_at": null,
+      "observed_at": "2026-11-13T00:00:00+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "CVE-2026-123039: Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "CVE-2026-123039",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 11,
+      "priority_band": "monitor",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
       "id": "risk:6e8506159fb22c97",
       "schema_version": "1.0",
       "risk_theme": "cyber",
@@ -1786,7 +1852,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1819,7 +1885,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1852,7 +1918,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1885,7 +1951,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1918,7 +1984,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1951,7 +2017,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -1984,7 +2050,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2017,7 +2083,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2050,7 +2116,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2083,7 +2149,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2116,7 +2182,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-06T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2149,7 +2215,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-04T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2182,7 +2248,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-03T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2215,7 +2281,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-30T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2248,7 +2314,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-30T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2281,7 +2347,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-29T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2314,7 +2380,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-29T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2347,7 +2413,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-28T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2380,7 +2446,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-28T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2413,7 +2479,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-27T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2446,7 +2512,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-27T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2479,7 +2545,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2512,7 +2578,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2545,7 +2611,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2578,7 +2644,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2611,7 +2677,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2644,7 +2710,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2677,7 +2743,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2710,7 +2776,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2743,7 +2809,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2776,7 +2842,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2809,7 +2875,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2842,7 +2908,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2875,7 +2941,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-15T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2908,7 +2974,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2941,7 +3007,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2974,7 +3040,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3007,7 +3073,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3040,7 +3106,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-13T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3073,7 +3139,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-13T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3106,7 +3172,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3139,7 +3205,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3172,7 +3238,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3205,7 +3271,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3238,7 +3304,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3271,7 +3337,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-04T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3304,7 +3370,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-02T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3337,7 +3403,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-02T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3361,72 +3427,6 @@
       ]
     },
     {
-      "id": "risk:dbfcab0663437cc7",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2026-10-01T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2026-104286: Fortinet FortiMail Path Traversal Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2026-104286",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:1209940e51d6e6ce",
-      "schema_version": "1.0",
-      "risk_theme": "cyber",
-      "risk_domain": "cyber",
-      "hazard": "known_exploited_vulnerability",
-      "source": "CISA Known Exploited Vulnerabilities",
-      "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "published_at": null,
-      "observed_at": "2026-09-30T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
-      "status": "active",
-      "severity": "unknown",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "CVE-2026-76504: Cisco Catalyst SD-WAN Manager Hex Encoding Vulnerability",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "CVE-2026-76504",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 2,
-      "priority_band": "monitor",
-      "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
       "id": "risk:f3a9992a9457b449",
       "schema_version": "1.0",
       "risk_theme": "human_animal_and_plant_health",
@@ -3436,7 +3436,7 @@
       "source_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "published_at": null,
       "observed_at": "2026-11-08T00:00:00+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -3460,6 +3460,39 @@
       ]
     },
     {
+      "id": "risk:580e738b20ca800d",
+      "schema_version": "1.0",
+      "risk_theme": "human_animal_and_plant_health",
+      "risk_domain": "supply_chain",
+      "hazard": "food_product_alert",
+      "source": "Food Standards Agency",
+      "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-53-2026",
+      "published_at": "2026-11-13T18:29:17.594Z",
+      "observed_at": null,
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
+      "status": "active",
+      "severity": "unknown",
+      "geography": {
+        "scope": "UK"
+      },
+      "confidence": "high",
+      "description": "Tesco recalls various Tesco Steak and Guinness Pie products because of undeclared milk",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "FSA-AA-53-2026",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 22,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:unknown",
+        "freshness:current",
+        "confidence:high",
+        "scope:UK"
+      ]
+    },
+    {
       "id": "risk:4d4346bdbcef2cd7",
       "schema_version": "1.0",
       "risk_theme": "human_animal_and_plant_health",
@@ -3469,7 +3502,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-52-2026",
       "published_at": "2026-11-10T20:44:14.168Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3483,11 +3516,11 @@
       "source_record_id": "FSA-AA-52-2026",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 16,
+      "priority_score": 13,
       "priority_band": "monitor",
       "priority_basis": [
         "severity:unknown",
-        "freshness:recent",
+        "freshness:dated",
         "confidence:high",
         "scope:UK"
       ]
@@ -3502,7 +3535,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-52-2026",
       "published_at": "2026-11-10T12:26:09.762Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3535,7 +3568,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-51-2026",
       "published_at": "2026-11-05T12:46:12.397Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3568,7 +3601,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-50-2026-update-1",
       "published_at": "2026-11-01T17:25:55.185Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3601,7 +3634,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-50-2026",
       "published_at": "2026-10-30T18:35:29.237Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3634,7 +3667,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-49-2026",
       "published_at": "2026-10-24T13:04:38.17Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3667,7 +3700,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-51-2026",
       "published_at": "2026-10-23T17:50:45.95Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3700,7 +3733,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-50-2026",
       "published_at": "2026-10-21T14:45:34.157Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3733,7 +3766,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-48-2026",
       "published_at": "2026-10-21T11:39:29.034Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3766,7 +3799,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-47-2026",
       "published_at": "2026-10-18T12:15:39.76Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3799,7 +3832,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-46-2026",
       "published_at": "2026-10-15T12:42:16.282Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3832,7 +3865,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026-update-1",
       "published_at": "2026-10-14T18:48:17.157Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3846,11 +3879,11 @@
       "source_record_id": "FSA-AA-45-2026-update-1",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 9,
+      "priority_score": 4,
       "priority_band": "monitor",
       "priority_basis": [
         "severity:unknown",
-        "freshness:dated",
+        "freshness:old",
         "confidence:high",
         "scope:UK"
       ]
@@ -3865,7 +3898,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-49-2026",
       "published_at": "2026-10-13T18:21:06.975Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3898,7 +3931,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026",
       "published_at": "2026-10-13T16:34:52.072Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3931,7 +3964,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-fafa-03-2026",
       "published_at": "2026-10-11T09:42:12.916Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3964,7 +3997,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-48-2026",
       "published_at": "2026-10-08T20:51:06.928Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3997,7 +4030,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-44-2026",
       "published_at": "2026-10-03T15:32:31.29Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4030,7 +4063,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-43-2026",
       "published_at": "2026-10-02T16:39:31.821Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4063,7 +4096,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026-update-1",
       "published_at": "2026-09-25T13:00:40.592Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4096,7 +4129,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-46-2026",
       "published_at": "2026-09-25T10:20:09.499Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4129,7 +4162,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026",
       "published_at": "2026-09-24T20:13:30.099Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4162,7 +4195,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-45-2026",
       "published_at": "2026-09-22T19:55:28.156Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4195,7 +4228,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-44-2026",
       "published_at": "2026-09-10T19:17:21.913Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4228,7 +4261,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-43-2026",
       "published_at": "2026-09-04T18:39:45.509Z",
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4252,36 +4285,69 @@
       ]
     },
     {
-      "id": "risk:3922eaf1146a9ac8",
+      "id": "risk:5935cc1b7b699f0c",
       "schema_version": "1.0",
-      "risk_theme": "human_animal_and_plant_health",
-      "risk_domain": "supply_chain",
-      "hazard": "food_product_alert",
-      "source": "Food Standards Agency",
-      "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-42-2026",
-      "published_at": "2026-09-03T16:11:41.515Z",
-      "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-11-13T19:04:07.703000+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
-      "severity": "unknown",
+      "severity": "moderate",
       "geography": {
-        "scope": "UK"
+        "scope": "international"
       },
       "confidence": "high",
-      "description": "Tesco recalls Tesco Finest Caesar & Smoked Bacon Coleslaw because of undeclared mustard",
+      "description": "M5.1 earthquake: South Sandwich Islands region.",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "FSA-AA-42-2026",
+      "source_record_id": "us7000ty3q",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 4,
-      "priority_band": "monitor",
+      "priority_score": 30,
+      "priority_band": "moderate",
       "priority_basis": [
-        "severity:unknown",
-        "freshness:old",
+        "severity:moderate",
+        "freshness:current",
         "confidence:high",
-        "scope:UK"
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:bdb7dcbf038b4450",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-11-13T16:43:02.131000+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5.8 earthquake: 79 km WSW of Changuillo, Peru.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us7000ty1a",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 30,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:current",
+        "confidence:high",
+        "scope:international"
       ]
     },
     {
@@ -4294,7 +4360,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-13T16:17:51.680000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4327,7 +4393,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-13T14:12:47.843000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4341,11 +4407,11 @@
       "source_record_id": "us7000ty0s",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -4360,7 +4426,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-13T01:12:46.186000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4393,7 +4459,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-13T00:05:04.104000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -4417,72 +4483,6 @@
       ]
     },
     {
-      "id": "risk:dd9d9e3e1b02cc47",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "other",
-      "hazard": "earthquake",
-      "source": "USGS Earthquake Hazards Program",
-      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
-      "published_at": null,
-      "observed_at": "2026-11-12T22:04:06.729000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "M5.8 earthquake: 148 km NW of Kavieng, Papua New Guinea.",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "us7000txwp",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 27,
-      "priority_band": "moderate",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:recent",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:de73733420dfe346",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "other",
-      "hazard": "earthquake",
-      "source": "USGS Earthquake Hazards Program",
-      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
-      "published_at": null,
-      "observed_at": "2026-11-12T21:09:14.685000+00:00",
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "M5.1 earthquake: western Indian-Antarctic Ridge.",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "us7000txw9",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 27,
-      "priority_band": "moderate",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:recent",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
       "id": "risk:3375ecdafb10e4da",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -4492,7 +4492,7 @@
       "source_url": "https://www.swpc.noaa.gov/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -4525,7 +4525,7 @@
       "source_url": "https://www.neso.energy/data-portal",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-13T16:39:37.563705+00:00",
+      "collected_at": "2026-11-13T22:11:15.954171+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
