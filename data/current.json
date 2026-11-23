@@ -1,42 +1,30 @@
 {
-  "updated_at": "2026-11-23T07:32:45.252025+00:00",
+  "updated_at": "2026-11-23T19:29:05.874659+00:00",
   "uk_weather": {
     "summary": "National forecast available",
     "source": "Met Office UK national forecast",
     "url": "https://weather.metoffice.gov.uk/forecast/uk"
   },
   "met_office": {
-    "count": 0,
-    "items": []
+    "count": 1,
+    "items": [
+      {
+        "level": "Yellow",
+        "title": "Yellow warning of rain affecting South West England",
+        "regions": [
+          "England"
+        ]
+      }
+    ]
   },
   "england": {
-    "warnings": 1,
-    "alerts": 24,
+    "warnings": 0,
+    "alerts": 14,
     "severe": 0,
     "items": [
       {
         "level": "Alert",
-        "title": "River Axe area"
-      },
-      {
-        "level": "Alert",
         "title": "South Devon coast from Start Point to Dawlish Warren"
-      },
-      {
-        "level": "Alert",
-        "title": "Rivers Otter and Sid, and Exmouth area"
-      },
-      {
-        "level": "Alert",
-        "title": "Rivers Clyst and Culm and their tributaries"
-      },
-      {
-        "level": "Alert",
-        "title": "River Teign area"
-      },
-      {
-        "level": "Alert",
-        "title": "Mid Devon Rivers"
       },
       {
         "level": "Alert",
@@ -56,19 +44,11 @@
       },
       {
         "level": "Alert",
-        "title": "Middle Exe area"
-      },
-      {
-        "level": "Alert",
         "title": "Eastern Yar"
       },
       {
         "level": "Alert",
-        "title": "Exmoor Rivers"
-      },
-      {
-        "level": "Alert",
-        "title": "North Dartmoor Rivers"
+        "title": "North Cornwall Rivers"
       },
       {
         "level": "Alert",
@@ -76,15 +56,11 @@
       },
       {
         "level": "Alert",
-        "title": "River Dart area"
+        "title": "River Cober"
       },
       {
         "level": "Alert",
         "title": "West Cornwall Rivers"
-      },
-      {
-        "level": "Alert",
-        "title": "South Devon Rivers"
       },
       {
         "level": "Alert",
@@ -100,19 +76,7 @@
       },
       {
         "level": "Alert",
-        "title": "Upper Torridge area"
-      },
-      {
-        "level": "Alert",
-        "title": "Barnstaple, Braunton, Ilfracombe and Combe Martin area"
-      },
-      {
-        "level": "Alert",
         "title": "River Plym and Tory Brook"
-      },
-      {
-        "level": "Warning",
-        "title": "River Ottery at Yeolmbridge and Ham Mill"
       }
     ]
   },
@@ -123,14 +87,14 @@
     "items": []
   },
   "scotland": {
-    "warnings": 0,
+    "warnings": 2,
     "alerts": 0,
     "severe": 0,
     "items": []
   },
   "multi_domain": {
     "cisa_kev": {
-      "catalog_version": "2026.11.20",
+      "catalog_version": "2026.11.23",
       "count": 1790,
       "items": [
         {
@@ -665,7 +629,7 @@
         {
           "id": "FSA-AA-54-2026",
           "title": "Healthy Fit recalls Vegan Protein Bar Hazelnut Nougat because of undeclared peanuts",
-          "modified": "2026-11-21T18:32:19.897Z",
+          "modified": "2026-11-23T10:40:07.685Z",
           "type": [
             "http://data.food.gov.uk/food-alerts/def/AA",
             "http://data.food.gov.uk/food-alerts/def/Alert"
@@ -968,6 +932,28 @@
       "count": 5,
       "items": [
         {
+          "id": "us6000ucxi",
+          "magnitude": 5.5,
+          "place": "west of Macquarie Island",
+          "time": 1795420886457,
+          "updated": 1795428559849,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucxi",
+          "longitude": 153.8482,
+          "latitude": -60.6317,
+          "depth_km": 10
+        },
+        {
+          "id": "us6000ucx6",
+          "magnitude": 5.4,
+          "place": "181 km NE of Lospalos, Timor Leste",
+          "time": 1795419381052,
+          "updated": 1795426892253,
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucx6",
+          "longitude": 128.2414,
+          "latitude": -7.4408,
+          "depth_km": 119.267
+        },
+        {
           "id": "us6000ucwd",
           "magnitude": 5,
           "place": "159 km ESE of Kokopo, Papua New Guinea",
@@ -999,64 +985,18 @@
           "longitude": -76.0169,
           "latitude": -10.8345,
           "depth_km": 117.396
-        },
-        {
-          "id": "us6000ucrp",
-          "magnitude": 5.1,
-          "place": "45 km SE of Ürümqi, China",
-          "time": 1795338508009,
-          "updated": 1795339403040,
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucrp",
-          "longitude": 87.9381,
-          "latitude": 43.4743,
-          "depth_km": 10
-        },
-        {
-          "id": "us6000ucrb",
-          "magnitude": 5.4,
-          "place": "224 km NE of Bitung, Indonesia",
-          "time": 1795334080056,
-          "updated": 1795341572277,
-          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucrb",
-          "longitude": 126.3861,
-          "latitude": 3.0314,
-          "depth_km": 43.705
         }
       ]
     },
     "noaa_space_weather": {
       "headers": [],
       "latest": {
-        "time_tag": "2026-11-23T03:00:00",
-        "Kp": 0.33,
-        "a_running": 2,
+        "time_tag": "2026-11-23T15:00:00",
+        "Kp": 1.67,
+        "a_running": 6,
         "station_count": 8
       },
       "recent": [
-        {
-          "time_tag": "2026-11-20T06:00:00",
-          "Kp": 1.33,
-          "a_running": 5,
-          "station_count": 8
-        },
-        {
-          "time_tag": "2026-11-20T09:00:00",
-          "Kp": 0.67,
-          "a_running": 3,
-          "station_count": 8
-        },
-        {
-          "time_tag": "2026-11-20T12:00:00",
-          "Kp": 0.33,
-          "a_running": 2,
-          "station_count": 8
-        },
-        {
-          "time_tag": "2026-11-20T15:00:00",
-          "Kp": 0.33,
-          "a_running": 2,
-          "station_count": 8
-        },
         {
           "time_tag": "2026-11-20T18:00:00",
           "Kp": 1.67,
@@ -1176,22 +1116,46 @@
           "Kp": 0.33,
           "a_running": 2,
           "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-23T06:00:00",
+          "Kp": 0.0,
+          "a_running": 0,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-23T09:00:00",
+          "Kp": 1.33,
+          "a_running": 5,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-23T12:00:00",
+          "Kp": 0.67,
+          "a_running": 3,
+          "station_count": 8
+        },
+        {
+          "time_tag": "2026-11-23T15:00:00",
+          "Kp": 1.67,
+          "a_running": 6,
+          "station_count": 8
         }
       ]
     },
     "neso": {
       "resource_id": "177f6fa4-ae49-4182-81ea-0c6b35f26ca6",
-      "total": 2880,
+      "total": 2928,
       "records": [
         {
-          "_id": 2880,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2928,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 48,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1846,
+          "EMBEDDED_WIND_GENERATION": 2681,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1210,14 +1174,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2879,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2927,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 47,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1827,
+          "EMBEDDED_WIND_GENERATION": 2656,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1236,14 +1200,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2878,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2926,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 46,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1815,
+          "EMBEDDED_WIND_GENERATION": 2635,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1262,14 +1226,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2877,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2925,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 45,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1811,
+          "EMBEDDED_WIND_GENERATION": 2617,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1288,14 +1252,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2876,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2924,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 44,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1816,
+          "EMBEDDED_WIND_GENERATION": 2604,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1314,14 +1278,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2875,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2923,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 43,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1829,
+          "EMBEDDED_WIND_GENERATION": 2597,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1340,14 +1304,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2874,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2922,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 42,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1849,
+          "EMBEDDED_WIND_GENERATION": 2594,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1366,14 +1330,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2873,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2921,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 41,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1876,
+          "EMBEDDED_WIND_GENERATION": 2597,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1392,14 +1356,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2872,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2920,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 40,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1911,
+          "EMBEDDED_WIND_GENERATION": 2604,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1418,14 +1382,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2871,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2919,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 39,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1951,
+          "EMBEDDED_WIND_GENERATION": 2615,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1444,14 +1408,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2870,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2918,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 38,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1998,
+          "EMBEDDED_WIND_GENERATION": 2629,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1470,14 +1434,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2869,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2917,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 37,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 2050,
+          "EMBEDDED_WIND_GENERATION": 2643,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1496,14 +1460,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2868,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2916,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 36,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 2058,
+          "EMBEDDED_WIND_GENERATION": 2627,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1522,14 +1486,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2867,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2915,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 35,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 2022,
+          "EMBEDDED_WIND_GENERATION": 2582,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1548,14 +1512,14 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2866,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2914,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 34,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1992,
+          "EMBEDDED_WIND_GENERATION": 2541,
           "EMBEDDED_WIND_CAPACITY": 5908,
           "EMBEDDED_SOLAR_GENERATION": 0,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1574,16 +1538,16 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2865,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2913,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 33,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1969,
+          "EMBEDDED_WIND_GENERATION": 2504,
           "EMBEDDED_WIND_CAPACITY": 5908,
-          "EMBEDDED_SOLAR_GENERATION": 159,
+          "EMBEDDED_SOLAR_GENERATION": 151,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
           "NON_BM_STOR": 0,
           "PUMP_STORAGE_PUMPING": 0,
@@ -1600,16 +1564,16 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2864,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2912,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 32,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1954,
+          "EMBEDDED_WIND_GENERATION": 2470,
           "EMBEDDED_WIND_CAPACITY": 5908,
-          "EMBEDDED_SOLAR_GENERATION": 637,
+          "EMBEDDED_SOLAR_GENERATION": 662,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
           "NON_BM_STOR": 0,
           "PUMP_STORAGE_PUMPING": 0,
@@ -1626,16 +1590,16 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2863,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2911,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 31,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1948,
+          "EMBEDDED_WIND_GENERATION": 2442,
           "EMBEDDED_WIND_CAPACITY": 5908,
-          "EMBEDDED_SOLAR_GENERATION": 710,
+          "EMBEDDED_SOLAR_GENERATION": 736,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
           "NON_BM_STOR": 0,
           "PUMP_STORAGE_PUMPING": 0,
@@ -1652,16 +1616,16 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2862,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2910,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 30,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1951,
+          "EMBEDDED_WIND_GENERATION": 2418,
           "EMBEDDED_WIND_CAPACITY": 5908,
-          "EMBEDDED_SOLAR_GENERATION": 870,
+          "EMBEDDED_SOLAR_GENERATION": 905,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
           "NON_BM_STOR": 0,
           "PUMP_STORAGE_PUMPING": 0,
@@ -1678,16 +1642,16 @@
           "GREENLINK_FLOW": 0
         },
         {
-          "_id": 2861,
-          "SETTLEMENT_DATE": "2026-11-29",
+          "_id": 2909,
+          "SETTLEMENT_DATE": "2026-11-30",
           "SETTLEMENT_PERIOD": 29,
           "ND": 0,
           "FORECAST_ACTUAL_INDICATOR": "F",
           "TSD": 0,
           "ENGLAND_WALES_DEMAND": 0,
-          "EMBEDDED_WIND_GENERATION": 1962,
+          "EMBEDDED_WIND_GENERATION": 2399,
           "EMBEDDED_WIND_CAPACITY": 5908,
-          "EMBEDDED_SOLAR_GENERATION": 996,
+          "EMBEDDED_SOLAR_GENERATION": 1021,
           "EMBEDDED_SOLAR_CAPACITY": 23963,
           "NON_BM_STOR": 0,
           "PUMP_STORAGE_PUMPING": 0,
@@ -1705,14 +1669,14 @@
         }
       ],
       "latest": {
-        "_id": 2880,
-        "SETTLEMENT_DATE": "2026-11-29",
+        "_id": 2928,
+        "SETTLEMENT_DATE": "2026-11-30",
         "SETTLEMENT_PERIOD": 48,
         "ND": 0,
         "FORECAST_ACTUAL_INDICATOR": "F",
         "TSD": 0,
         "ENGLAND_WALES_DEMAND": 0,
-        "EMBEDDED_WIND_GENERATION": 1846,
+        "EMBEDDED_WIND_GENERATION": 2681,
         "EMBEDDED_WIND_CAPACITY": 5908,
         "EMBEDDED_SOLAR_GENERATION": 0,
         "EMBEDDED_SOLAR_CAPACITY": 23963,
@@ -1737,83 +1701,83 @@
     "Met Office": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "Environment Agency": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "Natural Resources Wales": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "SEPA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "CISA KEV": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "NCSC": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "UKHSA": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "FSA Food Alerts": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "USGS Earthquakes": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "NOAA Space Weather": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     },
     "NESO": {
       "ok": true,
       "stale": false,
-      "last_success_at": "2026-11-23T07:32:45.252025+00:00"
+      "last_success_at": "2026-11-23T19:29:05.874659+00:00"
     }
   },
   "risk_signals": [
     {
-      "id": "risk:48a9917b6e1ab5ef",
+      "id": "risk:5c24287a73120e32",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "risk_domain": "climate_and_weather",
+      "hazard": "severe weather",
+      "source": "Met Office",
+      "source_url": "https://weather.metoffice.gov.uk/warnings-and-advice/uk-warnings",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "River Axe area",
+      "description": "Yellow warning of rain affecting South West England",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:86c3eb798286bc3a",
-      "source_native_status": "Alert",
+      "source_record_id": "met:7747b92356346b1f",
+      "source_native_status": null,
       "priority_model_version": "1.0",
       "priority_score": 52,
       "priority_band": "high",
@@ -1834,7 +1798,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -1858,138 +1822,6 @@
       ]
     },
     {
-      "id": "risk:e9dce9d5457c86a8",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Rivers Otter and Sid, and Exmouth area",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:7c49577998dfd42a",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:c9f4544b37aab7d7",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Rivers Clyst and Culm and their tributaries",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:758a1fcd74810b23",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:8bae4418dffbc98f",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "River Teign area",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:c90a0022212b8891",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:cec9b3d3cf56962f",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Mid Devon Rivers",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:64a2fdc0063e3c22",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
       "id": "risk:6ed64a43a6831b28",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -1999,7 +1831,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2032,7 +1864,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2065,7 +1897,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2098,7 +1930,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2122,39 +1954,6 @@
       ]
     },
     {
-      "id": "risk:61eeef8647442a33",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Middle Exe area",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:2eaa9ccaf40b2588",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
       "id": "risk:f6ebc72c2bc4448f",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2164,7 +1963,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2188,7 +1987,7 @@
       ]
     },
     {
-      "id": "risk:e2a5cbc9287da869",
+      "id": "risk:2e70dfab8493c9a4",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2197,51 +1996,18 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "Exmoor Rivers",
+      "description": "North Cornwall Rivers",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:8e4d24f518274214",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:400b7ed956dd7ede",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "North Dartmoor Rivers",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:c16f714e90a11ad0",
+      "source_record_id": "ea:de1431fad0a92a4b",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -2263,7 +2029,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2287,7 +2053,7 @@
       ]
     },
     {
-      "id": "risk:f7abc539eb5346f4",
+      "id": "risk:6d4198117d83940c",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
@@ -2296,18 +2062,18 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
         "scope": "England"
       },
       "confidence": "high",
-      "description": "River Dart area",
+      "description": "River Cober",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:c259fb3b8d2b83b0",
+      "source_record_id": "ea:13f5c92feed2aadf",
       "source_native_status": "Alert",
       "priority_model_version": "1.0",
       "priority_score": 52,
@@ -2329,7 +2095,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2353,39 +2119,6 @@
       ]
     },
     {
-      "id": "risk:c9042600b76e3aa3",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "South Devon Rivers",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:4bca899c5f7ae2f7",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
       "id": "risk:9681e2750bd3571f",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2395,7 +2128,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2428,7 +2161,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2461,7 +2194,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2485,72 +2218,6 @@
       ]
     },
     {
-      "id": "risk:62da15ebc1ed941c",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Upper Torridge area",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:a3f3439e124e4e58",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
-      "id": "risk:629cbe58318bf083",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "flooding",
-      "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
-      "published_at": null,
-      "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "England"
-      },
-      "confidence": "high",
-      "description": "Barnstaple, Braunton, Ilfracombe and Combe Martin area",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "ea:5920fc71219b23dd",
-      "source_native_status": "Alert",
-      "priority_model_version": "1.0",
-      "priority_score": 52,
-      "priority_band": "high",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:current",
-        "confidence:high",
-        "scope:England"
-      ]
-    },
-    {
       "id": "risk:6ddd0cfe16f779e0",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -2560,7 +2227,7 @@
       "source_url": "https://check-for-flooding.service.gov.uk/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -2584,28 +2251,28 @@
       ]
     },
     {
-      "id": "risk:cd45485499865871",
+      "id": "risk:4a31503b97c2ccc6",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
       "risk_domain": "flooding",
       "hazard": "flooding",
-      "source": "Environment Agency",
-      "source_url": "https://check-for-flooding.service.gov.uk/",
+      "source": "SEPA",
+      "source_url": "https://beta.sepa.scot/flooding",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "high",
       "geography": {
-        "scope": "England"
+        "scope": "Scotland"
       },
       "confidence": "high",
-      "description": "River Ottery at Yeolmbridge and Ham Mill",
+      "description": "SEPA reports 2 current flood warning/alert item(s).",
       "change_type": "new",
       "raw_reference": null,
       "tags": [],
-      "source_record_id": "ea:69dfa49e17351e8f",
-      "source_native_status": "Warning",
+      "source_record_id": "scotland-summary",
+      "source_native_status": null,
       "priority_model_version": "1.0",
       "priority_score": 78,
       "priority_band": "immediate",
@@ -2613,7 +2280,7 @@
         "severity:high",
         "freshness:current",
         "confidence:high",
-        "scope:England"
+        "scope:Scotland"
       ]
     },
     {
@@ -2626,7 +2293,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2659,7 +2326,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2692,7 +2359,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2725,7 +2392,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2758,7 +2425,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-18T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2791,7 +2458,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-18T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2824,7 +2491,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-18T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2857,7 +2524,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-18T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2890,7 +2557,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-17T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2923,7 +2590,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-13T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2956,7 +2623,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-13T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -2989,7 +2656,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3022,7 +2689,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3055,7 +2722,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3088,7 +2755,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3121,7 +2788,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3154,7 +2821,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-10T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3187,7 +2854,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3220,7 +2887,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3253,7 +2920,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3286,7 +2953,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-09T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3319,7 +2986,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-06T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3352,7 +3019,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-04T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3385,7 +3052,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-11-03T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3418,7 +3085,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-30T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3451,7 +3118,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-30T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3484,7 +3151,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-29T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3517,7 +3184,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-29T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3550,7 +3217,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-28T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3583,7 +3250,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-28T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3616,7 +3283,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-27T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3649,7 +3316,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-27T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3682,7 +3349,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3715,7 +3382,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-26T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3748,7 +3415,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3781,7 +3448,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-23T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3814,7 +3481,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3847,7 +3514,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3880,7 +3547,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3913,7 +3580,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3946,7 +3613,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -3979,7 +3646,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-20T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4012,7 +3679,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4045,7 +3712,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-16T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4078,7 +3745,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-15T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4111,7 +3778,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4144,7 +3811,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4177,7 +3844,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4210,7 +3877,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-14T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4243,7 +3910,7 @@
       "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "published_at": null,
       "observed_at": "2026-10-13T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4276,7 +3943,7 @@
       "source_url": "https://ukhsa-dashboard.data.gov.uk/syndromic-surveillance/respiratory-conditions",
       "published_at": null,
       "observed_at": "2026-11-15T00:00:00+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -4307,9 +3974,9 @@
       "hazard": "food_product_alert",
       "source": "Food Standards Agency",
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-54-2026",
-      "published_at": "2026-11-21T18:32:19.897Z",
+      "published_at": "2026-11-23T10:40:07.685Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4323,8 +3990,8 @@
       "source_record_id": "FSA-AA-54-2026",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 16,
-      "priority_band": "monitor",
+      "priority_score": 20,
+      "priority_band": "moderate",
       "priority_basis": [
         "severity:unknown",
         "freshness:recent",
@@ -4342,7 +4009,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-54-2026",
       "published_at": "2026-11-21T17:53:41.153Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4375,7 +4042,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-53-2026",
       "published_at": "2026-11-18T18:16:36.249Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4408,7 +4075,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-53-2026",
       "published_at": "2026-11-13T18:29:17.594Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4441,7 +4108,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-52-2026",
       "published_at": "2026-11-10T20:44:14.168Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4474,7 +4141,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-52-2026",
       "published_at": "2026-11-10T12:26:09.762Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4507,7 +4174,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-51-2026",
       "published_at": "2026-11-05T12:46:12.397Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4540,7 +4207,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-50-2026-update-1",
       "published_at": "2026-11-01T17:25:55.185Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4573,7 +4240,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-50-2026",
       "published_at": "2026-10-30T18:35:29.237Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4606,7 +4273,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-49-2026",
       "published_at": "2026-10-24T13:04:38.17Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4620,11 +4287,11 @@
       "source_record_id": "FSA-AA-49-2026",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 9,
+      "priority_score": 4,
       "priority_band": "monitor",
       "priority_basis": [
         "severity:unknown",
-        "freshness:dated",
+        "freshness:old",
         "confidence:high",
         "scope:UK"
       ]
@@ -4639,7 +4306,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-51-2026",
       "published_at": "2026-10-23T17:50:45.95Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4672,7 +4339,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-50-2026",
       "published_at": "2026-10-21T14:45:34.157Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4705,7 +4372,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-48-2026",
       "published_at": "2026-10-21T11:39:29.034Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4738,7 +4405,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-47-2026",
       "published_at": "2026-10-18T12:15:39.76Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4771,7 +4438,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-46-2026",
       "published_at": "2026-10-15T12:42:16.282Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4804,7 +4471,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026-update-1",
       "published_at": "2026-10-14T18:48:17.157Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4837,7 +4504,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-49-2026",
       "published_at": "2026-10-13T18:21:06.975Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4870,7 +4537,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-45-2026",
       "published_at": "2026-10-13T16:34:52.072Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4903,7 +4570,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-fafa-03-2026",
       "published_at": "2026-10-11T09:42:12.916Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4936,7 +4603,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-48-2026",
       "published_at": "2026-10-08T20:51:06.928Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -4969,7 +4636,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-44-2026",
       "published_at": "2026-10-03T15:32:31.29Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5002,7 +4669,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-aa-43-2026",
       "published_at": "2026-10-02T16:39:31.821Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5035,7 +4702,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026-update-1",
       "published_at": "2026-09-25T13:00:40.592Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5068,7 +4735,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-46-2026",
       "published_at": "2026-09-25T10:20:09.499Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5101,7 +4768,7 @@
       "source_url": "https://alerts.food.gov.uk/news-alerts/alert/fsa-prin-47-2026",
       "published_at": "2026-09-24T20:13:30.099Z",
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "unknown",
       "geography": {
@@ -5125,6 +4792,72 @@
       ]
     },
     {
+      "id": "risk:e7e4887766aeddcf",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-11-23T08:01:26.457000+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5.5 earthquake: west of Macquarie Island.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us6000ucxi",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
+      "id": "risk:510627cabd5546dd",
+      "schema_version": "1.0",
+      "risk_theme": "natural_and_environmental_hazards",
+      "risk_domain": "other",
+      "hazard": "earthquake",
+      "source": "USGS Earthquake Hazards Program",
+      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
+      "published_at": null,
+      "observed_at": "2026-11-23T07:36:21.052000+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
+      "status": "active",
+      "severity": "moderate",
+      "geography": {
+        "scope": "international"
+      },
+      "confidence": "high",
+      "description": "M5.4 earthquake: 181 km NE of Lospalos, Timor Leste.",
+      "change_type": "new",
+      "raw_reference": null,
+      "tags": [],
+      "source_record_id": "us6000ucx6",
+      "source_native_status": null,
+      "priority_model_version": "1.0",
+      "priority_score": 27,
+      "priority_band": "moderate",
+      "priority_basis": [
+        "severity:moderate",
+        "freshness:recent",
+        "confidence:high",
+        "scope:international"
+      ]
+    },
+    {
       "id": "risk:9ba22f93f82fefa1",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -5134,7 +4867,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-23T04:18:19.641000+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5148,11 +4881,11 @@
       "source_record_id": "us6000ucwd",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 30,
+      "priority_score": 27,
       "priority_band": "moderate",
       "priority_basis": [
         "severity:moderate",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5167,7 +4900,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-23T02:40:58.052000+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "high",
       "geography": {
@@ -5181,11 +4914,11 @@
       "source_record_id": "us6000ucvm",
       "source_native_status": null,
       "priority_model_version": "1.0",
-      "priority_score": 45,
-      "priority_band": "high",
+      "priority_score": 41,
+      "priority_band": "moderate",
       "priority_basis": [
         "severity:high",
-        "freshness:current",
+        "freshness:recent",
         "confidence:high",
         "scope:international"
       ]
@@ -5200,7 +4933,7 @@
       "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
       "published_at": null,
       "observed_at": "2026-11-22T21:35:31.763000+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "active",
       "severity": "moderate",
       "geography": {
@@ -5224,72 +4957,6 @@
       ]
     },
     {
-      "id": "risk:2924d781b97b2a47",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "other",
-      "hazard": "earthquake",
-      "source": "USGS Earthquake Hazards Program",
-      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
-      "published_at": null,
-      "observed_at": "2026-11-22T09:08:28.009000+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "M5.1 earthquake: 45 km SE of Ürümqi, China.",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "us6000ucrp",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 27,
-      "priority_band": "moderate",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:recent",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
-      "id": "risk:b94e04123668925d",
-      "schema_version": "1.0",
-      "risk_theme": "natural_and_environmental_hazards",
-      "risk_domain": "other",
-      "hazard": "earthquake",
-      "source": "USGS Earthquake Hazards Program",
-      "source_url": "https://earthquake.usgs.gov/earthquakes/feed/",
-      "published_at": null,
-      "observed_at": "2026-11-22T07:54:40.056000+00:00",
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
-      "status": "active",
-      "severity": "moderate",
-      "geography": {
-        "scope": "international"
-      },
-      "confidence": "high",
-      "description": "M5.4 earthquake: 224 km NE of Bitung, Indonesia.",
-      "change_type": "new",
-      "raw_reference": null,
-      "tags": [],
-      "source_record_id": "us6000ucrb",
-      "source_native_status": null,
-      "priority_model_version": "1.0",
-      "priority_score": 27,
-      "priority_band": "moderate",
-      "priority_basis": [
-        "severity:moderate",
-        "freshness:recent",
-        "confidence:high",
-        "scope:international"
-      ]
-    },
-    {
       "id": "risk:3375ecdafb10e4da",
       "schema_version": "1.0",
       "risk_theme": "natural_and_environmental_hazards",
@@ -5299,7 +4966,7 @@
       "source_url": "https://www.swpc.noaa.gov/",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
@@ -5332,7 +4999,7 @@
       "source_url": "https://www.neso.energy/data-portal",
       "published_at": null,
       "observed_at": null,
-      "collected_at": "2026-11-23T07:32:45.252025+00:00",
+      "collected_at": "2026-11-23T19:29:05.874659+00:00",
       "status": "monitoring",
       "severity": "unknown",
       "geography": {
